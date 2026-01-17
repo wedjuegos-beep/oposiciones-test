@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Tests de Oposiciones</title>
-  <script type="module">
-    // Importar Firebase modular
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-    // Configuración de Firebase de tu proyecto
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { 
+      getAuth, 
+      GoogleAuthProvider, 
+      signInWithPopup, 
+      onAuthStateChanged 
+    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    import { 
+      getFirestore, 
+      doc, 
+      setDoc 
+    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
     const firebaseConfig = {
       apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
       authDomain: "oposiciones-test.firebaseapp.com",
@@ -18,34 +28,67 @@
       appId: "1:116305102438:web:25684cd6467f5a27398fa7"
     };
 
-    // Inicializar Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const db = getFirestore(app);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const btnLogin = document.createElement("button");
-      btnLogin.textContent = "Login con Google";
-      document.body.appendChild(btnLogin);
+    let currentUser = null;
 
-      btnLogin.addEventListener("click", () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            // Usuario logueado
-            alert("Bienvenido " + result.user.displayName);
-          })
-          .catch((error) => {
-            // Mostrar error exacto en consola
-            console.error("ERROR LOGIN:", error);
-            alert("Error al iniciar sesión, revisa consola");
-          });
-      });
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("panel").style.display = "block";
+        document.getElementById("username").textContent = user.displayName;
+      }
     });
+
+    window.login = function () {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider);
+    };
+
+    window.guardarSeleccion = async function () {
+      const oposicion = document.getElementById("oposicion").value;
+      const temas = [...document.querySelectorAll("input[name='tema']:checked")]
+        .map(t => t.value);
+
+      await setDoc(doc(db, "users", currentUser.uid), {
+        nombre: currentUser.displayName,
+        email: currentUser.email,
+        oposicion: oposicion,
+        temas: temas
+      });
+
+      alert("Selección guardada correctamente");
+    };
   </script>
 </head>
+
 <body>
   <h1>Plataforma de Tests de Oposiciones</h1>
-  <p>Inicia sesión para continuar:</p>
+
+  <div id="login">
+    <button onclick="login()">Login con Google</button>
+  </div>
+
+  <div id="panel" style="display:none;">
+    <p>Bienvenido <strong id="username"></strong></p>
+
+    <h3>Selecciona oposición</h3>
+    <select id="oposicion">
+      <option value="TAI">Técnico Auxiliar de Informática</option>
+      <option value="Administrativo">Administrativo</option>
+      <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
+    </select>
+
+    <h3>Selecciona temas</h3>
+    <label><input type="checkbox" name="tema" value="Tema 1"> Tema 1</label><br>
+    <label><input type="checkbox" name="tema" value="Tema 2"> Tema 2</label><br>
+    <label><input type="checkbox" name="tema" value="Tema 3"> Tema 3</label><br>
+
+    <br>
+    <button onclick="guardarSeleccion()">Guardar</button>
+  </div>
 </body>
 </html>
-
