@@ -6,17 +6,21 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { 
-      getAuth, 
-      GoogleAuthProvider, 
-      signInWithPopup, 
-      onAuthStateChanged 
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-    import { 
-      getFirestore, 
-      doc, 
-      setDoc 
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      collection,
+      query,
+      where,
+      getDocs
     } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -33,7 +37,9 @@
     const db = getFirestore(app);
 
     let currentUser = null;
+    let preguntasActuales = [];
 
+    // 🔐 LOGIN
     onAuthStateChanged(auth, (user) => {
       if (user) {
         currentUser = user;
@@ -48,6 +54,7 @@
       signInWithPopup(auth, provider);
     };
 
+    // 💾 GUARDAR SELECCIÓN
     window.guardarSeleccion = async function () {
       const oposicion = document.getElementById("oposicion").value;
       const temas = [...document.querySelectorAll("input[name='tema']:checked")]
@@ -56,11 +63,68 @@
       await setDoc(doc(db, "users", currentUser.uid), {
         nombre: currentUser.displayName,
         email: currentUser.email,
-        oposicion: oposicion,
-        temas: temas
+        oposicion,
+        temas
       });
 
       alert("Selección guardada correctamente");
+    };
+
+    // 🧪 EMPEZAR TEST
+    window.empezarTest = async function () {
+      const oposicion = document.getElementById("oposicion").value;
+      const temas = [...document.querySelectorAll("input[name='tema']:checked")]
+        .map(t => t.value);
+
+      const q = query(
+        collection(db, "questions"),
+        where("oposicion", "==", oposicion),
+        where("tema", "in", temas)
+      );
+
+      const snapshot = await getDocs(q);
+
+      preguntasActuales = [];
+      snapshot.forEach(doc => {
+        preguntasActuales.push(doc.data());
+      });
+
+      mostrarTest();
+    };
+
+    // 🖥 MOSTRAR TEST
+    function mostrarTest() {
+      const panel = document.getElementById("panel");
+      panel.innerHTML = "<h2>Test</h2>";
+
+      preguntasActuales.forEach((p, i) => {
+        let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
+        p.opciones.forEach((op, idx) => {
+          html += `
+            <label>
+              <input type="radio" name="p${i}" value="${idx}">
+              ${op}
+            </label><br>
+          `;
+        });
+        panel.innerHTML += html + "<br>";
+      });
+
+      panel.innerHTML += `<button onclick="corregirTest()">Corregir</button>`;
+    }
+
+    // ✅ CORREGIR TEST
+    window.corregirTest = function () {
+      let aciertos = 0;
+
+      preguntasActuales.forEach((p, i) => {
+        const marcada = document.querySelector(`input[name="p${i}"]:checked`);
+        if (marcada && parseInt(marcada.value) === p.correcta) {
+          aciertos++;
+        }
+      });
+
+      alert(`Resultado: ${aciertos} / ${preguntasActuales.length}`);
     };
   </script>
 </head>
@@ -89,63 +153,7 @@
 
     <br>
     <button onclick="guardarSeleccion()">Guardar</button>
+    <button onclick="empezarTest()">Empezar Test</button>
   </div>
 </body>
 </html>
-import { 
-  collection, 
-  query, 
-  where, 
-  getDocs 
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-window.empezarTest = async function () {
-  const oposicion = document.getElementById("oposicion").value;
-  const temas = [...document.querySelectorAll("input[name='tema']:checked")]
-    .map(t => t.value);
-
-  const q = query(
-    collection(db, "questions"),
-    where("oposicion", "==", oposicion),
-    where("tema", "in", temas)
-  );
-
-  const snapshot = await getDocs(q);
-
-  const preguntas = [];
-  snapshot.forEach(doc => preguntas.push({ id: doc.id, ...doc.data() }));
-
-  mostrarTest(preguntas);
-};
-function mostrarTest(preguntas) {
-  const panel = document.getElementById("panel");
-  panel.innerHTML = "<h2>Test</h2>";
-
-  preguntas.forEach((p, i) => {
-    let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
-    p.opciones.forEach((op, idx) => {
-      html += `
-        <label>
-          <input type="radio" name="p${i}" value="${idx}">
-          ${op}
-        </label><br>
-      `;
-    });
-    panel.innerHTML += html + "<br>";
-  });
-
-  panel.innerHTML += `<button onclick="corregirTest(${JSON.stringify(preguntas).replace(/"/g, '&quot;')})">Corregir</button>`;
-}
-window.corregirTest = function (preguntas) {
-  let aciertos = 0;
-
-  preguntas.forEach((p, i) => {
-    const marcada = document.querySelector(`input[name="p${i}"]:checked`);
-    if (marcada && parseInt(marcada.value) === p.correcta) {
-      aciertos++;
-    }
-  });
-
-  alert(`Resultado: ${aciertos} / ${preguntas.length}`);
-};
-<button onclick="empezarTest()">Empezar Test</button>
