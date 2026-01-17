@@ -3,9 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Tests de Oposiciones</title>
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Importar funciones desde Firebase CDN
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    // Configuración de tu proyecto Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
+      authDomain: "oposiciones-test.firebaseapp.com",
+      projectId: "oposiciones-test",
+      storageBucket: "oposiciones-test.firebasestorage.app",
+      messagingSenderId: "116305102438",
+      appId: "1:116305102438:web:25684cd6467f5a27398fa7"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Botón de login
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnLogin = document.createElement("button");
+      btnLogin.textContent = "Login con Google";
+      document.body.appendChild(btnLogin);
+
+      btnLogin.addEventListener("click", () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            alert("Bienvenido " + result.user.displayName);
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error al iniciar sesión");
+          });
+      });
+    });
+  </script>
 </head>
 <body>
   <h1>Plataforma de Tests de Oposiciones</h1>
-  <p>Próximamente: tests inteligentes con IA</p>
+  <p>Inicia sesión para continuar:</p>
 </body>
 </html>
+
