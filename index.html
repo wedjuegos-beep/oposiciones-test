@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Tests de Oposiciones</title>
-  <!-- Firebase SDKs -->
   <script type="module">
-    // Importar funciones desde Firebase CDN
+    // Importar Firebase modular
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-    // Configuración de tu proyecto Firebase
+    // Configuración de Firebase de tu proyecto
     const firebaseConfig = {
       apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
       authDomain: "oposiciones-test.firebaseapp.com",
@@ -23,7 +22,6 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Botón de login
     document.addEventListener("DOMContentLoaded", () => {
       const btnLogin = document.createElement("button");
       btnLogin.textContent = "Login con Google";
@@ -33,11 +31,13 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
           .then((result) => {
+            // Usuario logueado
             alert("Bienvenido " + result.user.displayName);
           })
           .catch((error) => {
-            console.error(error);
-            alert("Error al iniciar sesión");
+            // Mostrar error exacto en consola
+            console.error("ERROR LOGIN:", error);
+            alert("Error al iniciar sesión, revisa consola");
           });
       });
     });
