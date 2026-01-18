@@ -8,9 +8,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-        // CONFIG FIREBASE (Tus datos originales)
         const firebaseConfig = {
             apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
             authDomain: "oposiciones-test.firebaseapp.com",
@@ -24,230 +23,195 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // TEMARIOS OFICIALES ACTUALIZADOS
+        // --- TEMARIOS REALES ---
         const oposiciones = {
             "TAI_ESTADO": [
-                { bloque: "I. Organización del Estado", temas: ["Constitución Española", "Cortes Generales", "El Gobierno", "Administración Pública"] },
-                { bloque: "II. Tecnología de la Información", temas: ["Hardware", "Sistemas Operativos", "Redes", "Seguridad Informática"] },
-                { bloque: "III. Desarrollo de Sistemas", temas: ["Bases de Datos", "Algoritmos", "Lenguajes de Programación"] }
+                { bloque: "I. Organización del Estado", temas: ["Constitución Española", "Cortes Generales", "El Gobierno", "Ley 39/2015", "Ley 40/2015"] },
+                { bloque: "II. Tecnología de la Información", temas: ["Hardware", "Sistemas Operativos", "Redes", "Seguridad e Interoperabilidad"] },
+                { bloque: "III. Desarrollo de Sistemas", temas: ["Bases de Datos", "Algoritmia", "Accesibilidad", "Calidad de Software"] }
             ],
             "AUX_ESTADO": [
-                { bloque: "I. Organización Pública", temas: ["Constitución", "Tribunal Constitucional", "Políticas de Igualdad", "Transparencia"] },
-                { bloque: "II. Actividad Administrativa", temas: ["Procedimiento Administrativo", "Régimen Jurídico", "Documentación", "Atención al Ciudadano"] },
-                { bloque: "III. Gestión de Recursos", temas: ["Personal Funcionario", "Seguridad Social", "Presupuestos Públicos"] }
+                { bloque: "I. Organización Pública", temas: ["La Constitución", "Tribunal Constitucional", "Políticas de Igualdad", "Transparencia"] },
+                { bloque: "II. Actividad Administrativa", temas: ["Procedimiento Administrativo Común", "Firma Electrónica", "Protección de Datos"] },
+                { bloque: "III. Gestión de Recursos", temas: ["Personal Funcionario", "Seguridad Social", "Presupuestos Generales"] }
             ],
             "AUX_GVA": [
-                { bloque: "I. Derecho Constitucional y GVA", temas: ["Estatuto de Autonomía CV", "Les Corts", "El Consell", "La Generalitat"] },
-                { bloque: "II. Función Pública Valenciana", temas: ["Ley de Función Pública GVA", "Derechos y Deberes", "Carrera Profesional"] },
-                { bloque: "III. Temas Específicos GVA", temas: ["Hacienda Pública Valenciana", "Unión Europea", "Administración Electrónica GVA"] }
+                { bloque: "I. Derecho GVA", temas: ["Estatut d'Autonomia CV", "Les Corts", "El Consell", "Administración del Consell"] },
+                { bloque: "II. Función Pública", temas: ["Ley de Función Pública Valenciana", "Derechos, Deberes y Régimen Disciplinario"] },
+                { bloque: "III. Temas Transversales", temas: ["Hacienda Pública GVA", "Igualdad de Género", "Transparencia GVA"] }
             ]
         };
 
-        let oposicionActual = "";
+        let userActual = null;
 
+        // MANEJO DE SESIÓN
         onAuthStateChanged(auth, user => {
             if(user){
+                userActual = user;
                 document.getElementById("loginSection").style.display="none";
                 document.getElementById("navUser").style.display="flex";
                 document.getElementById("usuarioNombre").textContent = user.displayName;
                 document.getElementById("seleccionInicial").style.display="block";
+            } else {
+                document.getElementById("loginSection").style.display="block";
+                document.getElementById("navUser").style.display="none";
             }
         });
 
-        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
+        window.login = () => {
+            const provider = new GoogleAuthProvider();
+            // Usamos Popup pero capturamos el error COOP
+            signInWithPopup(auth, provider).catch(err => {
+                console.error("Error en login:", err);
+                alert("Si el login falla, desactiva tu bloqueador de anuncios.");
+            });
+        };
 
-        // Función para renderizar temas al elegir oposicion
-        window.seleccionarOposicion = function(tipo) {
-            oposicionActual = tipo;
+        window.seleccionarOposicion = (tipo) => {
             const container = document.getElementById("temarioDinamico");
             container.innerHTML = "";
-            const titulos = { "TAI_ESTADO": "TAI (Estado)", "AUX_ESTADO": "Auxiliar Administrativo (Estado)", "AUX_GVA": "Auxiliar Administrativo (GVA)" };
+            const titulos = { "TAI_ESTADO": "TAI (Estado)", "AUX_ESTADO": "Auxiliar (Estado)", "AUX_GVA": "Auxiliar (GVA)" };
             document.getElementById("tituloOpos").textContent = titulos[tipo];
 
             oposiciones[tipo].forEach(bloque => {
                 let html = `<div class="bloque-card"><h4>${bloque.bloque}</h4><div class="grid-temas">`;
                 bloque.temas.forEach(tema => {
-                    html += `<button class="tema-btn" onclick="prepararTest('${tema}')">${tema}</button>`;
+                    html += `<button class="tema-btn" onclick="alert('Iniciando test de: ${tema}')">${tema}</button>`;
                 });
                 html += `</div></div>`;
                 container.innerHTML += html;
             });
-            
             document.getElementById("seleccionInicial").style.display = "none";
             document.getElementById("panelTemas").style.display = "block";
         };
 
-        // Lógica de navegación corregida
         window.volverInicio = () => {
-            document.getElementById("panelTemas").style.display = "none";
-            document.getElementById("recursosSection").style.display = "none";
+            document.querySelectorAll(".view").forEach(v => v.style.display = "none");
             document.getElementById("seleccionInicial").style.display = "block";
         };
 
         window.mostrarRecursos = () => {
-            document.getElementById("panelTemas").style.display = "none";
-            document.getElementById("seleccionInicial").style.display = "none";
+            document.querySelectorAll(".view").forEach(v => v.style.display = "none");
             document.getElementById("recursosSection").style.display = "block";
-            
-            // Resetear el selector de temas de recursos
             actualizarTemasRecursos("TAI_ESTADO");
         };
 
-        window.actualizarTemasRecursos = (opos) => {
+        window.actualizarTemasRecursos = (val) => {
             const select = document.getElementById("selectTemaIA");
             select.innerHTML = "";
-            oposiciones[opos].forEach(b => {
+            oposiciones[val].forEach(b => {
                 b.temas.forEach(t => select.innerHTML += `<option value="${t}">${t}</option>`);
             });
         };
 
-        window.triggerFileInput = () => document.getElementById('pdfFile').click();
-
+        // --- SUBIDA A FIREBASE CORREGIDA ---
         window.subirPDF = async () => {
             const file = document.getElementById('pdfFile').files[0];
             const opos = document.getElementById("selectOposIA").value;
             const tema = document.getElementById('selectTemaIA').value;
-            if(!file) return alert("Por favor, selecciona un PDF");
+
+            if(!file || !userActual) return alert("Selecciona un archivo y asegúrate de estar logueado.");
 
             const btn = document.getElementById("btnSubir");
-            btn.textContent = "Procesando en Firebase...";
+            btn.textContent = "Guardando...";
             btn.disabled = true;
 
             try {
-                // Registro en Firestore vinculado al usuario y el tema específico [cite: 21]
-                await setDoc(doc(db, "recursos", `${auth.currentUser.uid}_${tema}`), {
-                    usuario: auth.currentUser.uid,
+                // Generamos un ID único combinando usuario y tema para evitar conflictos
+                const docId = `${userActual.uid}_${tema.replace(/\s+/g, '_')}`;
+                
+                await setDoc(doc(db, "recursos", docId), {
+                    uid: userActual.uid,
                     oposicion: opos,
                     tema: tema,
                     nombreArchivo: file.name,
-                    fecha: new Date().toLocaleDateString(),
-                    timestamp: new Date().getTime()
+                    ultimoUpdate: serverTimestamp()
                 });
-                alert(`PDF de "${tema}" registrado. La IA ya puede generar preguntas de este material.`);
+
+                alert("✅ Archivo registrado en Firebase. Ahora la IA puede procesarlo.");
                 window.volverInicio();
-            } catch (e) {
-                alert("Error al guardar en base de datos");
+            } catch (error) {
+                console.error("Error Firestore:", error);
+                alert("Error al subir: " + error.message);
             } finally {
                 btn.textContent = "Confirmar y Analizar";
                 btn.disabled = false;
             }
         };
 
-        window.prepararTest = (tema) => alert("Cargando test generado por IA para: " + tema);
-
     </script>
 
     <style>
-        :root { --blue: #0056b3; --success: #28a745; --bg: #f4f7f9; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; color: #333; }
-        
-        header { background: white; padding: 15px 5%; border-bottom: 2px solid #e1e4e8; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        header h1 { color: var(--blue); margin: 0; font-size: 1.5rem; cursor: pointer; }
-
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        
-        /* Oposiciones Cards */
-        .selector-opos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card-choice { background: white; padding: 30px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s; border: 2px solid transparent; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card-choice:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .card-choice h3 { margin: 10px 0; color: var(--blue); }
-
-        /* Bloques de Temas */
-        .bloque-card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--blue); }
-        .bloque-card h4 { margin-top: 0; color: var(--blue); border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
-        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-        .tema-btn { background: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
-        .tema-btn:hover { background: var(--blue); color: white; border-color: var(--blue); }
-
-        /* Estilo Botones y Formularios */
-        .btn-main { background: var(--blue); color: white; padding: 12px 25px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
-        .btn-nav { background: white; border: 1.5px solid #ddd; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 500; }
-        .upload-section { background: white; padding: 40px; border-radius: 15px; border: 2px dashed #cbd5e0; text-align: center; }
-        
-        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; margin-bottom: 20px; background: white; font-size: 1rem; }
-        .hidden { display: none; }
+        :root { --blue: #0056b3; --success: #28a745; --bg: #f8fafc; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; }
+        header { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { color: var(--blue); margin: 0; font-size: 1.4rem; cursor: pointer; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .card-choice { background: white; padding: 2rem; border-radius: 1rem; text-align: center; cursor: pointer; border: 2px solid transparent; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); transition: 0.2s; }
+        .card-choice:hover { border-color: var(--blue); transform: translateY(-4px); }
+        .selector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .bloque-card { background: white; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem; border-left: 4px solid var(--blue); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+        .tema-btn { background: #f1f5f9; border: none; padding: 0.8rem; border-radius: 0.5rem; text-align: left; cursor: pointer; font-size: 0.85rem; }
+        .tema-btn:hover { background: var(--blue); color: white; }
+        .btn-main { background: var(--blue); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; border: none; font-weight: 600; cursor: pointer; }
+        .btn-outline { background: white; border: 1px solid #cbd5e1; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; }
+        .view { display: none; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 onclick="window.volverInicio()">OposTest<span style="font-weight:300">IA</span></h1>
-    <div id="navUser" style="display:none; gap: 15px;">
+    <h1 onclick="location.reload()">OposTest<span style="font-weight:300">IA</span></h1>
+    <div id="navUser" style="display:none; gap:10px;">
         <span id="usuarioNombre" style="align-self:center; font-weight:600"></span>
-        <button class="btn-nav" onclick="mostrarRecursos()">📁 Mis Recursos / IA</button>
-        <button class="btn-main" onclick="volverInicio()">Ir al Inicio</button>
+        <button class="btn-outline" onclick="mostrarRecursos()">📁 Subir Temario</button>
+        <button class="btn-main" onclick="volverInicio()">Inicio</button>
     </div>
 </header>
 
 <div class="container">
-    <div id="loginSection" style="text-align:center; margin-top:80px;">
-        <div style="background:white; padding:50px; border-radius:20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-            <h2 style="color:var(--blue)">Tu Academia Inteligente</h2>
-            <p>Accede para practicar con tests generados por IA del temario oficial.</p>
-            <button class="btn-main" style="padding:15px 40px; font-size:1.1rem;" onclick="login()">Iniciar con Google</button>
+    <div id="loginSection" style="text-align:center; margin-top:100px;">
+        <div style="background:white; padding:3rem; border-radius:1rem; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);">
+            <h2>Prepárate con IA</h2>
+            <p>Accede para generar tests de TAI, Estado o GVA.</p>
+            <button class="btn-main" onclick="login()">Entrar con Google</button>
         </div>
     </div>
 
-    <div id="seleccionInicial" style="display:none;">
-        <h2 style="text-align:center; margin-bottom:40px;">Selecciona tu Oposición</h2>
-        <div class="selector-opos">
-            <div class="card-choice" onclick="seleccionarOposicion('TAI_ESTADO')">
-                <h3>TAI (Estado)</h3>
-                <p>Técnico Auxiliar de Informática</p>
-            </div>
-            <div class="card-choice" onclick="seleccionarOposicion('AUX_ESTADO')">
-                <h3>Auxiliar (Estado)</h3>
-                <p>Cuerpo Auxiliar Administrativo</p>
-            </div>
-            <div class="card-choice" onclick="seleccionarOposicion('AUX_GVA')">
-                <h3>Auxiliar (GVA)</h3>
-                <p>Administrativo Generalitat Valenciana</p>
-            </div>
+    <div id="seleccionInicial" class="view">
+        <h2 style="text-align:center; margin-bottom:2rem;">Selecciona tu Oposición</h2>
+        <div class="selector-grid">
+            <div class="card-choice" onclick="seleccionarOposicion('TAI_ESTADO')"><h3>TAI (Estado)</h3><p>Informática</p></div>
+            <div class="card-choice" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Auxiliar (Estado)</h3><p>Administrativo</p></div>
+            <div class="card-choice" onclick="seleccionarOposicion('AUX_GVA')"><h3>Auxiliar (GVA)</h3><p>Gral. Valenciana</p></div>
         </div>
     </div>
 
-    <div id="panelTemas" style="display:none;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:25px;">
+    <div id="panelTemas" class="view">
+        <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
             <h2 id="tituloOpos" style="margin:0"></h2>
-            <button class="btn-nav" onclick="volverInicio()">← Cambiar Oposición</button>
+            <button class="btn-outline" onclick="volverInicio()">← Atrás</button>
         </div>
         <div id="temarioDinamico"></div>
     </div>
 
-    <div id="recursosSection" style="display:none;">
-        <div class="upload-section">
-            <h2 style="color:var(--blue)">Generador de Test por PDF</h2>
-            <p style="margin-bottom:30px">Sube tus apuntes para que la IA los analice y cree preguntas nuevas.</p>
-            
-            <div style="text-align:left; max-width:600px; margin: 0 auto;">
-                <label><b>1. Elige la oposición:</b></label>
-                <select id="selectOposIA" onchange="actualizarTemasRecursos(this.value)">
-                    <option value="TAI_ESTADO">TAI (Estado)</option>
-                    <option value="AUX_ESTADO">Auxiliar Administrativo (Estado)</option>
-                    <option value="AUX_GVA">Auxiliar Administrativo (GVA)</option>
-                </select>
-
-                <label><b>2. Elige el tema para este PDF:</b></label>
-                <select id="selectTemaIA"></select>
-                
-                <div style="text-align:center; padding:20px; border: 1px solid #e1e4e8; border-radius:12px; margin-bottom:20px;">
-                    <input type="file" id="pdfFile" class="hidden" accept=".pdf">
-                    <button class="btn-nav" style="border-color:var(--success); color:var(--success)" onclick="triggerFileInput()">📁 Seleccionar Archivo PDF</button>
-                    <p id="fileNameDisplay" style="margin-top:10px; font-size:0.9rem; color:#666">Ningún archivo seleccionado</p>
-                </div>
-            </div>
-            
-            <button id="btnSubir" class="btn-main" style="width:100%; max-width:600px; background:var(--success)" onclick="subirPDF()">Confirmar y Analizar con IA</button>
+    <div id="recursosSection" class="view">
+        <div style="background:white; padding:2rem; border-radius:1rem; border:2px dashed #cbd5e1;">
+            <h2>Actualizar Temario</h2>
+            <label>Oposición:</label>
+            <select id="selectOposIA" onchange="actualizarTemasRecursos(this.value)" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+                <option value="TAI_ESTADO">TAI (Estado)</option>
+                <option value="AUX_ESTADO">Auxiliar (Estado)</option>
+                <option value="AUX_GVA">Auxiliar (GVA)</option>
+            </select>
+            <label>Tema específico:</label>
+            <select id="selectTemaIA" style="width:100%; padding:0.5rem; margin-bottom:1rem;"></select>
+            <input type="file" id="pdfFile" accept=".pdf" style="margin-bottom:1.5rem;"><br>
+            <button id="btnSubir" class="btn-main" style="width:100%" onclick="subirPDF()">Confirmar y Analizar</button>
         </div>
     </div>
 </div>
-
-<script>
-    // Pequeño script para mostrar el nombre del archivo seleccionado
-    document.getElementById('pdfFile').addEventListener('change', function() {
-        document.getElementById('fileNameDisplay').textContent = this.files[0] ? this.files[0].name : "Ningún archivo seleccionado";
-    });
-</script>
 
 </body>
 </html>
