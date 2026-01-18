@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA - Temarios Oficiales Actualizados</title>
+    <title>OposTest IA - Temarios Oficiales</title>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -23,34 +23,43 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // --- TEMARIOS OFICIALES CORREGIDOS (BOE Y BOP VALENCIA) ---
+        // --- TEMARIOS OFICIALES (TAI, AUX ESTADO, AUX AYTO VALENCIA) ---
         const oposiciones = {
             "TAI_LIBRE": [
-                { bloque: "I. Organización del Estado", temas: ["Constitución Española", "Cortes Generales", "Gobierno y Administración", "Personal Funcionario", "Igualdad y Violencia de Género"] },
-                { bloque: "II. Tecnología de la Información", temas: ["Hardware", "Sistemas Operativos", "Redes y Comunicaciones", "Seguridad Informática"] },
-                { bloque: "III. Desarrollo de Sistemas", temas: ["Bases de Datos", "Lenguajes de Programación", "Arquitecturas Web"] }
+                { bloque: "Bloques TAI Estado", temas: ["Constitución Española", "Cortes Generales", "Gobierno y Administración", "Hardware", "Sistemas Operativos", "Redes", "Seguridad", "Bases de Datos", "Desarrollo de Sistemas"] }
             ],
             "AUX_ESTADO": [
-                { bloque: "I. Organización Pública", temas: ["Constitución", "Ley 40/2015", "Políticas de Igualdad", "Protección de Datos"] },
-                { bloque: "II. Actividad Administrativa", temas: ["Ley 39/2015", "Atención al Público", "Ofimática (Windows/Office)"] }
+                { bloque: "Bloques Auxiliar Estado", temas: ["Organización Pública", "Ley 39/2015", "Ley 40/2015", "Igualdad", "Atención al Ciudadano", "Informática y Ofimática"] }
             ],
             "AUX_AYTO_VALENCIA": [
-                { bloque: "Temario Oficial Ayuntamiento de València", temas: [
-                    "1. Constitución Española de 1978",
-                    "2. Estatuto de Autonomía de la Comunidad Valenciana",
-                    "3. Régimen Local Español: El Municipio",
-                    "4. Organización del Ayuntamiento de València",
-                    "5. El Procedimiento Administrativo Común",
-                    "6. Las Haciendas Locales",
-                    "7. El Personal al Servicio de las Entidades Locales",
-                    "8. Derechos y deberes de los funcionarios locales",
-                    "9. Atención al Ciudadano en el Ayuntamiento"
+                { bloque: "Temario Auxiliar Ayuntamiento de Valencia (21 Temas)", temas: [
+                    "TEMA 1.- Constitución Española de 1978. Derechos y Libertades.",
+                    "TEMA 2.- La Corona. Cortes Generales. Tribunal Constitucional.",
+                    "TEMA 3.- Gobierno y Administración. Protección de Datos (LOPDGDD).",
+                    "TEMA 4.- Organización Territorial. Especialidad C. Valenciana.",
+                    "TEMA 5.- Fuentes del derecho público. La Ley.",
+                    "TEMA 6.- Procedimiento administrativo (Ley 39/2015).",
+                    "TEMA 7.- Fases del procedimiento, silencio y ejecución.",
+                    "TEMA 8.- Validez de actos, recursos y contencioso.",
+                    "TEMA 9.- Ley de Prevención de Riesgos Laborales.",
+                    "TEMA 10.- Régimen Jurídico del Sector Público (Ley 40/2015).",
+                    "TEMA 11.- Régimen Local Español. La Provincia.",
+                    "TEMA 12.- El Municipio. Padrón y participación ciudadana.",
+                    "TEMA 13.- Competencias y órganos municipales.",
+                    "TEMA 14.- Ordenanzas y Reglamentos Locales.",
+                    "TEMA 15.- Funcionamiento de órganos colegiados (Actas y Votos).",
+                    "TEMA 16.- Personal Local. Derechos, deberes y disciplina.",
+                    "TEMA 17.- Contratación del Sector Público.",
+                    "TEMA 18.- Licencias y Gestión de Servicios Públicos.",
+                    "TEMA 19.- Haciendas Locales e Ingresos.",
+                    "TEMA 20.- Igualdad, Violencia de Género y Plan de Igualdad Ayto VLC.",
+                    "TEMA 21.- Administración Electrónica (PIAE) Ayto de Valencia."
                 ]}
             ]
         };
 
         let userActual = null;
-        let archivosEnMemoria = {}; // Para guardar temporalmente las URLs de los PDFs subidos
+        let pdfStorage = {}; // Almacén temporal para abrir archivos reales en la sesión
 
         onAuthStateChanged(auth, user => {
             if(user){
@@ -68,13 +77,13 @@
         window.seleccionarOposicion = (tipo) => {
             const container = document.getElementById("temarioDinamico");
             container.innerHTML = "";
-            const titulos = { "TAI_LIBRE": "TAI (Estado)", "AUX_ESTADO": "Auxiliar (Estado)", "AUX_AYTO_VALENCIA": "Auxiliar Ayuntamiento de València" };
+            const titulos = { "TAI_LIBRE": "TAI (Estado)", "AUX_ESTADO": "Auxiliar (Estado)", "AUX_AYTO_VALENCIA": "Auxiliar Ayto. Valencia" };
             document.getElementById("tituloOpos").textContent = titulos[tipo];
 
             oposiciones[tipo].forEach(bloque => {
                 let html = `<div class="bloque-card"><h4>${bloque.bloque}</h4><div class="grid-temas">`;
                 bloque.temas.forEach(tema => {
-                    html += `<button class="tema-btn" onclick="alert('IA preparando test de: ${tema}')">${tema}</button>`;
+                    html += `<button class="tema-btn" onclick="alert('Generando Test IA para: ${tema}')">${tema}</button>`;
                 });
                 html += `</div></div>`;
                 container.innerHTML += html;
@@ -95,24 +104,24 @@
             });
         };
 
-        // --- GESTIÓN DE BIBLIOTECA Y VISOR REAL ---
+        // --- BIBLIOTECA CON VISOR REAL ---
         window.cargarBiblioteca = async () => {
             if(!userActual) return;
             const lista = document.getElementById("listaBiblioteca");
-            lista.innerHTML = "<p>Cargando tus documentos...</p>";
+            lista.innerHTML = "<p>Cargando recursos...</p>";
             
             const q = query(collection(db, "recursos"), where("uid", "==", userActual.uid));
             const querySnapshot = await getDocs(q);
-            lista.innerHTML = querySnapshot.empty ? "<p>No hay PDFs subidos.</p>" : "";
+            lista.innerHTML = querySnapshot.empty ? "<p>No tienes archivos subidos todavía.</p>" : "";
 
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 const item = document.createElement("div");
                 item.className = "pdf-card";
                 item.innerHTML = `
-                    <div class="pdf-info">
+                    <div>
                         <strong>${data.nombreArchivo}</strong><br>
-                        <small>${data.oposicion} | ${data.tema}</small>
+                        <small>${data.oposicion} - ${data.tema}</small>
                     </div>
                     <button class="btn-ver" onclick="abrirPDF('${data.docId}')">Abrir PDF</button>
                 `;
@@ -121,20 +130,19 @@
         };
 
         window.subirPDF = async () => {
-            const fileInput = document.getElementById('pdfFile');
-            const file = fileInput.files[0];
+            const file = document.getElementById('pdfFile').files[0];
             const opos = document.getElementById("selectOposIA").value;
             const tema = document.getElementById('selectTemaIA').value;
 
-            if(!file) return alert("Selecciona un PDF");
-
-            const btn = document.getElementById("btnSubir");
-            btn.textContent = "Procesando...";
-            btn.disabled = true;
+            if(!file) return alert("Por favor, selecciona un archivo");
 
             const docId = `pdf_${Date.now()}`;
-            // Creamos una URL temporal para que el navegador lo pueda mostrar ahora
-            archivosEnMemoria[docId] = URL.createObjectURL(file);
+            // Guardamos el objeto real en memoria para poder abrirlo
+            pdfStorage[docId] = URL.createObjectURL(file);
+
+            const btn = document.getElementById("btnSubir");
+            btn.textContent = "Guardando...";
+            btn.disabled = true;
 
             try {
                 await setDoc(doc(db, "recursos", docId), {
@@ -145,53 +153,48 @@
                     nombreArchivo: file.name,
                     fecha: serverTimestamp()
                 });
-
-                alert("✅ PDF subido correctamente a tu sesión.");
+                alert("✅ PDF guardado. Lo tienes disponible en tu biblioteca.");
                 cargarBiblioteca();
                 mostrarVista("bibliotecaSection");
-            } catch (error) {
-                alert("Error: " + error.message);
-            } finally {
-                btn.textContent = "Confirmar y Guardar";
-                btn.disabled = false;
-            }
+            } catch (e) { alert("Error: " + e.message); }
+            finally { btn.textContent = "Confirmar y Guardar"; btn.disabled = false; }
         };
 
-        window.abrirPDF = (docId) => {
-            const url = archivosEnMemoria[docId];
+        window.abrirPDF = (id) => {
+            const url = pdfStorage[id];
             if(url) {
                 window.open(url, "_blank");
             } else {
-                alert("El archivo está registrado en Firebase, pero para verlo en esta sesión debes volver a subirlo o configurar Firebase Storage.");
+                alert("Para ver archivos de sesiones anteriores, actívalos subiéndolos de nuevo o configura Firebase Storage.");
             }
         };
 
     </script>
 
     <style>
-        :root { --blue: #0056b3; --valencia: #d90429; --bg: #f4f7f6; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; }
-        header { background: white; padding: 1rem 5%; border-bottom: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        header h1 { color: var(--blue); margin: 0; cursor: pointer; }
+        :root { --blue: #0056b3; --accent: #e63946; --bg: #f8f9fa; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; color: #333; }
+        header { background: white; padding: 1rem 5%; border-bottom: 2px solid #e9ecef; display: flex; justify-content: space-between; align-items: center; position: sticky; top:0; z-index:1000;}
+        header h1 { color: var(--blue); margin: 0; cursor: pointer; font-size: 1.5rem; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .view { display: none; }
         .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
-        .btn-main { background: var(--blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
-        .btn-outline { background: white; border: 1.5px solid #cbd5e1; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; }
-        .bloque-card { background: white; padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--blue); margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
-        .tema-btn { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 0.9rem; }
+        .btn-main { background: var(--blue); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .btn-outline { background: white; border: 1.5px solid #dee2e6; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+        .bloque-card { background: white; padding: 1.5rem; border-radius: 12px; border-top: 4px solid var(--blue); margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin-top: 15px; }
+        .tema-btn { background: #f8fafc; border: 1px solid #edf2f7; padding: 12px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 0.85rem; line-height: 1.4; }
         .tema-btn:hover { background: var(--blue); color: white; }
-        .pdf-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #edf2f7; border-radius: 8px; margin-bottom: 10px; }
-        .btn-ver { background: #2d3748; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
+        .pdf-card { display: flex; justify-content: space-between; align-items: center; padding: 15px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 10px; }
+        .btn-ver { background: #2a9d8f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
     <h1 onclick="mostrarVista('seleccionInicial')">OposTest<span style="font-weight:300">IA</span></h1>
-    <div id="navUser" style="display:none; gap:10px;">
-        <button class="btn-outline" onclick="mostrarVista('bibliotecaSection'); cargarBiblioteca();">📚 Mi Biblioteca</button>
+    <div id="navUser" style="display:none; gap:12px;">
+        <button class="btn-outline" onclick="mostrarVista('bibliotecaSection'); cargarBiblioteca();">📚 Biblioteca</button>
         <button class="btn-outline" onclick="mostrarVista('recursosSection'); actualizarTemasRecursos('TAI_LIBRE');">➕ Subir PDF</button>
         <button class="btn-main" onclick="mostrarVista('seleccionInicial')">Inicio</button>
     </div>
@@ -200,25 +203,20 @@
 <div class="container">
     <div id="loginSection" style="text-align:center; margin-top:80px;">
         <div class="card">
-            <h2>Acceso Academia Inteligente</h2>
-            <button class="btn-main" onclick="login()">Entrar con Google</button>
+            <h2>Academia Virtual Oposiciones</h2>
+            <p>Accede para gestionar tus temarios y realizar tests con IA.</p>
+            <button class="btn-main" onclick="login()">Iniciar con Google</button>
         </div>
     </div>
 
     <div id="seleccionInicial" class="view">
-        <h2 style="text-align:center; margin-bottom:2rem;">Elige tu Oposición</h2>
+        <h2 style="text-align:center; margin-bottom:2rem;">Panel de Estudio</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
-            <div class="card" style="cursor:pointer; text-align:center" onclick="seleccionarOposicion('TAI_LIBRE')">
-                <h3>TAI (Estado)</h3>
-                <p>Cuerpo Auxiliar Técnico de Informática</p>
-            </div>
-            <div class="card" style="cursor:pointer; text-align:center" onclick="seleccionarOposicion('AUX_ESTADO')">
-                <h3>Auxiliar (Estado)</h3>
-                <p>Administración General del Estado</p>
-            </div>
-            <div class="card" style="cursor:pointer; text-align:center; border-bottom: 5px solid var(--valencia)" onclick="seleccionarOposicion('AUX_AYTO_VALENCIA')">
+            <div class="card" style="cursor:pointer; text-align:center" onclick="seleccionarOposicion('TAI_LIBRE')"><h3>TAI (Estado)</h3></div>
+            <div class="card" style="cursor:pointer; text-align:center" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Auxiliar (Estado)</h3></div>
+            <div class="card" style="cursor:pointer; text-align:center; border-bottom: 4px solid var(--accent)" onclick="seleccionarOposicion('AUX_AYTO_VALENCIA')">
                 <h3>Auxiliar Ayto. Valencia</h3>
-                <p>Ayuntamiento de València (BOP 134)</p>
+                <p style="font-size: 0.9rem; color: #666;">Convocatoria Oficial (21 Temas)</p>
             </div>
         </div>
     </div>
@@ -230,8 +228,8 @@
 
     <div id="bibliotecaSection" class="view">
         <div class="card">
-            <h2>📚 Tus Apuntes</h2>
-            <p>Aquí puedes abrir los PDFs que has subido para estudiar.</p>
+            <h2>📚 Mi Biblioteca de Recursos</h2>
+            <p>Haz clic en "Abrir PDF" para estudiar el documento seleccionado.</p>
             <div id="listaBiblioteca"></div>
         </div>
     </div>
@@ -240,13 +238,13 @@
         <div class="card">
             <h2>➕ Subir Nuevo PDF</h2>
             <label>Oposición:</label>
-            <select id="selectOposIA" onchange="actualizarTemasRecursos(this.value)" style="width:100%; padding:10px; margin-bottom:1rem;">
+            <select id="selectOposIA" onchange="actualizarTemasRecursos(this.value)" style="width:100%; padding:10px; margin-bottom:1rem; border-radius:6px;">
                 <option value="TAI_LIBRE">TAI (Estado)</option>
                 <option value="AUX_ESTADO">Auxiliar (Estado)</option>
                 <option value="AUX_AYTO_VALENCIA">Auxiliar Ayto. Valencia</option>
             </select>
-            <label>Tema del PDF:</label>
-            <select id="selectTemaIA" style="width:100%; padding:10px; margin-bottom:1rem;"></select>
+            <label>Tema Relacionado:</label>
+            <select id="selectTemaIA" style="width:100%; padding:10px; margin-bottom:1rem; border-radius:6px;"></select>
             <input type="file" id="pdfFile" accept=".pdf" style="margin-bottom:1.5rem;">
             <button id="btnSubir" class="btn-main" style="width:100%" onclick="subirPDF()">Confirmar y Guardar</button>
         </div>
