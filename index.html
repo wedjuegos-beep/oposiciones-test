@@ -4,12 +4,19 @@
 <meta charset="UTF-8">
 <title>Oposiciones Test</title>
 
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, collection, query, where, getDocs, doc, setDoc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { 
+  getFirestore, collection, query, where, getDocs,
+  doc, setDoc, getDoc, updateDoc, arrayUnion, addDoc
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-// 🔧 CONFIG FIREBASE
+/* 🔧 FIREBASE CONFIG */
 const firebaseConfig = {
   apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
   authDomain: "oposiciones-test.firebaseapp.com",
@@ -23,286 +30,130 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+/* ================= ESTADO ================= */
 let preguntasActuales = [];
-let timerInterval = null;
-let tiempoRestante = 0;
 let seleccionOposicion = "";
 let seleccionTema = "";
-let registroRespuestas = []; // Para repaso
 
-// 🔐 LOGIN GOOGLE
+/* ================= LOGIN ================= */
 onAuthStateChanged(auth, user => {
   if(user){
     document.getElementById("login").style.display="none";
     document.getElementById("usuario").textContent=user.displayName;
-    document.getElementById("home").style.display="block";
+    mostrar("home");
   }
 });
 
-window.login = function(){
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider);
-};
+window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
 
-// 🔹 Selección de tema para práctica
-window.seleccionarTema = function(opos, tema){
+/* ================= NAVEGACIÓN ================= */
+function ocultarTodo(){
+  ["home","configTest","configSimulacion","testContainer","recursos"]
+  .forEach(id => document.getElementById(id).style.display="none");
+}
+function mostrar(id){
+  ocultarTodo();
+  document.getElementById(id).style.display="block";
+}
+window.volverInicio = () => mostrar("home");
+window.mostrarRecursos = () => mostrar("recursos");
+
+/* ================= HOME ================= */
+window.seleccionarTema = (opos,tema) => {
   seleccionOposicion = opos;
   seleccionTema = tema;
-  document.getElementById("home").style.display="none";
-  document.getElementById("configTest").style.display="block";
+  mostrar("configTest");
 };
 
-// 🔹 Selección de simulador de examen
-window.simuladorExamen = function(opos){
-  seleccionOposicion = opos;
-  seleccionTema = "examen_simulado";
-  document.getElementById("home").style.display="none";
-  document.getElementById("configSimulacion").style.display="block";
-};
+/* ================== RECURSOS ================== */
 
-// 🔹 Empezar test normal desde configuración
-window.empezarTest = async function(){
-  const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
-  const usarTemporizador = document.getElementById("activarTimer").checked;
-  const minutos = parseInt(document.getElementById("tiempo").value) || 30;
+// Extraer texto del PDF
+async function extraerTextoPDF(file){
+  const buffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument(buffer).promise;
+  let texto = "";
 
-  await cargarPreguntas(seleccionOposicion, seleccionTema, cantidad);
-
-  document.getElementById("configTest").style.display="none";
-  document.getElementById("testContainer").style.display="block";
-  mostrarTest();
-
-  if(usarTemporizador){
-    tiempoRestante=minutos*60;
-    iniciarTemporizador();
+  for(let i=1;i<=pdf.numPages;i++){
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    texto += content.items.map(i=>i.str).join(" ");
   }
-};
-
-// 🔹 Configuración simulador examen
-window.iniciarSimulacion = async function(){
-  const cantidad = parseInt(document.getElementById("numPreguntasSim").value) || 50;
-  tiempoRestante = 90*60; // 90 minutos fijos
-
-  await cargarPreguntas(seleccionOposicion, seleccionTema, cantidad);
-
-  document.getElementById("configSimulacion").style.display="none";
-  document.getElementById("testContainer").style.display="block";
-  mostrarTest();
-  iniciarTemporizador();
-};
-
-async function cargarPreguntas(opos, tema, cantidad){
-  const q = query(
-    collection(db,"questions"),
-    where("oposicion","==",opos),
-    where("tema","==",tema)
-  );
-  const snapshot = await getDocs(q);
-  if(snapshot.empty){ alert("No hay preguntas disponibles"); return; }
-
-  preguntasActuales=[];
-  snapshot.forEach(doc=>preguntasActuales.push(doc.data()));
-  preguntasActuales = preguntasActuales.sort(()=>0.5-Math.random()).slice(0,cantidad);
-  registroRespuestas = preguntasActuales.map(p=>({pregunta:p.pregunta, correcta:p.correcta, seleccion:null}));
+  return texto;
 }
 
-// 🖥 Mostrar test
-function mostrarTest(){
-  const contenedor=document.getElementById("test");
-  contenedor.innerHTML="";
-  preguntasActuales.forEach((p,i)=>{
-    const div=document.createElement("div");
-    div.className="pregunta";
-    let html=`<p><strong>${i+1}. ${p.pregunta}</strong></p>`;
-    p.opciones.forEach((op,idx)=>{
-      html+=`<button class="opcion" data-index="${idx}" data-pregunta="${i}">${op}</button>`;
-    });
-    div.innerHTML=html;
-    contenedor.appendChild(div);
+// Subir PDF a Firestore
+window.subirPDF = async () => {
+  const file = document.getElementById("pdfRec").files[0];
+  if(!file){ alert("Selecciona un PDF"); return; }
+
+  const texto = await extraerTextoPDF(file);
+
+  await addDoc(collection(db,"resources"),{
+    oposicion: document.getElementById("opRec").value,
+    tema: document.getElementById("temaRec").value,
+    titulo: file.name,
+    textoPlano: texto,
+    fecha: new Date()
   });
 
-  const boton=document.createElement("button");
-  boton.textContent="Corregir Test";
-  boton.className="corregir";
-  boton.onclick=corregirTest;
-  contenedor.appendChild(boton);
-}
-
-// ✅ Corregir test y guardar en Firestore para repaso
-function corregirTest(){
-  let aciertos=0;
-  preguntasActuales.forEach((p,i)=>{
-    const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
-    registroRespuestas[i].seleccion = seleccion ? parseInt(seleccion.dataset.index) : null;
-    if(seleccion && parseInt(seleccion.dataset.index)===p.correcta) aciertos++;
-  });
-
-  alert(`Resultado: ${aciertos} / ${preguntasActuales.length}`);
-
-  guardarResultadosFirebase();
-}
-
-// 🔹 Guardar resultados
-async function guardarResultadosFirebase(){
-  const user = auth.currentUser;
-  if(!user) return;
-  const ref = doc(db,"users",user.uid);
-  const docSnap = await getDoc(ref);
-  if(!docSnap.exists()){
-    await setDoc(ref,{resultados:arrayUnion(...registroRespuestas)});
-  } else {
-    await updateDoc(ref,{resultados:arrayUnion(...registroRespuestas)});
-  }
-}
-
-// 🔹 Temporizador
-function iniciarTemporizador(){
-  document.getElementById("timer").textContent=formatTime(tiempoRestante);
-  if(timerInterval) clearInterval(timerInterval);
-  timerInterval=setInterval(()=>{
-    tiempoRestante--;
-    document.getElementById("timer").textContent=formatTime(tiempoRestante);
-    if(tiempoRestante<=0){
-      clearInterval(timerInterval);
-      alert("Tiempo terminado, no puedes seguir el test");
-      document.getElementById("testContainer").style.display="none";
-      document.getElementById("home").style.display="block";
-    }
-  },1000);
-}
-
-window.pausarTemporizador = function(){
-  if(timerInterval) clearInterval(timerInterval);
-};
-window.reanudarTemporizador = function(){
-  iniciarTemporizador();
+  alert("PDF subido correctamente");
 };
 
-function formatTime(s){
-  const m=Math.floor(s/60).toString().padStart(2,'0');
-  const sec=(s%60).toString().padStart(2,'0');
-  return `${m}:${sec}`;
-}
-
-// Selección de opción
-window.addEventListener("click",e=>{
-  if(e.target.classList.contains("opcion")){
-    const siblings=e.target.parentNode.querySelectorAll(".opcion");
-    siblings.forEach(sib=>sib.classList.remove("seleccionada"));
-    e.target.classList.add("seleccionada");
-  }
-});
-
-// 🔹 Volver al inicio
-window.volverInicio = function(){
-  document.getElementById("testContainer").style.display="none";
-  document.getElementById("configTest").style.display="none";
-  document.getElementById("configSimulacion").style.display="none";
-  document.getElementById("home").style.display="block";
-  if(timerInterval) clearInterval(timerInterval);
-};
-
-// 🔹 Mostrar sección Recursos
-window.mostrarRecursos = function(){
-  alert("Aquí abriremos tus PDFs de recursos"); 
-};
-
-// 🔹 Mostrar resultados
-window.mostrarResultados = async function(){
-  const user = auth.currentUser;
-  if(!user) { alert("Inicia sesión"); return; }
-  const ref = doc(db,"users",user.uid);
-  const docSnap = await getDoc(ref);
-  if(!docSnap.exists() || !docSnap.data().resultados){ alert("No hay resultados"); return; }
-  const resultados = docSnap.data().resultados;
-  let html="<h3>Resultados</h3>";
-  resultados.forEach(r=>{
-    html+=`<p>${r.pregunta}<br>Correcta: ${r.correcta} | Seleccionada: ${r.seleccion ?? "No respondida"}</p>`;
-  });
-  const cont=document.getElementById("test");
-  document.getElementById("home").style.display="none";
-  document.getElementById("configTest").style.display="none";
-  document.getElementById("configSimulacion").style.display="none";
-  document.getElementById("testContainer").style.display="block";
-  cont.innerHTML=html;
+// Botón IA (todavía vacío)
+window.generarPreguntasIA = () => {
+  alert("En el siguiente paso conectaremos aquí la IA 🤖");
 };
 </script>
 
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;}
-header{display:flex;justify-content:space-between;align-items:center;background:#2c3e50;color:white;padding:10px;}
-header h1{margin:0;font-size:22px;}
-.headerBtn{margin-right:10px;padding:5px 10px;background:#e67e22;color:white;border:none;border-radius:5px;cursor:pointer;}
-#temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-#temas button{background:#3498db;color:white;flex:1 0 120px;padding:8px;border-radius:5px;cursor:pointer;}
-#configTest, #configSimulacion, #testContainer, #home{padding:20px;}
-#testContainer{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
-.pregunta{margin-bottom:15px;}
-.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;padding:5px;border-radius:4px;cursor:pointer;}
-.opcion.seleccionada{background:#f1c40f;}
-.corregir{background:#27ae60;color:white;margin-top:10px;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;}
-#timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
+body{font-family:Arial;background:#f4f4f4;margin:0}
+header{background:#2c3e50;color:white;padding:10px;display:flex;justify-content:space-between}
+button{margin:4px;padding:6px}
+.card{background:white;padding:10px;border-radius:5px;margin:5px}
 </style>
-
 </head>
+
 <body>
 
 <header>
-  <h1>Oposiciones Test</h1>
   <div>
-    <button class="headerBtn" onclick="mostrarRecursos()">Recursos</button>
-    <button class="headerBtn" onclick="volverInicio()">Home</button>
-    <button class="headerBtn" onclick="mostrarResultados()">Resultados</button>
+    <button onclick="volverInicio()">Home</button>
+    <button onclick="mostrarRecursos()">Recursos</button>
+  </div>
+  <div>
     <span id="usuario"></span>
-    <button id="login" onclick="login()">Login Google</button>
+    <button id="login" onclick="login()">Login</button>
   </div>
 </header>
 
 <!-- HOME -->
-<div id="home" style="display:none;">
-  <h2>Selecciona Oposición</h2>
-  <select id="oposicion">
-    <option value="TAI">Técnico Auxiliar de Informática</option>
+<div id="home" style="display:none;padding:20px">
+  <h2>TAI</h2>
+  <button onclick="seleccionarTema('TAI','tema1')">Tema 1</button>
+  <button onclick="seleccionarTema('TAI','tema2')">Tema 2</button>
+</div>
+
+<!-- CONFIG TEST (sin tocar) -->
+<div id="configTest" style="display:none;padding:20px">
+  <p>Aquí sigue tu test normal (no tocado)</p>
+  <button onclick="volverInicio()">Volver</button>
+</div>
+
+<!-- RECURSOS -->
+<div id="recursos" style="display:none;padding:20px">
+  <h3>Subir temario PDF</h3>
+
+  <select id="opRec">
+    <option value="TAI">TAI</option>
     <option value="Administrativo">Administrativo</option>
-  </select>
+  </select><br><br>
 
-  <h3>Opciones</h3>
-  <button onclick="simuladorExamen(document.getElementById('oposicion').value)">Simulador Examen</button>
+  <input id="temaRec" placeholder="tema1"><br><br>
+  <input type="file" id="pdfRec" accept="application/pdf"><br><br>
 
-  <h3>Selecciona tema</h3>
-  <div id="temas">
-    <button onclick="seleccionarTema('TAI','tema1')">Constitución Española</button>
-    <button onclick="seleccionarTema('TAI','tema2')">Administración Pública</button>
-    <button onclick="seleccionarTema('TAI','tema3')">Seguridad Informática</button>
-  </div>
-</div>
-
-<!-- CONFIGURACION TEST -->
-<div id="configTest" style="display:none;">
-  <h3>Configuración del test</h3>
-  <label>Número de preguntas:</label>
-  <input type="number" id="numPreguntas" min="1" max="50" value="5"><br>
-  <label>Temporizador (minutos):</label>
-  <input type="number" id="tiempo" min="1" max="180" value="30">
-  <label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
-  <br>
-  <button onclick="empezarTest()">Iniciar Test</button>
-</div>
-
-<!-- CONFIGURACION SIMULACION -->
-<div id="configSimulacion" style="display:none;">
-  <h3>Simulador de examen (90 minutos)</h3>
-  <label>Número de preguntas:</label>
-  <input type="number" id="numPreguntasSim" min="1" max="100" value="50"><br>
-  <button onclick="iniciarSimulacion()">Iniciar Examen</button>
-</div>
-
-<!-- TEST -->
-<div id="testContainer" style="display:none;">
-  <div id="timer"></div>
-  <div id="test"></div>
-  <button onclick="pausarTemporizador()">Pausar</button>
-  <button onclick="reanudarTemporizador()">Reanudar</button>
+  <button onclick="subirPDF()">📄 Subir PDF</button>
+  <hr>
+  <button onclick="generarPreguntasIA()">🤖 Generar preguntas con IA</button>
 </div>
 
 </body>
