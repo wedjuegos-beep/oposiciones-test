@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Oposiciones Test</title>
+
+<!-- ================= FIREBASE ================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { 
+  getFirestore, collection, query, where, getDocs,
+  doc, setDoc, getDoc, updateDoc, arrayUnion 
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+/* 🔧 CONFIG */
+const firebaseConfig = {
+  apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
+  authDomain: "oposiciones-test.firebaseapp.com",
+  projectId: "oposiciones-test",
+  storageBucket: "oposiciones-test.firebasestorage.app",
+  messagingSenderId: "116305102438",
+  appId: "1:116305102438:web:25684cd6467f5a27398fa7"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+/* ================= ESTADO ================= */
+let preguntas = [];
+let respuestas = [];
+let timer = null;
+let tiempo = 0;
+let oposicionActual = "";
+let temaActual = "";
+
+/* ================= LOGIN ================= */
+onAuthStateChanged(auth, user => {
+  if(user){
+    document.getElementById("login").style.display="none";
+    document.getElementById("usuario").textContent = user.displayName;
+    mostrar("home");
+  }
+});
+
+window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
+
+/* ================= NAVEGACIÓN ================= */
+function ocultarTodo(){
+  ["home","config","simulador","test","recursos","resultados","chat"]
+  .forEach(id => document.getElementById(id).style.display="none");
+}
+function mostrar(id){
+  ocultarTodo();
+  document.getElementById(id).style.display="block";
+}
+window.volverHome = () => mostrar("home");
+window.mostrarRecursos = () => mostrar("recursos");
+window.mostrarResultados = () => mostrar("resultados");
+window.mostrarChat = () => mostrar("chat");
+
+/* ================= HOME ================= */
+window.seleccionarTema = (opos,tema) => {
+  oposicionActual = opos;
+  temaActual = tema;
+  mostrar("config");
+};
+
+window.simuladorExamen = opos => {
+  oposicionActual = opos;
+  mostrar("simulador");
+};
+
+/* ================= CARGAR PREGUNTAS ================= */
+async function cargarPreguntas(cantidad){
+  const q = query(
+    collection(db,"questions"),
+    where("oposicion","==",oposicionActual),
+    where("tema","==",temaActual)
+  );
+  const snap = await getDocs(q);
+  preguntas = [];
+  snap.forEach(d=>preguntas.push(d.data()));
+  preguntas = preguntas.sort(()=>0.5-Math.random()).slice(0,cantidad);
+  respuestas = preguntas.map(()=>null);
+}
+
+/* ================= TEST ================= */
+window.iniciarTest = async () => {
+  await cargarPreguntas(+numPreg.value);
+  tiempo = +minutos.value * 60;
+  mostrar("test");
+  pintarTest();
+  if(timerCheck.checked) iniciarTimer();
+};
+
+window.iniciarSimulacion = async () => {
+  temaActual = "examen";
+  await cargarPreguntas(+numSim.value);
+  tiempo = 90 * 60;
+  mostrar("test");
+  pintarTest();
+  iniciarTimer();
+};
+
+function pintarTest(){
+  test.innerHTML="";
+  preguntas.forEach((p,i)=>{
+    let h=`<p><b>${i+1}. ${p.pregunta}</b></p>`;
+    p.opciones.forEach((op,j)=>{
+      h+=`<button onclick="marcar(${i},${j})">${op}</button><br>`;
+    });
+    test.innerHTML+=h+"<hr>";
+  });
+  test.innerHTML+=`<button onclick="corregir()">Corregir</button>`;
+}
+
+window.marcar = (i,j) => respuestas[i]=j;
+
+window.corregir = async () => {
+  let ok=0;
+  preguntas.forEach((p,i)=>{ if(respuestas[i]===p.correcta) ok++; });
+  alert(`Resultado: ${ok}/${preguntas.length}`);
+  guardarResultados();
+};
+
+async function guardarResultados(){
+  const ref = doc(db,"users",auth.currentUser.uid);
+  await setDoc(ref,{
+    historial: arrayUnion(...preguntas.map((p,i)=>({
+      pregunta:p.pregunta,
+      correcta:p.correcta,
+      marcada:respuestas[i]
+    })))
+  },{merge:true});
+}
+
+/* ================= TIMER ================= */
+function iniciarTimer(){
+  timerDiv.innerText=formato(tiempo);
+  timer=setInterval(()=>{
+    tiempo--;
+    timerDiv.innerText=formato(tiempo);
+    if(tiempo<=0){ clearInterval(timer); alert("Tiempo agotado"); }
+  },1000);
+}
+window.pausa = ()=>clearInterval(timer);
+window.play = ()=>iniciarTimer();
+const formato=s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+
+/* ================= RECURSOS ================= */
+window.buscarRecursos = async () => {
+  const q=query(collection(db,"resources"),
+    where("oposicion","==",opRec.value),
+    where("tema","==",temaRec.value)
+  );
+  const snap=await getDocs(q);
+  listaRec.innerHTML="";
+  snap.forEach(d=>{
+    const r=d.data();
+    listaRec.innerHTML+=`<div class="card">
+      <h4>${r.titulo}</h4>
+      <a href="${r.url}" target="_blank">📄 Ver PDF</a>
+    </div>`;
+  });
+};
+
+/* ================= CHAT IA (SIMULADO) ================= */
+window.enviarIA = ()=>{
+  if(!msg.value) return;
+  chatBox.innerHTML+=`<div><b>Tú:</b> ${msg.value}</div>`;
+  setTimeout(()=>{
+    chatBox.innerHTML+=`<div style="color:green"><b>IA:</b> Estoy ayudándote con ${oposicionActual}</div>`;
+    chatBox.scrollTop=9999;
+  },800);
+  msg.value="";
+};
+</script>
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f4f4}
+header{background:#2c3e50;color:white;padding:10px;display:flex;justify-content:space-between}
+button{margin:3px;padding:5px}
+.card{background:white;padding:10px;margin:5px;border-radius:5px}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <button onclick="mostrarRecursos()">Recursos</button>
+    <button onclick="volverHome()">Home</button>
+    <button onclick="mostrarResultados()">Resultados</button>
+    <button onclick="mostrarChat()">IA</button>
+  </div>
+  <div>
+    <span id="usuario"></span>
+    <button id="login" onclick="login()">Login</button>
+  </div>
+</header>
+
+<div id="home" style="display:none">
+  <h2>TAI</h2>
+  <button onclick="seleccionarTema('TAI','tema1')">Tema 1</button>
+  <button onclick="seleccionarTema('TAI','tema2')">Tema 2</button>
+  <button onclick="simuladorExamen('TAI')">Simulador Examen</button>
+</div>
+
+<div id="config" style="display:none">
+  Preguntas <input id="numPreg" value="5"><br>
+  Minutos <input id="minutos" value="30">
+  <input type="checkbox" id="timerCheck"> Temporizador<br>
+  <button onclick="iniciarTest()">Empezar</button>
+</div>
+
+<div id="simulador" style="display:none">
+  Preguntas <input id="numSim" value="50"><br>
+  <button onclick="iniciarSimulacion()">Iniciar examen</button>
+</div>
+
+<div id="test" style="display:none">
+  <div id="timerDiv"></div>
+  <button onclick="pausa()">⏸</button>
+  <button onclick="play()">▶</button>
+</div>
+
+<div id="recursos" style="display:none">
+  <select id="opRec"><option>TAI</option></select>
+  <select id="temaRec"><option value="tema1">Tema 1</option></select>
+  <button onclick="buscarRecursos()">Buscar</button>
+  <div id="listaRec"></div>
+</div>
+
+<div id="resultados" style="display:none">
+  <p>Resultados guardados en Firebase</p>
+</div>
+
+<div id="chat" style="display:none">
+  <div id="chatBox" style="height:300px;overflow:auto;background:white"></div>
+  <input id="msg">
+  <button onclick="enviarIA()">Enviar</button>
+</div>
+
+</body>
+</html>
