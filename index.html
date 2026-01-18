@@ -7,9 +7,9 @@
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getFirestore, collection, query, where, getDocs, doc, setDoc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-// Config Firebase
+// 🔧 CONFIG FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
   authDomain: "oposiciones-test.firebaseapp.com",
@@ -28,8 +28,9 @@ let timerInterval = null;
 let tiempoRestante = 0;
 let seleccionOposicion = "";
 let seleccionTema = "";
+let registroRespuestas = []; // Para repaso
 
-// 🔐 Login Google
+// 🔐 LOGIN GOOGLE
 onAuthStateChanged(auth, user => {
   if(user){
     document.getElementById("login").style.display="none";
@@ -43,7 +44,7 @@ window.login = function(){
   signInWithPopup(auth, provider);
 };
 
-// 🔹 Seleccionar tema y pasar a configuración
+// 🔹 Selección de tema para práctica
 window.seleccionarTema = function(opos, tema){
   seleccionOposicion = opos;
   seleccionTema = tema;
@@ -51,49 +52,58 @@ window.seleccionarTema = function(opos, tema){
   document.getElementById("configTest").style.display="block";
 };
 
-// 🔹 Empezar test desde configuración
+// 🔹 Selección de simulador de examen
+window.simuladorExamen = function(opos){
+  seleccionOposicion = opos;
+  seleccionTema = "examen_simulado";
+  document.getElementById("home").style.display="none";
+  document.getElementById("configSimulacion").style.display="block";
+};
+
+// 🔹 Empezar test normal desde configuración
 window.empezarTest = async function(){
   const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
   const usarTemporizador = document.getElementById("activarTimer").checked;
   const minutos = parseInt(document.getElementById("tiempo").value) || 30;
 
-  const q = query(
-    collection(db,"questions"),
-    where("oposicion","==",seleccionOposicion),
-    where("tema","==",seleccionTema)
-  );
+  await cargarPreguntas(seleccionOposicion, seleccionTema, cantidad);
 
-  const snapshot = await getDocs(q);
-  if(snapshot.empty){ alert("No hay preguntas para este tema"); return; }
-
-  preguntasActuales=[];
-  snapshot.forEach(doc=>preguntasActuales.push(doc.data()));
-
-  // Mezclar y limitar
-  preguntasActuales = preguntasActuales.sort(()=>0.5-Math.random()).slice(0,cantidad);
-
-  // Mostrar test
   document.getElementById("configTest").style.display="none";
   document.getElementById("testContainer").style.display="block";
   mostrarTest();
 
-  // Temporizador
   if(usarTemporizador){
     tiempoRestante=minutos*60;
-    document.getElementById("timer").textContent=formatTime(tiempoRestante);
-    if(timerInterval) clearInterval(timerInterval);
-    timerInterval=setInterval(()=>{
-      tiempoRestante--;
-      document.getElementById("timer").textContent=formatTime(tiempoRestante);
-      if(tiempoRestante<=0){clearInterval(timerInterval); alert("Tiempo terminado");}
-    },1000);
+    iniciarTemporizador();
   }
 };
 
-function formatTime(s){
-  const m=Math.floor(s/60).toString().padStart(2,'0');
-  const sec=(s%60).toString().padStart(2,'0');
-  return `${m}:${sec}`;
+// 🔹 Configuración simulador examen
+window.iniciarSimulacion = async function(){
+  const cantidad = parseInt(document.getElementById("numPreguntasSim").value) || 50;
+  tiempoRestante = 90*60; // 90 minutos fijos
+
+  await cargarPreguntas(seleccionOposicion, seleccionTema, cantidad);
+
+  document.getElementById("configSimulacion").style.display="none";
+  document.getElementById("testContainer").style.display="block";
+  mostrarTest();
+  iniciarTemporizador();
+};
+
+async function cargarPreguntas(opos, tema, cantidad){
+  const q = query(
+    collection(db,"questions"),
+    where("oposicion","==",opos),
+    where("tema","==",tema)
+  );
+  const snapshot = await getDocs(q);
+  if(snapshot.empty){ alert("No hay preguntas disponibles"); return; }
+
+  preguntasActuales=[];
+  snapshot.forEach(doc=>preguntasActuales.push(doc.data()));
+  preguntasActuales = preguntasActuales.sort(()=>0.5-Math.random()).slice(0,cantidad);
+  registroRespuestas = preguntasActuales.map(p=>({pregunta:p.pregunta, correcta:p.correcta, seleccion:null}));
 }
 
 // 🖥 Mostrar test
@@ -118,23 +128,60 @@ function mostrarTest(){
   contenedor.appendChild(boton);
 }
 
-// ✅ Corregir test
+// ✅ Corregir test y guardar en Firestore para repaso
 function corregirTest(){
   let aciertos=0;
-  const contenedor=document.getElementById("test");
   preguntasActuales.forEach((p,i)=>{
     const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+    registroRespuestas[i].seleccion = seleccion ? parseInt(seleccion.dataset.index) : null;
     if(seleccion && parseInt(seleccion.dataset.index)===p.correcta) aciertos++;
   });
-  let htmlResultado=`<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
-  preguntasActuales.forEach((p,i)=>{
-    const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
-    if(!seleccion || parseInt(seleccion.dataset.index)!==p.correcta){
-      htmlResultado+=`<p>❌ ${p.pregunta}<br>✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>🧠 ${p.explicacion}</p>`;
-    }
-  });
-  contenedor.innerHTML=htmlResultado;
+
+  alert(`Resultado: ${aciertos} / ${preguntasActuales.length}`);
+
+  guardarResultadosFirebase();
+}
+
+// 🔹 Guardar resultados
+async function guardarResultadosFirebase(){
+  const user = auth.currentUser;
+  if(!user) return;
+  const ref = doc(db,"users",user.uid);
+  const docSnap = await getDoc(ref);
+  if(!docSnap.exists()){
+    await setDoc(ref,{resultados:arrayUnion(...registroRespuestas)});
+  } else {
+    await updateDoc(ref,{resultados:arrayUnion(...registroRespuestas)});
+  }
+}
+
+// 🔹 Temporizador
+function iniciarTemporizador(){
+  document.getElementById("timer").textContent=formatTime(tiempoRestante);
   if(timerInterval) clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    tiempoRestante--;
+    document.getElementById("timer").textContent=formatTime(tiempoRestante);
+    if(tiempoRestante<=0){
+      clearInterval(timerInterval);
+      alert("Tiempo terminado, no puedes seguir el test");
+      document.getElementById("testContainer").style.display="none";
+      document.getElementById("home").style.display="block";
+    }
+  },1000);
+}
+
+window.pausarTemporizador = function(){
+  if(timerInterval) clearInterval(timerInterval);
+};
+window.reanudarTemporizador = function(){
+  iniciarTemporizador();
+};
+
+function formatTime(s){
+  const m=Math.floor(s/60).toString().padStart(2,'0');
+  const sec=(s%60).toString().padStart(2,'0');
+  return `${m}:${sec}`;
 }
 
 // Selección de opción
@@ -150,13 +197,34 @@ window.addEventListener("click",e=>{
 window.volverInicio = function(){
   document.getElementById("testContainer").style.display="none";
   document.getElementById("configTest").style.display="none";
+  document.getElementById("configSimulacion").style.display="none";
   document.getElementById("home").style.display="block";
   if(timerInterval) clearInterval(timerInterval);
 };
 
 // 🔹 Mostrar sección Recursos
 window.mostrarRecursos = function(){
-  alert("Aquí pondremos los PDFs de recursos"); // Aquí luego puedes abrir tus PDFs
+  alert("Aquí abriremos tus PDFs de recursos"); 
+};
+
+// 🔹 Mostrar resultados
+window.mostrarResultados = async function(){
+  const user = auth.currentUser;
+  if(!user) { alert("Inicia sesión"); return; }
+  const ref = doc(db,"users",user.uid);
+  const docSnap = await getDoc(ref);
+  if(!docSnap.exists() || !docSnap.data().resultados){ alert("No hay resultados"); return; }
+  const resultados = docSnap.data().resultados;
+  let html="<h3>Resultados</h3>";
+  resultados.forEach(r=>{
+    html+=`<p>${r.pregunta}<br>Correcta: ${r.correcta} | Seleccionada: ${r.seleccion ?? "No respondida"}</p>`;
+  });
+  const cont=document.getElementById("test");
+  document.getElementById("home").style.display="none";
+  document.getElementById("configTest").style.display="none";
+  document.getElementById("configSimulacion").style.display="none";
+  document.getElementById("testContainer").style.display="block";
+  cont.innerHTML=html;
 };
 </script>
 
@@ -166,13 +234,13 @@ header{display:flex;justify-content:space-between;align-items:center;background:
 header h1{margin:0;font-size:22px;}
 .headerBtn{margin-right:10px;padding:5px 10px;background:#e67e22;color:white;border:none;border-radius:5px;cursor:pointer;}
 #temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-#temas button{background:#3498db;color:white;flex:1 0 120px;}
-#configTest, #testContainer, #home{padding:20px;}
+#temas button{background:#3498db;color:white;flex:1 0 120px;padding:8px;border-radius:5px;cursor:pointer;}
+#configTest, #configSimulacion, #testContainer, #home{padding:20px;}
 #testContainer{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
 .pregunta{margin-bottom:15px;}
-.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;padding:5px;}
+.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;padding:5px;border-radius:4px;cursor:pointer;}
 .opcion.seleccionada{background:#f1c40f;}
-.corregir{background:#27ae60;color:white;margin-top:10px;padding:8px 15px;}
+.corregir{background:#27ae60;color:white;margin-top:10px;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;}
 #timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
 </style>
 
@@ -184,17 +252,22 @@ header h1{margin:0;font-size:22px;}
   <div>
     <button class="headerBtn" onclick="mostrarRecursos()">Recursos</button>
     <button class="headerBtn" onclick="volverInicio()">Home</button>
+    <button class="headerBtn" onclick="mostrarResultados()">Resultados</button>
     <span id="usuario"></span>
     <button id="login" onclick="login()">Login Google</button>
   </div>
 </header>
 
+<!-- HOME -->
 <div id="home" style="display:none;">
   <h2>Selecciona Oposición</h2>
   <select id="oposicion">
     <option value="TAI">Técnico Auxiliar de Informática</option>
     <option value="Administrativo">Administrativo</option>
   </select>
+
+  <h3>Opciones</h3>
+  <button onclick="simuladorExamen(document.getElementById('oposicion').value)">Simulador Examen</button>
 
   <h3>Selecciona tema</h3>
   <div id="temas">
@@ -204,6 +277,7 @@ header h1{margin:0;font-size:22px;}
   </div>
 </div>
 
+<!-- CONFIGURACION TEST -->
 <div id="configTest" style="display:none;">
   <h3>Configuración del test</h3>
   <label>Número de preguntas:</label>
@@ -215,9 +289,20 @@ header h1{margin:0;font-size:22px;}
   <button onclick="empezarTest()">Iniciar Test</button>
 </div>
 
+<!-- CONFIGURACION SIMULACION -->
+<div id="configSimulacion" style="display:none;">
+  <h3>Simulador de examen (90 minutos)</h3>
+  <label>Número de preguntas:</label>
+  <input type="number" id="numPreguntasSim" min="1" max="100" value="50"><br>
+  <button onclick="iniciarSimulacion()">Iniciar Examen</button>
+</div>
+
+<!-- TEST -->
 <div id="testContainer" style="display:none;">
   <div id="timer"></div>
   <div id="test"></div>
+  <button onclick="pausarTemporizador()">Pausar</button>
+  <button onclick="reanudarTemporizador()">Reanudar</button>
 </div>
 
 </body>
