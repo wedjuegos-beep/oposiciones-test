@@ -5,6 +5,7 @@
   <title>Tests de Oposiciones</title>
 
   <script type="module">
+    // 🔥 IMPORTS FIREBASE
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import {
       getAuth,
@@ -15,14 +16,13 @@
 
     import {
       getFirestore,
-      doc,
-      setDoc,
       collection,
       query,
       where,
       getDocs
     } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
+    // 🔧 CONFIG FIREBASE
     const firebaseConfig = {
       apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
       authDomain: "oposiciones-test.firebaseapp.com",
@@ -36,13 +36,11 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    let currentUser = null;
     let preguntasActuales = [];
 
-    // 🔐 LOGIN
+    // 🔐 LOGIN GOOGLE
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        currentUser = user;
         document.getElementById("login").style.display = "none";
         document.getElementById("panel").style.display = "block";
         document.getElementById("username").textContent = user.displayName;
@@ -54,40 +52,33 @@
       signInWithPopup(auth, provider);
     };
 
-    // 💾 GUARDAR SELECCIÓN
-    window.guardarSeleccion = async function () {
-      const oposicion = document.getElementById("oposicion").value;
-      const temas = [...document.querySelectorAll("input[name='tema']:checked")]
-        .map(t => t.value);
-
-      await setDoc(doc(db, "users", currentUser.uid), {
-        nombre: currentUser.displayName,
-        email: currentUser.email,
-        oposicion,
-        temas
-      });
-
-      alert("Selección guardada correctamente");
-    };
-
     // 🧪 EMPEZAR TEST
     window.empezarTest = async function () {
       const oposicion = document.getElementById("oposicion").value;
-      const temas = [...document.querySelectorAll("input[name='tema']:checked")]
-        .map(t => t.value);
+      const tema = document.querySelector("input[name='tema']:checked")?.value;
+
+      if (!tema) {
+        alert("Selecciona un tema");
+        return;
+      }
 
       const q = query(
         collection(db, "questions"),
         where("oposicion", "==", oposicion),
-        where("tema", "in", temas)
+        where("tema", "==", tema)
       );
 
       const snapshot = await getDocs(q);
 
+      console.log("Preguntas encontradas:", snapshot.size);
+
+      if (snapshot.empty) {
+        alert("No hay preguntas para este tema");
+        return;
+      }
+
       preguntasActuales = [];
-      snapshot.forEach(doc => {
-        preguntasActuales.push(doc.data());
-      });
+      snapshot.forEach(doc => preguntasActuales.push(doc.data()));
 
       mostrarTest();
     };
@@ -99,6 +90,7 @@
 
       preguntasActuales.forEach((p, i) => {
         let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
+
         p.opciones.forEach((op, idx) => {
           html += `
             <label>
@@ -107,6 +99,7 @@
             </label><br>
           `;
         });
+
         panel.innerHTML += html + "<br>";
       });
 
@@ -116,15 +109,27 @@
     // ✅ CORREGIR TEST
     window.corregirTest = function () {
       let aciertos = 0;
+      let resultadoHTML = "<h2>Resultado</h2>";
 
       preguntasActuales.forEach((p, i) => {
         const marcada = document.querySelector(`input[name="p${i}"]:checked`);
-        if (marcada && parseInt(marcada.value) === p.correcta) {
+        const correcta = p.correcta;
+
+        if (marcada && parseInt(marcada.value) === correcta) {
           aciertos++;
+        } else {
+          resultadoHTML += `
+            <p>
+              ❌ <strong>${p.pregunta}</strong><br>
+              ✅ Respuesta correcta: ${p.opciones[correcta]}<br>
+              🧠 ${p.explicacion}
+            </p>
+          `;
         }
       });
 
-      alert(`Resultado: ${aciertos} / ${preguntasActuales.length}`);
+      resultadoHTML = `<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>` + resultadoHTML;
+      document.getElementById("panel").innerHTML = resultadoHTML;
     };
   </script>
 </head>
@@ -142,17 +147,15 @@
     <h3>Selecciona oposición</h3>
     <select id="oposicion">
       <option value="TAI">Técnico Auxiliar de Informática</option>
-      <option value="Administrativo">Administrativo</option>
-      <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
     </select>
 
-    <h3>Selecciona temas</h3>
-    <label><input type="checkbox" name="tema" value="Tema 1"> Tema 1</label><br>
-    <label><input type="checkbox" name="tema" value="Tema 2"> Tema 2</label><br>
-    <label><input type="checkbox" name="tema" value="Tema 3"> Tema 3</label><br>
+    <h3>Selecciona tema</h3>
+    <label>
+      <input type="radio" name="tema" value="tema1">
+      Tema 1 – Constitución Española
+    </label><br>
 
     <br>
-    <button onclick="guardarSeleccion()">Guardar</button>
     <button onclick="empezarTest()">Empezar Test</button>
   </div>
 </body>
