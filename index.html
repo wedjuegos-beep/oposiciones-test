@@ -16,7 +16,7 @@ import {
   doc, setDoc, getDoc, updateDoc, arrayUnion, addDoc
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-/* 🔧 FIREBASE CONFIG */
+/* ================= FIREBASE ================= */
 const firebaseConfig = {
   apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
   authDomain: "oposiciones-test.firebaseapp.com",
@@ -31,7 +31,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 /* ================= ESTADO ================= */
-let preguntasActuales = [];
 let seleccionOposicion = "";
 let seleccionTema = "";
 
@@ -48,8 +47,9 @@ window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
 
 /* ================= NAVEGACIÓN ================= */
 function ocultarTodo(){
-  ["home","configTest","configSimulacion","testContainer","recursos"]
-  .forEach(id => document.getElementById(id).style.display="none");
+  ["home","recursos"].forEach(id=>{
+    document.getElementById(id).style.display="none";
+  });
 }
 function mostrar(id){
   ocultarTodo();
@@ -62,12 +62,9 @@ window.mostrarRecursos = () => mostrar("recursos");
 window.seleccionarTema = (opos,tema) => {
   seleccionOposicion = opos;
   seleccionTema = tema;
-  mostrar("configTest");
 };
 
-/* ================== RECURSOS ================== */
-
-// Extraer texto del PDF
+/* ================= PDF ================= */
 async function extraerTextoPDF(file){
   const buffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument(buffer).promise;
@@ -81,10 +78,13 @@ async function extraerTextoPDF(file){
   return texto;
 }
 
-// Subir PDF a Firestore
+/* ================= RECURSOS ================= */
 window.subirPDF = async () => {
   const file = document.getElementById("pdfRec").files[0];
-  if(!file){ alert("Selecciona un PDF"); return; }
+  if(!file){
+    alert("Selecciona un PDF");
+    return;
+  }
 
   const texto = await extraerTextoPDF(file);
 
@@ -96,20 +96,20 @@ window.subirPDF = async () => {
     fecha: new Date()
   });
 
-  alert("PDF subido correctamente");
+  document.getElementById("estadoRecursos").innerText =
+    "✅ PDF subido correctamente. La IA podrá usarlo.";
 };
 
-// Botón IA (todavía vacío)
 window.generarPreguntasIA = () => {
-  alert("En el siguiente paso conectaremos aquí la IA 🤖");
+  alert("🤖 En el siguiente paso conectaremos aquí la IA");
 };
 </script>
 
 <style>
-body{font-family:Arial;background:#f4f4f4;margin:0}
+body{font-family:Arial;margin:0;background:#f4f4f4}
 header{background:#2c3e50;color:white;padding:10px;display:flex;justify-content:space-between}
 button{margin:4px;padding:6px}
-.card{background:white;padding:10px;border-radius:5px;margin:5px}
+input,select{margin:4px;padding:4px}
 </style>
 </head>
 
@@ -128,33 +128,33 @@ button{margin:4px;padding:6px}
 
 <!-- HOME -->
 <div id="home" style="display:none;padding:20px">
-  <h2>TAI</h2>
-  <button onclick="seleccionarTema('TAI','tema1')">Tema 1</button>
-  <button onclick="seleccionarTema('TAI','tema2')">Tema 2</button>
-</div>
-
-<!-- CONFIG TEST (sin tocar) -->
-<div id="configTest" style="display:none;padding:20px">
-  <p>Aquí sigue tu test normal (no tocado)</p>
-  <button onclick="volverInicio()">Volver</button>
+  <h2>Oposiciones</h2>
+  <button onclick="seleccionarTema('TAI','tema1')">TAI Tema 1</button>
+  <button onclick="seleccionarTema('TAI','tema2')">TAI Tema 2</button>
 </div>
 
 <!-- RECURSOS -->
 <div id="recursos" style="display:none;padding:20px">
-  <h3>Subir temario PDF</h3>
+  <h3>📚 Subir documentación (PDF)</h3>
 
+  <label>Oposición:</label><br>
   <select id="opRec">
     <option value="TAI">TAI</option>
     <option value="Administrativo">Administrativo</option>
-  </select><br><br>
+  </select><br>
 
-  <input id="temaRec" placeholder="tema1"><br><br>
+  <label>Tema (ej: tema1):</label><br>
+  <input id="temaRec" placeholder="tema1"><br>
+
+  <label>PDF del temario:</label><br>
   <input type="file" id="pdfRec" accept="application/pdf"><br><br>
 
   <button onclick="subirPDF()">📄 Subir PDF</button>
-  <hr>
-  <button onclick="generarPreguntasIA()">🤖 Generar preguntas con IA</button>
+  <button onclick="generarPreguntasIA()">🤖 Generar preguntas IA</button>
+
+  <p id="estadoRecursos" style="color:green;font-weight:bold"></p>
 </div>
 
 </body>
 </html>
+
