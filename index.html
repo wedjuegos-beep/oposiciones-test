@@ -29,7 +29,7 @@ let tiempoRestante = 0;
 let seleccionOposicion = "";
 let seleccionTema = "";
 
-// 🔐 Login
+// 🔐 Login Google
 onAuthStateChanged(auth, user => {
   if(user){
     document.getElementById("login").style.display="none";
@@ -51,7 +51,7 @@ window.seleccionarTema = function(opos, tema){
   document.getElementById("configTest").style.display="block";
 };
 
-// 🔹 Empezar test
+// 🔹 Empezar test desde configuración
 window.empezarTest = async function(){
   const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
   const usarTemporizador = document.getElementById("activarTimer").checked;
@@ -153,63 +153,73 @@ window.volverInicio = function(){
   document.getElementById("home").style.display="block";
   if(timerInterval) clearInterval(timerInterval);
 };
+
+// 🔹 Mostrar sección Recursos
+window.mostrarRecursos = function(){
+  alert("Aquí pondremos los PDFs de recursos"); // Aquí luego puedes abrir tus PDFs
+};
 </script>
 
 <style>
 body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;}
-header{background:#2c3e50;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
-header h1{margin:0;font-size:24px;}
-button{cursor:pointer;padding:8px 15px;margin:5px;border:none;border-radius:5px;}
-#panel,#configTest,#testContainer,#home{padding:20px;}
+header{display:flex;justify-content:space-between;align-items:center;background:#2c3e50;color:white;padding:10px;}
+header h1{margin:0;font-size:22px;}
+.headerBtn{margin-right:10px;padding:5px 10px;background:#e67e22;color:white;border:none;border-radius:5px;cursor:pointer;}
 #temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
 #temas button{background:#3498db;color:white;flex:1 0 120px;}
+#configTest, #testContainer, #home{padding:20px;}
 #testContainer{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
 .pregunta{margin-bottom:15px;}
-.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;}
+.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;padding:5px;}
 .opcion.seleccionada{background:#f1c40f;}
-.corregir{background:#27ae60;color:white;margin-top:10px;}
+.corregir{background:#27ae60;color:white;margin-top:10px;padding:8px 15px;}
 #timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
-.homeBtn{position:fixed;top:10px;right:10px;background:#e67e22;color:white;}
 </style>
-</head>
 
+</head>
 <body>
+
 <header>
-<h1>Oposiciones Test</h1>
-<div>
-<span id="usuario"></span>
-<button id="login" onclick="login()">Login Google</button>
-<button class="homeBtn" onclick="volverInicio()">Home</button>
-</div>
+  <h1>Oposiciones Test</h1>
+  <div>
+    <button class="headerBtn" onclick="mostrarRecursos()">Recursos</button>
+    <button class="headerBtn" onclick="volverInicio()">Home</button>
+    <span id="usuario"></span>
+    <button id="login" onclick="login()">Login Google</button>
+  </div>
 </header>
 
 <div id="home" style="display:none;">
-<h2>Selecciona Oposición</h2>
-<select id="oposicion">
-<option value="TAI">Técnico Auxiliar de Informática</option>
-<option value="Administrativo">Administrativo</option>
-</select>
+  <h2>Selecciona Oposición</h2>
+  <select id="oposicion">
+    <option value="TAI">Técnico Auxiliar de Informática</option>
+    <option value="Administrativo">Administrativo</option>
+  </select>
 
-<h3>Selecciona tema</h3>
-<div id="temas">
-<button onclick="seleccionarTema('TAI','tema1')">Constitución Española</button>
-<button onclick="seleccionarTema('TAI','tema2')">Administración Pública</button>
-<button onclick="seleccionarTema('TAI','tema3')">Seguridad Informática</button>
-</div>
+  <h3>Selecciona tema</h3>
+  <div id="temas">
+    <button onclick="seleccionarTema('TAI','tema1')">Constitución Española</button>
+    <button onclick="seleccionarTema('TAI','tema2')">Administración Pública</button>
+    <button onclick="seleccionarTema('TAI','tema3')">Seguridad Informática</button>
+  </div>
 </div>
 
 <div id="configTest" style="display:none;">
-<h3>Configuración del test</h3>
-<label>Número de preguntas:</label>
-<input type="number" id="numPreguntas" min="1" max="50" value="5"><br>
-<label>Temporizador (minutos):</label>
-<input type="number" id="tiempo" min="1" max="180" value="30">
-<label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
+  <h3>Configuración del test</h3>
+  <label>Número de preguntas:</label>
+  <input type="number" id="numPreguntas" min="1" max="50" value="5"><br>
+  <label>Temporizador (minutos):</label>
+  <input type="number" id="tiempo" min="1" max="180" value="30">
+  <label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
+  <br>
+  <button onclick="empezarTest()">Iniciar Test</button>
 </div>
 
 <div id="testContainer" style="display:none;">
-<div id="timer"></div>
-<div id="test"></div>
+  <div id="timer"></div>
+  <div id="test"></div>
 </div>
+
 </body>
 </html>
+
