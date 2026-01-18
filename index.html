@@ -23,8 +23,10 @@
     const db = getFirestore(app);
 
     let preguntasActuales = [];
+    let timerInterval = null;
+    let tiempoRestante = 0;
 
-    // Login
+    // 🔐 Login
     onAuthStateChanged(auth, (user) => {
       if (user) {
         document.getElementById("login").style.display = "none";
@@ -38,9 +40,12 @@
       signInWithPopup(auth, provider);
     };
 
-    // Empezar test
+    // 🔹 Empezar test
     window.empezarTest = async function (tema) {
       const oposicion = document.getElementById("oposicion").value;
+      const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
+      const usarTemporizador = document.getElementById("activarTimer").checked;
+      const minutos = parseInt(document.getElementById("tiempo").value) || 30;
 
       const q = query(
         collection(db, "questions"),
@@ -49,106 +54,110 @@
       );
 
       const snapshot = await getDocs(q);
-
-      if (snapshot.empty) {
-        alert("No hay preguntas para este tema");
-        return;
-      }
+      if (snapshot.empty) { alert("No hay preguntas para este tema"); return; }
 
       preguntasActuales = [];
       snapshot.forEach(doc => preguntasActuales.push(doc.data()));
 
+      // Mezclar y limitar
+      preguntasActuales = preguntasActuales.sort(() => 0.5 - Math.random()).slice(0, cantidad);
+
       mostrarTest();
+
+      // Temporizador
+      if (usarTemporizador) {
+        tiempoRestante = minutos * 60;
+        document.getElementById("timer").textContent = formatTime(tiempoRestante);
+        if(timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          tiempoRestante--;
+          document.getElementById("timer").textContent = formatTime(tiempoRestante);
+          if (tiempoRestante <= 0) { clearInterval(timerInterval); alert("Tiempo terminado"); }
+        }, 1000);
+      }
     };
 
+    function formatTime(s) {
+      const m = Math.floor(s/60).toString().padStart(2,'0');
+      const sec = (s%60).toString().padStart(2,'0');
+      return `${m}:${sec}`;
+    }
+
+    // 🖥 Mostrar Test
     function mostrarTest() {
       const contenedor = document.getElementById("test");
       contenedor.innerHTML = "";
 
-      preguntasActuales.forEach((p, i) => {
-        const preguntaDiv = document.createElement("div");
-        preguntaDiv.className = "pregunta";
-
-        let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
-        p.opciones.forEach((op, idx) => {
+      preguntasActuales.forEach((p,i)=>{
+        const div = document.createElement("div");
+        div.className="pregunta";
+        let html = `<p><strong>${i+1}. ${p.pregunta}</strong></p>`;
+        p.opciones.forEach((op,idx)=>{
           html += `<button class="opcion" data-index="${idx}" data-pregunta="${i}">${op}</button>`;
         });
-
-        preguntaDiv.innerHTML = html;
-        contenedor.appendChild(preguntaDiv);
+        div.innerHTML = html;
+        contenedor.appendChild(div);
       });
 
-      const botonCorregir = document.createElement("button");
-      botonCorregir.textContent = "Corregir Test";
-      botonCorregir.onclick = corregirTest;
-      botonCorregir.className = "corregir";
-      contenedor.appendChild(botonCorregir);
+      // Botón corregir
+      const boton = document.createElement("button");
+      boton.textContent="Corregir Test";
+      boton.className="corregir";
+      boton.onclick=corregirTest;
+      contenedor.appendChild(boton);
     }
 
-    function corregirTest() {
-      let aciertos = 0;
-      const resultadoDiv = document.getElementById("test");
-      const botones = resultadoDiv.querySelectorAll(".opcion");
-
-      botones.forEach(btn => {
-        const i = parseInt(btn.dataset.pregunta);
-        const idx = parseInt(btn.dataset.index);
-        btn.classList.remove("correcta", "incorrecta");
-        const seleccionada = document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
-        if (seleccionada && parseInt(seleccionada.dataset.index) === preguntasActuales[i].correcta) {
-          aciertos++;
-        }
+    // ✅ Corregir Test
+    function corregirTest(){
+      let aciertos=0;
+      const contenedor=document.getElementById("test");
+      const botones=contenedor.querySelectorAll(".opcion");
+      botones.forEach(btn=>btn.classList.remove("seleccionada"));
+      let htmlResultado=`<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
+      preguntasActuales.forEach((p,i)=>{
+        const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+        if(seleccion && parseInt(seleccion.dataset.index)===p.correcta) aciertos++;
+        else htmlResultado += `<p>❌ ${p.pregunta}<br>✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>🧠 ${p.explicacion}</p>`;
       });
-
-      let htmlResultado = `<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
-      preguntasActuales.forEach((p, i) => {
-        const seleccion = document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
-        if (!seleccion || parseInt(seleccion.dataset.index) !== p.correcta) {
-          htmlResultado += `
-            <p>
-              ❌ ${p.pregunta}<br>
-              ✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>
-              🧠 ${p.explicacion}
-            </p>
-          `;
-        }
-      });
-
-      resultadoDiv.innerHTML = htmlResultado;
+      contenedor.innerHTML=htmlResultado;
+      if(timerInterval) clearInterval(timerInterval);
     }
 
-    // Marcar botón seleccionado
-    window.addEventListener("click", e => {
-      if (e.target.classList.contains("opcion")) {
-        const siblings = e.target.parentNode.querySelectorAll(".opcion");
-        siblings.forEach(sib => sib.classList.remove("seleccionada"));
+    // Selección de opción
+    window.addEventListener("click",e=>{
+      if(e.target.classList.contains("opcion")){
+        const siblings=e.target.parentNode.querySelectorAll(".opcion");
+        siblings.forEach(sib=>sib.classList.remove("seleccionada"));
         e.target.classList.add("seleccionada");
       }
     });
   </script>
 
   <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; }
-    header { background:#2c3e50; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
-    header h1 { margin:0; font-size:24px; }
-    button { cursor:pointer; padding:8px 15px; margin:5px; border:none; border-radius:5px; }
-    #panel { padding:20px; }
-    select { padding:5px; margin-bottom:15px; }
-    #temas { display:flex; gap:10px; flex-wrap:wrap; }
-    #temas button { background:#3498db; color:white; flex:1 0 120px; }
-    #test { margin-top:20px; background:white; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
-    .pregunta { margin-bottom:15px; }
-    .opcion { display:block; width:100%; text-align:left; background:#ecf0f1; margin:3px 0; }
-    .opcion.seleccionada { background:#f1c40f; }
-    .corregir { background:#27ae60; color:white; margin-top:10px; }
+    body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;}
+    header{background:#2c3e50;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+    header h1{margin:0;font-size:24px;}
+    button{cursor:pointer;padding:8px 15px;margin:5px;border:none;border-radius:5px;}
+    #panel{padding:20px;}
+    select,input[type="number"]{padding:5px;margin:5px 0;}
+    #temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+    #temas button{background:#3498db;color:white;flex:1 0 120px;}
+    #test{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+    .pregunta{margin-bottom:15px;}
+    .opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;}
+    .opcion.seleccionada{background:#f1c40f;}
+    .corregir{background:#27ae60;color:white;margin-top:10px;}
+    #timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
   </style>
 </head>
 
 <body>
   <header>
     <h1>Oposiciones Test</h1>
-    <div id="login"><button onclick="login()">Login con Google</button></div>
-    <div id="usuario" style="display:inline;"></div>
+    <div>
+      <span id="usuario"></span>
+      <button id="login" onclick="login()">Login Google</button>
+    </div>
   </header>
 
   <div id="panel" style="display:none;">
@@ -164,6 +173,15 @@
       <button onclick="empezarTest('tema2')">Tema 2</button>
       <button onclick="empezarTest('tema3')">Tema 3</button>
     </div>
+
+    <label>Número de preguntas:</label>
+    <input type="number" id="numPreguntas" min="1" max="50" value="5">
+
+    <label>Temporizador (minutos):</label>
+    <input type="number" id="tiempo" min="1" max="180" value="30">
+    <label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
+
+    <div id="timer"></div>
 
     <div id="test"></div>
   </div>
