@@ -1,189 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Oposiciones Test</title>
+<meta charset="UTF-8">
+<title>Oposiciones Test</title>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
-      authDomain: "oposiciones-test.firebaseapp.com",
-      projectId: "oposiciones-test",
-      storageBucket: "oposiciones-test.firebasestorage.app",
-      messagingSenderId: "116305102438",
-      appId: "1:116305102438:web:25684cd6467f5a27398fa7"
-    };
+// Config Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
+  authDomain: "oposiciones-test.firebaseapp.com",
+  projectId: "oposiciones-test",
+  storageBucket: "oposiciones-test.firebasestorage.app",
+  messagingSenderId: "116305102438",
+  appId: "1:116305102438:web:25684cd6467f5a27398fa7"
+};
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-    let preguntasActuales = [];
-    let timerInterval = null;
-    let tiempoRestante = 0;
+let preguntasActuales = [];
+let timerInterval = null;
+let tiempoRestante = 0;
+let seleccionOposicion = "";
+let seleccionTema = "";
 
-    // 🔐 Login
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("usuario").textContent = user.displayName;
-        document.getElementById("panel").style.display = "block";
-      }
+// 🔐 Login
+onAuthStateChanged(auth, user => {
+  if(user){
+    document.getElementById("login").style.display="none";
+    document.getElementById("usuario").textContent=user.displayName;
+    document.getElementById("home").style.display="block";
+  }
+});
+
+window.login = function(){
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider);
+};
+
+// 🔹 Seleccionar tema y pasar a configuración
+window.seleccionarTema = function(opos, tema){
+  seleccionOposicion = opos;
+  seleccionTema = tema;
+  document.getElementById("home").style.display="none";
+  document.getElementById("configTest").style.display="block";
+};
+
+// 🔹 Empezar test
+window.empezarTest = async function(){
+  const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
+  const usarTemporizador = document.getElementById("activarTimer").checked;
+  const minutos = parseInt(document.getElementById("tiempo").value) || 30;
+
+  const q = query(
+    collection(db,"questions"),
+    where("oposicion","==",seleccionOposicion),
+    where("tema","==",seleccionTema)
+  );
+
+  const snapshot = await getDocs(q);
+  if(snapshot.empty){ alert("No hay preguntas para este tema"); return; }
+
+  preguntasActuales=[];
+  snapshot.forEach(doc=>preguntasActuales.push(doc.data()));
+
+  // Mezclar y limitar
+  preguntasActuales = preguntasActuales.sort(()=>0.5-Math.random()).slice(0,cantidad);
+
+  // Mostrar test
+  document.getElementById("configTest").style.display="none";
+  document.getElementById("testContainer").style.display="block";
+  mostrarTest();
+
+  // Temporizador
+  if(usarTemporizador){
+    tiempoRestante=minutos*60;
+    document.getElementById("timer").textContent=formatTime(tiempoRestante);
+    if(timerInterval) clearInterval(timerInterval);
+    timerInterval=setInterval(()=>{
+      tiempoRestante--;
+      document.getElementById("timer").textContent=formatTime(tiempoRestante);
+      if(tiempoRestante<=0){clearInterval(timerInterval); alert("Tiempo terminado");}
+    },1000);
+  }
+};
+
+function formatTime(s){
+  const m=Math.floor(s/60).toString().padStart(2,'0');
+  const sec=(s%60).toString().padStart(2,'0');
+  return `${m}:${sec}`;
+}
+
+// 🖥 Mostrar test
+function mostrarTest(){
+  const contenedor=document.getElementById("test");
+  contenedor.innerHTML="";
+  preguntasActuales.forEach((p,i)=>{
+    const div=document.createElement("div");
+    div.className="pregunta";
+    let html=`<p><strong>${i+1}. ${p.pregunta}</strong></p>`;
+    p.opciones.forEach((op,idx)=>{
+      html+=`<button class="opcion" data-index="${idx}" data-pregunta="${i}">${op}</button>`;
     });
+    div.innerHTML=html;
+    contenedor.appendChild(div);
+  });
 
-    window.login = function () {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(auth, provider);
-    };
+  const boton=document.createElement("button");
+  boton.textContent="Corregir Test";
+  boton.className="corregir";
+  boton.onclick=corregirTest;
+  contenedor.appendChild(boton);
+}
 
-    // 🔹 Empezar test
-    window.empezarTest = async function (tema) {
-      const oposicion = document.getElementById("oposicion").value;
-      const cantidad = parseInt(document.getElementById("numPreguntas").value) || 5;
-      const usarTemporizador = document.getElementById("activarTimer").checked;
-      const minutos = parseInt(document.getElementById("tiempo").value) || 30;
-
-      const q = query(
-        collection(db, "questions"),
-        where("oposicion", "==", oposicion),
-        where("tema", "==", tema)
-      );
-
-      const snapshot = await getDocs(q);
-      if (snapshot.empty) { alert("No hay preguntas para este tema"); return; }
-
-      preguntasActuales = [];
-      snapshot.forEach(doc => preguntasActuales.push(doc.data()));
-
-      // Mezclar y limitar
-      preguntasActuales = preguntasActuales.sort(() => 0.5 - Math.random()).slice(0, cantidad);
-
-      mostrarTest();
-
-      // Temporizador
-      if (usarTemporizador) {
-        tiempoRestante = minutos * 60;
-        document.getElementById("timer").textContent = formatTime(tiempoRestante);
-        if(timerInterval) clearInterval(timerInterval);
-        timerInterval = setInterval(() => {
-          tiempoRestante--;
-          document.getElementById("timer").textContent = formatTime(tiempoRestante);
-          if (tiempoRestante <= 0) { clearInterval(timerInterval); alert("Tiempo terminado"); }
-        }, 1000);
-      }
-    };
-
-    function formatTime(s) {
-      const m = Math.floor(s/60).toString().padStart(2,'0');
-      const sec = (s%60).toString().padStart(2,'0');
-      return `${m}:${sec}`;
+// ✅ Corregir test
+function corregirTest(){
+  let aciertos=0;
+  const contenedor=document.getElementById("test");
+  preguntasActuales.forEach((p,i)=>{
+    const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+    if(seleccion && parseInt(seleccion.dataset.index)===p.correcta) aciertos++;
+  });
+  let htmlResultado=`<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
+  preguntasActuales.forEach((p,i)=>{
+    const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+    if(!seleccion || parseInt(seleccion.dataset.index)!==p.correcta){
+      htmlResultado+=`<p>❌ ${p.pregunta}<br>✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>🧠 ${p.explicacion}</p>`;
     }
+  });
+  contenedor.innerHTML=htmlResultado;
+  if(timerInterval) clearInterval(timerInterval);
+}
 
-    // 🖥 Mostrar Test
-    function mostrarTest() {
-      const contenedor = document.getElementById("test");
-      contenedor.innerHTML = "";
+// Selección de opción
+window.addEventListener("click",e=>{
+  if(e.target.classList.contains("opcion")){
+    const siblings=e.target.parentNode.querySelectorAll(".opcion");
+    siblings.forEach(sib=>sib.classList.remove("seleccionada"));
+    e.target.classList.add("seleccionada");
+  }
+});
 
-      preguntasActuales.forEach((p,i)=>{
-        const div = document.createElement("div");
-        div.className="pregunta";
-        let html = `<p><strong>${i+1}. ${p.pregunta}</strong></p>`;
-        p.opciones.forEach((op,idx)=>{
-          html += `<button class="opcion" data-index="${idx}" data-pregunta="${i}">${op}</button>`;
-        });
-        div.innerHTML = html;
-        contenedor.appendChild(div);
-      });
+// 🔹 Volver al inicio
+window.volverInicio = function(){
+  document.getElementById("testContainer").style.display="none";
+  document.getElementById("configTest").style.display="none";
+  document.getElementById("home").style.display="block";
+  if(timerInterval) clearInterval(timerInterval);
+};
+</script>
 
-      // Botón corregir
-      const boton = document.createElement("button");
-      boton.textContent="Corregir Test";
-      boton.className="corregir";
-      boton.onclick=corregirTest;
-      contenedor.appendChild(boton);
-    }
-
-    // ✅ Corregir Test
-    function corregirTest(){
-      let aciertos=0;
-      const contenedor=document.getElementById("test");
-      const botones=contenedor.querySelectorAll(".opcion");
-      botones.forEach(btn=>btn.classList.remove("seleccionada"));
-      let htmlResultado=`<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
-      preguntasActuales.forEach((p,i)=>{
-        const seleccion=document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
-        if(seleccion && parseInt(seleccion.dataset.index)===p.correcta) aciertos++;
-        else htmlResultado += `<p>❌ ${p.pregunta}<br>✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>🧠 ${p.explicacion}</p>`;
-      });
-      contenedor.innerHTML=htmlResultado;
-      if(timerInterval) clearInterval(timerInterval);
-    }
-
-    // Selección de opción
-    window.addEventListener("click",e=>{
-      if(e.target.classList.contains("opcion")){
-        const siblings=e.target.parentNode.querySelectorAll(".opcion");
-        siblings.forEach(sib=>sib.classList.remove("seleccionada"));
-        e.target.classList.add("seleccionada");
-      }
-    });
-  </script>
-
-  <style>
-    body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;}
-    header{background:#2c3e50;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
-    header h1{margin:0;font-size:24px;}
-    button{cursor:pointer;padding:8px 15px;margin:5px;border:none;border-radius:5px;}
-    #panel{padding:20px;}
-    select,input[type="number"]{padding:5px;margin:5px 0;}
-    #temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-    #temas button{background:#3498db;color:white;flex:1 0 120px;}
-    #test{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
-    .pregunta{margin-bottom:15px;}
-    .opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;}
-    .opcion.seleccionada{background:#f1c40f;}
-    .corregir{background:#27ae60;color:white;margin-top:10px;}
-    #timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
-  </style>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;}
+header{background:#2c3e50;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+header h1{margin:0;font-size:24px;}
+button{cursor:pointer;padding:8px 15px;margin:5px;border:none;border-radius:5px;}
+#panel,#configTest,#testContainer,#home{padding:20px;}
+#temas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+#temas button{background:#3498db;color:white;flex:1 0 120px;}
+#testContainer{margin-top:20px;background:white;padding:15px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+.pregunta{margin-bottom:15px;}
+.opcion{display:block;width:100%;text-align:left;background:#ecf0f1;margin:3px 0;}
+.opcion.seleccionada{background:#f1c40f;}
+.corregir{background:#27ae60;color:white;margin-top:10px;}
+#timer{font-weight:bold;font-size:18px;margin:10px 0;color:#e74c3c;}
+.homeBtn{position:fixed;top:10px;right:10px;background:#e67e22;color:white;}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>Oposiciones Test</h1>
-    <div>
-      <span id="usuario"></span>
-      <button id="login" onclick="login()">Login Google</button>
-    </div>
-  </header>
+<header>
+<h1>Oposiciones Test</h1>
+<div>
+<span id="usuario"></span>
+<button id="login" onclick="login()">Login Google</button>
+<button class="homeBtn" onclick="volverInicio()">Home</button>
+</div>
+</header>
 
-  <div id="panel" style="display:none;">
-    <h3>Selecciona oposición</h3>
-    <select id="oposicion">
-      <option value="TAI">Técnico Auxiliar de Informática</option>
-      <option value="Administrativo">Administrativo</option>
-    </select>
+<div id="home" style="display:none;">
+<h2>Selecciona Oposición</h2>
+<select id="oposicion">
+<option value="TAI">Técnico Auxiliar de Informática</option>
+<option value="Administrativo">Administrativo</option>
+</select>
 
-    <h3>Selecciona tema</h3>
-    <div id="temas">
-      <button onclick="empezarTest('tema1')">Tema 1</button>
-      <button onclick="empezarTest('tema2')">Tema 2</button>
-      <button onclick="empezarTest('tema3')">Tema 3</button>
-    </div>
+<h3>Selecciona tema</h3>
+<div id="temas">
+<button onclick="seleccionarTema('TAI','tema1')">Constitución Española</button>
+<button onclick="seleccionarTema('TAI','tema2')">Administración Pública</button>
+<button onclick="seleccionarTema('TAI','tema3')">Seguridad Informática</button>
+</div>
+</div>
 
-    <label>Número de preguntas:</label>
-    <input type="number" id="numPreguntas" min="1" max="50" value="5">
+<div id="configTest" style="display:none;">
+<h3>Configuración del test</h3>
+<label>Número de preguntas:</label>
+<input type="number" id="numPreguntas" min="1" max="50" value="5"><br>
+<label>Temporizador (minutos):</label>
+<input type="number" id="tiempo" min="1" max="180" value="30">
+<label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
+</div>
 
-    <label>Temporizador (minutos):</label>
-    <input type="number" id="tiempo" min="1" max="180" value="30">
-    <label><input type="checkbox" id="activarTimer"> Activar temporizador</label>
-
-    <div id="timer"></div>
-
-    <div id="test"></div>
-  </div>
+<div id="testContainer" style="display:none;">
+<div id="timer"></div>
+<div id="test"></div>
+</div>
 </body>
 </html>
