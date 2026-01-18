@@ -5,7 +5,7 @@
   <title>Tests de Oposiciones</title>
 
   <script type="module">
-    // 🔥 IMPORTS FIREBASE
+    // 🔥 FIREBASE
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import {
       getAuth,
@@ -53,14 +53,8 @@
     };
 
     // 🧪 EMPEZAR TEST
-    window.empezarTest = async function () {
+    window.empezarTest = async function (tema) {
       const oposicion = document.getElementById("oposicion").value;
-      const tema = document.querySelector("input[name='tema']:checked")?.value;
-
-      if (!tema) {
-        alert("Selecciona un tema");
-        return;
-      }
 
       const q = query(
         collection(db, "questions"),
@@ -69,8 +63,6 @@
       );
 
       const snapshot = await getDocs(q);
-
-      console.log("Preguntas encontradas:", snapshot.size);
 
       if (snapshot.empty) {
         alert("No hay preguntas para este tema");
@@ -85,12 +77,11 @@
 
     // 🖥 MOSTRAR TEST
     function mostrarTest() {
-      const panel = document.getElementById("panel");
+      const panel = document.getElementById("test");
       panel.innerHTML = "<h2>Test</h2>";
 
       preguntasActuales.forEach((p, i) => {
         let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
-
         p.opciones.forEach((op, idx) => {
           html += `
             <label>
@@ -99,7 +90,6 @@
             </label><br>
           `;
         });
-
         panel.innerHTML += html + "<br>";
       });
 
@@ -129,9 +119,23 @@
       });
 
       resultadoHTML = `<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>` + resultadoHTML;
-      document.getElementById("panel").innerHTML = resultadoHTML;
+      document.getElementById("test").innerHTML = resultadoHTML;
     };
   </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    h1 { text-align: center; }
+    #panel { margin-top: 20px; }
+    button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+    #test { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+    input[type="radio"] { margin-right: 5px; }
+  </style>
 </head>
 
 <body>
@@ -147,16 +151,18 @@
     <h3>Selecciona oposición</h3>
     <select id="oposicion">
       <option value="TAI">Técnico Auxiliar de Informática</option>
+      <option value="Administrativo">Administrativo</option>
+      <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
     </select>
 
     <h3>Selecciona tema</h3>
-    <label>
-      <input type="radio" name="tema" value="tema1">
-      Tema 1 – Constitución Española
-    </label><br>
+    <div id="temas">
+      <button onclick="empezarTest('tema1')">Tema 1</button>
+      <button onclick="empezarTest('tema2')">Tema 2</button>
+      <button onclick="empezarTest('tema3')">Tema 3</button>
+    </div>
 
-    <br>
-    <button onclick="empezarTest()">Empezar Test</button>
+    <div id="test"></div>
   </div>
 </body>
 </html>
