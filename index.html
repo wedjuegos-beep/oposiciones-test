@@ -2,27 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tests de Oposiciones</title>
+  <title>Oposiciones Test</title>
 
   <script type="module">
-    // 🔥 FIREBASE
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-    import {
-      getFirestore,
-      collection,
-      query,
-      where,
-      getDocs
-    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-    // 🔧 CONFIG FIREBASE
     const firebaseConfig = {
       apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
       authDomain: "oposiciones-test.firebaseapp.com",
@@ -38,12 +24,12 @@
 
     let preguntasActuales = [];
 
-    // 🔐 LOGIN GOOGLE
+    // Login
     onAuthStateChanged(auth, (user) => {
       if (user) {
         document.getElementById("login").style.display = "none";
+        document.getElementById("usuario").textContent = user.displayName;
         document.getElementById("panel").style.display = "block";
-        document.getElementById("username").textContent = user.displayName;
       }
     });
 
@@ -52,7 +38,7 @@
       signInWithPopup(auth, provider);
     };
 
-    // 🧪 EMPEZAR TEST
+    // Empezar test
     window.empezarTest = async function (tema) {
       const oposicion = document.getElementById("oposicion").value;
 
@@ -75,84 +61,101 @@
       mostrarTest();
     };
 
-    // 🖥 MOSTRAR TEST
     function mostrarTest() {
-      const panel = document.getElementById("test");
-      panel.innerHTML = "<h2>Test</h2>";
+      const contenedor = document.getElementById("test");
+      contenedor.innerHTML = "";
 
       preguntasActuales.forEach((p, i) => {
+        const preguntaDiv = document.createElement("div");
+        preguntaDiv.className = "pregunta";
+
         let html = `<p><strong>${i + 1}. ${p.pregunta}</strong></p>`;
         p.opciones.forEach((op, idx) => {
-          html += `
-            <label>
-              <input type="radio" name="p${i}" value="${idx}">
-              ${op}
-            </label><br>
-          `;
+          html += `<button class="opcion" data-index="${idx}" data-pregunta="${i}">${op}</button>`;
         });
-        panel.innerHTML += html + "<br>";
+
+        preguntaDiv.innerHTML = html;
+        contenedor.appendChild(preguntaDiv);
       });
 
-      panel.innerHTML += `<button onclick="corregirTest()">Corregir</button>`;
+      const botonCorregir = document.createElement("button");
+      botonCorregir.textContent = "Corregir Test";
+      botonCorregir.onclick = corregirTest;
+      botonCorregir.className = "corregir";
+      contenedor.appendChild(botonCorregir);
     }
 
-    // ✅ CORREGIR TEST
-    window.corregirTest = function () {
+    function corregirTest() {
       let aciertos = 0;
-      let resultadoHTML = "<h2>Resultado</h2>";
+      const resultadoDiv = document.getElementById("test");
+      const botones = resultadoDiv.querySelectorAll(".opcion");
 
-      preguntasActuales.forEach((p, i) => {
-        const marcada = document.querySelector(`input[name="p${i}"]:checked`);
-        const correcta = p.correcta;
-
-        if (marcada && parseInt(marcada.value) === correcta) {
+      botones.forEach(btn => {
+        const i = parseInt(btn.dataset.pregunta);
+        const idx = parseInt(btn.dataset.index);
+        btn.classList.remove("correcta", "incorrecta");
+        const seleccionada = document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+        if (seleccionada && parseInt(seleccionada.dataset.index) === preguntasActuales[i].correcta) {
           aciertos++;
-        } else {
-          resultadoHTML += `
+        }
+      });
+
+      let htmlResultado = `<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>`;
+      preguntasActuales.forEach((p, i) => {
+        const seleccion = document.querySelector(`.opcion[data-pregunta='${i}'].seleccionada`);
+        if (!seleccion || parseInt(seleccion.dataset.index) !== p.correcta) {
+          htmlResultado += `
             <p>
-              ❌ <strong>${p.pregunta}</strong><br>
-              ✅ Respuesta correcta: ${p.opciones[correcta]}<br>
+              ❌ ${p.pregunta}<br>
+              ✅ Respuesta correcta: ${p.opciones[p.correcta]}<br>
               🧠 ${p.explicacion}
             </p>
           `;
         }
       });
 
-      resultadoHTML = `<p><strong>${aciertos} / ${preguntasActuales.length}</strong></p>` + resultadoHTML;
-      document.getElementById("test").innerHTML = resultadoHTML;
-    };
+      resultadoDiv.innerHTML = htmlResultado;
+    }
+
+    // Marcar botón seleccionado
+    window.addEventListener("click", e => {
+      if (e.target.classList.contains("opcion")) {
+        const siblings = e.target.parentNode.querySelectorAll(".opcion");
+        siblings.forEach(sib => sib.classList.remove("seleccionada"));
+        e.target.classList.add("seleccionada");
+      }
+    });
   </script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f5f5f5;
-    }
-
-    h1 { text-align: center; }
-    #panel { margin-top: 20px; }
-    button { margin: 5px; padding: 10px 15px; cursor: pointer; }
-    #test { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
-    input[type="radio"] { margin-right: 5px; }
+    body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; }
+    header { background:#2c3e50; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { margin:0; font-size:24px; }
+    button { cursor:pointer; padding:8px 15px; margin:5px; border:none; border-radius:5px; }
+    #panel { padding:20px; }
+    select { padding:5px; margin-bottom:15px; }
+    #temas { display:flex; gap:10px; flex-wrap:wrap; }
+    #temas button { background:#3498db; color:white; flex:1 0 120px; }
+    #test { margin-top:20px; background:white; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
+    .pregunta { margin-bottom:15px; }
+    .opcion { display:block; width:100%; text-align:left; background:#ecf0f1; margin:3px 0; }
+    .opcion.seleccionada { background:#f1c40f; }
+    .corregir { background:#27ae60; color:white; margin-top:10px; }
   </style>
 </head>
 
 <body>
-  <h1>Plataforma de Tests de Oposiciones</h1>
-
-  <div id="login">
-    <button onclick="login()">Login con Google</button>
-  </div>
+  <header>
+    <h1>Oposiciones Test</h1>
+    <div id="login"><button onclick="login()">Login con Google</button></div>
+    <div id="usuario" style="display:inline;"></div>
+  </header>
 
   <div id="panel" style="display:none;">
-    <p>Bienvenido <strong id="username"></strong></p>
-
     <h3>Selecciona oposición</h3>
     <select id="oposicion">
       <option value="TAI">Técnico Auxiliar de Informática</option>
       <option value="Administrativo">Administrativo</option>
-      <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
     </select>
 
     <h3>Selecciona tema</h3>
@@ -166,3 +169,4 @@
   </div>
 </body>
 </html>
+
