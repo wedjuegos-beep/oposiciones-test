@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA - Sistema de Recursos</title>
+    <title>OposTest IA - Sistema Estable</title>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -34,19 +34,26 @@
         let oposicionSeleccionada = null;
         let dbLocal = null;
 
-        // Base de datos local para archivos grandes
-        const request = indexedDB.open("OposProDB", 4);
+        // Base de datos IndexedDB
+        const request = indexedDB.open("OposDB_Fixed", 1);
         request.onupgradeneeded = e => {
-            const db = e.target.result;
-            if(!db.objectStoreNames.contains("pdfs")) db.createObjectStore("pdfs", { keyPath: "id" });
+            e.target.result.createObjectStore("pdfs", { keyPath: "id" });
         };
         request.onsuccess = e => dbLocal = e.target.result;
+
+        // Control de Vistas SEGURO
+        window.mostrarVista = (id) => {
+            const vistas = ["loginSection", "seleccionOposicion", "panelEstudio", "docSection"];
+            vistas.forEach(v => {
+                const el = document.getElementById(v);
+                if(el) el.style.display = (v === id) ? "block" : "none";
+            });
+        };
 
         onAuthStateChanged(auth, async (user) => {
             if(user){
                 userActual = user;
-                document.getElementById("loginSection").style.display="none";
-                document.getElementById("navUser").style.display="flex";
+                document.getElementById("navUser").style.display = "flex";
                 
                 const userDoc = await getDoc(doc(db, "users", user.uid));
                 if (userDoc.exists() && userDoc.data().oposicion) {
@@ -54,10 +61,16 @@
                 } else {
                     mostrarVista('seleccionOposicion');
                 }
+            } else {
+                mostrarVista('loginSection');
+                document.getElementById("navUser").style.display = "none";
             }
         });
 
-        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
+        window.login = () => {
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider).catch(err => console.error("Error login:", err));
+        };
 
         window.entrarOposicion = async (tipo) => {
             oposicionSeleccionada = tipo;
@@ -67,79 +80,49 @@
                 ultimoAcceso: serverTimestamp()
             }, { merge: true });
 
-            document.getElementById("badgeOpos").textContent = tipo;
-            document.getElementById("badgeOpos").style.display = "block";
-            mostrarVista('panelEstudio');
+            document.getElementById("badgeOpos").textContent = tipo.replace("_", " ");
+            document.getElementById("badgeOpos").style.display = "inline-block";
             renderTemario();
+            mostrarVista('panelEstudio');
         };
 
-        window.mostrarVista = (id) => {
-            document.querySelectorAll(".view").forEach(v => v.style.display = "none");
-            document.getElementById(id).style.display = "block";
-        };
-
-        // --- SOLUCIÓN AL ERROR DE IA (REVISADO) ---
         window.generarTestIA = async (tema) => {
             const btn = event.target;
-            const textoOriginal = btn.textContent;
             btn.textContent = "IA Analizando...";
-            btn.disabled = true;
-
             try {
-                const prompt = `Actúa como preparador. Genera un test de 3 preguntas para: ${tema}. 
-                Responde ÚNICAMENTE con un array JSON válido, sin texto extra. 
-                Formato: [{"pregunta":"...","opciones":["a","b","c","d"],"correcta":0}]`;
-
+                const prompt = `Test 3 preguntas sobre ${tema}. JSON: [{"pregunta":"...","opciones":["a","b","c","d"],"correcta":0}]`;
                 const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
                 });
-
                 const data = await resp.json();
-                
-                // Validación de seguridad
-                if (!data.candidates || !data.candidates[0]) throw new Error("La IA no respondió.");
-                
-                let rawText = data.candidates[0].content.parts[0].text;
-                
-                // LIMPIEZA TOTAL DEL JSON
-                const jsonLimpio = rawText.match(/\[.*\]/s); // Busca lo que hay entre corchetes
-                if (!jsonLimpio) throw new Error("Formato JSON no detectado.");
-
-                const test = JSON.parse(jsonLimpio[0]);
-                alert("¡Test de " + tema + " cargado con éxito!");
-                console.log("Preguntas:", test);
+                const rawText = data.candidates[0].content.parts[0].text;
+                const jsonLimpio = rawText.match(/\[.*\]/s);
+                alert("Test generado (ver consola)");
+                console.log(JSON.parse(jsonLimpio[0]));
             } catch (e) {
-                console.error(e);
-                alert("Error: Reintenta de nuevo, la IA dio un formato inválido.");
-            } finally {
-                btn.textContent = textoOriginal;
-                btn.disabled = false;
-            }
+                alert("Error IA: Reintenta");
+            } finally { btn.textContent = "Generar Test"; }
         };
 
-        // --- DOCUMENTACIÓN: MIS TEMAS Y RECURSOS FIREBASE ---
+        // DOCUMENTACION
         window.subirArchivoUser = async () => {
             const file = document.getElementById('fileUser').files[0];
             const tema = document.getElementById('selectTemaUser').value;
-            if(!file) return alert("Elige un PDF primero");
+            if(!file) return alert("Elige PDF");
 
             const reader = new FileReader();
             reader.onload = async (e) => {
-                const docId = `user_${Date.now()}`;
-                const data = { 
-                    id: docId, 
+                const tx = dbLocal.transaction("pdfs", "readwrite");
+                tx.objectStore("pdfs").add({ 
+                    id: `pdf_${Date.now()}`, 
                     name: file.name, 
                     content: e.target.result, 
                     oposicion: oposicionSeleccionada, 
-                    tema: tema, 
-                    carpeta: "mis_temas" 
-                };
-                
-                const tx = dbLocal.transaction("pdfs", "readwrite");
-                tx.objectStore("pdfs").add(data);
-                alert("Guardado en Documentación Subida");
+                    tema: tema 
+                });
+                alert("Guardado");
                 cargarDocumentacion();
             };
             reader.readAsDataURL(file);
@@ -148,26 +131,19 @@
         window.cargarDocumentacion = async () => {
             const listaTemas = document.getElementById("listaMisTemas");
             const listaRecursos = document.getElementById("listaRecursos");
-            listaTemas.innerHTML = "Cargando..."; listaRecursos.innerHTML = "Cargando...";
+            listaTemas.innerHTML = ""; listaRecursos.innerHTML = "";
 
-            // 1. Cargar "Mis Temas" (IndexedDB)
             const tx = dbLocal.transaction("pdfs", "readonly");
-            const request = tx.objectStore("pdfs").getAll();
-            request.onsuccess = () => {
-                const misArchivos = request.result.filter(f => f.oposicion === oposicionSeleccionada);
-                listaTemas.innerHTML = misArchivos.length ? "" : "No hay archivos subidos.";
-                misArchivos.forEach(file => {
-                    listaTemas.innerHTML += `<div class="file-item"><span>📄 ${file.name}</span> <button onclick="abrirPDF('${file.id}')">Ver</button></div>`;
+            tx.objectStore("pdfs").getAll().onsuccess = (e) => {
+                e.target.result.filter(f => f.oposicion === oposicionSeleccionada).forEach(file => {
+                    listaTemas.innerHTML += `<div class="file-item">📄 ${file.name} <button onclick="abrirPDF('${file.id}')">Ver</button></div>`;
                 });
             };
 
-            // 2. Cargar "Recursos" (Firebase Cloud)
             const q = query(collection(db, "recursos_academia"), where("oposicion", "==", oposicionSeleccionada));
             const snap = await getDocs(q);
-            listaRecursos.innerHTML = snap.empty ? "Sin recursos oficiales todavía." : "";
             snap.forEach(doc => {
-                const res = doc.data();
-                listaRecursos.innerHTML += `<div class="file-item"><span>🌐 ${res.nombre}</span> <button onclick="window.open('${res.url}')">Abrir</button></div>`;
+                listaRecursos.innerHTML += `<div class="file-item">🌐 ${doc.data().nombre} <button onclick="window.open('${doc.data().url}')">Abrir</button></div>`;
             });
         };
 
@@ -182,6 +158,7 @@
         function renderTemario() {
             const grid = document.getElementById("gridTemas");
             const select = document.getElementById("selectTemaUser");
+            if(!grid || !select) return;
             grid.innerHTML = ""; select.innerHTML = "";
             oposiciones[oposicionSeleccionada].forEach(t => {
                 grid.innerHTML += `<div class="card-tema"><h4>${t}</h4><button onclick="generarTestIA('${t}')">Generar Test IA</button></div>`;
@@ -192,21 +169,21 @@
 
     <style>
         :root { --blue: #1e40af; --sky: #0ea5e9; --bg: #f8fafc; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin:0; }
-        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; position: sticky; top:0; z-index:100;}
+        body { font-family: sans-serif; background: var(--bg); margin:0; }
+        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .view { display: none; }
         .btn-card { 
-            background: white; padding: 2.5rem; border-radius: 20px; text-align: center;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05); cursor: pointer; border: none;
-            border-bottom: 5px solid var(--sky); transition: 0.2s; width: 100%;
+            background: white; padding: 2rem; border-radius: 15px; text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border: none;
+            border-bottom: 5px solid var(--sky); width: 100%; transition: 0.2s;
         }
-        .btn-card:active { transform: translateY(4px); }
-        .folder { background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
-        .file-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f1f5f9; align-items: center; }
-        .card-tema { background: white; padding: 1.5rem; border-radius: 12px; border-bottom: 4px solid var(--blue); }
+        .btn-card:hover { transform: translateY(4px); }
+        .card-tema { background: white; padding: 1rem; border-radius: 10px; border-bottom: 3px solid var(--blue); margin-bottom: 10px; }
+        .card-tema button { width: 100%; background: var(--blue); color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; }
         .badge { background: var(--blue); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #cbd5e1; }
+        .file-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; background: #fff; margin-bottom: 5px; border-radius: 5px; }
+        input, select { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -214,16 +191,49 @@
 <header>
     <h1 onclick="mostrarVista('seleccionOposicion')" style="cursor:pointer">OposTest IA</h1>
     <div id="badgeOpos" class="badge" style="display:none"></div>
-    <div id="navUser" style="display:none; gap:15px;">
-        <button onclick="mostrarVista('docSection'); cargarDocumentacion();">📁 Documentación</button>
+    <div id="navUser" style="display:none; gap:10px;">
+        <button onclick="mostrarVista('docSection'); cargarDocumentacion();">📁 Documentos</button>
         <button onclick="mostrarVista('panelEstudio')">Inicio</button>
     </div>
 </header>
 
 <div class="container">
-    <div id="loginSection" style="text-align:center; padding-top:100px;">
-        <button class="btn-card" onclick="login()" style="max-width:300px;"><h2>Entrar</h2></button>
+    <div id="loginSection" class="view" style="text-align:center; padding-top:50px;">
+        <button class="btn-card" onclick="login()" style="max-width:300px;"><h2>Iniciar Sesión</h2></button>
     </div>
 
     <div id="seleccionOposicion" class="view">
-        <h2 style="text-align:center; margin-bottom:
+        <h2 style="text-align:center;">Elige tu Oposición</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <button class="btn-card" onclick="entrarOposicion('TAI_LIBRE')"><h3>TAI Estado</h3></button>
+            <button class="btn-card" onclick="entrarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></button>
+            <button class="btn-card" onclick="entrarOposicion('AUX_AYTO_VALENCIA')"><h3>Ayto. Valencia</h3></button>
+        </div>
+    </div>
+
+    <div id="panelEstudio" class="view">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h2>Mi Temario</h2>
+            <button class="badge" onclick="mostrarVista('seleccionOposicion')" style="border:none; cursor:pointer;">Cambiar</button>
+        </div>
+        <div id="gridTemas" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px;"></div>
+    </div>
+
+    <div id="docSection" class="view">
+        <div style="background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 20px;">
+            <h3>📥 Subir Documentación Personal</h3>
+            <select id="selectTemaUser"></select>
+            <input type="file" id="fileUser" accept=".pdf">
+            <button onclick="subirArchivoUser()" style="width:100%; background:var(--sky); color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Guardar en este PC</button>
+            <div id="listaMisTemas" style="margin-top:15px;"></div>
+        </div>
+
+        <div style="background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #ddd;">
+            <h3>📂 Recursos de la Academia (Firebase)</h3>
+            <div id="listaRecursos"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
