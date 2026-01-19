@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA - Sistema Profesional</title>
+    <title>OposTest IA - Auto-Configurable</title>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, collection, addDoc, query, where, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
         import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
         const firebaseConfig = {
@@ -25,197 +25,213 @@
         const db = getFirestore(app);
         const storage = getStorage(app);
 
-        // MAPEO FLEXIBLE PARA EVITAR ERRORES DE CLAVES
+        // Definición Maestra de Oposiciones
         const oposData = {
-            "TAI": { nombre: "Técnico Auxiliar Informática", temas: ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes", "Tema 4: Seguridad"] },
-            "TAI_LIBRE": { nombre: "Técnico Auxiliar Informática", temas: ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes", "Tema 4: Seguridad"] },
-            "AUX_ESTADO": { nombre: "Auxiliar Administrativo Estado", temas: ["Bloque I: Organización", "Bloque II: Gestión", "Bloque III: Ofimática"] },
-            "AUX_VALENCIA": { nombre: "Auxiliar Ayto. Valencia", temas: ["TEMA 1-4: Const.", "TEMA 5-10: Leyes", "TEMA 11-15: Local"] }
+            "TAI": { nombre: "Técnico Auxiliar Informática", temas: ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes"] },
+            "TAI_LIBRE": { nombre: "Técnico Auxiliar Informática", temas: ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes"] },
+            "AUX_ESTADO": { nombre: "Auxiliar Administrativo Estado", temas: ["Bloque I: Organización", "Bloque II: Gestión"] },
+            "AUX_VALENCIA": { nombre: "Auxiliar Ayto. Valencia", temas: ["TEMA 1: Constitución", "TEMA 2: Local"] }
         };
 
         let userActual = null;
         let oposSel = null;
-        let temasParaTest = [];
 
         window.mostrarVista = (id) => {
             document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
-            document.getElementById(id).style.display = 'flex';
-            // Control de visibilidad de navegación
-            const nav = document.getElementById("navApp");
-            const chat = document.getElementById("chatLateral");
-            if(oposSel) { nav.style.display = 'flex'; chat.style.display = 'flex'; }
+            const target = document.getElementById(id);
+            if(target) target.style.display = 'flex';
+            
+            // Navegación inteligente
+            document.getElementById("navApp").style.display = (oposSel) ? "flex" : "none";
+            document.getElementById("chatLateral").style.display = (oposSel) ? "flex" : "none";
         };
 
+        // --- LÓGICA DE LOGIN Y AUTO-CREACIÓN ---
         onAuthStateChanged(auth, async (user) => {
-            if(user){
+            if (user) {
                 userActual = user;
-                const uDoc = await getDoc(doc(db, "users", user.uid));
-                if(uDoc.exists() && uDoc.data().oposicion) {
-                    window.seleccionarOposicion(uDoc.data().oposicion);
-                } else { mostrarVista('vistaSeleccion'); }
-            } else { mostrarVista('vistaLogin'); }
+                console.log("Usuario logueado:", user.uid);
+                
+                const userRef = doc(db, "users", user.uid);
+                const uDoc = await getDoc(userRef);
+
+                if (!uDoc.exists()) {
+                    // SI NO EXISTE, LO CREAMOS POR PRIMERA VEZ
+                    console.log("Creando nuevo usuario en Firebase...");
+                    await setDoc(userRef, {
+                        uid: user.uid,
+                        email: user.email,
+                        nombre: user.displayName,
+                        fechaCreacion: new Date(),
+                        oposicion: null
+                    });
+                    mostrarVista('vistaSeleccion');
+                } else {
+                    // SI EXISTE, COMPROBAMOS SI YA TIENE OPOSICIÓN
+                    const data = uDoc.data();
+                    if (data.oposicion) {
+                        window.seleccionarOposicion(data.oposicion);
+                    } else {
+                        mostrarVista('vistaSeleccion');
+                    }
+                }
+            } else {
+                mostrarVista('vistaLogin');
+            }
         });
 
-        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
+        window.login = async () => {
+            try {
+                const provider = new GoogleAuthProvider();
+                await signInWithPopup(auth, provider);
+            } catch (error) {
+                console.error("Error en login:", error);
+            }
+        };
 
         window.seleccionarOposicion = async (key) => {
-            if (!oposData[key]) {
-                console.error("Clave no reconocida:", key);
-                key = "TAI"; // Fallback para evitar bloqueo
+            // Normalizamos la clave por si viene con espacios o mayúsculas raras
+            const cleanKey = key.trim();
+            if (!oposData[cleanKey]) {
+                console.warn("Clave no reconocida, usando TAI por defecto");
+                oposSel = "TAI";
+            } else {
+                oposSel = cleanKey;
             }
-            oposSel = key;
-            if(userActual) await setDoc(doc(db, "users", userActual.uid), { oposicion: key }, { merge: true });
+
+            // Actualizar el perfil del usuario con la elección
+            await setDoc(doc(db, "users", userActual.uid), { oposicion: oposSel }, { merge: true });
             
-            document.getElementById("txtOposHeader").textContent = oposData[key].nombre;
-            renderTemarioCards();
+            document.getElementById("txtOposHeader").textContent = oposData[oposSel].nombre;
+            renderTemario();
             mostrarVista('vistaPanel');
         };
 
-        // RENDER TEMAS PARA SELECCIONAR MULTIPLES
-        function renderTemarioCards() {
-            const container = document.getElementById("containerTemas");
-            const selectSubida = document.getElementById("selectTemaSubida");
-            container.innerHTML = ""; selectSubida.innerHTML = "";
-            temasParaTest = [];
+        function renderTemario() {
+            const grid = document.getElementById("containerTemas");
+            const select = document.getElementById("selectTemaSubida");
+            grid.innerHTML = ""; select.innerHTML = "";
 
             oposData[oposSel].temas.forEach(t => {
-                // Para el panel de tests
                 const card = document.createElement("div");
                 card.className = "card-tema";
-                card.innerHTML = `<h4>${t}</h4><p>Seleccionar</p>`;
-                card.onclick = () => {
-                    card.classList.toggle("selected");
-                    if(card.classList.contains("selected")) temasParaTest.push(t);
-                    else temasParaTest = temasParaTest.filter(item => item !== t);
-                };
-                container.appendChild(card);
+                card.innerHTML = `<h4>${t}</h4><p>Estado: Sin test</p>`;
+                grid.appendChild(card);
 
-                // Para el select de subida
-                selectSubida.innerHTML += `<option value="${t}">${t}</option>`;
+                select.innerHTML += `<option value="${t}">${t}</option>`;
             });
         }
 
-        // SUBIDA DE RECURSOS A TU RUTA ESPECIFICA
+        // --- SUBIDA AUTOMÁTICA ---
         window.subirRecurso = async () => {
             const file = document.getElementById("fileInput").files[0];
             const tema = document.getElementById("selectTemaSubida").value;
             const btn = document.getElementById("btnSubir");
-            if(!file) return alert("Selecciona un PDF");
+            if(!file) return alert("Selecciona un archivo PDF");
 
             btn.disabled = true; btn.innerText = "Subiendo...";
 
             try {
-                const ruta = `opo/${userActual.uid}/${oposSel}/${file.name}`;
-                const storageRef = ref(storage, ruta);
+                // Ruta: /opo/UID/OPOSICION/nombre.pdf
+                const storagePath = `opo/${userActual.uid}/${oposSel}/${file.name}`;
+                const storageRef = ref(storage, storagePath);
+                
                 await uploadBytes(storageRef, file);
-                const url = await getDownloadURL(storageRef);
+                const downloadURL = await getDownloadURL(storageRef);
 
+                // Guardamos la referencia en la colección 'recursos'
                 await addDoc(collection(db, "recursos"), {
-                    nombre: file.name,
-                    tema: tema,
-                    oposicion: oposSel,
-                    url: url,
-                    ruta: `/opo/${userActual.uid}/${oposSel}`,
                     uid: userActual.uid,
+                    oposicion: oposSel,
+                    tema: tema,
+                    nombreArchivo: file.name,
+                    url: downloadURL,
                     fecha: new Date()
                 });
-                alert("PDF guardado y vinculado al " + tema);
+
+                alert("Archivo " + file.name + " subido y asociado al " + tema);
                 document.getElementById("fileInput").value = "";
-            } catch (e) { alert("Error al subir"); }
-            finally { btn.disabled = false; btn.innerText = "Subir y Vincular PDF"; }
+            } catch (e) {
+                console.error(e);
+                alert("Error al subir archivo");
+            } finally {
+                btn.disabled = false; btn.innerText = "Subir PDF";
+            }
         };
 
     </script>
 
     <style>
-        :root { --primary: #2563eb; --bg: #f1f5f9; }
-        body { font-family: 'Segoe UI', sans-serif; margin:0; background: var(--bg); height: 100vh; display: flex; flex-direction: column; }
-        
-        header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; }
+        :root { --p: #2563eb; --bg: #f8fafc; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); height: 100vh; display: flex; flex-direction: column; }
+        header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; height: 60px; }
         .main-layout { display: flex; flex: 1; overflow: hidden; }
-        .content { flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        
+        .content { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .view { display: none; flex-direction: column; align-items: center; width: 100%; max-width: 900px; }
-        
-        /* Login Centrado */
-        #vistaLogin { height: 80vh; justify-content: center; }
-        .card-login { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
-
-        /* Temas Grid */
-        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; width: 100%; margin-top: 20px; }
-        .card-tema { background: white; padding: 20px; border-radius: 12px; cursor: pointer; border: 2px solid transparent; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-tema.selected { border-color: var(--primary); background: #eff6ff; }
-        
-        /* Chat Lateral */
-        #chatLateral { width: 320px; background: white; border-left: 2px solid #e2e8f0; display: none; flex-direction: column; }
-        #chatBox { flex: 1; padding: 15px; overflow-y: auto; background: #f8fafc; }
-
-        .btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .btn-sec { background: white; border: 1px solid #ddd; color: #444; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; width: 100%; max-width: 400px; }
+        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; width: 100%; margin-top: 20px; }
+        .card-tema { background: white; padding: 20px; border-radius: 12px; border-left: 5px solid var(--p); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn { background: var(--p); color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
+        .btn-outline { background: white; border: 1px solid #ddd; color: #444; margin-top: 5px;}
+        #chatLateral { width: 300px; background: white; border-left: 2px solid #e2e8f0; display: none; flex-direction: column; }
+        select, input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
 <header>
     <div style="display:flex; align-items:center; gap:15px;">
-        <h2 style="color:var(--primary); margin:0;">OposTest IA</h2>
-        <span id="txtOposHeader" style="background:#e2e8f0; padding:4px 12px; border-radius:15px; font-size:0.8rem;"></span>
+        <h2 style="color:var(--p); margin:0; cursor:pointer;" onclick="location.reload()">OposTest</h2>
+        <span id="txtOposHeader" style="background:#e0e7ff; color:var(--p); padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:bold;"></span>
     </div>
     <div id="navApp" style="display:none; gap:10px;">
-        <button class="btn" onclick="alert('Generando test de los temas seleccionados...')">📝 Realizar Test</button>
-        <button class="btn btn-sec" onclick="mostrarVista('vistaBiblioteca')">📁 Biblioteca</button>
-        <button class="btn btn-sec" onclick="alert('Historial de resultados...')">📊 Resultados</button>
-        <button class="btn btn-sec" onclick="mostrarVista('vistaSeleccion')">🔄 Cambiar</button>
+        <button class="btn" style="width:auto;" onclick="mostrarVista('vistaPanel')">Inicio</button>
+        <button class="btn btn-outline" style="width:auto;" onclick="mostrarVista('vistaBiblioteca')">Biblioteca</button>
+        <button class="btn btn-outline" style="width:auto;" onclick="mostrarVista('vistaSeleccion')">Cambiar Opos</button>
     </div>
 </header>
 
 <div class="main-layout">
     <div class="content">
         <div id="vistaLogin" class="view">
-            <div class="card-login">
-                <h1>Bienvenido</h1>
-                <p>Inicia sesión para acceder a tu temario personalizado</p>
-                <button class="btn" onclick="login()" style="width:100%">Entrar con Google</button>
+            <div class="card">
+                <h1>Acceso</h1>
+                <p>Usa tu cuenta de Google para empezar</p>
+                <button class="btn" onclick="login()">Entrar con Google</button>
             </div>
         </div>
 
         <div id="vistaSeleccion" class="view">
-            <h2>Elige tu Oposición</h2>
+            <h2 style="margin-bottom:20px;">¿Qué estás preparando?</h2>
             <div class="grid-temas">
-                <div class="card-tema" onclick="seleccionarOposicion('TAI')"><h3>TAI Estado</h3></div>
-                <div class="card-tema" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></div>
-                <div class="card-tema" onclick="seleccionarOposicion('AUX_VALENCIA')"><h3>Ayto Valencia</h3></div>
+                <div class="card-tema" style="cursor:pointer" onclick="seleccionarOposicion('TAI')"><h3>TAI Estado</h3></div>
+                <div class="card-tema" style="cursor:pointer" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></div>
+                <div class="card-tema" style="cursor:pointer" onclick="seleccionarOposicion('AUX_VALENCIA')"><h3>Ayto Valencia</h3></div>
             </div>
         </div>
 
         <div id="vistaPanel" class="view">
             <div style="width:100%; text-align:left;">
-                <h3>Selecciona temas para practicar:</h3>
+                <h3>Temario de Oposición</h3>
                 <div id="containerTemas" class="grid-temas"></div>
             </div>
         </div>
 
         <div id="vistaBiblioteca" class="view">
-            <div class="card-login" style="width:100%; max-width:500px;">
-                <h3>Subir Documentación Oficial</h3>
-                <p>Selecciona el tema y sube el PDF para que la IA aprenda de él.</p>
+            <div class="card" style="max-width:500px;">
+                <h3>Subir Material</h3>
+                <label>Asociar al tema:</label>
                 <select id="selectTemaSubida"></select>
                 <input type="file" id="fileInput" accept=".pdf">
-                <button id="btnSubir" class="btn" onclick="subirRecurso()" style="width:100%">Subir y Vincular PDF</button>
+                <button id="btnSubir" class="btn" onclick="subirRecurso()">Subir PDF</button>
             </div>
         </div>
     </div>
 
     <div id="chatLateral">
-        <div style="background: var(--primary); color:white; padding:15px; font-weight:bold;">🤖 Tutor IA</div>
-        <div id="chatBox">
-            <div style="background:#eee; padding:10px; border-radius:10px; font-size:0.8rem;">
-                Hola! Soy tu tutor. He cargado los conocimientos de tu oposición. ¿En qué te ayudo?
-            </div>
-        </div>
-        <div style="padding:10px; border-top:1px solid #eee;">
-            <input type="text" placeholder="Escribe tu duda..." style="margin:0;">
+        <div style="background:var(--p); color:white; padding:15px; font-weight:bold;">🤖 Tutor IA</div>
+        <div id="chatBox" style="flex:1; padding:15px; font-size:0.9rem; color:#666;">
+            Bienvenido. Selecciona tus temas y sube tus apuntes para que pueda ayudarte a generar tests.
         </div>
     </div>
 </div>
