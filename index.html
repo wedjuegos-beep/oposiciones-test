@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA - Solución Definitiva</title>
+    <title>OposTest IA - Sistema Profesional</title>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -24,7 +24,6 @@
         const db = getFirestore(app);
         const GEMINI_API_KEY = "AIzaSyAqj1bM5AnrT7n4piNWtquCu-dZvj4OnPU";
 
-        // IMPORTANTE: Estas claves deben coincidir con lo que envías en entrarOposicion()
         const oposicionesData = {
             "TAI_LIBRE": ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes", "Tema 4: Seguridad"],
             "AUX_ESTADO": ["Bloque I: Organización", "Bloque II: Gestión", "Bloque III: Ofimática"],
@@ -33,165 +32,219 @@
 
         let userActual = null;
         let oposicionSeleccionada = null;
+        let dbLocal = null;
 
-        // Función de navegación robusta
+        // Base de Datos Local (IndexedDB) para PDFs y Tests
+        const request = indexedDB.open("OposMasterDB", 5);
+        request.onupgradeneeded = e => {
+            const db = e.target.result;
+            if(!db.objectStoreNames.contains("pdfs")) db.createObjectStore("pdfs", { keyPath: "id" });
+            if(!db.objectStoreNames.contains("tests")) db.createObjectStore("tests", { keyPath: "id" });
+        };
+        request.onsuccess = e => dbLocal = e.target.result;
+
         window.mostrarVista = (id) => {
-            const views = ["loginSection", "seleccionOposicion", "panelEstudio", "docSection"];
-            views.forEach(v => {
+            ["loginSection", "seleccionOposicion", "panelEstudio", "docSection"].forEach(v => {
                 const el = document.getElementById(v);
-                if (el) el.style.display = (v === id) ? "block" : "none";
+                if(el) el.style.display = (v === id) ? "block" : "none";
             });
+            // Mostrar chat si ya hay oposición
+            if(oposicionSeleccionada) document.getElementById("chatContenedor").style.display = "flex";
         };
 
         onAuthStateChanged(auth, async (user) => {
-            if (user) {
+            if(user){
                 userActual = user;
                 document.getElementById("navUser").style.display = "flex";
-                
-                // Intentar recuperar oposicion guardada
-                try {
-                    const userDoc = await getDoc(doc(db, "users", user.uid));
-                    if (userDoc.exists() && userDoc.data().oposicion) {
-                        window.entrarOposicion(userDoc.data().oposicion);
-                    } else {
-                        mostrarVista('seleccionOposicion');
-                    }
-                } catch (e) {
-                    mostrarVista('seleccionOposicion');
-                }
-            } else {
-                mostrarVista('loginSection');
-                document.getElementById("navUser").style.display = "none";
-            }
+                const userDoc = await getDoc(doc(db, "users", user.uid));
+                if (userDoc.exists() && userDoc.data().oposicion) {
+                    window.entrarOposicion(userDoc.data().oposicion);
+                } else { mostrarVista('seleccionOposicion'); }
+            } else { mostrarVista('loginSection'); }
         });
 
         window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
 
         window.entrarOposicion = async (tipo) => {
-            if (!tipo) return;
             oposicionSeleccionada = tipo;
+            if(userActual) await setDoc(doc(db, "users", userActual.uid), { oposicion: tipo }, { merge: true });
+            document.getElementById("badgeOpos").textContent = tipo;
+            document.getElementById("badgeOpos").style.display = "block";
             
-            // Guardar en Firebase para recordar mañana
-            if (userActual) {
-                await setDoc(doc(db, "users", userActual.uid), { 
-                    oposicion: tipo,
-                    ultimoAcceso: serverTimestamp()
-                }, { merge: true });
-            }
-
-            document.getElementById("badgeOpos").textContent = tipo.replace("_", " ");
-            document.getElementById("badgeOpos").style.display = "inline-block";
+            // Bienvenida en el Chat
+            document.getElementById("chatMensajes").innerHTML = `<div class="msg bot">¡Hola! Soy tu tutor de ${tipo}. He cargado tus temas y PDFs. ¿En qué te ayudo?</div>`;
             
             renderTemario();
             mostrarVista('panelEstudio');
         };
 
+        // --- GESTIÓN DE TEST POR TEMA ---
+        window.abrirZonaEstudio = async (tema) => {
+            const zona = document.getElementById("zonaTestTema");
+            zona.innerHTML = `<h3>Tests de: ${tema}</h3><div id="listaTestsGuardados">Cargando tests...</div>
+            <button class="btn-ia" onclick="generarTestIA('${tema}')">✨ Generar Nuevo Test con IA</button>`;
+            
+            const tx = dbLocal.transaction("tests", "readonly");
+            const store = tx.objectStore("tests");
+            store.getAll().onsuccess = (e) => {
+                const filtrados = e.target.result.filter(t => t.tema === tema && t.oposicion === oposicionSeleccionada);
+                const lista = document.getElementById("listaTestsGuardados");
+                lista.innerHTML = filtrados.length ? "" : "<p>No hay tests creados para este tema.</p>";
+                filtrados.forEach((t, i) => {
+                    lista.innerHTML += `<div class="test-item">📝 Test #${i+1} (${t.preguntas.length} preg.) <button onclick="verTest('${t.id}')">Practicar</button></div>`;
+                });
+            };
+        };
+
+        window.generarTestIA = async (tema) => {
+            try {
+                const prompt = `Genera un test de 3 preguntas para ${tema}. JSON: [{"pregunta":"...","opciones":["a","b","c","d"],"correcta":0}]`;
+                const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST', headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                const data = await resp.json();
+                const jsonLimpio = data.candidates[0].content.parts[0].text.match(/\[.*\]/s);
+                const preguntas = JSON.parse(jsonLimpio[0]);
+
+                const nuevoTest = { id: `test_${Date.now()}`, tema, oposicion: oposicionSeleccionada, preguntas };
+                const tx = dbLocal.transaction("tests", "readwrite");
+                tx.objectStore("tests").add(nuevoTest);
+                
+                alert("IA: Nuevo test generado y guardado.");
+                abrirZonaEstudio(tema);
+            } catch (e) { alert("Error IA al generar"); }
+        };
+
+        // --- SUBIR DOCUMENTACIÓN ---
+        window.subirDoc = async () => {
+            const file = document.getElementById('fileUser').files[0];
+            const tema = document.getElementById('selectTemaUser').value;
+            if(!file) return alert("Selecciona PDF");
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const tx = dbLocal.transaction("pdfs", "readwrite");
+                tx.objectStore("pdfs").add({ 
+                    id: `pdf_${Date.now()}`, name: file.name, content: e.target.result, 
+                    tema, oposicion: oposicionSeleccionada 
+                });
+                alert("PDF guardado correctamente");
+                cargarDocumentacion();
+            };
+            reader.readAsDataURL(file);
+        };
+
+        window.cargarDocumentacion = () => {
+            const lista = document.getElementById("listaMisTemas");
+            lista.innerHTML = "";
+            const tx = dbLocal.transaction("pdfs", "readonly");
+            tx.objectStore("pdfs").getAll().onsuccess = (e) => {
+                const filtrados = e.target.result.filter(f => f.oposicion === oposicionSeleccionada);
+                filtrados.forEach(f => {
+                    lista.innerHTML += `<div class="file-item">📄 ${f.name} <small>(${f.tema})</small> <button onclick="abrirPDF('${f.id}')">Ver</button></div>`;
+                });
+            };
+        };
+
         function renderTemario() {
             const grid = document.getElementById("gridTemas");
             const select = document.getElementById("selectTemaUser");
-            
-            if (!grid || !select) return;
-            
-            grid.innerHTML = "";
-            select.innerHTML = "";
-
-            const temas = oposicionesData[oposicionSeleccionada] || [];
-            
-            if (temas.length === 0) {
-                grid.innerHTML = "<p>No se encontraron temas para esta categoría.</p>";
-                return;
-            }
-
-            temas.forEach(t => {
-                grid.innerHTML += `
-                    <div class="card-tema">
-                        <h4>${t}</h4>
-                        <button onclick="alert('Generando test para: ${t}')">Generar Test IA</button>
-                    </div>`;
+            grid.innerHTML = ""; select.innerHTML = "";
+            (oposicionesData[oposicionSeleccionada] || []).forEach(t => {
+                grid.innerHTML += `<div class="card-tema" onclick="abrirZonaEstudio('${t}')"><h4>${t}</h4><small>Click para ver tests</small></div>`;
                 select.innerHTML += `<option value="${t}">${t}</option>`;
             });
         }
 
-        // Exponer funciones al objeto window para que el HTML las vea
-        window.renderTemario = renderTemario;
+        window.abrirPDF = (id) => {
+            const tx = dbLocal.transaction("pdfs", "readonly");
+            tx.objectStore("pdfs").get(id).onsuccess = e => {
+                const win = window.open();
+                win.document.write(`<iframe src="${e.target.result.content}" width="100%" height="100%" style="border:none;"></iframe>`);
+            };
+        };
+
     </script>
 
     <style>
-        :root { --blue: #1e40af; --sky: #0ea5e9; --bg: #f8fafc; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin:0; color: #334155; }
-        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        :root { --blue: #1e40af; --sky: #0ea5e9; --bg: #f1f5f9; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin:0; display: flex; flex-direction: column; height: 100vh; }
+        
+        header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; height: 60px; }
+        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        .content { flex: 1; overflow-y: auto; padding: 20px; }
+        
+        /* CHAT LATERAL */
+        #chatContenedor { width: 300px; background: white; border-left: 2px solid #e2e8f0; display: none; flex-direction: column; }
+        #chatMensajes { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #f8fafc; }
+        .msg { padding: 10px; border-radius: 10px; font-size: 0.9rem; max-width: 85%; }
+        .bot { background: var(--blue); color: white; align-self: flex-start; }
+        
         .view { display: none; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .btn-card { 
-            background: white; padding: 2.5rem; border-radius: 20px; text-align: center;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer; border: none;
-            border-bottom: 5px solid var(--sky); transition: 0.2s; width: 100%;
-        }
-        .btn-card:hover { transform: translateY(-5px); }
-        .card-tema { background: white; padding: 1.5rem; border-radius: 12px; border-bottom: 4px solid var(--blue); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card-tema button { width: 100%; margin-top: 10px; background: var(--blue); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; }
-        .badge { background: var(--blue); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #cbd5e1; }
+        .grid-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .card-tema { background: white; padding: 15px; border-radius: 10px; border-left: 5px solid var(--blue); cursor: pointer; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card-tema:hover { background: #eff6ff; }
+        
+        .zona-estudio { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; border: 1px solid #e2e8f0; }
+        .test-item { display: flex; justify-content: space-between; background: #f8fafc; padding: 10px; border-radius: 8px; margin-bottom: 5px; border: 1px solid #eee; }
+        .btn-ia { width: 100%; background: var(--blue); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: 15px; font-weight: bold; }
+        
+        .file-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .badge { background: var(--blue); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 onclick="mostrarVista('seleccionOposicion')" style="cursor:pointer; color: var(--blue);">OposTest IA</h1>
+    <h1 onclick="mostrarVista('seleccionOposicion')" style="cursor:pointer; font-size: 1.5rem; color: var(--blue);">OposTest IA</h1>
     <div id="badgeOpos" class="badge" style="display:none"></div>
-    <div id="navUser" style="display:none; gap:15px;">
-        <button onclick="mostrarVista('docSection')">📁 Documentación</button>
-        <button onclick="mostrarVista('panelEstudio')">Inicio</button>
+    <div id="navUser" style="display:none; gap:10px;">
+        <button onclick="mostrarVista('docSection'); cargarDocumentacion();">📁 Biblioteca</button>
+        <button onclick="mostrarVista('panelEstudio')">🏠 Inicio</button>
     </div>
 </header>
 
-<div class="container">
-    <div id="loginSection" class="view" style="text-align:center; padding-top:80px;">
-        <div class="btn-card" style="max-width:400px; margin:auto;">
-            <h2>Bienvenido</h2>
-            <p>Accede para gestionar tus test</p>
-            <button onclick="login()" style="background: var(--blue); color:white; border:none; padding:15px 30px; border-radius:10px; cursor:pointer; font-weight:bold;">Entrar con Google</button>
+<div class="main-layout">
+    <div class="content">
+        <div id="loginSection" class="view" style="text-align:center; padding-top:100px;">
+            <button onclick="login()" style="padding: 20px 40px; font-size: 1.2rem; cursor:pointer; background: white; border: 3px solid var(--sky); border-radius: 15px;">Entrar a la Academia</button>
         </div>
-    </div>
 
-    <div id="seleccionOposicion" class="view">
-        <h2 style="text-align:center; margin-bottom:3rem;">¿Qué oposición estás preparando?</h2>
-        <div class="grid-3">
-            <button class="btn-card" onclick="entrarOposicion('TAI_LIBRE')">
-                <h3>TAI Estado</h3>
-                <p>Cuerpo de Técnicos Auxiliares de Informática</p>
-            </button>
-            <button class="btn-card" onclick="entrarOposicion('AUX_ESTADO')">
-                <h3>Auxiliar Estado</h3>
-                <p>Administrativos de la AGE</p>
-            </button>
-            <button class="btn-card" onclick="entrarOposicion('AUX_AYTO_VALENCIA')">
-                <h3>Ayto. Valencia</h3>
-                <p>Auxiliares Ayuntamiento de Valencia</p>
-            </button>
-        </div>
-    </div>
-
-    <div id="panelEstudio" class="view">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
-            <h2>Mis Temas Disponibles</h2>
-            <button class="badge" onclick="mostrarVista('seleccionOposicion')" style="border:none; cursor:pointer; background: #64748b;">Cambiar Oposición</button>
-        </div>
-        <div id="gridTemas" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;"></div>
-    </div>
-
-    <div id="docSection" class="view">
-        <div style="background: white; padding: 2rem; border-radius: 20px; border: 1px solid #e2e8f0;">
-            <h3>📥 Mi Carpeta de Documentación</h3>
-            <p>Asocia tus PDFs a los temas de tu oposición:</p>
-            <select id="selectTemaUser"></select>
-            <input type="file" id="fileUser" accept=".pdf">
-            <button style="width:100%; background:var(--sky); color:white; border:none; padding:12px; border-radius:10px; cursor:pointer; font-weight:bold;">Vincular y Guardar</button>
-            <hr style="margin:2rem 0; border:0; border-top:1px solid #eee;">
-            <div id="listaMisTemas">
-                <p style="color:#94a3b8">No hay documentos vinculados en este equipo.</p>
+        <div id="seleccionOposicion" class="view">
+            <h2 style="text-align:center;">Selecciona tu Oposición</h2>
+            <div class="grid-temas">
+                <div class="card-tema" onclick="entrarOposicion('TAI_LIBRE')"><h3>TAI Estado</h3></div>
+                <div class="card-tema" onclick="entrarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></div>
+                <div class="card-tema" onclick="entrarOposicion('AUX_AYTO_VALENCIA')"><h3>Ayto. Valencia</h3></div>
             </div>
+        </div>
+
+        <div id="panelEstudio" class="view">
+            <h2>Panel de Estudio</h2>
+            <div class="grid-temas" id="gridTemas"></div>
+            <div id="zonaTestTema" class="zona-estudio">
+                <p>Selecciona un tema de arriba para ver tus tests.</p>
+            </div>
+        </div>
+
+        <div id="docSection" class="view">
+            <div class="zona-estudio">
+                <h3>📥 Subir Documentación</h3>
+                <select id="selectTemaUser"></select>
+                <input type="file" id="fileUser" accept=".pdf">
+                <button onclick="subirDoc()" class="btn-ia">Vincular PDF al Tema</button>
+                <div id="listaMisTemas" style="margin-top:20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chatContenedor">
+        <div style="background: var(--blue); color:white; padding:15px; font-weight:bold;">🤖 Ayudante IA</div>
+        <div id="chatMensajes"></div>
+        <div style="padding:10px; border-top: 1px solid #eee;">
+            <input type="text" placeholder="Escribe tu duda..." style="margin:0;">
         </div>
     </div>
 </div>
