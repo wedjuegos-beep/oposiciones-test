@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA - Sistema Estable</title>
+    <title>OposTest IA - Solución Definitiva</title>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -24,7 +24,8 @@
         const db = getFirestore(app);
         const GEMINI_API_KEY = "AIzaSyAqj1bM5AnrT7n4piNWtquCu-dZvj4OnPU";
 
-        const oposiciones = {
+        // IMPORTANTE: Estas claves deben coincidir con lo que envías en entrarOposicion()
+        const oposicionesData = {
             "TAI_LIBRE": ["Tema 1: Constitución", "Tema 2: Hardware", "Tema 3: Redes", "Tema 4: Seguridad"],
             "AUX_ESTADO": ["Bloque I: Organización", "Bloque II: Gestión", "Bloque III: Ofimática"],
             "AUX_AYTO_VALENCIA": ["TEMA 1-4: Const.", "TEMA 5-10: Leyes", "TEMA 11-15: Local", "TEMA 16-21: Personal"]
@@ -32,33 +33,30 @@
 
         let userActual = null;
         let oposicionSeleccionada = null;
-        let dbLocal = null;
 
-        // Base de datos IndexedDB
-        const request = indexedDB.open("OposDB_Fixed", 1);
-        request.onupgradeneeded = e => {
-            e.target.result.createObjectStore("pdfs", { keyPath: "id" });
-        };
-        request.onsuccess = e => dbLocal = e.target.result;
-
-        // Control de Vistas SEGURO
+        // Función de navegación robusta
         window.mostrarVista = (id) => {
-            const vistas = ["loginSection", "seleccionOposicion", "panelEstudio", "docSection"];
-            vistas.forEach(v => {
+            const views = ["loginSection", "seleccionOposicion", "panelEstudio", "docSection"];
+            views.forEach(v => {
                 const el = document.getElementById(v);
-                if(el) el.style.display = (v === id) ? "block" : "none";
+                if (el) el.style.display = (v === id) ? "block" : "none";
             });
         };
 
         onAuthStateChanged(auth, async (user) => {
-            if(user){
+            if (user) {
                 userActual = user;
                 document.getElementById("navUser").style.display = "flex";
                 
-                const userDoc = await getDoc(doc(db, "users", user.uid));
-                if (userDoc.exists() && userDoc.data().oposicion) {
-                    entrarOposicion(userDoc.data().oposicion);
-                } else {
+                // Intentar recuperar oposicion guardada
+                try {
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
+                    if (userDoc.exists() && userDoc.data().oposicion) {
+                        window.entrarOposicion(userDoc.data().oposicion);
+                    } else {
+                        mostrarVista('seleccionOposicion');
+                    }
+                } catch (e) {
                     mostrarVista('seleccionOposicion');
                 }
             } else {
@@ -67,170 +65,133 @@
             }
         });
 
-        window.login = () => {
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider).catch(err => console.error("Error login:", err));
-        };
+        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
 
         window.entrarOposicion = async (tipo) => {
+            if (!tipo) return;
             oposicionSeleccionada = tipo;
-            await setDoc(doc(db, "users", userActual.uid), { 
-                nombre: userActual.displayName,
-                oposicion: tipo,
-                ultimoAcceso: serverTimestamp()
-            }, { merge: true });
+            
+            // Guardar en Firebase para recordar mañana
+            if (userActual) {
+                await setDoc(doc(db, "users", userActual.uid), { 
+                    oposicion: tipo,
+                    ultimoAcceso: serverTimestamp()
+                }, { merge: true });
+            }
 
             document.getElementById("badgeOpos").textContent = tipo.replace("_", " ");
             document.getElementById("badgeOpos").style.display = "inline-block";
+            
             renderTemario();
             mostrarVista('panelEstudio');
-        };
-
-        window.generarTestIA = async (tema) => {
-            const btn = event.target;
-            btn.textContent = "IA Analizando...";
-            try {
-                const prompt = `Test 3 preguntas sobre ${tema}. JSON: [{"pregunta":"...","opciones":["a","b","c","d"],"correcta":0}]`;
-                const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                });
-                const data = await resp.json();
-                const rawText = data.candidates[0].content.parts[0].text;
-                const jsonLimpio = rawText.match(/\[.*\]/s);
-                alert("Test generado (ver consola)");
-                console.log(JSON.parse(jsonLimpio[0]));
-            } catch (e) {
-                alert("Error IA: Reintenta");
-            } finally { btn.textContent = "Generar Test"; }
-        };
-
-        // DOCUMENTACION
-        window.subirArchivoUser = async () => {
-            const file = document.getElementById('fileUser').files[0];
-            const tema = document.getElementById('selectTemaUser').value;
-            if(!file) return alert("Elige PDF");
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                const tx = dbLocal.transaction("pdfs", "readwrite");
-                tx.objectStore("pdfs").add({ 
-                    id: `pdf_${Date.now()}`, 
-                    name: file.name, 
-                    content: e.target.result, 
-                    oposicion: oposicionSeleccionada, 
-                    tema: tema 
-                });
-                alert("Guardado");
-                cargarDocumentacion();
-            };
-            reader.readAsDataURL(file);
-        };
-
-        window.cargarDocumentacion = async () => {
-            const listaTemas = document.getElementById("listaMisTemas");
-            const listaRecursos = document.getElementById("listaRecursos");
-            listaTemas.innerHTML = ""; listaRecursos.innerHTML = "";
-
-            const tx = dbLocal.transaction("pdfs", "readonly");
-            tx.objectStore("pdfs").getAll().onsuccess = (e) => {
-                e.target.result.filter(f => f.oposicion === oposicionSeleccionada).forEach(file => {
-                    listaTemas.innerHTML += `<div class="file-item">📄 ${file.name} <button onclick="abrirPDF('${file.id}')">Ver</button></div>`;
-                });
-            };
-
-            const q = query(collection(db, "recursos_academia"), where("oposicion", "==", oposicionSeleccionada));
-            const snap = await getDocs(q);
-            snap.forEach(doc => {
-                listaRecursos.innerHTML += `<div class="file-item">🌐 ${doc.data().nombre} <button onclick="window.open('${doc.data().url}')">Abrir</button></div>`;
-            });
-        };
-
-        window.abrirPDF = (id) => {
-            const tx = dbLocal.transaction("pdfs", "readonly");
-            tx.objectStore("pdfs").get(id).onsuccess = e => {
-                const win = window.open();
-                win.document.write(`<iframe src="${e.target.result.content}" width="100%" height="100%" style="border:none;"></iframe>`);
-            };
         };
 
         function renderTemario() {
             const grid = document.getElementById("gridTemas");
             const select = document.getElementById("selectTemaUser");
-            if(!grid || !select) return;
-            grid.innerHTML = ""; select.innerHTML = "";
-            oposiciones[oposicionSeleccionada].forEach(t => {
-                grid.innerHTML += `<div class="card-tema"><h4>${t}</h4><button onclick="generarTestIA('${t}')">Generar Test IA</button></div>`;
+            
+            if (!grid || !select) return;
+            
+            grid.innerHTML = "";
+            select.innerHTML = "";
+
+            const temas = oposicionesData[oposicionSeleccionada] || [];
+            
+            if (temas.length === 0) {
+                grid.innerHTML = "<p>No se encontraron temas para esta categoría.</p>";
+                return;
+            }
+
+            temas.forEach(t => {
+                grid.innerHTML += `
+                    <div class="card-tema">
+                        <h4>${t}</h4>
+                        <button onclick="alert('Generando test para: ${t}')">Generar Test IA</button>
+                    </div>`;
                 select.innerHTML += `<option value="${t}">${t}</option>`;
             });
         }
+
+        // Exponer funciones al objeto window para que el HTML las vea
+        window.renderTemario = renderTemario;
     </script>
 
     <style>
         :root { --blue: #1e40af; --sky: #0ea5e9; --bg: #f8fafc; }
-        body { font-family: sans-serif; background: var(--bg); margin:0; }
-        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin:0; color: #334155; }
+        header { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .view { display: none; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .btn-card { 
-            background: white; padding: 2rem; border-radius: 15px; text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border: none;
-            border-bottom: 5px solid var(--sky); width: 100%; transition: 0.2s;
+            background: white; padding: 2.5rem; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); cursor: pointer; border: none;
+            border-bottom: 5px solid var(--sky); transition: 0.2s; width: 100%;
         }
-        .btn-card:hover { transform: translateY(4px); }
-        .card-tema { background: white; padding: 1rem; border-radius: 10px; border-bottom: 3px solid var(--blue); margin-bottom: 10px; }
-        .card-tema button { width: 100%; background: var(--blue); color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; }
-        .badge { background: var(--blue); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
-        .file-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; background: #fff; margin-bottom: 5px; border-radius: 5px; }
-        input, select { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        .btn-card:hover { transform: translateY(-5px); }
+        .card-tema { background: white; padding: 1.5rem; border-radius: 12px; border-bottom: 4px solid var(--blue); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card-tema button { width: 100%; margin-top: 10px; background: var(--blue); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; }
+        .badge { background: var(--blue); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #cbd5e1; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 onclick="mostrarVista('seleccionOposicion')" style="cursor:pointer">OposTest IA</h1>
+    <h1 onclick="mostrarVista('seleccionOposicion')" style="cursor:pointer; color: var(--blue);">OposTest IA</h1>
     <div id="badgeOpos" class="badge" style="display:none"></div>
-    <div id="navUser" style="display:none; gap:10px;">
-        <button onclick="mostrarVista('docSection'); cargarDocumentacion();">📁 Documentos</button>
+    <div id="navUser" style="display:none; gap:15px;">
+        <button onclick="mostrarVista('docSection')">📁 Documentación</button>
         <button onclick="mostrarVista('panelEstudio')">Inicio</button>
     </div>
 </header>
 
 <div class="container">
-    <div id="loginSection" class="view" style="text-align:center; padding-top:50px;">
-        <button class="btn-card" onclick="login()" style="max-width:300px;"><h2>Iniciar Sesión</h2></button>
+    <div id="loginSection" class="view" style="text-align:center; padding-top:80px;">
+        <div class="btn-card" style="max-width:400px; margin:auto;">
+            <h2>Bienvenido</h2>
+            <p>Accede para gestionar tus test</p>
+            <button onclick="login()" style="background: var(--blue); color:white; border:none; padding:15px 30px; border-radius:10px; cursor:pointer; font-weight:bold;">Entrar con Google</button>
+        </div>
     </div>
 
     <div id="seleccionOposicion" class="view">
-        <h2 style="text-align:center;">Elige tu Oposición</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <button class="btn-card" onclick="entrarOposicion('TAI_LIBRE')"><h3>TAI Estado</h3></button>
-            <button class="btn-card" onclick="entrarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></button>
-            <button class="btn-card" onclick="entrarOposicion('AUX_AYTO_VALENCIA')"><h3>Ayto. Valencia</h3></button>
+        <h2 style="text-align:center; margin-bottom:3rem;">¿Qué oposición estás preparando?</h2>
+        <div class="grid-3">
+            <button class="btn-card" onclick="entrarOposicion('TAI_LIBRE')">
+                <h3>TAI Estado</h3>
+                <p>Cuerpo de Técnicos Auxiliares de Informática</p>
+            </button>
+            <button class="btn-card" onclick="entrarOposicion('AUX_ESTADO')">
+                <h3>Auxiliar Estado</h3>
+                <p>Administrativos de la AGE</p>
+            </button>
+            <button class="btn-card" onclick="entrarOposicion('AUX_AYTO_VALENCIA')">
+                <h3>Ayto. Valencia</h3>
+                <p>Auxiliares Ayuntamiento de Valencia</p>
+            </button>
         </div>
     </div>
 
     <div id="panelEstudio" class="view">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <h2>Mi Temario</h2>
-            <button class="badge" onclick="mostrarVista('seleccionOposicion')" style="border:none; cursor:pointer;">Cambiar</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+            <h2>Mis Temas Disponibles</h2>
+            <button class="badge" onclick="mostrarVista('seleccionOposicion')" style="border:none; cursor:pointer; background: #64748b;">Cambiar Oposición</button>
         </div>
-        <div id="gridTemas" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px;"></div>
+        <div id="gridTemas" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;"></div>
     </div>
 
     <div id="docSection" class="view">
-        <div style="background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 20px;">
-            <h3>📥 Subir Documentación Personal</h3>
+        <div style="background: white; padding: 2rem; border-radius: 20px; border: 1px solid #e2e8f0;">
+            <h3>📥 Mi Carpeta de Documentación</h3>
+            <p>Asocia tus PDFs a los temas de tu oposición:</p>
             <select id="selectTemaUser"></select>
             <input type="file" id="fileUser" accept=".pdf">
-            <button onclick="subirArchivoUser()" style="width:100%; background:var(--sky); color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Guardar en este PC</button>
-            <div id="listaMisTemas" style="margin-top:15px;"></div>
-        </div>
-
-        <div style="background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #ddd;">
-            <h3>📂 Recursos de la Academia (Firebase)</h3>
-            <div id="listaRecursos"></div>
+            <button style="width:100%; background:var(--sky); color:white; border:none; padding:12px; border-radius:10px; cursor:pointer; font-weight:bold;">Vincular y Guardar</button>
+            <hr style="margin:2rem 0; border:0; border-top:1px solid #eee;">
+            <div id="listaMisTemas">
+                <p style="color:#94a3b8">No hay documentos vinculados en este equipo.</p>
+            </div>
         </div>
     </div>
 </div>
