@@ -2,9 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest IA | Academia Inteligente</title>
-
+    <title>OposTest IA - Sistema Corregido</title>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
@@ -23,162 +21,126 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // --- GESTIÓN DE API KEY ---
-        // 1. Intenta leer de la variable que mencionas (si se inyecta)
-        // 2. Si no, busca en el almacenamiento local del navegador
-        let GEMINI_API_KEY = window.process?.env?.NEXT_PUBLIC_GEMINI_KEY || localStorage.getItem("OPOS_IA_KEY");
-
-        window.configurarLlave = () => {
-            const key = prompt("Introduce tu API Key de Gemini (Solo si la variable de Cloudflare no carga):");
-            if (key) {
-                localStorage.setItem("OPOS_IA_KEY", key.trim());
-                location.reload();
-            }
-        };
-
-        const oposData = {
-            "TAI": { nombre: "Técnico Auxiliar Informática (TAI)", temas: ["Tema 1: Constitución", "Tema 6: Informática Básica", "Tema 9: Redes", "Tema 10: Seguridad", "Tema 13: BBDD"] },
-            "AUX_VALENCIA": { nombre: "Auxiliar Valencia", temas: ["Tema 1: Constitución", "Tema 2: Organización Municipal", "Tema 3: Proc. Administrativo"] },
-            "AUX_ESTADO": { nombre: "Auxiliar Estado", temas: ["Bloque I: Organización", "Bloque II: Actividad Administrativa"] }
-        };
-
         let userActual = null;
         let oposSel = null;
         let temasSeleccionados = [];
 
-        window.mostrarVista = (id) => {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            const vista = document.getElementById(id);
-            if(vista) vista.classList.add('active');
-            document.getElementById("navApp").style.display = (oposSel) ? "flex" : "none";
+        // --- GESTIÓN DE CLAVE ---
+        window.configurarLlave = () => {
+            const key = prompt("Pega aquí la clave que copiaste de AI Studio:");
+            if (key) { localStorage.setItem("OPOS_IA_KEY", key.trim()); location.reload(); }
         };
 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 userActual = user;
                 const uDoc = await getDoc(doc(db, "users", user.uid));
-                if (uDoc.exists() && uDoc.data().oposicion) window.seleccionarOposicion(uDoc.data().oposicion);
+                if (uDoc.exists() && uDoc.data().oposicion) seleccionarOposicion(uDoc.data().oposicion);
                 else mostrarVista('vistaSeleccion');
-            } else mostrarVista('vistaLogin');
+            } else { mostrarVista('vistaLogin'); }
         });
 
         window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
-        window.irASeleccion = () => { oposSel = null; mostrarVista('vistaSeleccion'); };
+        
+        window.mostrarVista = (id) => {
+            document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        };
+
+        const oposData = {
+            "TAI": ["Constitución", "AGE", "UE", "Informática Básica", "Redes", "Seguridad"],
+            "AUX_VALENCIA": ["Constitución", "Org. Municipal", "Proc. Administrativo", "Haciendas Locales"]
+        };
 
         window.seleccionarOposicion = async (key) => {
             oposSel = key;
             await setDoc(doc(db, "users", userActual.uid), { oposicion: key }, { merge: true });
-            document.getElementById("txtOposHeader").textContent = oposData[key].nombre;
             renderizarTemas();
             mostrarVista('vistaPanel');
+            document.getElementById("nav").style.display = "block";
         };
 
         function renderizarTemas() {
-            const grid = document.getElementById("containerTemas");
-            grid.innerHTML = "";
-            oposData[oposSel].temas.forEach(t => {
-                const card = document.createElement("div");
-                card.className = "card-tema";
-                card.innerHTML = `<strong>${t}</strong>`;
-                card.onclick = () => {
-                    card.classList.toggle("selected");
-                    if(card.classList.contains("selected")) temasSeleccionados.push(t);
-                    else temasSeleccionados = temasSeleccionados.filter(i => i !== t);
+            const container = document.getElementById("temas");
+            container.innerHTML = "";
+            oposData[oposSel].forEach(t => {
+                const div = document.createElement("div");
+                div.className = "card";
+                div.innerHTML = t;
+                div.onclick = () => {
+                    div.classList.toggle("selected");
+                    if(div.classList.contains("selected")) temasSeleccionados.push(t);
+                    else temasSeleccionados = temasSeleccionados.filter(item => item !== t);
                 };
-                grid.appendChild(card);
+                container.appendChild(div);
             });
         }
 
-        // --- GENERADOR CON AUTO-DETECCIÓN DE VERSIÓN ---
+        // --- GENERADOR DE TEST ---
         window.generarTestIA = async () => {
-            const apiKey = GEMINI_API_KEY || localStorage.getItem("OPOS_IA_KEY");
-            if (!apiKey) return window.configurarLlave();
-            if (temasSeleccionados.length === 0) return alert("Selecciona temas primero.");
+            const key = localStorage.getItem("OPOS_IA_KEY");
+            if (!key) return configurarLlave();
+            
+            const chat = document.getElementById("chat");
+            chat.innerHTML = "Generando preguntas...";
 
-            const chatBox = document.getElementById("chatBox");
-            chatBox.innerHTML = `<div class="msg ia">🤖 Generando examen con Gemini...</div>`;
-
-            const prompt = {
-                contents: [{ parts: [{ text: `Genera un examen de 5 preguntas tipo test de la oposición ${oposSel} sobre: ${temasSeleccionados.join(", ")}. Incluye las soluciones al final.` }] }]
-            };
-
-            // Intentamos v1beta que es la más compatible con claves nuevas
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            // Probamos la ruta más compatible para gemini 1.5 flash
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
 
             try {
-                const response = await fetch(url, {
+                const res = await fetch(url, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(prompt)
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        contents: [{parts: [{text: `Crea un test de 3 preguntas para la oposición ${oposSel} sobre: ${temasSeleccionados.join(", ")}`}]}]
+                    })
                 });
-
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error?.message || "Error en API");
-
-                const texto = data.candidates[0].content.parts[0].text;
-                chatBox.innerHTML = `<div class="msg ia">${texto.replace(/\n/g, '<br>')}</div>`;
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error.message);
+                chat.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, "<br>");
             } catch (e) {
-                chatBox.innerHTML = `<div class="msg ia" style="color:red">Error: ${e.message}<br><button onclick="configurarLlave()">Actualizar Clave</button></div>`;
+                chat.innerHTML = "Error: " + e.message + "<br><button onclick='configurarLlave()'>Revisar Clave</button>";
             }
         };
     </script>
-
     <style>
-        :root { --primary: #003366; --accent: #ff9900; --bg: #f4f7f9; }
-        body { font-family: sans-serif; margin: 0; background: var(--bg); display: flex; flex-direction: column; height: 100vh; }
-        header { background: var(--primary); color: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .main-layout { display: flex; flex: 1; overflow: hidden; }
+        body { font-family: sans-serif; display: flex; height: 100vh; margin: 0; background: #f4f4f4; }
         .content { flex: 1; padding: 20px; overflow-y: auto; }
-        .sidebar { width: 400px; background: white; border-left: 1px solid #ddd; padding: 20px; display: flex; flex-direction: column; }
+        .sidebar { width: 300px; background: white; border-left: 1px solid #ddd; padding: 20px; }
+        .card { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; cursor: pointer; border: 1px solid #ccc; }
+        .selected { border-left: 5px solid orange; background: #fff9f0; }
         .view { display: none; }
-        .view.active { display: block; }
-        .card-tema { background: white; padding: 15px; margin: 10px 0; border: 1px solid #ddd; cursor: pointer; border-radius: 8px; transition: 0.2s; }
-        .card-tema.selected { border-left: 6px solid var(--accent); background: #fffcf0; }
-        .btn { background: var(--accent); color: white; border: none; padding: 12px 24px; border-radius: 20px; cursor: pointer; font-weight: bold; }
-        #chatBox { flex: 1; overflow-y: auto; background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-top: 10px; font-size: 14px; }
-        .msg.ia { white-space: pre-wrap; line-height: 1.6; }
+        .btn { background: orange; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<header>
-    <h2>OPOS<span style="color:var(--accent)">TEST</span></h2>
-    <div id="navApp" style="display:none; align-items:center;">
-        <span id="txtOposHeader" style="margin-right:20px; font-size:14px;"></span>
-        <button class="btn" style="background:transparent; border:1px solid white; margin-right:10px;" onclick="irASeleccion()">Cambiar Oposición</button>
-        <button class="btn" style="padding:5px 10px; font-size:10px;" onclick="configurarLlave()">🔑</button>
-    </div>
-</header>
-
-<div class="main-layout">
-    <div class="content">
-        <div id="vistaLogin" class="view">
-            <div style="text-align:center; margin-top:100px;">
-                <h1>Bienvenido</h1>
-                <button class="btn" onclick="login()">Iniciar con Google</button>
-            </div>
-        </div>
-
-        <div id="vistaSeleccion" class="view">
-            <h2>Selecciona tu Oposición</h2>
-            <button class="btn" onclick="seleccionarOposicion('TAI')">TAI (Informática)</button>
-            <button class="btn" onclick="seleccionarOposicion('AUX_VALENCIA')">Auxiliar Valencia</button>
-            <button class="btn" onclick="seleccionarOposicion('AUX_ESTADO')">Auxiliar Estado</button>
-        </div>
-
-        <div id="vistaPanel" class="view">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <h3>Temario Oficial</h3>
-                <button class="btn" onclick="generarTestIA()">🔥 Generar Test IA</button>
-            </div>
-            <div id="containerTemas"></div>
-        </div>
+<div class="content">
+    <div id="nav" style="display:none; margin-bottom:20px;">
+        <button onclick="mostrarVista('vistaSeleccion')">Cambiar Oposición</button>
+        <button onclick="configurarLlave()">🔑 Clave IA</button>
     </div>
 
-    <div class="sidebar">
-        <h3 style="margin-top:0;">Examen y Tutor</h3>
-        <div id="chatBox">Selecciona temas y genera tu test.</div>
+    <div id="vistaLogin" class="view">
+        <h1>OposTest</h1>
+        <button class="btn" onclick="login()">Entrar con Google</button>
     </div>
+
+    <div id="vistaSeleccion" class="view">
+        <h2>Elige Oposición</h2>
+        <button onclick="seleccionarOposicion('TAI')">TAI</button>
+        <button onclick="seleccionarOposicion('AUX_VALENCIA')">Valencia</button>
+    </div>
+
+    <div id="vistaPanel" class="view">
+        <button class="btn" onclick="generarTestIA()">Generar Test</button>
+        <div id="temas"></div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <h3>Resultado Test</h3>
+    <div id="chat">Selecciona temas y pulsa generar.</div>
 </div>
 
 </body>
