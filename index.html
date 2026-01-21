@@ -24,14 +24,14 @@
         const db = getFirestore(app);
 
         // --- GESTIÓN DE API KEY SEGURA ---
-        // Intenta leer de la variable de Cloudflare (si existe) o del almacenamiento local
-        let GEMINI_API_KEY = window.process?.env?.NEXT_PUBLIC_GEMINI_KEY || localStorage.getItem("OPOS_IA_KEY");
+        // Recuperamos la clave del navegador del usuario
+        let getApiKey = () => localStorage.getItem("OPOS_IA_KEY");
 
         window.configurarLlave = () => {
-            const key = prompt("Introduce tu Nueva API Key de Gemini:");
+            const key = prompt("Introduce tu Nueva API Key de Gemini (Google AI Studio):");
             if (key) {
-                localStorage.setItem("OPOS_IA_KEY", key);
-                alert("Clave guardada. Ya puedes generar tests.");
+                localStorage.setItem("OPOS_IA_KEY", key.trim());
+                alert("Clave guardada localmente. Ya puedes generar tests.");
                 location.reload();
             }
         };
@@ -105,107 +105,149 @@
             renderizarTemas();
         };
 
+        // --- FUNCIÓN IA CORREGIDA PARA EVITAR EL 404 ---
         window.generarTestIA = async () => {
-            if (!GEMINI_API_KEY) return window.configurarLlave();
+            const apiKey = getApiKey();
+            if (!apiKey) return window.configurarLlave();
             if (temasSeleccionados.length === 0) return alert("Selecciona temas en el panel.");
             
             const chatBox = document.getElementById("chatBox");
             chatBox.innerHTML = `<div class="msg ia">🤖 Generando test de: ${temasSeleccionados.join(", ")}...</div>`;
 
-            const prompt = `Actúa como examinador de la oposición ${oposSel}. Genera 5 preguntas de examen con 4 opciones. No des la solución al principio.`;
+            // Cambiamos a v1beta que es más estable para Gemini Flash
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+            const prompt = `Actúa como examinador de la oposición ${oposSel}. Genera 5 preguntas de examen difíciles con 4 opciones (A, B, C, D). Indica el tema correspondiente a cada pregunta. No des la solución todavía.`;
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    body: JSON.stringify({ 
+                        contents: [{ 
+                            parts: [{ text: prompt }] 
+                        }] 
+                    })
                 });
+
                 const data = await response.json();
-                chatBox.innerHTML = `<div class="msg ia"><strong>EXAMEN:</strong><br>${data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>')}</div>`;
+
+                if (!response.ok) {
+                    throw new Error(data.error?.message || "Error en la respuesta de Google");
+                }
+
+                const textoIA = data.candidates[0].content.parts[0].text;
+                chatBox.innerHTML = `<div class="msg ia"><strong>EXAMEN GENERADO:</strong><br><br>${textoIA.replace(/\n/g, '<br>')}</div>`;
+                chatBox.innerHTML += `<br><button class="btn" style="background:#28a745" onclick="pedirSolucionesIA()">Corregir / Ver Soluciones</button>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+
             } catch (e) {
-                chatBox.innerHTML = `<div class="msg ia" style="color:red">Error. Haz clic en "🔑 Configurar IA" en el menú para actualizar tu clave.</div>`;
+                console.error(e);
+                chatBox.innerHTML = `<div class="msg ia" style="color:red"><b>Error:</b> ${e.message}<br><br>Pulsa el botón 🔑 del menú para revisar tu clave.</div>`;
             }
+        };
+
+        window.pedirSolucionesIA = async () => {
+            const chatBox = document.getElementById("chatBox");
+            chatBox.innerHTML += `<div class="msg ia">🤖 Generando soluciones explicadas...</div>`;
+            // Nota: Aquí se podría ampliar enviando el historial, pero por ahora lanzamos un prompt simple
+            alert("Escribe en el chat: 'Dame las soluciones explicadas'");
         };
 
     </script>
 
     <style>
         :root { --primary: #003366; --accent: #ff9900; --bg: #f0f4f7; }
-        body { font-family: 'Open Sans', sans-serif; margin: 0; background: var(--bg); display: flex; flex-direction: column; height: 100vh; }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; background: var(--bg); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
         header { background: var(--primary); color: white; padding: 0 5%; height: 60px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 100; }
         
         .main-layout { display: flex; flex: 1; overflow: hidden; }
         .content { flex: 1; overflow-y: auto; padding: 30px; }
-        .sidebar { width: 400px; background: white; border-left: 1px solid #ddd; display: flex; flex-direction: column; }
+        .sidebar { width: 420px; background: white; border-left: 1px solid #ddd; display: flex; flex-direction: column; }
         
         .view { display: none; flex-direction: column; max-width: 900px; margin: 0 auto; }
         .view.active { display: flex; }
 
-        /* Login Centrado */
         #vistaLogin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); width: 350px; }
 
-        .card-tema { background: white; border-radius: 8px; padding: 18px; margin-bottom: 12px; border: 1px solid #e1e8ed; cursor: pointer; transition: 0.2s; display: flex; justify-content: space-between; }
+        .card-tema { background: white; border-radius: 8px; padding: 18px; margin-bottom: 12px; border: 1px solid #e1e8ed; cursor: pointer; transition: 0.2s; display: flex; justify-content: space-between; align-items: center; }
+        .card-tema:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .card-tema.selected { border-left: 6px solid var(--accent); background: #fffcf5; }
         .card-tema.check { border-right: 6px solid #28a745; }
 
-        .btn { background: var(--accent); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 13px; }
-        .btn-outline { background: transparent; border: 1px solid white; color: white; padding: 6px 15px; border-radius: 20px; cursor: pointer; margin-left: 8px; font-size: 12px; }
+        .btn { background: var(--accent); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+        .btn-outline { background: transparent; border: 1px solid white; color: white; padding: 6px 15px; border-radius: 20px; cursor: pointer; margin-left: 8px; font-size: 11px; }
 
-        #chatBox { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.6; }
+        #chatBox { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.6; background: #fff; }
+        .msg.ia { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px solid #eee; margin-bottom: 15px; }
+
         .grid-opos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .card-opos { background: white; padding: 30px; border-radius: 12px; text-align: center; border: 1px solid #eee; cursor: pointer; }
+        .card-opos { background: white; padding: 30px; border-radius: 12px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: 0.3s; }
+        .card-opos:hover { border-color: var(--primary); background: #fdfdfd; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2 onclick="location.reload()" style="cursor:pointer">OPOS<strong>TEST</strong></h2>
+    <h2 onclick="location.reload()" style="cursor:pointer; margin:0; font-size:22px;">OPOS<strong>TEST</strong></h2>
     <div id="navApp" style="display:none; align-items:center;">
-        <span id="txtOposHeader" style="font-size:12px; opacity:0.8; margin-right:15px;"></span>
+        <span id="txtOposHeader" style="font-size:12px; opacity:0.8; margin-right:15px; font-weight:300;"></span>
         <button class="btn-outline" onclick="mostrarVista('vistaPanel')">Temario</button>
-        <button class="btn-outline" onclick="mostrarVista('vistaBiblioteca')">Drive</button>
+        <button class="btn-outline" onclick="mostrarVista('vistaBiblioteca')">Vincular Drive</button>
         <button class="btn-outline" onclick="irASeleccion()">Cambiar Oposición</button>
-        <button class="btn-outline" onclick="configurarLlave()" style="color:var(--accent); border-color:var(--accent);">🔑 Configurar IA</button>
+        <button class="btn-outline" onclick="configurarLlave()" style="color:var(--accent); border-color:var(--accent);">🔑 Clave IA</button>
     </div>
 </header>
 
 <div class="main-layout">
     <div class="content">
         <div id="vistaLogin" class="view">
-            <h1 style="color:var(--primary); margin:0;">Bienvenido</h1>
-            <p>Inicia sesión para empezar a estudiar</p>
-            <button class="btn" onclick="login()" style="width:100%">Entrar con Google</button>
+            <h1 style="color:var(--primary); margin:0; font-size:28px;">Bienvenido</h1>
+            <p style="color:#666; margin-bottom:30px;">Prepara tu plaza con Inteligencia Artificial</p>
+            <button class="btn" onclick="login()" style="width:100%; padding:15px;">Entrar con Google</button>
         </div>
 
         <div id="vistaSeleccion" class="view">
-            <h2>Selecciona tu especialidad</h2>
+            <h2 style="color:var(--primary)">¿Qué oposición estás preparando?</h2>
             <div class="grid-opos">
-                <div class="card-opos" onclick="seleccionarOposicion('TAI')"><h3>TAI (Informática)</h3></div>
-                <div class="card-opos" onclick="seleccionarOposicion('AUX_VALENCIA')"><h3>Auxiliar Valencia</h3></div>
-                <div class="card-opos" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Auxiliar Estado</h3></div>
+                <div class="card-opos" onclick="seleccionarOposicion('TAI')"><h3>TAI</h3><p>Informática AGE</p></div>
+                <div class="card-opos" onclick="seleccionarOposicion('AUX_VALENCIA')"><h3>Ayto. Valencia</h3><p>Auxiliar Administrativo</p></div>
+                <div class="card-opos" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Estado C2</h3><p>Auxiliar Administrativo</p></div>
             </div>
         </div>
 
         <div id="vistaPanel" class="view">
-            <div style="margin-bottom:20px;">
-                <button class="btn" onclick="generarTestIA()">🔥 Generar Test con IA</button>
+            <div style="margin-bottom:25px; background:white; padding:20px; border-radius:12px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h3 style="margin:0; color:var(--primary);">Panel de Estudio</h3>
+                    <small style="color:#666">Selecciona uno o varios temas para el test</small>
+                </div>
+                <button class="btn" onclick="generarTestIA()">🔥 Generar Test IA</button>
             </div>
             <div id="containerTemas"></div>
         </div>
 
         <div id="vistaBiblioteca" class="view">
-            <div style="background:white; padding:40px; border-radius:12px; max-width:500px; margin:0 auto;">
-                <h3>Vincular PDF de Drive</h3>
-                <select id="selectTemaDrive"></select>
-                <input type="text" id="inputUrl" placeholder="Enlace de Google Drive">
-                <button class="btn" style="width:100%; margin-top:20px;" onclick="vincularDrive()">Guardar</button>
+            <div style="background:white; padding:40px; border-radius:12px; max-width:500px; margin:0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h3 style="color:var(--primary); margin-top:0;">Vincular PDF de Drive</h3>
+                <p style="font-size:13px; color:#666">Asocia tus temas de Google Drive para que la IA los analice.</p>
+                <label style="font-size:12px; font-weight:bold;">TEMA:</label>
+                <select id="selectTemaDrive" style="width:100%; padding:10px; margin:10px 0; border-radius:6px; border:1px solid #ddd;"></select>
+                <label style="font-size:12px; font-weight:bold;">ENLACE COMPARTIR DRIVE:</label>
+                <input type="text" id="inputUrl" placeholder="https://drive.google.com/..." style="width:100%; padding:10px; margin:10px 0; border-radius:6px; border:1px solid #ddd; box-sizing:border-box;">
+                <button class="btn" style="width:100%; margin-top:20px;" onclick="vincularDrive()">Guardar Vínculo</button>
             </div>
         </div>
     </div>
 
     <div class="sidebar">
-        <div style="padding:15px; background:#f8f9fa; border-bottom:1px solid #ddd; font-weight:bold;">RESULTADOS Y TUTOR</div>
-        <div id="chatBox">Selecciona temas y pulsa "Generar Test".</div>
+        <div style="padding:15px; background:#f8f9fa; border-bottom:1px solid #ddd; font-weight:bold; color:var(--primary); font-size:13px;">ÁREA DE EXAMEN</div>
+        <div id="chatBox">
+            <div style="color:#888; text-align:center; margin-top:50px;">
+                <p>No hay ningún test activo.</p>
+                <small>Selecciona temas a la izquierda y pulsa "Generar Test".</small>
+            </div>
+        </div>
     </div>
 </div>
 
