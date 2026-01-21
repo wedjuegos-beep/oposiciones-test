@@ -10,7 +10,6 @@
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-        // Configuración Firebase (Se mantiene la tuya)
         const firebaseConfig = {
             apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
             authDomain: "oposiciones-test.firebaseapp.com",
@@ -24,14 +23,14 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // --- GESTIÓN DE API KEY SEGURA ---
+        // --- GESTIÓN DE API KEY ---
         const getApiKey = () => localStorage.getItem("OPOS_IA_KEY");
 
         window.configurarLlave = () => {
-            const key = prompt("Introduce tu API Key de Gemini (Google AI Studio):");
+            const key = prompt("Introduce tu API Key de Gemini:");
             if (key) {
                 localStorage.setItem("OPOS_IA_KEY", key.trim());
-                alert("Clave guardada localmente. Ya puedes generar tests.");
+                alert("Clave guardada localmente.");
                 location.reload();
             }
         };
@@ -106,48 +105,57 @@
             renderizarTemas();
         };
 
-        // --- FUNCIÓN IA DEFINITIVA (CORREGIDA) ---
+        // --- SISTEMA DE GENERACIÓN CON AUTO-CORRECCIÓN DE RUTA ---
         window.generarTestIA = async () => {
             const apiKey = getApiKey();
             if (!apiKey) return window.configurarLlave();
-            if (temasSeleccionados.length === 0) return alert("Por favor, selecciona al menos un tema del listado.");
+            if (temasSeleccionados.length === 0) return alert("Selecciona temas.");
             
             const chatBox = document.getElementById("chatBox");
-            chatBox.innerHTML = `<div class="msg ia">🤖 <b>IA:</b> Generando test oficial de ${oposSel}...</div>`;
-
-            // URL ESTABLE v1
-            const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            chatBox.innerHTML = `<div class="msg ia">🤖 <b>IA:</b> Intentando conectar con Google AI Studio...</div>`;
 
             const promptData = {
-                contents: [{
-                    parts: [{
-                        text: `Eres un preparador experto en la oposición ${oposSel}. Genera un examen de 5 preguntas tipo test con 4 opciones cada una (A, B, C, D) sobre estos temas: ${temasSeleccionados.join(", ")}. Al final del examen, incluye las soluciones explicadas.`
-                    }]
-                }]
+                contents: [{ parts: [{ text: `Actúa como examinador para la oposición ${oposSel}. Genera un test de 5 preguntas con 4 opciones sobre: ${temasSeleccionados.join(", ")}. Incluye soluciones al final.` }] }]
             };
 
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(promptData)
-                });
+            // Lista de URLs a probar (v1beta es la más probable para Flash 1.5)
+            const endpoints = [
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`
+            ];
 
-                const data = await response.json();
+            let success = false;
 
-                if (!response.ok) {
-                    throw new Error(data.error?.message || "Error desconocido");
+            for (let url of endpoints) {
+                if (success) break;
+                try {
+                    console.log("Probando endpoint:", url);
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(promptData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        const textoIA = data.candidates[0].content.parts[0].text;
+                        chatBox.innerHTML = `<div class="msg ia"><strong>EXAMEN GENERADO</strong><br><br>${textoIA.replace(/\n/g, '<br>')}</div>`;
+                        success = true;
+                    } else {
+                        console.warn("Fallo con URL:", url, data.error?.message);
+                    }
+                } catch (e) {
+                    console.error("Error de red en:", url);
                 }
+            }
 
-                const textoFinal = data.candidates[0].content.parts[0].text;
-                chatBox.innerHTML = `<div class="msg ia"><strong>EXAMEN GENERADO</strong><br><br>${textoFinal.replace(/\n/g, '<br>')}</div>`;
-                chatBox.scrollTop = chatBox.scrollHeight;
-
-            } catch (e) {
-                console.error(e);
-                chatBox.innerHTML = `<div class="msg ia" style="color:#d93025; border-color:#d93025;">
-                    <b>Error en la IA:</b> ${e.message}<br><br>
-                    <button class="btn" style="background:#d93025" onclick="localStorage.removeItem('OPOS_IA_KEY'); location.reload();">RECONFIGURAR CLAVE</button>
+            if (!success) {
+                chatBox.innerHTML = `<div class="msg ia" style="color:#d93025;">
+                    <b>Error Crítico:</b> No se ha podido encontrar el modelo Gemini en ninguna versión de la API.<br><br>
+                    1. Revisa que tu API KEY sea de <b>Google AI Studio</b>.<br>
+                    2. Asegúrate de que no tienes restricciones de región.<br>
+                    <button class="btn" onclick="localStorage.removeItem('OPOS_IA_KEY'); location.reload();">REINTENTAR CLAVE</button>
                 </div>`;
             }
         };
@@ -156,118 +164,76 @@
 
     <style>
         :root { --primary: #003366; --accent: #ff9900; --bg: #f4f7f9; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--bg); display: flex; flex-direction: column; height: 100vh; overflow: hidden; color: #333; }
-        
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
         header { background: var(--primary); color: white; padding: 0 5%; height: 60px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; }
-        
         .main-layout { display: flex; flex: 1; overflow: hidden; }
         .content { flex: 1; overflow-y: auto; padding: 30px; }
         .sidebar { width: 420px; background: white; border-left: 1px solid #e0e0e0; display: flex; flex-direction: column; }
-        
         .view { display: none; flex-direction: column; max-width: 900px; margin: 0 auto; }
         .view.active { display: flex; }
-
-        /* Login Centrado */
-        #vistaLogin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 50px; border-radius: 20px; text-align: center; box-shadow: 0 15px 50px rgba(0,0,0,0.1); width: 380px; box-sizing: border-box; }
-
-        .card-tema { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; border: 1px solid #e1e8ed; cursor: pointer; transition: all 0.2s ease; display: flex; justify-content: space-between; align-items: center; }
-        .card-tema:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card-tema.selected { border-left: 8px solid var(--accent); background: #fffdf7; border-color: var(--accent); }
+        #vistaLogin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 50px; border-radius: 20px; text-align: center; box-shadow: 0 15px 50px rgba(0,0,0,0.1); width: 380px; }
+        .card-tema { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; border: 1px solid #e1e8ed; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .card-tema.selected { border-left: 8px solid var(--accent); background: #fffdf7; }
         .card-tema.check { border-right: 8px solid #28a745; }
-
-        .btn { background: var(--accent); color: white; border: none; padding: 14px 28px; border-radius: 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
+        .btn { background: var(--accent); color: white; border: none; padding: 14px 28px; border-radius: 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 12px; }
         .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.5); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-left: 10px; font-size: 11px; }
-
         #chatBox { flex: 1; padding: 25px; overflow-y: auto; font-size: 14px; line-height: 1.7; background: #fff; }
-        .msg.ia { background: #f9fbff; padding: 20px; border-radius: 12px; border: 1px solid #d1e3f8; margin-bottom: 20px; color: #2c3e50; }
-
+        .msg.ia { background: #f9fbff; padding: 20px; border-radius: 12px; border: 1px solid #d1e3f8; margin-bottom: 20px; }
         .grid-opos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card-opos { background: white; padding: 40px 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: all 0.3s; }
-        .card-opos:hover { border-color: var(--primary); transform: scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        
-        /* Formulario Drive */
-        .form-drive { background: white; padding: 40px; border-radius: 15px; max-width: 500px; margin: 0 auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .form-drive select, .form-drive input { width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .card-opos { background: white; padding: 40px 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2 onclick="location.reload()" style="cursor:pointer; margin:0; font-size:24px; letter-spacing:-1px;">OPOS<span style="color:var(--accent)">TEST</span></h2>
+    <h2 onclick="location.reload()" style="cursor:pointer; margin:0;">OPOS<span style="color:var(--accent)">TEST</span></h2>
     <div id="navApp" style="display:none; align-items:center;">
-        <span id="txtOposHeader" style="font-size:12px; opacity:0.8; margin-right:20px; font-weight:bold;"></span>
+        <span id="txtOposHeader" style="font-size:12px; opacity:0.8; margin-right:20px;"></span>
         <button class="btn-outline" onclick="mostrarVista('vistaPanel')">Temario</button>
         <button class="btn-outline" onclick="mostrarVista('vistaBiblioteca')">Vincular Drive</button>
         <button class="btn-outline" onclick="irASeleccion()">Cambiar Oposición</button>
-        <button class="btn-outline" onclick="configurarLlave()" style="border-color:var(--accent); color:var(--accent); font-weight:bold;">🔑 CLAVE IA</button>
+        <button class="btn-outline" onclick="configurarLlave()" style="border-color:var(--accent); color:var(--accent);">🔑 CLAVE IA</button>
     </div>
 </header>
 
 <div class="main-layout">
     <div class="content">
         <div id="vistaLogin" class="view">
-            <h1 style="color:var(--primary); margin:0; font-size:32px;">Bienvenido</h1>
-            <p style="color:#666; margin-bottom:35px;">Tu plataforma de test con Inteligencia Artificial</p>
-            <button class="btn" onclick="login()" style="width:100%; padding:18px;">Iniciar con Google</button>
+            <h1>Bienvenido</h1>
+            <p>Inicia sesión para continuar</p>
+            <button class="btn" onclick="login()" style="width:100%">Entrar con Google</button>
         </div>
 
         <div id="vistaSeleccion" class="view">
-            <h2 style="color:var(--primary); text-align:center; margin-bottom:10px;">¿Qué estás preparando hoy?</h2>
-            <p style="text-align:center; color:#666; margin-bottom:30px;">Selecciona tu especialidad para adaptar los contenidos</p>
+            <h2 style="text-align:center;">Selecciona tu Oposición</h2>
             <div class="grid-opos">
-                <div class="card-opos" onclick="seleccionarOposicion('TAI')">
-                    <h3 style="margin:0">TAI</h3>
-                    <p style="color:#888; font-size:14px;">Técnico Auxiliar Informática</p>
-                </div>
-                <div class="card-opos" onclick="seleccionarOposicion('AUX_VALENCIA')">
-                    <h3 style="margin:0">Ayto. Valencia</h3>
-                    <p style="color:#888; font-size:14px;">Auxiliar Administrativo</p>
-                </div>
-                <div class="card-opos" onclick="seleccionarOposicion('AUX_ESTADO')">
-                    <h3 style="margin:0">Auxiliar Estado</h3>
-                    <p style="color:#888; font-size:14px;">Administración General</p>
-                </div>
+                <div class="card-opos" onclick="seleccionarOposicion('TAI')"><h3>TAI</h3><p>Informática</p></div>
+                <div class="card-opos" onclick="seleccionarOposicion('AUX_VALENCIA')"><h3>Ayto. Valencia</h3><p>Auxiliar</p></div>
+                <div class="card-opos" onclick="seleccionarOposicion('AUX_ESTADO')"><h3>Estado</h3><p>Administrativo</p></div>
             </div>
         </div>
 
         <div id="vistaPanel" class="view">
-            <div style="background:white; padding:25px; border-radius:15px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:center; border: 1px solid #eef2f5;">
-                <div>
-                    <h3 style="margin:0; color:var(--primary);">Listado de Temas</h3>
-                    <p style="margin:5px 0 0 0; font-size:13px; color:#777;">Marca los temas que quieres incluir en el test generado por la IA.</p>
-                </div>
+            <div style="background:white; padding:20px; border-radius:15px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:center;">
+                <h3>Panel de Temas</h3>
                 <button class="btn" onclick="generarTestIA()">🔥 Generar Examen IA</button>
             </div>
             <div id="containerTemas"></div>
         </div>
 
         <div id="vistaBiblioteca" class="view">
-            <div class="form-drive">
-                <h3 style="color:var(--primary); margin-top:0;">Vincular Material de Drive</h3>
-                <p style="font-size:13px; color:#666; margin-bottom:25px;">Pega el enlace de tus temas en Google Drive para que el sistema sepa que tienes el material listo.</p>
-                
-                <label style="font-size:11px; font-weight:bold; color:var(--primary)">SELECCIONA EL TEMA:</label>
-                <select id="selectTemaDrive"></select>
-                
-                <label style="font-size:11px; font-weight:bold; color:var(--primary)">ENLACE PÚBLICO DE DRIVE:</label>
-                <input type="text" id="inputUrl" placeholder="https://drive.google.com/file/d/...">
-                
-                <button class="btn" style="width:100%; margin-top:10px;" onclick="vincularDrive()">Vincular Documento</button>
+            <div style="background:white; padding:40px; border-radius:15px; max-width:500px; margin:0 auto;">
+                <h3>Vincular Drive</h3>
+                <select id="selectTemaDrive" style="width:100%; padding:10px; margin-bottom:20px;"></select>
+                <input type="text" id="inputUrl" placeholder="URL de Google Drive" style="width:100%; padding:10px; margin-bottom:20px;">
+                <button class="btn" style="width:100%" onclick="vincularDrive()">Vincular</button>
             </div>
         </div>
     </div>
 
     <div class="sidebar">
-        <div style="padding:18px; background:#f8f9fa; border-bottom:1px solid #e0e0e0; font-weight:bold; color:var(--primary); font-size:14px; display:flex; align-items:center; gap:10px;">
-            <span>📝</span> RESULTADOS Y TEST
-        </div>
-        <div id="chatBox">
-            <div style="text-align:center; margin-top:60px; color:#aaa;">
-                <p style="font-size:40px; margin-bottom:10px;">✨</p>
-                <p>Selecciona los temas a la izquierda y pulsa el botón naranja para que la IA cree un examen para ti.</p>
-            </div>
-        </div>
+        <div style="padding:15px; background:#f8f9fa; border-bottom:1px solid #ddd; font-weight:bold;">ÁREA DE EXAMEN</div>
+        <div id="chatBox">Selecciona temas y pulsa "Generar Examen".</div>
     </div>
 </div>
 
