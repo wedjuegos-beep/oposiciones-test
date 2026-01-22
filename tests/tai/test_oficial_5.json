@@ -1,0 +1,204 @@
+[
+  {
+    "pregunta": "¿Qué herramienta del CCN-CERT se utiliza para auditar el cumplimiento con el ENS (Esquema Nacional de Seguridad)?",
+    "opciones": ["LUCIA", "REYES", "CLARA", "ANA"],
+    "correcta": 2,
+    "explicacion": "CLARA es la herramienta para la auditoría de cumplimiento del ENS y guías STIC."
+  },
+  {
+    "pregunta": "En Kubernetes, ¿cuál es la unidad mínima de despliegue que puede contener uno o varios contenedores?",
+    "opciones": ["Node", "Cluster", "Pod", "Service"],
+    "correcta": 2,
+    "explicacion": "Un Pod es la unidad básica en Kubernetes; comparte almacenamiento y red entre sus contenedores."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿cuál es el plazo de subsanación si una solicitud no reúne los requisitos necesarios?",
+    "opciones": ["5 días", "10 días", "15 días", "20 días"],
+    "correcta": 1,
+    "explicacion": "El interesado dispone de 10 días hábiles para subsanar la falta o acompañar los documentos preceptivos."
+  },
+  {
+    "pregunta": "¿Cuál es la máscara de subred correspondiente a un prefijo /27?",
+    "opciones": ["255.255.255.192", "255.255.255.224", "255.255.255.240", "255.255.255.248"],
+    "correcta": 1,
+    "explicacion": "/27 significa que el último octeto tiene 3 bits de red (11100000), lo que suma 128+64+32 = 224."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es un 'Deadlock' o interbloqueo?",
+    "opciones": ["Un error de sintaxis", "Un proceso que consume toda la CPU", "Dos o más procesos que se esperan mutuamente de forma infinita", "Un fallo en el disco duro"],
+    "correcta": 2,
+    "explicacion": "Ocurre cuando cada proceso en un conjunto espera un recurso que tiene otro proceso del mismo conjunto."
+  },
+  {
+    "pregunta": "En una arquitectura Von Neumann, ¿qué registro almacena el código de la operación que se está ejecutando?",
+    "opciones": ["PC (Program Counter)", "MAR (Memory Address Register)", "IR (Instruction Register)", "AC (Acumulador)"],
+    "correcta": 2,
+    "explicacion": "El Registro de Instrucción (IR) guarda la instrucción actual para ser decodificada por la Unidad de Control."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza por defecto el protocolo SSH?",
+    "opciones": ["21", "22", "23", "25"],
+    "correcta": 1,
+    "explicacion": "Secure Shell utiliza el puerto TCP 22."
+  },
+  {
+    "pregunta": "En SQL, ¿qué comando se utiliza para eliminar todos los registros de una tabla sin borrar su estructura?",
+    "opciones": ["DROP TABLE", "DELETE DATABASE", "TRUNCATE TABLE", "REMOVE TABLE"],
+    "correcta": 2,
+    "explicacion": "TRUNCATE elimina el contenido rápidamente; DELETE lo hace fila por fila."
+  },
+  {
+    "pregunta": "Según el RGPD, el principio de 'Minimización de datos' establece que:",
+    "opciones": ["Los datos deben ser borrados cada año", "Los datos deben ser adecuados, pertinentes y limitados a lo necesario", "Los datos deben ocupar poco espacio en disco", "Solo los jefes pueden ver los datos"],
+    "correcta": 1,
+    "explicacion": "Significa no tratar más datos de los estrictamente necesarios para la finalidad perseguida."
+  },
+  {
+    "pregunta": "¿Qué tipo de memoria caché suele estar integrada directamente dentro de cada núcleo del procesador?",
+    "opciones": ["L1", "L2", "L3", "L4"],
+    "correcta": 0,
+    "explicacion": "La caché L1 es la más cercana al núcleo y la más rápida, dividida normalmente en instrucciones y datos."
+  },
+  {
+    "pregunta": "En una red IPv6, ¿cuál es la dirección de 'localhost' o loopback?",
+    "opciones": ["127.0.0.1", "::", "::1", "ff02::1"],
+    "correcta": 2,
+    "explicacion": "La dirección ::1 equivale a la 127.0.0.1 de IPv4."
+  },
+  {
+    "pregunta": "En Java, ¿qué palabra reservada se usa para que una clase implemente una interfaz?",
+    "opciones": ["extends", "implements", "inherits", "interface"],
+    "correcta": 1,
+    "explicacion": "Se usa 'extends' para heredar de clases y 'implements' para interfaces."
+  },
+  {
+    "pregunta": "¿Cuál es la principal ventaja de RAID 1?",
+    "opciones": ["Aumenta la capacidad total", "Ofrece tolerancia a fallos mediante espejo (mirroring)", "Es el más rápido para escribir", "No necesita controladores especiales"],
+    "correcta": 1,
+    "explicacion": "RAID 1 duplica los datos en dos discos; si uno falla, el sistema sigue funcionando."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿en qué capa operan los protocolos de enrutamiento como OSPF o BGP?",
+    "opciones": ["Enlace de datos", "Red", "Transporte", "Aplicación"],
+    "correcta": 1,
+    "explicacion": "Operan en la capa 3 (Red) para determinar el camino que seguirán los paquetes."
+  },
+  {
+    "pregunta": "¿Qué comando de Linux permite cambiar los permisos de un archivo?",
+    "opciones": ["chown", "chgrp", "chmod", "umask"],
+    "correcta": 2,
+    "explicacion": "chmod (change mode) modifica los bits de lectura, escritura y ejecución."
+  },
+  {
+    "pregunta": "¿Qué significa el acrónimo API?",
+    "opciones": ["Application Process Integration", "Application Programming Interface", "Advanced Protocol Internet", "Automated Program Interface"],
+    "correcta": 1,
+    "explicacion": "Es el conjunto de definiciones y protocolos que se utiliza para desarrollar e integrar el software de las aplicaciones."
+  },
+  {
+    "pregunta": "En Git, ¿qué comando se usa para descargar los cambios del repositorio remoto y fusionarlos con el local?",
+    "opciones": ["git fetch", "git pull", "git push", "git checkout"],
+    "correcta": 1,
+    "explicacion": "git pull es la combinación de 'git fetch' y 'git merge'."
+  },
+  {
+    "pregunta": "¿Cuál es la función del protocolo ARP?",
+    "opciones": ["Asignar nombres de dominio", "Asignar direcciones IP", "Traducir direcciones IP a direcciones MAC", "Traducir direcciones MAC a IP"],
+    "correcta": 2,
+    "explicacion": "Address Resolution Protocol resuelve la dirección física de una interfaz dada su IP."
+  },
+  {
+    "pregunta": "Según la Constitución Española, ¿cuánto dura el mandato de los Diputados?",
+    "opciones": ["3 años", "4 años", "5 años", "6 años"],
+    "correcta": 1,
+    "explicacion": "El Congreso es elegido por cuatro años. El mandato de los Diputados termina cuatro años después de su elección."
+  },
+  {
+    "pregunta": "¿Qué tecnología permite crear varios sistemas aislados (contenedores) compartiendo el mismo núcleo del SO?",
+    "opciones": ["VMware", "VirtualBox", "Docker", "Hyper-V"],
+    "correcta": 2,
+    "explicacion": "Docker usa contenedores, que son más ligeros que las máquinas virtuales al compartir el kernel."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué propiedad de ACID asegura que una vez confirmada una transacción, esta permanecerá?",
+    "opciones": ["A - Atomicidad", "C - Consistencia", "I - Aislamiento", "D - Durabilidad"],
+    "correcta": 3,
+    "explicacion": "La durabilidad garantiza que los cambios persistan incluso en caso de fallo del sistema."
+  },
+  {
+    "pregunta": "¿Qué dispositivo de red trabaja principalmente en la Capa 2 (Enlace) del modelo OSI?",
+    "opciones": ["Router", "Hub", "Switch", "Repetidor"],
+    "correcta": 2,
+    "explicacion": "El switch utiliza direcciones MAC para reenviar tramas a puertos específicos."
+  },
+  {
+    "pregunta": "¿Qué etiqueta de HTML5 se utiliza para definir el pie de página de un documento o sección?",
+    "opciones": ["<bottom>", "<end>", "<footer>", "<aside>"],
+    "correcta": 2,
+    "explicacion": "La etiqueta <footer> se usa para información de autor, copyright o enlaces relacionados."
+  },
+  {
+    "pregunta": "En Linux, ¿qué directorio contiene los archivos de configuración del sistema?",
+    "opciones": ["/bin", "/etc", "/var", "/home"],
+    "correcta": 1,
+    "explicacion": "/etc es el estándar para la configuración global del sistema y aplicaciones."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un protocolo de transporte NO orientado a conexión?",
+    "opciones": ["TCP", "UDP", "HTTP", "FTP"],
+    "correcta": 1,
+    "explicacion": "UDP (User Datagram Protocol) envía datos sin establecer una sesión previa ni asegurar la recepción."
+  },
+  {
+    "pregunta": "En el contexto de la seguridad, ¿qué es un ataque de 'Inyección SQL'?",
+    "opciones": ["Enviar virus por email", "Insertar código SQL malicioso en formularios web para manipular la base de datos", "Descifrar contraseñas por fuerza bruta", "Robar cookies de sesión"],
+    "correcta": 1,
+    "explicacion": "Es una vulnerabilidad que permite al atacante interferir en las consultas que una aplicación hace a su base de datos."
+  },
+  {
+    "pregunta": "¿Qué componente de hardware gestiona la comunicación entre la CPU y la memoria RAM?",
+    "opciones": ["Southbridge", "Northbridge", "BIOS", "Slot de expansión"],
+    "correcta": 1,
+    "explicacion": "Tradicionalmente el Northbridge gestionaba la RAM y el bus AGP/PCIe; hoy está integrado en la CPU."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué principio supone que la Administración actúe con sencillez, claridad y proximidad?",
+    "opciones": ["Transparencia", "Eficacia", "Servicio efectivo a los ciudadanos", "Responsabilidad"],
+    "correcta": 2,
+    "explicacion": "El servicio efectivo es un principio de organización y funcionamiento de las Administraciones Públicas."
+  },
+  {
+    "pregunta": "En Python, ¿qué palabra clave se usa para definir una función?",
+    "opciones": ["function", "void", "def", "func"],
+    "correcta": 2,
+    "explicacion": "Se utiliza 'def nombre_funcion():'."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para enviar correos electrónicos entre servidores?",
+    "opciones": ["IMAP", "POP3", "SMTP", "SNMP"],
+    "correcta": 2,
+    "explicacion": "Simple Mail Transfer Protocol se encarga del envío y transferencia de correo."
+  },
+  {
+    "pregunta": "En una hoja de estilos CSS, ¿cómo se selecciona un elemento por su clase?",
+    "opciones": ["#clase", ".clase", "clase:", "*clase"],
+    "correcta": 1,
+    "explicacion": "El punto (.) se usa para clases, el almohadilla (#) para IDs."
+  },
+  {
+    "pregunta": "¿Cuál es la longitud de una dirección IPv4?",
+    "opciones": ["16 bits", "32 bits", "64 bits", "128 bits"],
+    "correcta": 1,
+    "explicacion": "4 octetos de 8 bits cada uno = 32 bits."
+  },
+  {
+    "pregunta": "En Windows, ¿qué combinación de teclas bloquea la sesión del usuario?",
+    "opciones": ["Win + L", "Win + D", "Win + E", "Alt + F4"],
+    "correcta": 0,
+    "explicacion": "L viene de 'Lock' (Bloquear)."
+  },
+  {
+    "pregunta": "¿Qué tecnología inalámbrica utiliza el estándar 802.11?",
+    "opciones": ["Bluetooth", "NFC", "Wi-Fi", "Zigbee"],
+    "correcta": 2,
+    "explicacion": "IEEE
