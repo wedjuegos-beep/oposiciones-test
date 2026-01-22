@@ -1,0 +1,482 @@
+[
+  {
+    "pregunta": "¿Qué principio del RGPD (UE) 2016/679 se refiere a que los datos serán adecuados, pertinentes y limitados a lo necesario?",
+    "opciones": ["Exactitud", "Limitación de la finalidad", "Minimización de datos", "Adecuación de datos"],
+    "correcta": 2,
+    "explicacion": "El principio de minimización obliga a tratar solo los datos estrictamente necesarios."
+  },
+  {
+    "pregunta": "Según la Constitución Española, la forma política del Estado es:",
+    "opciones": ["Monarquía Democrática", "Monarquía Limitada", "Monarquía Constitucional", "Monarquía Parlamentaria"],
+    "correcta": 3,
+    "explicacion": "Artículo 1.3 de la CE."
+  },
+  {
+    "pregunta": "El plazo máximo de la detención preventiva es de:",
+    "opciones": ["48 horas", "72 horas", "24 horas", "No se establece plazo"],
+    "correcta": 1,
+    "explicacion": "Art. 17.2 CE: Máximo 72 horas."
+  },
+  {
+    "pregunta": "En Kubernetes, ¿qué componente se encarga de mantener el estado deseado de los objetos?",
+    "opciones": ["Kube-proxy", "Kubelet", "Etcd", "Control Plane"],
+    "correcta": 1,
+    "explicacion": "El kubelet asegura que los contenedores estén funcionando en un Pod."
+  },
+  {
+    "pregunta": "¿Qué comando de Windows se usa para comprobar el estado de BitLocker y el chip TPM?",
+    "opciones": ["bitlocker /status", "manage-bde -status", "cipher /check", "netsh bitlocker show"],
+    "correcta": 1,
+    "explicacion": "manage-bde es la herramienta oficial de línea de comandos."
+  },
+  {
+    "pregunta": "¿Cuál es el mínimo de discos para un RAID 5?",
+    "opciones": ["2", "3", "4", "5"],
+    "correcta": 1,
+    "explicacion": "Requiere al menos 3 discos para distribuir la paridad."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza por defecto el protocolo SSH?",
+    "opciones": ["21", "23", "22", "25"],
+    "correcta": 2,
+    "explicacion": "Puerto 22."
+  },
+  {
+    "pregunta": "La convocatoria a referéndum consultivo corresponde a:",
+    "opciones": ["El Rey, a propuesta del Presidente, previa autorización del Congreso", "El Presidente del Gobierno", "Las Cortes Generales", "El Rey, a propuesta del Congreso"],
+    "correcta": 0,
+    "explicacion": "Art. 92.2 CE."
+  },
+  {
+    "pregunta": "¿Qué componente de la CPU realiza operaciones matemáticas?",
+    "opciones": ["Unidad de Control", "Registros", "ALU", "Reloj"],
+    "correcta": 2,
+    "explicacion": "ALU (Arithmetic Logic Unit)."
+  },
+  {
+    "pregunta": "En SQL, ¿qué cláusula filtra tras agrupar con GROUP BY?",
+    "opciones": ["WHERE", "ORDER BY", "HAVING", "GROUP BY"],
+    "correcta": 2,
+    "explicacion": "HAVING filtra grupos."
+  },
+  {
+    "pregunta": "¿Qué protocolo asigna IPs automáticas?",
+    "opciones": ["DNS", "DHCP", "SNMP", "ARP"],
+    "correcta": 1,
+    "explicacion": "Dynamic Host Configuration Protocol."
+  },
+  {
+    "pregunta": "En Linux, ¿qué directorio contiene configuraciones?",
+    "opciones": ["/home", "/bin", "/etc", "/var"],
+    "correcta": 2,
+    "explicacion": "/etc es el estándar."
+  },
+  {
+    "pregunta": "¿Qué capa del modelo OSI usa el protocolo IP?",
+    "opciones": ["Enlace", "Red", "Transporte", "Sesión"],
+    "correcta": 1,
+    "explicacion": "Capa 3 - Red."
+  },
+  {
+    "pregunta": "¿Qué arquitectura RAID ofrece Mirroring?",
+    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"],
+    "correcta": 1,
+    "explicacion": "RAID 1 duplica los datos."
+  },
+  {
+    "pregunta": "¿Qué comando Linux muestra las últimas líneas?",
+    "opciones": ["head", "cat", "more", "tail"],
+    "correcta": 3,
+    "explicacion": "tail muestra el final."
+  },
+  {
+    "pregunta": "En bases de datos, ACID incluye:",
+    "opciones": ["Aislamiento", "Ambigüedad", "Alternancia", "Agilidad"],
+    "correcta": 0,
+    "explicacion": "A de Isolation (Aislamiento)."
+  },
+  {
+    "pregunta": "¿Qué puerto usa MySQL por defecto?",
+    "opciones": ["1433", "5432", "3306", "1521"],
+    "correcta": 2,
+    "explicacion": "3306."
+  },
+  {
+    "pregunta": "¿Qué estándar es Wi-Fi 6?",
+    "opciones": ["802.11ac", "802.11n", "802.11ax", "802.11g"],
+    "correcta": 2,
+    "explicacion": "802.11ax."
+  },
+  {
+    "pregunta": "En Scrum, ¿quién maximiza el valor?",
+    "opciones": ["Scrum Master", "Product Owner", "Dev Team", "Stakeholders"],
+    "correcta": 1,
+    "explicacion": "El Product Owner."
+  },
+  {
+    "pregunta": "Según Ley 39/2015, plazo de subsanación:",
+    "opciones": ["5 días", "10 días", "15 días", "30 días"],
+    "correcta": 1,
+    "explicacion": "10 días hábiles."
+  },
+  {
+    "pregunta": "¿Qué comando de CMD borra una regla de firewall?",
+    "opciones": ["netsh advfirewall firewall delete rule", "netsh remove rule", "netsh drop rule", "netsh erase rule"],
+    "correcta": 0,
+    "explicacion": "El comando es 'delete rule'."
+  },
+  {
+    "pregunta": "¿Qué herramienta del CCN-CERT gestiona incidentes?",
+    "opciones": ["LUCIA", "CLARA", "ELENA", "CARMEN"],
+    "correcta": 0,
+    "explicacion": "LUCIA (Listado Unificado de Ciberincidentes)."
+  },
+  {
+    "pregunta": "¿En qué capa OSI actúan los hubs?",
+    "opciones": ["Capa 1", "Capa 2", "Capa 3", "Capa 4"],
+    "correcta": 0,
+    "explicacion": "Capa Física."
+  },
+  {
+    "pregunta": "El método HTTP para actualizaciones parciales es:",
+    "opciones": ["PUT", "POST", "PATCH", "UPDATE"],
+    "correcta": 2,
+    "explicacion": "PATCH."
+  },
+  {
+    "pregunta": "¿Qué memoria es volátil?",
+    "opciones": ["ROM", "Flash", "SSD", "RAM"],
+    "correcta": 3,
+    "explicacion": "RAM."
+  },
+  {
+    "pregunta": "¿Qué protocolo usa el puerto 443?",
+    "opciones": ["HTTP", "HTTPS", "FTP", "SSH"],
+    "correcta": 1,
+    "explicacion": "HTTPS seguro."
+  },
+  {
+    "pregunta": "En Linux, el comando 'grep' sirve para:",
+    "opciones": ["Copiar", "Buscar texto", "Permisos", "Procesos"],
+    "correcta": 1,
+    "explicacion": "Búsqueda de patrones."
+  },
+  {
+    "pregunta": "¿Cuántos bits tiene una dirección IPv6?",
+    "opciones": ["32", "64", "128", "256"],
+    "correcta": 2,
+    "explicacion": "128 bits."
+  },
+  {
+    "pregunta": "La integridad referencial usa:",
+    "opciones": ["Claves Primarias", "Claves Ajenas", "Índices", "Triggers"],
+    "correcta": 1,
+    "explicacion": "Foreign Keys."
+  },
+  {
+    "pregunta": "¿Qué registro apunta a la siguiente instrucción?",
+    "opciones": ["Acumulador", "PC", "IR", "SP"],
+    "correcta": 1,
+    "explicacion": "Program Counter."
+  },
+  {
+    "pregunta": "La máscara por defecto de Clase B es:",
+    "opciones": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+    "correcta": 1,
+    "explicacion": "/16."
+  },
+  {
+    "pregunta": "¿Qué bus lleva señales de sincronía?",
+    "opciones": ["Datos", "Direcciones", "Control", "Sistema"],
+    "correcta": 2,
+    "explicacion": "Bus de Control."
+  },
+  {
+    "pregunta": "En SQL, valores únicos con:",
+    "opciones": ["UNIQUE", "DISTINCT", "ONLY", "SINGLE"],
+    "correcta": 1,
+    "explicacion": "SELECT DISTINCT."
+  },
+  {
+    "pregunta": "¿Qué conector usa el cable UTP?",
+    "opciones": ["RJ-11", "RJ-45", "BNC", "ST"],
+    "correcta": 1,
+    "explicacion": "RJ-45 Ethernet."
+  },
+  {
+    "pregunta": "Propiedad de transacción que asegura que se hace todo o nada:",
+    "opciones": ["Atomicidad", "Consistencia", "Aislamiento", "Durabilidad"],
+    "correcta": 0,
+    "explicacion": "Atomicidad."
+  },
+  {
+    "pregunta": "¿Qué protocolo NO es de correo?",
+    "opciones": ["SMTP", "POP3", "IMAP", "SNMP"],
+    "correcta": 3,
+    "explicacion": "SNMP es de gestión."
+  },
+  {
+    "pregunta": "El elemento raíz de SOAP es:",
+    "opciones": ["Envelope", "Body", "Header", "Fault"],
+    "correcta": 0,
+    "explicacion": "soap:Envelope."
+  },
+  {
+    "pregunta": "¿Qué comando Git envía cambios al servidor?",
+    "opciones": ["pull", "commit", "push", "fetch"],
+    "correcta": 2,
+    "explicacion": "git push."
+  },
+  {
+    "pregunta": "¿Cuál es un sistema de archivos con journaling en Linux?",
+    "opciones": ["FAT32", "NTFS", "EXT4", "ISO9660"],
+    "correcta": 2,
+    "explicacion": "EXT4."
+  },
+  {
+    "pregunta": "En TAI, ¿cuál es el tiempo máximo del examen?",
+    "opciones": ["90 min", "100 min", "120 min", "150 min"],
+    "correcta": 2,
+    "explicacion": "120 minutos (2 horas)."
+  },
+  {
+    "pregunta": "¿Cuál es la norma de accesibilidad WCAG 2.0?",
+    "opciones": ["ISO 9001", "ISO 27001", "ISO 40500", "ISO 20000"],
+    "correcta": 2,
+    "explicacion": "ISO/IEC 40500:2012."
+  },
+  {
+    "pregunta": "En Java, el código intermedio se llama:",
+    "opciones": ["Binary", "Bytecode", "Source", "Native"],
+    "correcta": 1,
+    "explicacion": "Bytecode ejecutable por la JVM."
+  },
+  {
+    "pregunta": "¿Qué ataque suplanta identidad por email?",
+    "opciones": ["Phishing", "DoS", "SQLi", "Exploit"],
+    "correcta": 0,
+    "explicacion": "Phishing."
+  },
+  {
+    "pregunta": "¿Qué comando Windows muestra la MAC?",
+    "opciones": ["ipconfig", "ipconfig /all", "getmac /v", "Ambas b y c son correctas"],
+    "correcta": 3,
+    "explicacion": "Tanto /all como getmac muestran la MAC."
+  },
+  {
+    "pregunta": "¿Qué tipo de lenguaje es CSS?",
+    "opciones": ["Programación", "Marcas", "Estilos", "Script"],
+    "correcta": 2,
+    "explicacion": "Hojas de estilo en cascada."
+  },
+  {
+    "pregunta": "Nivel de RAID con paridad distribuida:",
+    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"],
+    "correcta": 2,
+    "explicacion": "RAID 5."
+  },
+  {
+    "pregunta": "Puerto por defecto de PostgreSQL:",
+    "opciones": ["3306", "5432", "1433", "1521"],
+    "correcta": 1,
+    "explicacion": "5432."
+  },
+  {
+    "pregunta": "¿Qué unidad de la CPU interpreta instrucciones?",
+    "opciones": ["ALU", "UC", "Caché", "Registros"],
+    "correcta": 1,
+    "explicacion": "Unidad de Control."
+  },
+  {
+    "pregunta": "¿Qué protocolo usa el puerto 21?",
+    "opciones": ["SSH", "Telnet", "FTP", "SMTP"],
+    "correcta": 2,
+    "explicacion": "FTP (Control)."
+  },
+  {
+    "pregunta": "En la CE, el Rey es el Jefe del:",
+    "opciones": ["Gobierno", "Estado", "Poder Judicial", "Congreso"],
+    "correcta": 1,
+    "explicacion": "Jefe del Estado."
+  },
+  {
+    "pregunta": "Plazo para interponer Recurso de Alzada:",
+    "opciones": ["15 días", "1 mes", "2 meses", "3 meses"],
+    "correcta": 1,
+    "explicacion": "1 mes (si es acto expreso)."
+  },
+  {
+    "pregunta": "¿Qué tecnología crea máquinas virtuales?",
+    "opciones": ["Docker", "Hipervisor", "Kernel", "BIOS"],
+    "correcta": 1,
+    "explicacion": "El hipervisor gestiona las VMs."
+  },
+  {
+    "pregunta": "¿Qué significa SQL?",
+    "opciones": ["Simple Query Language", "Structured Query Language", "Sequential Query List", "System Query Logic"],
+    "correcta": 1,
+    "explicacion": "Lenguaje de Consulta Estructurado."
+  },
+  {
+    "pregunta": "¿Qué bus es unidireccional (CPU a Memoria)?",
+    "opciones": ["Bus de Datos", "Bus de Direcciones", "Bus de Control", "Bus de E/S"],
+    "correcta": 1,
+    "explicacion": "El bus de direcciones."
+  },
+  {
+    "pregunta": "En Linux, borrar directorio no vacío con:",
+    "opciones": ["rm", "rmdir", "rm -rf", "del"],
+    "correcta": 2,
+    "explicacion": "Recursivo y forzado."
+  },
+  {
+    "pregunta": "¿Qué puerto usa SMTP?",
+    "opciones": ["25", "110", "143", "443"],
+    "correcta": 0,
+    "explicacion": "Puerto 25."
+  },
+  {
+    "pregunta": "En el modelo OSI, la capa 4 es:",
+    "opciones": ["Red", "Sesión", "Transporte", "Presentación"],
+    "correcta": 2,
+    "explicacion": "Capa de Transporte."
+  },
+  {
+    "pregunta": "Unidad mínima de información en un PC:",
+    "opciones": ["Byte", "Bit", "Nibble", "Word"],
+    "correcta": 1,
+    "explicacion": "El Bit (0 o 1)."
+  },
+  {
+    "pregunta": "¿Qué etiqueta HTML define el título de la pestaña?",
+    "opciones": ["<head>", "<meta>", "<title>", "<header>"],
+    "correcta": 2,
+    "explicacion": "<title>."
+  },
+  {
+    "pregunta": "¿Qué comando de Git crea una rama nueva?",
+    "opciones": ["git branch", "git checkout", "git commit", "git merge"],
+    "correcta": 0,
+    "explicacion": "git branch."
+  },
+  {
+    "pregunta": "¿Qué RAID es el 'Stripping'?",
+    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"],
+    "correcta": 0,
+    "explicacion": "RAID 0 (sin redundancia)."
+  },
+  {
+    "pregunta": "Protocolo para recibir correo (descarga):",
+    "opciones": ["SMTP", "POP3", "SNMP", "ICMP"],
+    "correcta": 1,
+    "explicacion": "Post Office Protocol v3."
+  },
+  {
+    "pregunta": "El responsable de seguridad en el ENS es:",
+    "opciones": ["El que determina requisitos", "El que gestiona el sistema", "El que firma la política", "El DPD"],
+    "correcta": 0,
+    "explicacion": "Determina los requisitos de seguridad de la información."
+  },
+  {
+    "pregunta": "¿Qué topología de red usa un nodo central?",
+    "opciones": ["Bus", "Anillo", "Estrella", "Malla"],
+    "correcta": 2,
+    "explicacion": "Estrella."
+  },
+  {
+    "pregunta": "En Python, ¿cómo se definen funciones?",
+    "opciones": ["function", "def", "func", "new"],
+    "correcta": 1,
+    "explicacion": "Palabra clave 'def'."
+  },
+  {
+    "pregunta": "¿Qué puerto usa RDP (Escritorio remoto)?",
+    "opciones": ["3389", "5900", "22", "80"],
+    "correcta": 0,
+    "explicacion": "3389."
+  },
+  {
+    "pregunta": "Una red de área metropolitana se llama:",
+    "opciones": ["LAN", "PAN", "MAN", "WAN"],
+    "correcta": 2,
+    "explicacion": "MAN (Metropolitan Area Network)."
+  },
+  {
+    "pregunta": "¿Qué componente gestiona la memoria virtual?",
+    "opciones": ["ALU", "MMU", "DMA", "BIOS"],
+    "correcta": 1,
+    "explicacion": "Memory Management Unit."
+  },
+  {
+    "pregunta": "En SQL, para ordenar resultados se usa:",
+    "opciones": ["SORT BY", "GROUP BY", "ORDER BY", "ARRANGE"],
+    "correcta": 2,
+    "explicacion": "ORDER BY."
+  },
+  {
+    "pregunta": "¿Qué tipo de IP es 192.168.1.1?",
+    "opciones": ["Pública", "Privada", "Loopback", "Multicast"],
+    "correcta": 1,
+    "explicacion": "Rango privado Clase C."
+  },
+  {
+    "pregunta": "¿Quién nombra al Presidente del Gobierno?",
+    "opciones": ["El Rey", "El Congreso", "El Senado", "El pueblo"],
+    "correcta": 0,
+    "explicacion": "El Rey, tras la investidura."
+  },
+  {
+    "pregunta": "¿Qué protocolo usa 'ping'?",
+    "opciones": ["TCP", "UDP", "ICMP", "IGMP"],
+    "correcta": 2,
+    "explicacion": "Internet Control Message Protocol."
+  },
+  {
+    "pregunta": "Un byte equivale a:",
+    "opciones": ["4 bits", "8 bits", "16 bits", "1024 bits"],
+    "correcta": 1,
+    "explicacion": "8 bits."
+  },
+  {
+    "pregunta": "Directorio raíz en Linux:",
+    "opciones": ["/root", "C:\\", "/", "/home"],
+    "correcta": 2,
+    "explicacion": "Slash ( / )."
+  },
+  {
+    "pregunta": "¿Qué puerto usa DNS?",
+    "opciones": ["53", "67", "68", "80"],
+    "correcta": 0,
+    "explicacion": "Puerto 53 (UDP/TCP)."
+  },
+  {
+    "pregunta": "En el ENS, nivel de seguridad de datos de salud:",
+    "opciones": ["Bajo", "Medio", "Alto", "Crítico"],
+    "correcta": 2,
+    "explicacion": "Datos especialmente protegidos requieren nivel Alto."
+  },
+  {
+    "pregunta": "Dispositivo que une redes distintas (capa 3):",
+    "opciones": ["Hub", "Switch", "Router", "Bridge"],
+    "correcta": 2,
+    "explicacion": "Router o Encaminador."
+  },
+  {
+    "pregunta": "¿Qué significa XML?",
+    "opciones": ["Extra Markup Language", "eXtensible Markup Language", "Example Markup Language", "eXecutable Markup Language"],
+    "correcta": 1,
+    "explicacion": "Lenguaje de Marcas Extensible."
+  },
+  {
+    "pregunta": "El registro que guarda el resultado de la ALU es:",
+    "opciones": ["PC", "IR", "Acumulador", "MAR"],
+    "correcta": 2,
+    "explicacion": "Acumulador."
+  },
+  {
+    "pregunta": "Derecho a que el DPD sea independiente:",
+    "opciones": ["RGPD", "LOPDGDD", "Ambos", "Ninguno"],
+    "correcta": 2,
+    "explicacion": "Garantizado por normativa europea y española."
+  }
+]
