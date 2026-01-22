@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Tests TAI</title>
+    <title>Plataforma Multi-Oposiciones</title>
     <style>
         :root { --primary: #007bff; --success: #28a745; --danger: #dc3545; --dark: #343a40; --light: #f8f9fa; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e9ecef; margin: 0; padding: 20px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: auto; }
         .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; }
         .btn { padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; margin: 5px 0; width: 100%; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-success { background: var(--success); color: white; }
-        .btn-danger { background: var(--danger); color: white; }
         .btn-exit { background: #6c757d; color: white; margin-top: 20px; }
         select, input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
         .hidden { display: none; }
         .pregunta-texto { font-size: 1.2em; font-weight: bold; margin-bottom: 20px; color: var(--dark); }
-        .opcion { display: block; padding: 15px; margin: 8px 0; background: #f8f9fa; border: 2px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .opcion:hover { background: #e9ecef; border-color: #ddd; }
-        .correcta { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
-        .incorrecta { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .opcion { display: block; padding: 15px; margin: 8px 0; background: #f8f9fa; border: 2px solid #eee; border-radius: 8px; cursor: pointer; }
+        .correcta { background: #d4edda !important; border-color: #28a745 !important; }
+        .incorrecta { background: #f8d7da !important; border-color: #dc3545 !important; }
         .feedback { background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #ffc107; }
-        #timer { font-weight: bold; color: var(--danger); font-size: 1.2em; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div id="vistaConfig" class="card">
-        <h1 style="text-align: center; color: var(--dark);">🎯 Preparador Oficial TAI</h1>
-        <p style="text-align: center; color: #666;">Selecciona un examen de los 15 oficiales o por temas</p>
+    <div id="vistaOposicion" class="card">
+        <h1 style="text-align: center;">🏛️ Elige tu Oposición</h1>
+        <button class="btn btn-primary" onclick="seleccionarOpo('tai')">Técnico Auxiliar Informática (TAI)</button>
+        <button class="btn btn-success" onclick="seleccionarOpo('auxiliar')">Auxiliar Administrativo Valencia</button>
+    </div>
+
+    <div id="vistaConfig" class="card hidden">
+        <button onclick="location.reload()" style="float: right; border: none; background: none; cursor: pointer;">⬅️ Cambiar Oposición</button>
+        <h2 id="tituloOpo">Configuración</h2>
         
-        <label><b>Seleccionar Examen:</b></label>
+        <label><b>Seleccionar Examen o Bloque:</b></label>
         <select id="selectTest"></select>
 
         <label><b>Número de preguntas:</b></label>
-        <input type="number" id="numPreguntas" value="80" min="1" max="100">
+        <input type="number" id="numPreguntas" value="80" min="1">
         
-        <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <div style="display: flex; gap: 10px;">
             <button class="btn btn-success" onclick="iniciarExamen(false)">ENTRENAMIENTO</button>
             <button class="btn btn-primary" onclick="iniciarExamen(true)">MODO EXAMEN</button>
         </div>
@@ -46,67 +49,87 @@
 
     <div id="vistaTest" class="card hidden">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">
-            <span id="progreso" style="font-weight: bold;">Pregunta 1/80</span>
+            <span id="progreso">Pregunta 1/--</span>
             <div id="timerContainer" class="hidden">⏱️ <span id="timer">120:00</span></div>
         </div>
-
         <div id="contenedorPregunta"></div>
-        
         <button id="btnSiguiente" class="btn btn-primary hidden" onclick="siguiente()">Siguiente Pregunta</button>
-        <button class="btn btn-exit" onclick="confirmarSalida()">✖ Salir del Test</button>
+        <button class="btn btn-exit" onclick="confirmarSalida()">✖ Salir</button>
     </div>
 
     <div id="vistaResultados" class="card hidden" style="text-align: center;">
-        <h2>Examen Finalizado</h2>
+        <h2>Fin del examen</h2>
         <div id="puntuacionFinal" style="font-size: 3em; margin: 20px 0;">0 / 0</div>
-        <p id="mensajeResultado"></p>
-        <button class="btn btn-primary" onclick="location.reload()">Volver a Intentarlo</button>
+        <button class="btn btn-primary" onclick="location.reload()">Volver al Inicio</button>
     </div>
 </div>
 
 <script>
-    // LISTA DE 15 TESTS OFICIALES + TEMAS
-    const listaExamenes = [
-        { id: "test_oficial_1.json", nombre: "🏆 Examen Oficial 01" },
-        { id: "test_oficial_2.json", nombre: "🏆 Examen Oficial 02" },
-        { id: "test_oficial_3.json", nombre: "🏆 Examen Oficial 03" },
-        { id: "test_oficial_4.json", nombre: "🏆 Examen Oficial 04" },
-        { id: "test_oficial_5.json", nombre: "🏆 Examen Oficial 05" },
-        { id: "test_oficial_6.json", nombre: "🏆 Examen Oficial 06" },
-        { id: "test_oficial_7.json", nombre: "🏆 Examen Oficial 07" },
-        { id: "test_oficial_8.json", nombre: "🏆 Examen Oficial 08" },
-        { id: "test_oficial_9.json", nombre: "🏆 Examen Oficial 09" },
-        { id: "test_oficial_10.json", nombre: "🏆 Examen Oficial 10" },
-        { id: "test_oficial_11.json", nombre: "🏆 Examen Oficial 11" },
-        { id: "test_oficial_12.json", nombre: "🏆 Examen Oficial 12" },
-        { id: "test_oficial_13.json", nombre: "🏆 Examen Oficial 13" },
-        { id: "test_oficial_14.json", nombre: "🏆 Examen Oficial 14" },
-        { id: "test_oficial_15.json", nombre: "🏆 Examen Oficial 15" },
-        { id: "tema_1.json", nombre: "📁 Bloque I: Derecho y Adm. Pública" },
-        { id: "tema_2.json", nombre: "📁 Bloque II: Tecnología Básica" }
-    ];
+    let oposicionActual = '';
+    const examenes = {
+        tai: {
+            titulo: "🚀 Oposición TAI",
+            max: 80,
+            carpeta: "tests/tai/",
+            lista: [
+                { id: "test_oficial_1.json", nombre: "🏆 Oficial 01" },
+                { id: "test_oficial_2.json", nombre: "🏆 Oficial 02" },
+                // ... añadir del 3 al 15 igual
+                { id: "bloque_1.json", nombre: "📁 Bloque I: Derecho" },
+                { id: "bloque_2.json", nombre: "📁 Bloque II: Tecnología" },
+                { id: "bloque_3.json", nombre: "📁 Bloque III: Informática" },
+                { id: "bloque_4.json", nombre: "📁 Bloque IV: Redes" }
+            ]
+        },
+        auxiliar: {
+            titulo: "📝 Aux. Administrativo Valencia",
+            max: 50,
+            carpeta: "tests/auxiliar/",
+            lista: [
+                { id: "oficial_1.json", nombre: "🏆 Oficial 01 (Valencia)" },
+                { id: "bloque_1.json", nombre: "📁 Bloque 1" },
+                { id: "bloque_2.json", nombre: "📁 Bloque 2" },
+                { id: "bloque_3.json", nombre: "📁 Bloque 3" }
+            ]
+        }
+    };
 
-    let preguntas = [];
-    let actual = 0;
-    let aciertos = 0;
-    let modoExamen = false;
-    let tiempoRestante = 120 * 60; // 2 horas
-    let intervalo;
+    // Generar los 15 para TAI automáticamente en el objeto
+    for(let i=3; i<=15; i++) {
+        examenes.tai.lista.push({ id: `test_oficial_${i}.json`, nombre: `🏆 Oficial ${i < 10 ? '0'+i : i}` });
+    }
 
-    window.onload = () => {
+    function seleccionarOpo(tipo) {
+        oposicionActual = tipo;
+        const opo = examenes[tipo];
+        
+        document.getElementById('vistaOposicion').classList.add('hidden');
+        document.getElementById('vistaConfig').classList.remove('hidden');
+        document.getElementById('tituloOpo').textContent = opo.titulo;
+        document.getElementById('numPreguntas').value = opo.max;
+        document.getElementById('numPreguntas').max = opo.max;
+
         const select = document.getElementById('selectTest');
-        listaExamenes.forEach(ex => {
+        select.innerHTML = '';
+        opo.lista.forEach(ex => {
             const opt = document.createElement('option');
             opt.value = ex.id;
             opt.textContent = ex.nombre;
             select.appendChild(opt);
         });
-    };
+    }
+
+    // --- EL RESTO DEL CÓDIGO (iniciarExamen, chequear, etc.) SE MANTIENE IGUAL ---
+    // Solo actualizamos la URL de carga:
+    let preguntas = [];
+    let actual = 0;
+    let aciertos = 0;
+    let modoExamen = false;
+    let intervalo;
 
     async function iniciarExamen(examen) {
         const file = document.getElementById('selectTest').value;
-        // IMPORTANTE: Asegúrate de que en GitHub la carpeta sea tests/tai/
-        const url = `tests/tai/${file}`; 
+        const url = `${examenes[oposicionActual].carpeta}${file}`; 
 
         try {
             const res = await fetch(url);
@@ -118,26 +141,21 @@
             
             document.getElementById('vistaConfig').classList.add('hidden');
             document.getElementById('vistaTest').classList.remove('hidden');
-            
             if (modoExamen) {
                 document.getElementById('timerContainer').classList.remove('hidden');
-                iniciarCronometro();
+                let t = 120 * 60;
+                intervalo = setInterval(() => {
+                    t--;
+                    let m = Math.floor(t / 60);
+                    let s = t % 60;
+                    document.getElementById('timer').textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+                    if (t <= 0) finalizar();
+                }, 1000);
             }
-            
             mostrar();
         } catch (e) {
-            alert(`⚠️ ARCHIVO NO ENCONTRADO: El archivo "${file}" aún no ha sido subido a la carpeta tests/tai/ de tu GitHub.`);
+            alert(`⚠️ Error: No existe ${url} en tu GitHub.`);
         }
-    }
-
-    function iniciarCronometro() {
-        intervalo = setInterval(() => {
-            tiempoRestante--;
-            let mins = Math.floor(tiempoRestante / 60);
-            let secs = tiempoRestante % 60;
-            document.getElementById('timer').textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            if (tiempoRestante <= 0) finalizar();
-        }, 1000);
     }
 
     function mostrar() {
@@ -155,19 +173,11 @@
         const p = preguntas[actual];
         const opciones = document.querySelectorAll('.opcion');
         opciones.forEach(o => o.style.pointerEvents = 'none');
-
-        if (idx === p.correcta) {
-            el.classList.add('correcta');
-            aciertos++;
-        } else {
-            el.classList.add('incorrecta');
-            opciones[p.correcta].classList.add('correcta');
-        }
-
+        if (idx === p.correcta) { el.classList.add('correcta'); aciertos++; }
+        else { el.classList.add('incorrecta'); opciones[p.correcta].classList.add('correcta'); }
         if (!modoExamen) {
-            const f = document.createElement('div');
-            f.className = "feedback";
-            f.innerHTML = `<strong>💡 Explicación:</strong> ${p.explicacion || "Sin explicación disponible."}`;
+            const f = document.createElement('div'); f.className = "feedback";
+            f.innerHTML = `<strong>💡 Explicación:</strong> ${p.explicacion || "Sin explicación."}`;
             document.getElementById('contenedorPregunta').appendChild(f);
         }
         document.getElementById('btnSiguiente').classList.remove('hidden');
@@ -186,11 +196,7 @@
         document.getElementById('puntuacionFinal').textContent = `${aciertos} / ${preguntas.length}`;
     }
 
-    function confirmarSalida() {
-        if (confirm("¿Seguro que quieres salir? Perderás el progreso del test actual.")) {
-            location.reload();
-        }
-    }
+    function confirmarSalida() { if (confirm("¿Salir?")) location.reload(); }
 </script>
 </body>
 </html>
