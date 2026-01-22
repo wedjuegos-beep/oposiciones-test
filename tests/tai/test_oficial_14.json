@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué nombre recibe el ciclo de vida de desarrollo de software que propone una aproximación iterativa donde se evalúan los riesgos en cada etapa?",
+    "opciones": ["Modelo en Cascada", "Modelo en Espiral", "Modelo Lineal", "Modelo Big Bang"],
+    "correcta": 1,
+    "explicacion": "El modelo en espiral de Boehm pone especial énfasis en el análisis de riesgos, repitiendo ciclos de planificación, análisis, ingeniería y evaluación."
+  },
+  {
+    "pregunta": "¿Cuál es la función de una Función Hash en criptografía?",
+    "opciones": ["Cifrar un mensaje para que nadie lo lea", "Generar una huella digital única de tamaño fijo a partir de un mensaje", "Firmar digitalmente un documento", "Comprimir un archivo para que ocupe menos"],
+    "correcta": 1,
+    "explicacion": "Un hash es unidireccional y sirve para verificar la integridad de los datos (ej: SHA-256)."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿qué sucede si un interesado presenta un documento en un registro físico de una administración distinta a la de destino?",
+    "opciones": ["El documento se considera no presentado", "La administración receptora debe remitirlo a la de destino sin dilación", "El interesado debe pagar una tasa de envío", "Solo se puede presentar en la administración de destino"],
+    "correcta": 1,
+    "explicacion": "El sistema de Registro Interconectado (SIR) permite la presentación en cualquier registro público (Art. 16)."
+  },
+  {
+    "pregunta": "En el contexto de bases de datos NoSQL, ¿qué tipo de base de datos es MongoDB?",
+    "opciones": ["Clave-Valor", "Orientada a Documentos", "Orientada a Grafos", "Columnar"],
+    "correcta": 1,
+    "explicacion": "MongoDB utiliza documentos tipo BSON (similar a JSON) para almacenar la información."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza en la capa de aplicación para permitir que un cliente acceda y gestione archivos en un servidor remoto de forma interactiva?",
+    "opciones": ["HTTP", "FTP", "NFS", "SNMP"],
+    "correcta": 1,
+    "explicacion": "File Transfer Protocol (FTP) define cómo se transfieren archivos, permitiendo listar, borrar y descargar directorios."
+  },
+  {
+    "pregunta": "¿Qué componente de la CPU se encarga de decodificar las instrucciones leídas de la memoria?",
+    "opciones": ["ALU", "Unidad de Control (UC)", "Unidad de coma flotante (FPU)", "Caché L2"],
+    "correcta": 1,
+    "explicacion": "La UC dirige el flujo de datos y coordina el resto de componentes tras interpretar la instrucción."
+  },
+  {
+    "pregunta": "En seguridad informática, ¿qué es un ataque de 'Ransomware'?",
+    "opciones": ["Un ataque que satura el tráfico", "Malware que cifra los archivos del usuario y pide un rescate para liberarlos", "Un programa que espía la cámara web", "Un intento de adivinar la contraseña"],
+    "correcta": 1,
+    "explicacion": "Es una de las amenazas más críticas actualmente para la disponibilidad de los datos."
+  },
+  {
+    "pregunta": "En SQL, ¿qué propiedad de las transacciones asegura que los resultados de una transacción finalizada con éxito sobrevivan a fallos del sistema?",
+    "opciones": ["Atomicidad", "Consistencia", "Aislamiento", "Durabilidad"],
+    "correcta": 3,
+    "explicacion": "La durabilidad garantiza que los cambios se guarden de forma permanente en almacenamiento no volátil."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cuál es el nivel de seguridad que requiere un sistema que maneja información cuya divulgación no autorizada causaría un perjuicio grave a las funciones de la organización?",
+    "opciones": ["Básico", "Medio", "Alto", "Crítico"],
+    "correcta": 2,
+    "explicacion": "El nivel Alto se reserva para activos con un impacto muy alto en caso de pérdida de dimensiones de seguridad."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando se usa para ver las particiones de disco y su sistema de archivos?",
+    "opciones": ["ls", "fdisk -l", "top", "chmod"],
+    "correcta": 1,
+    "explicacion": "fdisk es la herramienta clásica de gestión de tablas de particiones."
+  },
+  {
+    "pregunta": "¿Qué significa que un lenguaje de programación sea de 'Tipado Fuerte'?",
+    "opciones": ["Que es difícil de aprender", "Que no permite conversiones de tipos automáticas que puedan causar pérdida de datos", "Que solo funciona en servidores potentes", "Que requiere mucha memoria RAM"],
+    "correcta": 1,
+    "explicacion": "Ejemplos son Java o Python (aunque este último sea dinámico), frente a lenguajes de tipado débil como C o JavaScript."
+  },
+  {
+    "pregunta": "En una red IPv4, ¿para qué sirve la dirección de 'Loopback' (127.0.0.1)?",
+    "opciones": ["Para conectar con el router", "Para realizar pruebas de la propia pila TCP/IP del equipo", "Para salir a Internet", "Para asignar IPs dinámicas"],
+    "correcta": 1,
+    "explicacion": "Permite que un equipo se comunique consigo mismo para depuración de red local."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué carácter tienen las resoluciones de los órganos administrativos que ponen fin a la vía administrativa?",
+    "opciones": ["Son siempre nulas", "Son inmediatamente ejecutivas", "Requieren ratificación judicial", "No pueden ser recurridas"],
+    "correcta": 1,
+    "explicacion": "Los actos administrativos son eficaces desde que se dictan y gozan de presunción de validez y ejecutividad."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo HTTPS?",
+    "opciones": ["80", "443", "8080", "22"],
+    "correcta": 1,
+    "explicacion": "El puerto 443 es el estándar para tráfico web cifrado mediante TLS/SSL."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué capa se encarga de la selección de ruta (routing)?",
+    "opciones": ["Capa 2 (Enlace)", "Capa 3 (Red)", "Capa 4 (Transporte)", "Capa 7 (Aplicación)"],
+    "correcta": 1,
+    "explicacion": "La capa de Red gestiona el direccionamiento lógico y el encaminamiento de paquetes."
+  },
+  {
+    "pregunta": "En desarrollo de software, ¿qué es un 'Framework'?",
+    "opciones": ["Un editor de texto", "Un conjunto de herramientas y librerías que proporcionan una estructura estándar para crear aplicaciones", "Una base de datos", "Un tipo de cable"],
+    "correcta": 1,
+    "explicacion": "Proporciona un marco de trabajo que agiliza el desarrollo (ej: Spring, Angular)."
+  },
+  {
+    "pregunta": "¿Qué tipo de backup copia únicamente los archivos que han cambiado desde la última copia de seguridad completa?",
+    "opciones": ["Backup Incremental", "Backup Diferencial", "Backup Sintético", "Backup Espejo"],
+    "correcta": 1,
+    "explicacion": "El diferencial copia lo cambiado desde el último completo. El incremental copia lo cambiado desde el último backup (sea completo o incremental)."
+  },
+  {
+    "pregunta": "En SQL, ¿qué comando elimina todos los registros de una tabla pero mantiene su estructura?",
+    "opciones": ["DROP TABLE", "DELETE FROM TABLE", "TRUNCATE TABLE", "REMOVE ALL"],
+    "correcta": 2,
+    "explicacion": "TRUNCATE es más rápido que DELETE y no genera logs por cada fila borrada."
+  },
+  {
+    "pregunta": "En Windows, ¿qué herramienta permite programar la ejecución de scripts o programas a una hora determinada?",
+    "opciones": ["Regedit", "Programador de Tareas (Task Scheduler)", "Administrador de Equipos", "MSConfig"],
+    "correcta": 1,
+    "explicacion": "Es fundamental para automatizar backups o mantenimientos."
+  },
+  {
+    "pregunta": "¿Qué protocolo inalámbrico utiliza la tecnología de 'salto de frecuencia' para evitar interferencias en la banda de 2.4 GHz?",
+    "opciones": ["Wi-Fi", "Bluetooth", "NFC", "ZigBee"],
+    "correcta": 1,
+    "explicacion": "Bluetooth cambia de frecuencia muchas veces por segundo (AFH) para ser más robusto."
+  }
+]
