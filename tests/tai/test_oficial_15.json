@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "En Métrica v3, ¿qué técnica se utiliza para representar la estructura de datos de un sistema y sus relaciones?",
+    "opciones": ["Diagrama de Flujo de Datos (DFD)", "Modelo Entidad/Relación (E/R)", "Diagrama de Transición de Estados", "Diagrama de Casos de Uso"],
+    "correcta": 1,
+    "explicacion": "El modelo E/R es la técnica estándar en Métrica v3 para el modelado conceptual de datos."
+  },
+  {
+    "pregunta": "¿Qué protocolo de red permite obtener una dirección IP a partir de una dirección física MAC?",
+    "opciones": ["ARP", "RARP", "DNS", "DHCP"],
+    "correcta": 1,
+    "explicacion": "Reverse ARP (RARP) realiza la función inversa a ARP, aunque ha sido sustituido por BOOTP y DHCP."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál es el portal web que facilita el acceso a los servicios públicos y trámites de la Administración General del Estado?",
+    "opciones": ["Sede Electrónica", "Punto de Acceso General (PAG)", "Carpeta Ciudadana", "BOE"],
+    "correcta": 1,
+    "explicacion": "El PAG (administracion.gob.es) es el portal de entrada unificado para el ciudadano."
+  },
+  {
+    "pregunta": "En una arquitectura de tres capas, ¿cuál es la función de la capa intermedia (Capa de Negocio)?",
+    "opciones": ["Almacenar los datos", "Presentar la interfaz al usuario", "Procesar las reglas de negocio y la lógica de la aplicación", "Gestionar la conexión de red física"],
+    "correcta": 2,
+    "explicacion": "La capa de negocio separa la interfaz (presentación) de los datos (persistencia)."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo SNMP para que el agente envíe notificaciones (Traps) al gestor?",
+    "opciones": ["161", "162", "514", "445"],
+    "correcta": 1,
+    "explicacion": "SNMP usa el 161 para peticiones y el 162 para el envío de alertas (traps)."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando se utiliza para cambiar la prioridad de ejecución de un proceso que ya está corriendo?",
+    "opciones": ["nice", "renice", "priority", "setprio"],
+    "correcta": 1,
+    "explicacion": "'nice' se usa al lanzar el proceso; 'renice' para modificar uno existente mediante su PID."
+  },
+  {
+    "pregunta": "¿Qué tipo de amenaza de seguridad se caracteriza por su capacidad para replicarse de sector de arranque en sector de arranque o de archivo en archivo?",
+    "opciones": ["Troyano", "Virus", "Rootkit", "Spyware"],
+    "correcta": 1,
+    "explicacion": "A diferencia del gusano (que usa la red), el virus infecta archivos o sectores del sistema de archivos."
+  },
+  {
+    "pregunta": "En SQL, ¿qué cláusula se utiliza para combinar las filas de dos o más tablas basándose en una columna relacionada entre ellas?",
+    "opciones": ["UNION", "GROUP BY", "JOIN", "HAVING"],
+    "correcta": 2,
+    "explicacion": "JOIN es la operación fundamental para relacionar tablas en bases de datos relacionales."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cómo se denomina al documento donde se identifican los servicios y sistemas, y se determinan sus niveles de seguridad?",
+    "opciones": ["Plan de Continuidad", "Declaración de Aplicabilidad", "Análisis de Riesgos", "Categorización del Sistema"],
+    "correcta": 3,
+    "explicacion": "La categorización determina los requisitos de seguridad según el impacto de un incidente."
+  },
+  {
+    "pregunta": "¿Qué componente del microprocesador se utiliza para acelerar el acceso a las instrucciones y datos más recientes?",
+    "opciones": ["Registros", "Caché L1", "Bus de datos", "Unidad de Control"],
+    "correcta": 1,
+    "explicacion": "La caché L1 es la más cercana al núcleo y la más rápida para minimizar la espera de la CPU."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es la 'Caja Blanca'?",
+    "opciones": ["Pruebas donde se conoce y se analiza la lógica interna del código", "Pruebas de usuario final", "Pruebas de hardware", "Pruebas de estrés sin código"],
+    "correcta": 0,
+    "explicacion": "Las pruebas de caja blanca verifican flujos, condiciones y bucles internos del programa."
+  },
+  {
+    "pregunta": "¿Cuál es la función del protocolo DHCP?",
+    "opciones": ["Traducir nombres a IPs", "Asignar dinámicamente direcciones IP y otros parámetros de red a los clientes", "Cifrar la red local", "Gestionar el correo electrónico"],
+    "correcta": 1,
+    "explicacion": "Dynamic Host Configuration Protocol automatiza la configuración de red de los dispositivos."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿qué plazo tienen los interesados para subsanar una solicitud que carece de los requisitos necesarios?",
+    "opciones": ["5 días", "10 días", "15 días", "20 días"],
+    "correcta": 1,
+    "explicacion": "El plazo general de subsanación es de 10 días, ampliables en otros 5 si hay dificultades especiales (Art. 68)."
+  },
+  {
+    "pregunta": "En Git, ¿qué comando permite ver el historial de commits de una rama?",
+    "opciones": ["git status", "git log", "git diff", "git history"],
+    "correcta": 1,
+    "explicacion": "git log muestra los identificadores, autores y mensajes de cada cambio guardado."
+  },
+  {
+    "pregunta": "¿Qué tipo de memoria es la EEPROM?",
+    "opciones": ["Memoria volátil de acceso rápido", "Memoria no volátil que puede ser borrada y reprogramada eléctricamente", "Memoria de solo lectura que no se puede borrar", "Memoria caché de nivel 3"],
+    "correcta": 1,
+    "explicacion": "Electrically Erasable Programmable Read-Only Memory."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué capa se ocupa del control del diálogo entre aplicaciones (dúplex, semidúplex)?",
+    "opciones": ["Capa de Transporte", "Capa de Sesión", "Capa de Presentación", "Capa de Aplicación"],
+    "correcta": 1,
+    "explicacion": "La Capa 5 (Sesión) establece, gestiona y finaliza las conexiones entre aplicaciones locales y remotas."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo SMTP para la sumisión de correo (Message Submission) con cifrado STARTTLS?",
+    "opciones": ["25", "110", "443", "587"],
+    "correcta": 3,
+    "explicacion": "Aunque el 25 es el puerto de transferencia entre servidores, el 587 es el estándar para clientes de correo."
+  },
+  {
+    "pregunta": "En Python, ¿cuál es el resultado de la expresión '10 % 3'?",
+    "opciones": ["3", "3.33", "1", "0"],
+    "correcta": 2,
+    "explicacion": "El operador % (módulo) devuelve el resto de la división entera. 10 dividido por 3 es 3 con resto 1."
+  },
+  {
+    "pregunta": "En Windows, ¿qué herramienta permite visualizar los logs de errores del sistema, seguridad y aplicaciones?",
+    "opciones": ["Administrador de Tareas", "Visor de Eventos (Event Viewer)", "Monitor de Rendimiento", "Consola de Servicios"],
+    "correcta": 1,
+    "explicacion": "Esencial para diagnosticar por qué ha fallado un servicio o un inicio de sesión."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál de estos principios es específico de la actuación de las Administraciones Públicas por medios electrónicos?",
+    "opciones": ["Legalidad", "Interoperabilidad y seguridad", "Jerarquía", "Descentralización"],
+    "correcta": 1,
+    "explicacion": "El art. 156 destaca la importancia de que los sistemas hablen entre sí y sean seguros."
+  }
+]
