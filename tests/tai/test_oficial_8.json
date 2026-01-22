@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué método de cifrado utiliza dos claves diferentes, una para cifrar y otra para descifrar?",
+    "opciones": ["Cifrado Simétrico", "Cifrado Asimétrico", "Hashing", "Esteganografía"],
+    "correcta": 1,
+    "explicacion": "El cifrado asimétrico (o de clave pública) utiliza una pareja de claves: pública y privada."
+  },
+  {
+    "pregunta": "En el modelo de calidad de software ISO/IEC 25010, ¿cómo se define la capacidad del producto para realizar sus funciones bajo condiciones establecidas?",
+    "opciones": ["Mantenibilidad", "Fiabilidad", "Usabilidad", "Portabilidad"],
+    "correcta": 1,
+    "explicacion": "La fiabilidad incluye la madurez, disponibilidad, tolerancia a fallos y capacidad de recuperación."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes direcciones IPv4 es una dirección de Multicast?",
+    "opciones": ["127.0.0.1", "192.168.1.1", "224.0.0.1", "169.254.0.1"],
+    "correcta": 2,
+    "explicacion": "El rango de Clase D (224.0.0.0 a 239.255.255.255) está reservado para multicast."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué técnica de colaboración permite a una Administración encomendar a otra la realización de actividades de carácter material o técnico?",
+    "opciones": ["Delegación de competencias", "Avocación", "Encomienda de gestión", "Suplencia"],
+    "correcta": 2,
+    "explicacion": "La encomienda de gestión (Art. 11) no supone cesión de la titularidad de la competencia."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para la transferencia de archivos de forma no segura y sin autenticación obligatoria?",
+    "opciones": ["SFTP", "SCP", "TFTP", "FTPS"],
+    "correcta": 2,
+    "explicacion": "Trivial File Transfer Protocol (TFTP) es muy simple, no tiene seguridad y usa UDP puerto 69."
+  },
+  {
+    "pregunta": "En una CPU, ¿qué unidad se encarga de realizar operaciones lógicas como AND, OR y NOT?",
+    "opciones": ["Unidad de Control", "Unidad Aritmético Lógica (ALU)", "Registro de Estado", "Unidad de Gestión de Memoria (MMU)"],
+    "correcta": 1,
+    "explicacion": "La ALU realiza operaciones aritméticas (sumas, restas) y lógicas (comparaciones)."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza por defecto el protocolo de correo IMAP (sin cifrar)?",
+    "opciones": ["110", "143", "993", "587"],
+    "correcta": 1,
+    "explicacion": "IMAP usa el puerto 143. El 993 es para IMAPS (seguro)."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es el 'Refactorización'?",
+    "opciones": ["Añadir nuevas funciones", "Cambiar el código interno para mejorarlo sin cambiar su comportamiento externo", "Borrar el código antiguo", "Traducir el código a otro lenguaje"],
+    "correcta": 1,
+    "explicacion": "Busca mejorar la legibilidad y reducir la complejidad técnica (deuda técnica)."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando muestra las últimas 10 líneas de un archivo?",
+    "opciones": ["head", "more", "tail", "cat"],
+    "correcta": 2,
+    "explicacion": "tail muestra el final. Su opción -f permite ver actualizaciones en tiempo real."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cuál es la propiedad que garantiza que la información no ha sido modificada por terceros no autorizados?",
+    "opciones": ["Confidencialidad", "Disponibilidad", "Integridad", "Autenticidad"],
+    "correcta": 2,
+    "explicacion": "La integridad asegura que la información es exacta y completa."
+  },
+  {
+    "pregunta": "¿Qué tipo de red inalámbrica se utiliza para conectar dispositivos en un radio muy corto, como un teclado y un ratón?",
+    "opciones": ["WLAN", "WMAN", "WPAN", "WWAN"],
+    "correcta": 2,
+    "explicacion": "Wireless Personal Area Network (ej: Bluetooth)."
+  },
+  {
+    "pregunta": "En SQL, ¿qué comando se utiliza para dar permisos a un usuario sobre una tabla?",
+    "opciones": ["GIVE", "GRANT", "REVOKE", "ALLOW"],
+    "correcta": 1,
+    "explicacion": "GRANT permite otorgar privilegios. REVOKE los retira."
+  },
+  {
+    "pregunta": "¿Qué componente de hardware permite conectar varios monitores a un solo ordenador?",
+    "opciones": ["Tarjeta de red", "Tarjeta de sonido", "Tarjeta gráfica (GPU)", "Memoria RAM"],
+    "correcta": 2,
+    "explicacion": "La GPU gestiona la salida de vídeo y el renderizado."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué capa se encarga de la compresión y el cifrado de datos?",
+    "opciones": ["Capa de Sesión", "Capa de Presentación", "Capa de Aplicación", "Capa de Transporte"],
+    "correcta": 1,
+    "explicacion": "La Capa 6 (Presentación) traduce los formatos de datos y maneja el cifrado."
+  },
+  {
+    "pregunta": "¿Qué es un 'Ataque DDoS'?",
+    "opciones": ["Un robo de contraseñas", "Un ataque de denegación de servicio distribuido desde múltiples origen", "Un virus que borra el disco", "Un email falso"],
+    "correcta": 1,
+    "explicacion": "Satura un servidor o red enviando tráfico desde miles de dispositivos infectados (botnets)."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, si una notificación electrónica no es aceptada ni rechazada, ¿a los cuántos días se considera rechazada automáticamente?",
+    "opciones": ["3 días", "5 días", "10 días naturales", "15 días hábiles"],
+    "correcta": 2,
+    "explicacion": "Transcurrido el plazo de diez días naturales sin que se acceda al contenido, se tiene por rechazada."
+  },
+  {
+    "pregunta": "En Python, ¿cuál es el operador para realizar una división entera (sin decimales)?",
+    "opciones": ["/", "//", "%", "div"],
+    "correcta": 1,
+    "explicacion": "7 // 2 dará 3. El operador / daría 3.5."
+  },
+  {
+    "pregunta": "¿Qué dispositivo interconecta redes distintas y toma decisiones basadas en la dirección IP de destino?",
+    "opciones": ["Hub", "Switch", "Router", "Bridge"],
+    "correcta": 2,
+    "explicacion": "El router trabaja en la Capa 3 (Red) del modelo OSI."
+  },
+  {
+    "pregunta": "¿Qué significa el acrónimo RAID?",
+    "opciones": ["Redundant Array of Independent Disks", "Rapid Access Integrated Data", "Real-time Advanced Input Device", "Remote Access Internal Driver"],
+    "correcta": 0,
+    "explicacion": "Es una tecnología que combina varios discos para mejorar rendimiento o seguridad."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es la 'Caja Negra'?",
+    "opciones": ["Una prueba donde no se conoce el código interno", "Un sistema que siempre falla", "Un registro de errores", "Un tipo de servidor"],
+    "correcta": 0,
+    "explicacion": "Las pruebas de caja negra se centran en las entradas y salidas sin mirar el código fuente."
+  }
+]
