@@ -1,0 +1,482 @@
+[
+  {
+    "pregunta": "¿Qué capacidad deben garantizar las medidas técnicas del RGPD según el Art. 32?",
+    "opciones": ["Confidencialidad, integridad, disponibilidad y resiliencia", "Solo confidencialidad y disponibilidad", "Integridad y no repudio", "Trazabilidad y redundancia"],
+    "correcta": 0,
+    "explicacion": "El RGPD exige garantizar la confidencialidad, integridad, disponibilidad y resiliencia permanentes."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿en qué capa se ubica el protocolo TLS/SSL?",
+    "opciones": ["Capa de Red", "Capa de Sesión", "Capa de Presentación", "Capa de Aplicación"],
+    "correcta": 2,
+    "explicacion": "TLS se encarga del cifrado y formato de datos, funciones típicas de la Capa 6 (Presentación)."
+  },
+  {
+    "pregunta": "¿Cuál es la función del protocolo ARP?",
+    "opciones": ["Traducir nombres a IPs", "Traducir direcciones IP a direcciones MAC", "Asignar IPs dinámicamente", "Enviar mensajes de error en la red"],
+    "correcta": 1,
+    "explicacion": "Address Resolution Protocol asocia una dirección lógica (IP) con una física (MAC)."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, los órganos colegiados podrán constituirse y adoptar acuerdos:",
+    "opciones": ["Solo de forma presencial", "Solo de forma telemática", "Tanto de forma presencial como a distancia", "Solo si hay un Real Decreto previo"],
+    "correcta": 2,
+    "explicacion": "La Ley 40/2015 fomenta el uso de medios electrónicos para el funcionamiento de órganos colegiados."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo LDAP por defecto?",
+    "opciones": ["389", "636", "443", "22"],
+    "correcta": 0,
+    "explicacion": "LDAP usa el 389, mientras que LDAPS (seguro) usa el 636."
+  },
+  {
+    "pregunta": "¿Cuál es el propósito del registro MAR (Memory Address Register)?",
+    "opciones": ["Guardar la instrucción actual", "Guardar el resultado de la ALU", "Guardar la dirección de memoria a la que se va a acceder", "Contar las instrucciones"],
+    "correcta": 2,
+    "explicacion": "El MAR almacena la dirección del bus de direcciones que la CPU quiere leer o escribir."
+  },
+  {
+    "pregunta": "En el desarrollo orientado a objetos, ¿qué es el polimorfismo?",
+    "opciones": ["Capacidad de una clase de heredar de varias", "Capacidad de un objeto de tomar diferentes formas", "Ocultar los detalles internos de una clase", "Dividir un programa en módulos"],
+    "correcta": 1,
+    "explicacion": "Permite que diferentes clases respondan de forma distinta a un mismo mensaje o método."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué garantiza la propiedad 'Durabilidad' de ACID?",
+    "opciones": ["Que la transacción no se interrumpa", "Que los cambios se mantengan tras un fallo del sistema", "Que los datos sean coherentes", "Que los usuarios no se bloqueen"],
+    "correcta": 1,
+    "explicacion": "Asegura que una vez confirmada la transacción, los datos persistan incluso ante apagones."
+  },
+  {
+    "pregunta": "¿Qué tipo de ataque consiste en inundar un servidor con tráfico desde múltiples fuentes?",
+    "opciones": ["DoS", "DDoS", "Man-in-the-middle", "XSS"],
+    "correcta": 1,
+    "explicacion": "DDoS es un ataque de denegación de servicio Distribuido."
+  },
+  {
+    "pregunta": "¿Qué comando de Linux permite ver el uso de disco de los directorios?",
+    "opciones": ["df", "du", "ls", "top"],
+    "correcta": 1,
+    "explicacion": "du (disk usage) muestra el tamaño de archivos y carpetas; df muestra el espacio libre en particiones."
+  },
+  {
+    "pregunta": "En el ENS, ¿cuál es el objetivo del principio de 'Prevención'?",
+    "opciones": ["Arreglar el sistema tras un ataque", "Minimizar los riesgos de que ocurra un incidente", "Sancionar a los responsables", "Hacer copias de seguridad"],
+    "correcta": 1,
+    "explicacion": "La prevención busca evitar que las amenazas se materialicen."
+  },
+  {
+    "pregunta": "¿Qué tecnología utiliza contenedores para desplegar aplicaciones?",
+    "opciones": ["VMware", "VirtualBox", "Docker", "Hyper-V"],
+    "correcta": 2,
+    "explicacion": "Docker es la plataforma líder en contenedorización."
+  },
+  {
+    "pregunta": "¿Cuál es la máscara de subred para una red /24?",
+    "opciones": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+    "correcta": 2,
+    "explicacion": "/24 indica que los primeros 24 bits son 1s (3 octetos)."
+  },
+  {
+    "pregunta": "En SQL, ¿cómo se añade una nueva columna a una tabla existente?",
+    "opciones": ["UPDATE TABLE", "INSERT INTO", "ALTER TABLE", "ADD COLUMN"],
+    "correcta": 2,
+    "explicacion": "Se usa ALTER TABLE nombre_tabla ADD nombre_columna tipo."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para la sincronización horaria en red?",
+    "opciones": ["SNMP", "NTP", "DHCP", "ICMP"],
+    "correcta": 1,
+    "explicacion": "Network Time Protocol (NTP) mantiene los relojes sincronizados."
+  },
+  {
+    "pregunta": "En Python, ¿cuál es el operador para la división entera?",
+    "opciones": ["/", "//", "%", "div"],
+    "correcta": 1,
+    "explicacion": "El operador // devuelve el cociente sin decimales."
+  },
+  {
+    "pregunta": "¿Qué componente de hardware se encarga de gestionar la comunicación entre la CPU y la RAM?",
+    "opciones": ["Southbridge", "Northbridge", "BIOS", "GPU"],
+    "correcta": 1,
+    "explicacion": "Tradicionalmente, el Northbridge gestiona los componentes rápidos (CPU, RAM, AGP/PCIe)."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿cuándo surten efecto las notificaciones?",
+    "opciones": ["Al día siguiente de su envío", "En el momento en que se practiquen", "A los 10 días", "Cuando el interesado lo desee"],
+    "correcta": 1,
+    "explicacion": "Las notificaciones surten efecto a partir de que se practiquen según lo dispuesto en la Ley."
+  },
+  {
+    "pregunta": "¿Qué tipo de conector se usa para fibra óptica?",
+    "opciones": ["RJ-45", "BNC", "LC", "DB-9"],
+    "correcta": 2,
+    "explicacion": "LC, SC y ST son conectores comunes de fibra."
+  },
+  {
+    "pregunta": "¿Qué es un 'Deadlock' en sistemas operativos?",
+    "opciones": ["Un fallo de hardware", "Un bloqueo mutuo entre procesos por recursos", "Un virus informático", "Una desconexión de red"],
+    "correcta": 1,
+    "explicacion": "Se produce cuando dos o más procesos esperan eternamente por recursos que el otro tiene."
+  },
+  {
+    "pregunta": "En la jerarquía de memoria, ¿cuál es la más rápida y pequeña?",
+    "opciones": ["Caché L3", "RAM", "Registros de la CPU", "Disco SSD"],
+    "correcta": 2,
+    "explicacion": "Los registros están integrados en la CPU y son los más veloces."
+  },
+  {
+    "pregunta": "¿Qué comando de Git permite ver el historial de commits?",
+    "opciones": ["git status", "git log", "git show", "git history"],
+    "correcta": 1,
+    "explicacion": "git log muestra la lista de cambios realizados."
+  },
+  {
+    "pregunta": "¿Qué etiqueta HTML5 se usa para contenido independiente y distribuible (ej. un post)?",
+    "opciones": ["<section>", "<div>", "<article>", "<aside>"],
+    "correcta": 2,
+    "explicacion": "La etiqueta <article> es para contenido con significado propio."
+  },
+  {
+    "pregunta": "¿Cuál es la distancia máxima teórica para un cable Ethernet UTP Cat 6?",
+    "opciones": ["50 metros", "100 metros", "500 metros", "1 kilómetro"],
+    "correcta": 1,
+    "explicacion": "El estándar para par trenzado es de 100 metros."
+  },
+  {
+    "pregunta": "En bases de datos, ¿qué es una 'Vista'?",
+    "opciones": ["Una tabla física", "Una consulta almacenada que se presenta como tabla", "Un índice", "Una copia de seguridad"],
+    "correcta": 1,
+    "explicacion": "Es una tabla virtual basada en el resultado de una sentencia SELECT."
+  },
+  {
+    "pregunta": "¿Qué protocolo utiliza el comando 'traceroute' en Unix?",
+    "opciones": ["TCP", "UDP / ICMP", "HTTP", "IGMP"],
+    "correcta": 1,
+    "explicacion": "Envía paquetes UDP con TTL incremental y recibe respuestas ICMP Time Exceeded."
+  },
+  {
+    "pregunta": "¿Qué es el 'Hyperthreading'?",
+    "opciones": ["Tener muchos núcleos físicos", "Simular dos núcleos lógicos por cada núcleo físico", "Aumentar la velocidad del reloj", "Enfriar la CPU"],
+    "correcta": 1,
+    "explicacion": "Tecnología de Intel para mejorar el paralelismo a nivel de hilo."
+  },
+  {
+    "pregunta": "Según la CE, ¿cuánto dura el mandato de las Cortes Generales?",
+    "opciones": ["3 años", "4 años", "5 años", "6 años"],
+    "correcta": 1,
+    "explicacion": "El mandato es de cuatro años salvo disolución anticipada."
+  },
+  {
+    "pregunta": "¿Qué puerto usa por defecto el protocolo POP3?",
+    "opciones": ["25", "110", "143", "993"],
+    "correcta": 1,
+    "explicacion": "POP3 usa el 110 (sin cifrar)."
+  },
+  {
+    "pregunta": "En Linux, ¿qué hace el comando 'chmod 755 archivo'?",
+    "opciones": ["Solo lectura para todos", "Control total para el dueño, lectura y ejecución para otros", "Control total para todos", "Borra el archivo"],
+    "correcta": 1,
+    "explicacion": "7(rwx) para dueño, 5(r-x) para grupo y otros."
+  },
+  {
+    "pregunta": "¿Qué tipo de nube es gestionada por una única organización pero alojada externamente?",
+    "opciones": ["Nube Pública", "Nube Privada", "Nube Híbrida", "Nube Comunitaria"],
+    "correcta": 1,
+    "explicacion": "Si es de uso exclusivo de una organización, es privada."
+  },
+  {
+    "pregunta": "¿Cuál es la función de una puerta de enlace (Gateway)?",
+    "opciones": ["Acelerar la conexión", "Conectar dos redes con protocolos distintos", "Asignar nombres de dominio", "Filtrar spam"],
+    "correcta": 1,
+    "explicacion": "Permite la comunicación entre redes con arquitecturas diferentes."
+  },
+  {
+    "pregunta": "En Java, ¿qué palabra clave indica que un método no devuelve nada?",
+    "opciones": ["null", "static", "void", "public"],
+    "correcta": 2,
+    "explicacion": "void se usa para métodos que no retornan valor."
+  },
+  {
+    "pregunta": "¿Qué nivel de RAID requiere al menos 4 discos y combina espejo y división?",
+    "opciones": ["RAID 5", "RAID 6", "RAID 10", "RAID 1"],
+    "correcta": 2,
+    "explicacion": "RAID 10 (1+0) ofrece alto rendimiento y redundancia."
+  },
+  {
+    "pregunta": "En el modelo entidad-relación, un atributo subrayado representa:",
+    "opciones": ["Una relación", "Una clave primaria", "Un valor nulo", "Un atributo derivado"],
+    "correcta": 1,
+    "explicacion": "El subrayado identifica la clave primaria (PK)."
+  },
+  {
+    "pregunta": "¿Qué comando de Windows muestra las conexiones activas y puertos abiertos?",
+    "opciones": ["ipconfig", "netstat", "ping", "tracert"],
+    "correcta": 1,
+    "explicacion": "netstat (network statistics)."
+  },
+  {
+    "pregunta": "¿Qué significa el acrónimo SaaS?",
+    "opciones": ["System as a Service", "Software as a Service", "Security as a Service", "Storage as a Service"],
+    "correcta": 1,
+    "explicacion": "Software como Servicio."
+  },
+  {
+    "pregunta": "En el desarrollo ágil, ¿cuánto dura habitualmente un Sprint?",
+    "opciones": ["1 día", "De 1 a 4 semanas", "6 meses", "1 año"],
+    "correcta": 1,
+    "explicacion": "Los ciclos de Scrum son cortos para permitir feedback rápido."
+  },
+  {
+    "pregunta": "¿Qué protocolo usa el puerto 53?",
+    "opciones": ["HTTP", "DNS", "DHCP", "FTP"],
+    "correcta": 1,
+    "explicacion": "DNS (Domain Name System)."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, el silencio administrativo en procedimientos iniciados a solicitud del interesado es por norma general:",
+    "opciones": ["Positivo", "Negativo", "Inexistente", "Depende del funcionario"],
+    "correcta": 0,
+    "explicacion": "La regla general es el silencio positivo, con excepciones."
+  },
+  {
+    "pregunta": "¿Qué componente de la placa base contiene las instrucciones de arranque?",
+    "opciones": ["RAM", "BIOS/UEFI", "Disco Duro", "Procesador"],
+    "correcta": 1,
+    "explicacion": "El firmware BIOS o el más moderno UEFI."
+  },
+  {
+    "pregunta": "¿Cuál es la unidad mínima de información direccionable en un disco duro?",
+    "opciones": ["Bit", "Byte", "Sector", "Clúster"],
+    "correcta": 2,
+    "explicacion": "Físicamente es el sector (normalmente 512 bytes o 4KB)."
+  },
+  {
+    "pregunta": "En Linux, el directorio /dev contiene:",
+    "opciones": ["Archivos del desarrollador", "Archivos de dispositivos", "Binarios del sistema", "Archivos temporales"],
+    "correcta": 1,
+    "explicacion": "Representa los periféricos y dispositivos como archivos."
+  },
+  {
+    "pregunta": "¿Qué protocolo de red permite el envío de correos electrónicos?",
+    "opciones": ["POP3", "IMAP", "SMTP", "SNMP"],
+    "correcta": 2,
+    "explicacion": "Simple Mail Transfer Protocol."
+  },
+  {
+    "pregunta": "¿En qué capa OSI operan los Switches?",
+    "opciones": ["Capa 1", "Capa 2", "Capa 3", "Capa 4"],
+    "correcta": 1,
+    "explicacion": "Operan en la capa de Enlace de datos (tramas)."
+  },
+  {
+    "pregunta": "En Python, ¿qué estructura de datos es inmutable?",
+    "opciones": ["Lista", "Diccionario", "Tupla", "Conjunto"],
+    "correcta": 2,
+    "explicacion": "Las tuplas no se pueden modificar tras su creación."
+  },
+  {
+    "pregunta": "El bus que transporta los datos reales entre componentes se llama:",
+    "opciones": ["Bus de Direcciones", "Bus de Control", "Bus de Datos", "Bus PCI"],
+    "correcta": 2,
+    "explicacion": "Bus de datos (bidireccional)."
+  },
+  {
+    "pregunta": "¿Qué comando SQL elimina todos los registros de una tabla sin borrar la estructura?",
+    "opciones": ["DROP", "DELETE", "TRUNCATE", "REMOVE"],
+    "correcta": 2,
+    "explicacion": "TRUNCATE es más rápido que DELETE para vaciar tablas."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza HTTPS?",
+    "opciones": ["80", "443", "8080", "22"],
+    "correcta": 1,
+    "explicacion": "Puerto 443."
+  },
+  {
+    "pregunta": "Según la CE, la soberanía nacional reside en:",
+    "opciones": ["El Rey", "Las Cortes", "El pueblo español", "El Gobierno"],
+    "correcta": 2,
+    "explicacion": "Artículo 1.2 de la Constitución."
+  },
+  {
+    "pregunta": "¿Qué herramienta se usa para gestionar versiones de código?",
+    "opciones": ["Jira", "Docker", "Git", "Jenkins"],
+    "correcta": 2,
+    "explicacion": "Git es el estándar de control de versiones."
+  },
+  {
+    "pregunta": "En el modelo OSI, la capa 2 es:",
+    "opciones": ["Física", "Red", "Enlace de Datos", "Transporte"],
+    "correcta": 2,
+    "explicacion": "Capa de Enlace."
+  },
+  {
+    "pregunta": "¿Qué significa el término 'Open Source'?",
+    "opciones": ["Software gratuito siempre", "Software cuyo código fuente es accesible y modificable", "Software que no tiene licencia", "Software de Microsoft"],
+    "correcta": 1,
+    "explicacion": "Se refiere a la libertad de acceso al código."
+  },
+  {
+    "pregunta": "¿Qué protocolo es 'sin estado' (stateless)?",
+    "opciones": ["TCP", "FTP", "HTTP", "SSH"],
+    "correcta": 2,
+    "explicacion": "HTTP no guarda información entre peticiones por defecto."
+  },
+  {
+    "pregunta": "En Windows, ¿qué herramienta permite configurar el arranque y servicios?",
+    "opciones": ["msconfig", "regedit", "dxdiag", "calc"],
+    "correcta": 0,
+    "explicacion": "Configuración del sistema (msconfig)."
+  },
+  {
+    "pregunta": "¿Qué memoria se usa para acelerar el acceso a datos de la RAM?",
+    "opciones": ["Virtual", "Caché", "ROM", "Swap"],
+    "correcta": 1,
+    "explicacion": "La memoria caché (L1, L2, L3)."
+  },
+  {
+    "pregunta": "En la Ley 39/2015, los días de plazo se entienden hábiles salvo que se diga lo contrario. ¿Qué días se excluyen?",
+    "opciones": ["Solo domingos", "Sábados, domingos y festivos", "Solo festivos", "Agosto completo"],
+    "correcta": 1,
+    "explicacion": "Se excluyen sábados, domingos y declarados festivos."
+  },
+  {
+    "pregunta": "El dispositivo que permite conectar varios equipos en una LAN (capa 1) se llama:",
+    "opciones": ["Router", "Bridge", "Hub", "Gateway"],
+    "correcta": 2,
+    "explicacion": "El Hub (Concentrador) es de capa física."
+  },
+  {
+    "pregunta": "¿Qué lenguaje se usa para realizar consultas en bases de datos relacionales?",
+    "opciones": ["HTML", "C++", "SQL", "Java"],
+    "correcta": 2,
+    "explicacion": "Structured Query Language."
+  },
+  {
+    "pregunta": "¿Cuál es la función principal de un Sistema Operativo?",
+    "opciones": ["Navegar por internet", "Gestionar los recursos del hardware", "Escribir documentos", "Diseñar imágenes"],
+    "correcta": 1,
+    "explicacion": "Actúa como intermediario entre usuario y hardware."
+  },
+  {
+    "pregunta": "¿Qué dirección IP identifica al propio equipo (loopback)?",
+    "opciones": ["0.0.0.0", "255.255.255.255", "127.0.0.1", "192.168.0.1"],
+    "correcta": 2,
+    "explicacion": "Localhost."
+  },
+  {
+    "pregunta": "En el desarrollo web, ¿qué hace JavaScript?",
+    "opciones": ["Estructura la página", "Da estilo visual", "Añade interactividad", "Gestiona la base de datos"],
+    "correcta": 2,
+    "explicacion": "Es el lenguaje de scripting del lado del cliente."
+  },
+  {
+    "pregunta": "¿Qué es el 'Kernel'?",
+    "opciones": ["Una aplicación de usuario", "El núcleo del sistema operativo", "Un tipo de procesador", "Una interfaz gráfica"],
+    "correcta": 1,
+    "explicacion": "Es la parte fundamental que tiene control total sobre el sistema."
+  },
+  {
+    "pregunta": "¿Qué protocolo usa el puerto 23?",
+    "opciones": ["SSH", "Telnet", "FTP", "HTTP"],
+    "correcta": 1,
+    "explicacion": "Telnet (poco seguro)."
+  },
+  {
+    "pregunta": "En SQL, para unir dos tablas se usa:",
+    "opciones": ["COMBINE", "JOIN", "MERGE", "ADD"],
+    "correcta": 1,
+    "explicacion": "Sentencia JOIN (Inner, Left, Right)."
+  },
+  {
+    "pregunta": "Un archivo con extensión .sh en Linux es habitualmente:",
+    "opciones": ["Un documento de texto", "Un script de shell", "Una imagen", "Un ejecutable compilado"],
+    "correcta": 1,
+    "explicacion": "Script ejecutable por la terminal."
+  },
+  {
+    "pregunta": "¿Qué significa RAM?",
+    "opciones": ["Read Access Memory", "Random Access Memory", "Rapid Access Memory", "Real Access Memory"],
+    "correcta": 1,
+    "explicacion": "Memoria de Acceso Aleatorio."
+  },
+  {
+    "pregunta": "¿Cuál es el puerto de comunicación de escritorio remoto (RDP)?",
+    "opciones": ["22", "80", "3389", "445"],
+    "correcta": 2,
+    "explicacion": "3389."
+  },
+  {
+    "pregunta": "¿Qué tipo de cable es más inmune a interferencias electromagnéticas?",
+    "opciones": ["UTP", "Coaxial", "Fibra óptica", "STP"],
+    "correcta": 2,
+    "explicacion": "La fibra usa luz, no electricidad."
+  },
+  {
+    "pregunta": "En Git, para clonar un repositorio se usa:",
+    "opciones": ["git pull", "git copy", "git clone", "git get"],
+    "correcta": 2,
+    "explicacion": "git clone."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿en qué capa operan los Routers?",
+    "opciones": ["Capa 1", "Capa 2", "Capa 3", "Capa 4"],
+    "correcta": 2,
+    "explicacion": "Capa de Red (paquetes e IPs)."
+  },
+  {
+    "pregunta": "¿Qué etiqueta HTML se usa para crear una lista desordenada?",
+    "opciones": ["<ol>", "<ul>", "<li>", "<list>"],
+    "correcta": 1,
+    "explicacion": "ul (unordered list)."
+  },
+  {
+    "pregunta": "¿Cuál es la velocidad de transferencia de un puerto USB 3.0?",
+    "opciones": ["480 Mbps", "5 Gbps", "10 Gbps", "1 Gbps"],
+    "correcta": 1,
+    "explicacion": "USB 3.0 (SuperSpeed) alcanza 5 Gbps."
+  },
+  {
+    "pregunta": "En CSS, para cambiar el color de fondo se usa:",
+    "opciones": ["color", "background-color", "bgcolor", "back-color"],
+    "correcta": 1,
+    "explicacion": "background-color."
+  },
+  {
+    "pregunta": "¿Qué protocolo se usa para enviar mensajes de control y error en IP?",
+    "opciones": ["TCP", "UDP", "ICMP", "IGMP"],
+    "correcta": 2,
+    "explicacion": "Internet Control Message Protocol (usado por ping)."
+  },
+  {
+    "pregunta": "En la Ley 40/2015, ¿qué principio rige la actuación de la Administración?",
+    "opciones": ["Lucro", "Eficacia y eficiencia", "Secretismo", "Arbitrariedad"],
+    "correcta": 1,
+    "explicacion": "Artículo 3 de la Ley 40/2015."
+  },
+  {
+    "pregunta": "¿Qué dispositivo interconecta redes iguales o distintas a nivel 2?",
+    "opciones": ["Bridge (Puente)", "Hub", "Repetidor", "Amplificador"],
+    "correcta": 0,
+    "explicacion": "El Bridge conecta segmentos de red."
+  },
+  {
+    "pregunta": "En SQL, para contar el número de filas se usa:",
+    "opciones": ["SUM()", "TOTAL()", "COUNT()", "NUMBER()"],
+    "correcta": 2,
+    "explicacion": "Función COUNT(*)."
+  },
+  {
+    "pregunta": "¿Cuál es el sistema de archivos por defecto en las versiones actuales de Windows?",
+    "opciones": ["FAT32", "exFAT", "NTFS", "EXT4"],
+    "correcta": 2,
+    "explicacion": "New Technology File System."
+  },
+  {
+    "pregunta": "¿Qué arquitectura de red es la más usada en la actualidad?",
+    "opciones": ["Token Ring", "FDDI", "Ethernet", "Arcnet"],
+    "correcta": 2,
+    "explicacion": "Ethernet (IEEE 802.3)."
+  }
+]
