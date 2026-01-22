@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué tipo de mantenimiento de software se realiza para corregir defectos descubiertos tras la entrega del producto?",
+    "opciones": ["Mantenimiento Adaptativo", "Mantenimiento Perfectivo", "Mantenimiento Correctivo", "Mantenimiento Preventivo"],
+    "correcta": 2,
+    "explicacion": "El mantenimiento correctivo es el encargado de solventar errores (bugs) que impiden el funcionamiento normal."
+  },
+  {
+    "pregunta": "¿Cómo se denomina al software que actúa como intermediario entre el sistema operativo y las aplicaciones, facilitando la comunicación en sistemas distribuidos?",
+    "opciones": ["Firmware", "Middleware", "Shareware", "Adware"],
+    "correcta": 1,
+    "explicacion": "El middleware (como los brókeres de mensajes o servidores de aplicaciones) facilita la integración de sistemas heterogéneos."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál es la duración máxima permitida para los convenios entre administraciones públicas, salvo que una norma especial diga lo contrario?",
+    "opciones": ["2 años", "4 años", "10 años", "Indefinida"],
+    "correcta": 1,
+    "explicacion": "Los convenios deben tener una duración determinada, que no podrá exceder de cuatro años, con posibilidad de prórroga por otros cuatro."
+  },
+  {
+    "pregunta": "¿Qué campo de la cabecera IPv4 indica la prioridad o calidad de servicio (QoS) del paquete?",
+    "opciones": ["TTL", "Total Length", "Type of Service (ToS)", "Header Checksum"],
+    "correcta": 2,
+    "explicacion": "El ToS (ahora a menudo usado como DiffServ) permite priorizar ciertos tráficos como la voz sobre IP."
+  },
+  {
+    "pregunta": "En una CPU, ¿qué es el 'Overclocking'?",
+    "opciones": ["Poner el reloj en hora", "Aumentar la frecuencia de reloj por encima de las especificaciones del fabricante", "Añadir más núcleos", "Limpiar el ventilador"],
+    "correcta": 1,
+    "explicacion": "Se busca mayor rendimiento a costa de generar más calor y reducir potencialmente la vida útil del componente."
+  },
+  {
+    "pregunta": "En el modelo relacional, ¿qué es una 'Clave Candidata'?",
+    "opciones": ["La que el usuario elige como primaria", "Cualquier conjunto de atributos que identifique de forma única una fila", "Una clave que siempre es numérica", "Una clave que puede ser nula"],
+    "correcta": 1,
+    "explicacion": "De entre todas las claves candidatas, el diseñador elige una para ser la Clave Primaria (Primary Key)."
+  },
+  {
+    "pregunta": "¿Qué tipo de virtualización permite que el sistema operativo invitado sepa que está siendo virtualizado y colabore con el hipervisor?",
+    "opciones": ["Virtualización Completa", "Paravirtualización", "Virtualización Asistida por Hardware", "Contenedores"],
+    "correcta": 1,
+    "explicacion": "En la paravirtualización (como Xen), el SO invitado requiere modificaciones en su kernel para mejorar el rendimiento."
+  },
+  {
+    "pregunta": "Según el RGPD, ¿qué figura es la encargada de asesorar al responsable sobre el cumplimiento de la normativa de protección de datos?",
+    "opciones": ["Encargado del Tratamiento", "Delegado de Protección de Datos (DPD/DPO)", "Agencia Española de Protección de Datos", "Interesado"],
+    "correcta": 1,
+    "explicacion": "El DPD es el punto de contacto y el asesor principal en materia de privacidad dentro de la organización."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando se utiliza para crear un enlace simbólico a un archivo?",
+    "opciones": ["ln -s", "link -f", "cp -l", "mv -s"],
+    "correcta": 0,
+    "explicacion": "ln (link) con la opción -s (symbolic) crea un puntero a la ruta de otro archivo."
+  },
+  {
+    "pregunta": "¿Qué protocolo de capa de transporte es 'no orientado a conexión' y no garantiza la entrega de paquetes?",
+    "opciones": ["TCP", "UDP", "SCTP", "HTTP"],
+    "correcta": 1,
+    "explicacion": "User Datagram Protocol (UDP) es más rápido pero menos fiable que TCP al no usar ACKs ni control de flujo."
+  },
+  {
+    "pregunta": "En SQL, ¿qué cláusula se utiliza para filtrar los registros de una consulta basándose en un patrón de texto?",
+    "opciones": ["MATCH", "LIKE", "SEARCH", "WHERE TEXT"],
+    "correcta": 1,
+    "explicacion": "Se utiliza con comodines como '%' (cualquier cadena) o '_' (un solo carácter)."
+  },
+  {
+    "pregunta": "¿Cuál es la función principal de un Gateway (Puerta de enlace) en una red?",
+    "opciones": ["Cifrar los datos", "Actuar como punto de enlace entre redes que usan diferentes protocolos", "Asignar IPs", "Almacenar páginas web"],
+    "correcta": 1,
+    "explicacion": "Es el nodo que sirve de salida de una red local hacia otra red externa (normalmente Internet)."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es el 'Patrón Singleton'?",
+    "opciones": ["Un patrón que permite crear muchos objetos iguales", "Un patrón que garantiza que una clase solo tenga una instancia y proporciona un punto de acceso global a ella", "Un patrón de base de datos", "Un error de programación"],
+    "correcta": 1,
+    "explicacion": "Es un patrón de diseño creacional muy común en POO."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo SSH por defecto?",
+    "opciones": ["20", "21", "22", "23"],
+    "correcta": 2,
+    "explicacion": "Secure Shell utiliza el puerto 22 para conexiones seguras."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿qué tipo de capacidad de obrar tienen los menores de edad para el ejercicio de sus derechos?",
+    "opciones": ["Ninguna", "Plena en todos los casos", "Para la defensa de sus derechos e intereses cuya actuación esté permitida por el ordenamiento sin asistencia", "Solo a partir de los 16 años"],
+    "correcta": 2,
+    "explicacion": "La Ley reconoce capacidad de obrar a menores para actos que puedan realizar por sí mismos según la ley (Art. 3)."
+  },
+  {
+    "pregunta": "¿Qué es un 'Worm' (Gusano) informático?",
+    "opciones": ["Un virus que necesita un archivo anfitrión", "Malware que se propaga de forma autónoma aprovechando vulnerabilidades de red", "Un programa que espía el teclado", "Un fallo en el procesador"],
+    "correcta": 1,
+    "explicacion": "A diferencia del virus, el gusano no necesita intervención humana ni un archivo portador para replicarse."
+  },
+  {
+    "pregunta": "En Java, ¿qué palabra reservada se usa para crear una constante?",
+    "opciones": ["const", "final", "static", "immutable"],
+    "correcta": 1,
+    "explicacion": "El modificador 'final' impide que el valor de la variable sea modificado una vez asignado."
+  },
+  {
+    "pregunta": "¿Qué tecnología de almacenamiento permite acceder a archivos a nivel de sistema de ficheros a través de una red local (LAN)?",
+    "opciones": ["SAN", "NAS", "DAS", "RAID"],
+    "correcta": 1,
+    "explicacion": "Network Attached Storage (NAS) actúa como un servidor de archivos dedicado."
+  },
+  {
+    "pregunta": "En el contexto de microprocesadores, ¿qué significa 'ISA'?",
+    "opciones": ["International Standards Association", "Instruction Set Architecture", "Internal System Access", "Integrated Software Array"],
+    "correcta": 1,
+    "explicacion": "Es el modelo abstracto que define cómo se comunica el software con el hardware (ej: x86, ARM)."
+  },
+  {
+    "pregunta": "¿Qué protocolo utiliza el comando 'traceroute' en sistemas Linux para identificar la ruta?",
+    "opciones": ["ICMP Echo Request", "UDP (con puertos altos)", "TCP SYN", "HTTP"],
+    "correcta": 1,
+    "explicacion": "A diferencia de Windows (que usa ICMP), Linux por defecto usa paquetes UDP y analiza los errores ICMP 'Time Exceeded'."
+  }
+]
