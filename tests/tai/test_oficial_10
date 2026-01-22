@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué campo de la cabecera TCP permite el control de flujo mediante el mecanismo de 'ventana deslizante'?",
+    "opciones": ["Checksum", "Sequence Number", "Window Size", "Acknowledgment Number"],
+    "correcta": 2,
+    "explicacion": "El campo Window Size indica la cantidad de bytes que el receptor está dispuesto a aceptar sin enviar un ACK."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿cuál es el plazo para interponer un recurso de alzada contra un acto expreso?",
+    "opciones": ["10 días", "1 mes", "2 meses", "3 meses"],
+    "correcta": 1,
+    "explicacion": "El plazo para interponer el recurso de alzada será de un mes si el acto fuera expreso."
+  },
+  {
+    "pregunta": "¿Qué técnica de gestión de memoria permite ejecutar programas cuyo tamaño total excede la memoria RAM física disponible?",
+    "opciones": ["Paginación", "Segmentación", "Memoria Virtual", "Intercambio (Swapping)"],
+    "correcta": 2,
+    "explicacion": "La memoria virtual utiliza espacio en el almacenamiento secundario para simular memoria principal adicional."
+  },
+  {
+    "pregunta": "En el desarrollo ágil con Scrum, ¿quién es el único responsable de gestionar el 'Product Backlog'?",
+    "opciones": ["Scrum Master", "Product Owner", "Developers", "Stakeholders"],
+    "correcta": 1,
+    "explicacion": "El Product Owner es el responsable de maximizar el valor del producto y gestionar la lista de deseos o tareas."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para sincronizar la hora de los dispositivos en una red?",
+    "opciones": ["SNMP", "NTP", "DHCP", "ICMP"],
+    "correcta": 1,
+    "explicacion": "Network Time Protocol (NTP) utiliza el puerto UDP 123 para sincronizar relojes."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué objeto se dispara automáticamente cuando ocurre un evento DML (INSERT, UPDATE, DELETE)?",
+    "opciones": ["Stored Procedure", "View", "Trigger", "Index"],
+    "correcta": 2,
+    "explicacion": "Un disparador (trigger) es un bloque de código que se ejecuta en respuesta a una operación en una tabla."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando muestra el árbol de directorios de forma jerárquica?",
+    "opciones": ["ls -R", "dir", "tree", "show -d"],
+    "correcta": 2,
+    "explicacion": "El comando 'tree' visualiza gráficamente la estructura de carpetas (puede requerir instalación)."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cuál de las siguientes NO es una dimensión de seguridad?",
+    "opciones": ["Confidencialidad", "Integridad", "Escalabilidad", "Disponibilidad"],
+    "correcta": 2,
+    "explicacion": "Las dimensiones son Confidencialidad, Integridad, Disponibilidad, Autenticidad y Trazabilidad."
+  },
+  {
+    "pregunta": "¿Qué tipo de ataque consiste en enviar paquetes ICMP de gran tamaño para desbordar la pila de protocolos del objetivo?",
+    "opciones": ["Ping of Death", "Smurf Attack", "SYN Flood", "Replay Attack"],
+    "correcta": 0,
+    "explicacion": "El 'Ping de la muerte' utiliza fragmentos IP para crear un paquete ICMP mayor de 65.535 bytes."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué protocolo se encarga de la entrega de mensajes de correo electrónico entre servidores?",
+    "opciones": ["POP3", "IMAP", "SMTP", "HTTP"],
+    "correcta": 2,
+    "explicacion": "Simple Mail Transfer Protocol (SMTP) es el protocolo para el envío y transferencia de correo."
+  },
+  {
+    "pregunta": "En desarrollo web, ¿qué propiedad de CSS se utiliza para cambiar el color de fondo de un elemento?",
+    "opciones": ["color", "background-color", "bgcolor", "fill-color"],
+    "correcta": 1,
+    "explicacion": "'color' cambia el texto; 'background-color' cambia el fondo."
+  },
+  {
+    "pregunta": "¿Cuál es el puerto por defecto para el protocolo LDAP?",
+    "opciones": ["389", "636", "3268", "445"],
+    "correcta": 0,
+    "explicacion": "Lightweight Directory Access Protocol utiliza el puerto 389. El 636 es para LDAPS."
+  },
+  {
+    "pregunta": "En una arquitectura Von Neumann, ¿dónde se realizan las operaciones de cálculo?",
+    "opciones": ["Unidad de Control", "Memoria Principal", "ALU (Unidad Aritmético Lógica)", "Registros"],
+    "correcta": 2,
+    "explicacion": "La ALU es el núcleo de cálculo de la CPU."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál es el plazo de prescripción de las sanciones impuestas por faltas graves?",
+    "opciones": ["1 año", "2 años", "3 años", "6 meses"],
+    "correcta": 1,
+    "explicacion": "Sanciones por faltas muy graves: 3 años. Graves: 2 años. Leves: 1 año."
+  },
+  {
+    "pregunta": "En Python, ¿qué método se utiliza para añadir un elemento al final de una lista?",
+    "opciones": ["add()", "insert()", "append()", "extend()"],
+    "correcta": 2,
+    "explicacion": "lista.append(elemento) añade un único elemento al final."
+  },
+  {
+    "pregunta": "¿Qué protocolo de resolución de direcciones se usa en IPv6 en lugar de ARP?",
+    "opciones": ["ICMPv6 (Neighbor Discovery)", "DHCPv6", "RARP", "IGMP"],
+    "correcta": 0,
+    "explicacion": "Neighbor Discovery Protocol (NDP) sustituye las funciones de ARP en IPv6."
+  },
+  {
+    "pregunta": "¿Qué herramienta del CCN-CERT se usa para la detección de intrusiones basada en red?",
+    "opciones": ["LUCIA", "CARMEN", "CLARA", "ANA"],
+    "correcta": 1,
+    "explicacion": "CARMEN es la herramienta de análisis de tráfico para detectar APTs y amenazas avanzadas."
+  },
+  {
+    "pregunta": "En Windows, ¿qué comando muestra el identificador de seguridad (SID) del usuario actual?",
+    "opciones": ["whoami /sid", "net user", "get-sid", "id"],
+    "correcta": 0,
+    "explicacion": "El SID es el identificador único que usa Windows para gestionar permisos."
+  },
+  {
+    "pregunta": "¿Qué tipo de memoria caché suele ser compartida por todos los núcleos de un procesador moderno?",
+    "opciones": ["L1", "L2", "L3", "L0"],
+    "correcta": 2,
+    "explicacion": "La L3 es la más grande y lenta de las cachés internas, pero común a todos los cores."
+  },
+  {
+    "pregunta": "En el modelo relacional, ¿qué significa que una tabla esté en Primera Forma Normal (1FN)?",
+    "opciones": ["Que no tiene claves ajenas", "Que todos sus atributos son atómicos (no hay grupos repetidos)", "Que depende solo de la clave primaria", "Que no tiene valores nulos"],
+    "correcta": 1,
+    "explicacion": "La 1FN prohíbe las columnas que contengan múltiples valores (listas)."
+  }
+]
