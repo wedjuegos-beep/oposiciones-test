@@ -8,7 +8,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
@@ -23,7 +23,6 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // CONFIGURACIÓN GITHUB - wedjuegos-beep
         const GITHUB_BASE = "https://raw.githubusercontent.com/wedjuegos-beep/oposiciones-test/main/tests/";
 
         let userActual = null;
@@ -35,8 +34,7 @@
         let intervaloTimer = null;
         let modoExamen = false;
 
-        // --- EXPOSICIÓN DE FUNCIONES A WINDOW PARA HTML ---
-        window.login = () => signInWithPopup(auth, new GoogleAuthProvider()).catch(console.error);
+        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
         window.logout = () => signOut(auth);
         
         window.mostrarVista = (id) => {
@@ -50,9 +48,7 @@
                 userActual = user;
                 document.getElementById("userName").textContent = user.displayName;
                 window.mostrarVista('vistaSeleccion');
-            } else {
-                window.mostrarVista('vistaLogin');
-            }
+            } else { window.mostrarVista('vistaLogin'); }
         });
 
         window.seleccionarOposicion = (key) => {
@@ -67,26 +63,19 @@
             modoExamen = simulacion;
             const testFile = document.getElementById("selectTest").value;
             const url = `${GITHUB_BASE}${oposSel.toLowerCase()}/${testFile}`;
-            
             try {
                 const response = await fetch(url);
-                if (!response.ok) throw new Error("No se encontró el archivo JSON en GitHub.");
+                if (!response.ok) throw new Error("Archivo no encontrado.");
                 const data = await response.json();
-                
                 const limite = parseInt(document.getElementById("numPreguntas").value);
                 preguntasTest = data.sort(() => 0.5 - Math.random()).slice(0, limite);
-                
                 indicePregunta = 0;
                 respuestasUsuario = new Array(preguntasTest.length).fill(null);
                 tiempoRestante = modoExamen ? (preguntasTest.length * 90) : 0; 
-                
                 renderPregunta();
                 window.mostrarVista('vistaTest');
                 iniciarTimer();
-            } catch (error) {
-                alert("Error: Asegúrate de que el archivo existe en tests/" + oposSel.toLowerCase() + "/");
-                console.error(error);
-            }
+            } catch (error) { alert("Error cargando el test de GitHub."); }
         };
 
         function iniciarTimer() {
@@ -105,185 +94,166 @@
             document.getElementById("qText").textContent = `${indicePregunta + 1}. ${p.pregunta}`;
             const opts = document.getElementById("qOptions");
             opts.innerHTML = "";
-            
             p.opciones.forEach((opt, i) => {
                 const btn = document.createElement("div");
-                btn.className = "option-card";
-                if (respuestasUsuario[indicePregunta] === i) btn.classList.add("selected");
+                btn.className = "option-card " + (respuestasUsuario[indicePregunta] === i ? "selected" : "");
                 btn.textContent = opt;
-                btn.onclick = () => {
-                    respuestasUsuario[indicePregunta] = i;
-                    renderPregunta();
-                };
+                btn.onclick = () => { respuestasUsuario[indicePregunta] = i; renderPregunta(); };
                 opts.appendChild(btn);
             });
             document.getElementById("btnSig").textContent = (indicePregunta === preguntasTest.length - 1) ? "FINALIZAR" : "SIGUIENTE";
         }
 
         window.siguienteP = () => {
-            if (indicePregunta < preguntasTest.length - 1) {
-                indicePregunta++;
-                renderPregunta();
-            } else {
-                window.finalizarTest();
-            }
+            if (indicePregunta < preguntasTest.length - 1) { indicePregunta++; renderPregunta(); }
+            else { window.finalizarTest(); }
         };
-
-        window.anteriorP = () => {
-            if (indicePregunta > 0) {
-                indicePregunta--;
-                renderPregunta();
-            }
-        };
+        window.anteriorP = () => { if (indicePregunta > 0) { indicePregunta--; renderPregunta(); } };
 
         window.finalizarTest = async () => {
-            if (!confirm("¿Deseas entregar el examen ahora?")) return;
+            if (!confirm("¿Entregar examen?")) return;
             clearInterval(intervaloTimer);
-            
             let aciertos = 0, fallos = 0, blancas = 0;
             preguntasTest.forEach((p, i) => {
                 if (respuestasUsuario[i] === null) blancas++;
                 else if (respuestasUsuario[i] === p.correcta) aciertos++;
                 else fallos++;
             });
-
-            const dataFinal = {
-                uid: userActual.uid,
-                fecha: new Date().toISOString(),
-                oposicion: oposSel,
-                aciertos, fallos, blancas,
-                total: preguntasTest.length
-            };
-
-            await addDoc(collection(db, "resultados"), dataFinal);
+            await addDoc(collection(db, "resultados"), {
+                uid: userActual.uid, fecha: new Date().toISOString(),
+                oposicion: oposSel, aciertos, fallos, blancas, total: preguntasTest.length
+            });
             
             document.getElementById("resFinal").innerHTML = `
-                <h1 style="color:var(--blue)">Examen Finalizado</h1>
-                <div style="font-size:28px; margin:20px 0; font-weight:bold;">
-                    ✅ ${aciertos} | ❌ ${fallos} | ⚪ ${blancas}
-                </div>
-                <p>Tu nota se ha guardado en tus estadísticas.</p>
-                <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">IR AL INICIO</button>
+                <h2>Examen Finalizado</h2>
+                <div style="font-size:30px; margin:20px 0;">✅ ${aciertos} | ❌ ${fallos} | ⚪ ${blancas}</div>
+                <button class="btn" onclick="window.revisarExamen()">REVISAR RESPUESTAS</button>
+                <button class="btn" onclick="window.mostrarVista('vistaSeleccion')" style="background:#666; margin-left:10px;">VOLVER</button>
             `;
             window.mostrarVista('vistaResultados');
         };
 
+        window.revisarExamen = () => {
+            const container = document.getElementById("listaRevision");
+            container.innerHTML = "";
+            preguntasTest.forEach((p, i) => {
+                const userRes = respuestasUsuario[i];
+                const esCorrecta = userRes === p.correcta;
+                const div = document.createElement("div");
+                div.className = "card-revision " + (userRes === null ? "blanca" : esCorrecta ? "correcta" : "incorrecta");
+                div.innerHTML = `
+                    <p><strong>${i+1}. ${p.pregunta}</strong></p>
+                    <ul style="list-style:none; padding:0;">
+                        ${p.opciones.map((opt, idx) => `
+                            <li style="padding:5px; border-radius:4px; ${idx === p.correcta ? 'background:#d4edda; font-weight:bold;' : (idx === userRes ? 'background:#f8d7da;' : '')}">
+                                ${idx === p.correcta ? '✅ ' : (idx === userRes ? '❌ ' : '⚪ ')} ${opt}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <p><small><em>Explicación: ${p.explicacion || 'No hay explicación disponible.'}</em></small></p>
+                `;
+                container.appendChild(div);
+            });
+            window.mostrarVista('vistaRevision');
+        };
+
         window.cargarEstadisticas = async () => {
             const container = document.getElementById("listaHistorial");
-            container.innerHTML = "Cargando tu progreso...";
+            container.innerHTML = "Cargando...";
             try {
-                const q = query(collection(db, "resultados"), where("uid", "==", userActual.uid), orderBy("fecha", "desc"));
+                // Consulta simplificada para evitar errores de índice
+                const q = query(collection(db, "resultados"), where("uid", "==", userActual.uid));
                 const snap = await getDocs(q);
-                container.innerHTML = "";
-                if (snap.empty) container.innerHTML = "No has realizado ningún test todavía.";
-                snap.forEach(doc => {
-                    const d = doc.data();
-                    const fecha = new Date(d.fecha).toLocaleString('es-ES');
-                    container.innerHTML += `
-                        <div class="card-est">
-                            <strong>${fecha}</strong> - ${d.oposicion}<br>
-                            Aciertos: <span style="color:green">${d.aciertos}</span> | 
-                            Fallos: <span style="color:red">${d.fallos}</span> | 
-                            Blancas: ${d.blancas} | Total: ${d.total}
-                        </div>`;
+                let html = "";
+                const docs = snap.docs.map(d => d.data()).sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+                docs.forEach(d => {
+                    const f = new Date(d.fecha).toLocaleString();
+                    html += `<div class="card-est"><strong>${f}</strong> - ${d.oposicion}<br>✅ ${d.aciertos} | ❌ ${d.fallos} | ⚪ ${d.blancas}</div>`;
                 });
-            } catch (e) {
-                container.innerHTML = "Error al cargar datos de Firebase.";
-            }
+                container.innerHTML = html || "No hay resultados.";
+            } catch (e) { container.innerHTML = "Error al conectar con Firebase."; }
         };
     </script>
 
     <style>
         :root { --blue: #003366; --orange: #ff9900; --bg: #f4f7f9; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
-        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; }
-        .view { display: none; max-width: 850px; margin: 40px auto; padding: 20px; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); }
+        header { background: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; }
+        .view { display: none; max-width: 800px; margin: 30px auto; padding: 20px; }
         .view.active { display: block; }
-        .card { background: white; padding: 30px; border-radius: 12px; border: 1px solid #ddd; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card:hover { border-color: var(--orange); transform: translateY(-3px); }
-        .option-card { background: white; padding: 18px; margin: 12px 0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .option-card:hover { background: #f0f7ff; }
-        .option-card.selected { border-color: var(--orange); background: #fff5e6; font-weight: bold; border-width: 2px; }
-        .btn { background: var(--orange); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; }
-        .card-est { background: white; padding: 15px; margin-bottom: 12px; border-radius: 8px; border-left: 6px solid var(--blue); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        #timer { font-size: 26px; font-weight: bold; color: var(--blue); font-family: monospace; }
-        h1, h2 { color: var(--blue); }
+        .card, .card-revision { background: white; padding: 20px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .option-card { background: white; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
+        .option-card.selected { border: 2px solid var(--orange); background: #fff5e6; }
+        .btn { background: var(--orange); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .correcta { border-left: 8px solid #28a745; }
+        .incorrecta { border-left: 8px solid #dc3545; }
+        .blanca { border-left: 8px solid #6c757d; }
+        .card-est { background: white; padding: 10px; margin-bottom: 8px; border-left: 5px solid var(--blue); border-radius: 5px; }
+        #timer { font-size: 24px; font-weight: bold; color: var(--blue); }
     </style>
 </head>
 <body>
 
 <header>
-    <div style="font-size: 24px; font-weight: 900; color: var(--blue);">OPOS<span style="color:var(--orange)">TEST</span></div>
+    <div style="font-weight: 900; color: var(--blue); font-size: 20px;">OPOS<span style="color:var(--orange)">TEST</span></div>
     <div>
-        <span id="userName" style="margin-right:15px; font-weight:bold;"></span>
-        <button class="btn" onclick="window.mostrarVista('vistaEstadisticas')" style="background:var(--blue); font-size: 12px;">MIS NOTAS</button>
-        <button class="btn" onclick="window.logout()" style="background:#cc0000; font-size: 11px; margin-left:10px;">SALIR</button>
+        <span id="userName" style="font-weight:bold; margin-right:10px;"></span>
+        <button class="btn" onclick="window.mostrarVista('vistaEstadisticas')" style="background:var(--blue); font-size:11px;">MIS NOTAS</button>
+        <button class="btn" onclick="window.logout()" style="background:#cc0000; font-size:11px;">SALIR</button>
     </div>
 </header>
 
-<div id="vistaLogin" class="view">
-    <div style="text-align:center; padding:50px;">
-        <h1 style="font-size:3rem;">Domina tu Oposición</h1>
-        <p>Accede a simulacros oficiales de TAI y Auxiliar.</p>
-        <button class="btn" onclick="window.login()" style="padding: 20px 50px; font-size: 18px;">ENTRAR CON GOOGLE</button>
-    </div>
+<div id="vistaLogin" class="view" style="text-align:center;">
+    <h1>Acceso Alumnos</h1>
+    <button class="btn" onclick="window.login()">Entrar con Google</button>
 </div>
 
 <div id="vistaSeleccion" class="view">
-    <h2>¿Qué quieres estudiar hoy?</h2>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:25px;">
-        <div class="card" onclick="window.seleccionarOposicion('TAI')">
-            <h3>TAI 2026</h3>
-            <p>Técnico Auxiliar Informática del Estado</p>
-        </div>
-        <div class="card" onclick="window.seleccionarOposicion('VALENCIA')">
-            <h3>AYTO. VALENCIA</h3>
-            <p>Auxiliar Administrativo</p>
-        </div>
+    <h2>Selecciona Oposición</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div class="card" onclick="window.seleccionarOposicion('TAI')"><h3>TAI</h3></div>
+        <div class="card" onclick="window.seleccionarOposicion('VALENCIA')"><h3>VALENCIA</h3></div>
     </div>
 </div>
 
 <div id="vistaConfig" class="view">
-    <h2>Configura tu Examen</h2>
-    <div class="card" style="text-align:left; cursor:default;">
-        <label><b>Seleccionar Simulacro:</b></label>
-        <select id="selectTest" style="width:100%; padding:12px; margin:15px 0; border-radius:8px;">
+    <div class="card">
+        <h3>Configurar Test</h3>
+        <select id="selectTest" style="width:100%; padding:10px; margin-bottom:15px;">
             <option value="simulacro_enero.json">Simulacro TAI - Enero 2026</option>
-            <option value="test_oficial_1.json">Examen Oficial 2024</option>
-            <option value="test_oficial_2.json">Examen Oficial 2023</option>
+            <option value="test_oficial_1.json">Examen Oficial 1</option>
         </select>
-        
-        <label><b>Cantidad de preguntas:</b></label>
-        <input type="number" id="numPreguntas" value="80" style="width:100%; padding:12px; margin:15px 0; border-radius:8px; border:1px solid #ddd;">
-        
-        <div style="display:flex; gap:15px; margin-top:30px;">
-            <button class="btn" onclick="window.iniciarTest(false)" style="background:#28a745; flex:1;">MODO ENTRENAMIENTO</button>
-            <button class="btn" onclick="window.iniciarTest(true)" style="flex:1;">MODO EXAMEN (OFICIAL)</button>
-        </div>
+        <input type="number" id="numPreguntas" style="width:100%; padding:10px; margin-bottom:15px;" placeholder="Número de preguntas">
+        <button class="btn" onclick="window.iniciarTest(false)" style="background:#28a745">ENTRENAMIENTO</button>
+        <button class="btn" onclick="window.iniciarTest(true)">EXAMEN</button>
     </div>
 </div>
 
 <div id="vistaTest" class="view">
-    <div style="display:flex; justify-content:space-between; align-items:center; background:white; padding:15px; border-radius:10px; margin-bottom:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
         <div id="timer">00:00</div>
-        <button class="btn" style="background:#666" onclick="window.finalizarTest()">ENTREGAR EXAMEN</button>
+        <button class="btn" style="background:#666" onclick="window.finalizarTest()">ENTREGAR</button>
     </div>
-    <div id="qText" style="font-size:22px; margin:30px 0; font-weight:bold; line-height:1.4;"></div>
+    <div id="qText" style="font-size:20px; margin:20px 0; font-weight:bold;"></div>
     <div id="qOptions"></div>
-    <div style="display:flex; justify-content:space-between; margin-top:40px;">
-        <button class="btn" style="background:var(--blue)" onclick="window.anteriorP()">Anterior</button>
-        <button id="btnSig" class="btn" onclick="window.siguienteP()">Siguiente</button>
+    <div style="display:flex; justify-content:space-between; margin-top:20px;">
+        <button class="btn" style="background:var(--blue)" onclick="window.anteriorP()">ANTERIOR</button>
+        <button id="btnSig" class="btn" onclick="window.siguienteP()">SIGUIENTE</button>
     </div>
 </div>
 
-<div id="vistaResultados" class="view">
-    <div id="resFinal" class="card"></div>
+<div id="vistaResultados" class="view" style="text-align:center;"><div id="resFinal" class="card"></div></div>
+
+<div id="vistaRevision" class="view">
+    <h2>Revisión de Respuestas</h2>
+    <div id="listaRevision"></div>
+    <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">VOLVER AL INICIO</button>
 </div>
 
 <div id="vistaEstadisticas" class="view">
-    <h2>Mi Historial de Resultados</h2>
-    <div id="listaHistorial" style="margin-bottom:30px;"></div>
-    <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">VOLVER AL PANEL</button>
+    <h2>Historial de Notas</h2>
+    <div id="listaHistorial"></div>
+    <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">VOLVER</button>
 </div>
 
 </body>
