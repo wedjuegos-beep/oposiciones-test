@@ -1,0 +1,209 @@
+[
+  {
+    "pregunta": "En el desarrollo de software bajo la metodología Scrum, ¿cuál es la duración máxima recomendada para un Sprint?",
+    "opciones": ["1 semana", "2 semanas", "4 semanas (un mes)", "2 meses"],
+    "correcta": 2,
+    "explicacion": "Según la Guía oficial de Scrum, un Sprint es un evento de un mes o menos para crear consistencia."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para la gestión y monitorización de dispositivos en una red IP?",
+    "opciones": ["SMTP", "SNMP", "SSH", "ICMP"],
+    "correcta": 1,
+    "explicacion": "Simple Network Management Protocol (SNMP) permite administrar y supervisar el estado de los nodos de red."
+  },
+  {
+    "pregunta": "En una base de datos relacional, ¿qué significa que una consulta sea 'Correlacionada'?",
+    "opciones": ["Que usa dos bases de datos distintas", "Que la subconsulta depende de los valores de la consulta externa", "Que solo devuelve valores numéricos", "Que se ejecuta en paralelo"],
+    "correcta": 1,
+    "explicacion": "Una subconsulta correlacionada se evalúa una vez por cada fila procesada por la consulta principal."
+  },
+  {
+    "pregunta": "¿Cuál es la función principal del registro 'Acumulador' en la CPU?",
+    "opciones": ["Almacenar la dirección de la siguiente instrucción", "Almacenar temporalmente los resultados de las operaciones de la ALU", "Controlar la velocidad del ventilador", "Guardar la tabla de interrupciones"],
+    "correcta": 1,
+    "explicacion": "El acumulador es un registro donde se almacenan los resultados intermedios de las operaciones aritméticas y lógicas."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál es la naturaleza jurídica del Punto de Acceso General (PAG)?",
+    "opciones": ["Es una sede electrónica", "Es un portal de internet", "Es una oficina de registro físico", "Es un organismo autónomo"],
+    "correcta": 1,
+    "explicacion": "El PAG se define como un portal de internet que facilita el acceso a los servicios públicos."
+  },
+  {
+    "pregunta": "¿Qué tipo de cifrado utiliza la misma clave tanto para cifrar como para descifrar el mensaje?",
+    "opciones": ["Asimétrico", "Simétrico", "Hash", "Esteganografía"],
+    "correcta": 1,
+    "explicacion": "En el cifrado simétrico (como AES), emisor y receptor comparten una clave secreta única."
+  },
+  {
+    "pregunta": "¿Qué comando de Windows (CMD) se utiliza para gestionar las reglas del Firewall de Windows?",
+    "opciones": ["ipconfig /firewall", "netsh advfirewall", "firewall-cmd", "ufw status"],
+    "correcta": 1,
+    "explicacion": "netsh advfirewall es la herramienta potente para configurar el firewall avanzado desde consola."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué protocolo opera en la Capa 3 para informar de errores de red?",
+    "opciones": ["UDP", "TCP", "ICMP", "ARP"],
+    "correcta": 2,
+    "explicacion": "ICMP (Internet Control Message Protocol) envía mensajes de control y error (ej: Host inalcanzable)."
+  },
+  {
+    "pregunta": "En Java, ¿qué es la JVM (Java Virtual Machine)?",
+    "opciones": ["Un servidor de base de datos", "El entorno que ejecuta el bytecode de Java", "Un compilador de código fuente a binario", "Una librería para interfaces gráficas"],
+    "correcta": 1,
+    "explicacion": "La JVM permite que Java sea multiplataforma al ejecutar el bytecode en cualquier sistema compatible."
+  },
+  {
+    "pregunta": "¿Qué nivel de RAID combina la división de datos y el espejo para ofrecer velocidad y redundancia?",
+    "opciones": ["RAID 0", "RAID 5", "RAID 10 (1+0)", "RAID 6"],
+    "correcta": 2,
+    "explicacion": "RAID 10 crea un espejo de discos (RAID 1) y luego divide los datos (RAID 0) sobre esos espejos."
+  },
+  {
+    "pregunta": "Según el RGPD, ¿qué plazo tiene el responsable para notificar una violación de seguridad a la autoridad de protección de datos?",
+    "opciones": ["24 horas", "48 horas", "72 horas", "7 días"],
+    "correcta": 2,
+    "explicacion": "La notificación debe realizarse sin dilación indebida y, a más tardar, en 72 horas."
+  },
+  {
+    "pregunta": "En Linux, ¿cuál es el ID del superusuario (root)?",
+    "opciones": ["UID 0", "UID 1", "UID 100", "UID 1000"],
+    "correcta": 0,
+    "explicacion": "El UID 0 está reservado siempre para la cuenta de root."
+  },
+  {
+    "pregunta": "¿Qué significa el término 'Escalabilidad Horizontal'?",
+    "opciones": ["Añadir más RAM a un servidor", "Añadir más servidores al sistema para repartir la carga", "Aumentar la velocidad de la CPU", "Cambiar el software por uno más moderno"],
+    "correcta": 1,
+    "explicacion": "Escalabilidad vertical es mejorar el hardware actual; horizontal es añadir más nodos."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza por defecto el protocolo MySQL?",
+    "opciones": ["5432", "1433", "3306", "1521"],
+    "correcta": 2,
+    "explicacion": "3306 es el puerto estándar. 5432 es Postgres, 1433 es SQL Server y 1521 es Oracle."
+  },
+  {
+    "pregunta": "En HTML5, ¿qué elemento se utiliza para representar un contenido independiente que podría ser distribuido de forma autónoma (como un post de blog)?",
+    "opciones": ["<section>", "<div>", "<article>", "<aside>"],
+    "correcta": 2,
+    "explicacion": "La etiqueta <article> está diseñada para contenidos con significado propio e independiente."
+  },
+  {
+    "pregunta": "En el modelo relacional, ¿qué es la 'Forma Normal de Boyce-Codd' (FNBC)?",
+    "opciones": ["Una forma menos estricta que la 3FN", "Una versión reforzada de la Tercera Forma Normal", "Un tipo de clave primaria", "Una técnica de indexación"],
+    "correcta": 1,
+    "explicacion": "La FNBC elimina anomalías que la 3FN no puede resolver en ciertos casos de claves candidatas superpuestas."
+  },
+  {
+    "pregunta": "¿Qué es un ataque de 'Cross-Site Scripting' (XSS)?",
+    "opciones": ["Inyectar código SQL en la base de datos", "Inyectar scripts maliciosos en páginas web que ven otros usuarios", "Adivinar contraseñas", "Bloquear el tráfico de red"],
+    "correcta": 1,
+    "explicacion": "El atacante ejecuta scripts en el navegador de la víctima aprovechando la falta de validación de la web."
+  },
+  {
+    "pregunta": "En una arquitectura de 64 bits, ¿cuál es el tamaño máximo teórico de memoria RAM direccionable?",
+    "opciones": ["4 GB", "16 GB", "16 Exabytes", "1 Terabyte"],
+    "correcta": 2,
+    "explicacion": "Mientras que 32 bits limitan a 4GB (2^32), 64 bits permiten hasta 16 EB (2^64)."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿cuál es el silencio administrativo general en procedimientos iniciados a solicitud del interesado?",
+    "opciones": ["Siempre positivo", "Siempre negativo", "Positivo, salvo que una norma con rango de Ley diga lo contrario", "No existe el silencio"],
+    "correcta": 2,
+    "explicacion": "La regla general es el silencio positivo, con excepciones importantes (dominio público, medio ambiente, etc.)."
+  },
+  {
+    "pregunta": "¿Qué protocolo inalámbrico es el más común para redes PAN (Personal Area Network)?",
+    "opciones": ["Wi-Fi", "Bluetooth", "4G", "WiMAX"],
+    "correcta": 1,
+    "explicacion": "Bluetooth está diseñado para conexiones de corto alcance entre dispositivos personales."
+  },
+  {
+    "pregunta": "¿Qué comando Linux se usa para listar los archivos abiertos por procesos?",
+    "opciones": ["ls -l", "ps aux", "lsof", "netstat"],
+    "correcta": 2,
+    "explicacion": "lsof (LiSt Open Files) es muy útil para depurar problemas de sistema."
+  },
+  {
+    "pregunta": "En el desarrollo ágil, ¿qué es un 'Story Point'?",
+    "opciones": ["Una hora de trabajo", "Una medida de esfuerzo relativo para completar una tarea", "El número de líneas de código", "Un error encontrado"],
+    "correcta": 1,
+    "explicacion": "No miden tiempo exacto, sino complejidad y esfuerzo comparado con otras tareas."
+  },
+  {
+    "pregunta": "En SQL, ¿qué comando elimina una tabla de la base de datos de forma permanente?",
+    "opciones": ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "TRUNCATE TABLE"],
+    "correcta": 2,
+    "explicacion": "DROP elimina los datos y la definición de la estructura de la tabla."
+  },
+  {
+    "pregunta": "¿Qué tecnología permite que una sola conexión física de red se comporte como varias redes lógicas independientes?",
+    "opciones": ["VPN", "VLAN", "NAT", "Subnetting"],
+    "correcta": 1,
+    "explicacion": "Las Virtual LAN segmentan la red a nivel de capa 2."
+  },
+  {
+    "pregunta": "En Windows, ¿qué herramienta permite modificar el Registro del Sistema?",
+    "opciones": ["msconfig", "regedit", "gpedit.msc", "taskmgr"],
+    "correcta": 1,
+    "explicacion": "regedit es el Editor del Registro donde se guarda la configuración profunda del SO."
+  },
+  {
+    "pregunta": "¿Qué componente de la placa base mantiene la configuración de la fecha y hora cuando el PC está apagado?",
+    "opciones": ["La CPU", "La memoria RAM", "La pila CMOS", "El disco duro"],
+    "correcta": 2,
+    "explicacion": "La pila alimenta la memoria CMOS que guarda la configuración básica del hardware."
+  },
+  {
+    "pregunta": "¿Qué tipo de bus de datos es el estándar SATA?",
+    "opciones": ["Paralelo", "Serie", "Síncrono", "Inalámbrico"],
+    "correcta": 1,
+    "explicacion": "Serial ATA (SATA) sustituyó al antiguo PATA (IDE) enviando los bits de uno en uno a alta velocidad."
+  },
+  {
+    "pregunta": "Según el ENS, ¿qué es la 'Autenticidad'?",
+    "opciones": ["Que los datos no se hayan modificado", "Que el sistema esté siempre online", "Garantía de que una entidad es quien dice ser", "Que los datos estén en la nube"],
+    "correcta": 2,
+    "explicacion": "Asegura la identidad del emisor o del origen de la información."
+  },
+  {
+    "pregunta": "En una red TCP/IP, ¿qué hace la función NAT (Network Address Translation)?",
+    "opciones": ["Cifra los datos", "Traduce nombres de dominio", "Permite que varias IPs privadas salgan a Internet con una sola IP pública", "Acelera la descarga"],
+    "correcta": 2,
+    "explicacion": "Es fundamental para ahorrar direcciones IPv4 públicas."
+  },
+  {
+    "pregunta": "¿Cuál es el puerto por defecto de PostgreSQL?",
+    "opciones": ["3306", "1433", "5432", "8080"],
+    "correcta": 2,
+    "explicacion": "PostgreSQL utiliza el puerto TCP 5432."
+  },
+  {
+    "pregunta": "En Git, ¿qué es un 'Merge Conflict'?",
+    "opciones": ["Un error al instalar Git", "Cuando dos ramas tienen cambios distintos en la misma línea de un archivo y no se pueden fusionar automáticamente", "Cuando se pierde la conexión a Internet", "Cuando la contraseña es incorrecta"],
+    "correcta": 1,
+    "explicacion": "Requiere intervención manual del programador para decidir qué cambios mantener."
+  },
+  {
+    "pregunta": "¿Qué significa que un sistema sea 'High Availability' (Alta Disponibilidad)?",
+    "opciones": ["Que es muy rápido", "Que está diseñado para estar operativo casi el 100% del tiempo", "Que tiene mucha memoria RAM", "Que es muy caro"],
+    "correcta": 1,
+    "explicacion": "Suele medirse en 'nueves' (ej: 99.999% de tiempo online)."
+  },
+  {
+    "pregunta": "En CSS, ¿qué propiedad controla la transparencia de un elemento?",
+    "opciones": ["transparent", "opacity", "filter: blur", "display: none"],
+    "correcta": 1,
+    "explicacion": "Va de 0.0 (totalmente invisible) a 1.0 (totalmente opaco)."
+  },
+  {
+    "pregunta": "¿Qué es un 'Docker Image'?",
+    "opciones": ["Una foto del servidor", "Un archivo ejecutable que incluye todo lo necesario para correr una aplicación", "Un tipo de virus", "Un fondo de pantalla para Linux"],
+    "correcta": 1,
+    "explicacion": "Es una plantilla de solo lectura que se usa para crear contenedores."
+  },
+  {
+    "pregunta": "Según la Constitución, ¿quién tiene el mando supremo de las Fuerzas Armadas?",
+    "opciones": ["El Ministro de Defensa", "El Presidente del Gobierno", "El Rey", "El Jefe del Estado Mayor"],
+    "correcta": 2,
