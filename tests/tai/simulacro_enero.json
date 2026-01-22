@@ -1,0 +1,25 @@
+[
+  {
+    "pregunta": "¿Qué comando se utilizaría desde CMD para borrar una regla de firewall llamada 'oldInventario'?",
+    "opciones": [
+      "netsh advfirewall firewall delete rule name=\"oldInventario\"",
+      "netsh advfirewall firewall remove rule name=\"oldInventario\"",
+      "netsh advfirewall firewall drop rule name=\"oldInventario\"",
+      "netsh advfirewall firewall erase rule name=\"oldInventario\""
+    ],
+    "correcta": 0,
+    "explicacion": "El comando correcto en netsh es 'delete rule'."
+  },
+  {
+    "pregunta": "Qué herramienta del CCN-CERT se utilizaría para auditar el cumplimiento con el ENS/STIC:",
+    "opciones": ["LUCIA", "REYES", "ADA", "CLARA"],
+    "correcta": 3,
+    "explicacion": "CLARA es la herramienta para auditoría de cumplimiento con ENS."
+  },
+  {
+    "pregunta": "¿Qué comando utilizaría para comprobar desde la consola de Windows (CMD) el estado del cifrado de un disco y ver si el protector es un chip TPM?",
+    "opciones": ["bitlocker /status", "manage-bde -status", "cipher /check", "netsh bitlocker show"],
+    "correcta": 1,
+    "explicacion": "manage-bde es la herramienta de línea de comandos para BitLocker."
+  }
+]
