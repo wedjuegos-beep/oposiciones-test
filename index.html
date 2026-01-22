@@ -3,161 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparador TAI - Test Manager</title>
+    <title>Plataforma de Tests TAI</title>
     <style>
-        :root { --primary: #007bff; --success: #28a745; --dark: #343a40; --light: #f8f9fa; }
-        body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; }
-        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .btn { width: 100%; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 10px; }
+        :root { --primary: #007bff; --success: #28a745; --danger: #dc3545; --dark: #343a40; --light: #f8f9fa; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e9ecef; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .btn { padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; margin: 5px 0; width: 100%; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-success { background: var(--success); color: white; }
-        select, input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-exit { background: #6c757d; color: white; margin-top: 20px; }
+        select, input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
         .hidden { display: none; }
-        .pregunta { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
-        .opcion { display: block; padding: 10px; margin: 5px 0; background: #f1f3f5; border-radius: 5px; cursor: pointer; }
-        .opcion:hover { background: #dee2e6; }
-        .feedback { padding: 10px; margin-top: 10px; border-radius: 5px; font-size: 0.9em; }
+        .pregunta-texto { font-size: 1.2em; font-weight: bold; margin-bottom: 20px; color: var(--dark); }
+        .opcion { display: block; padding: 15px; margin: 8px 0; background: #f8f9fa; border: 2px solid #eee; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .opcion:hover { background: #e9ecef; border-color: #ddd; }
+        .correcta { background: #d4edda !important; border-color: #28a745 !important; color: #155724; }
+        .incorrecta { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .feedback { background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #ffc107; }
+        #timer { font-weight: bold; color: var(--danger); font-size: 1.2em; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div id="vistaConfig" class="card">
-        <h2>📚 Panel de Control TAI</h2>
-        <p>Selecciona tu entrenamiento:</p>
+        <h1 style="text-align: center; color: var(--dark);">🎯 Preparador Oficial TAI</h1>
+        <p style="text-align: center; color: #666;">Selecciona un examen de los 15 oficiales o por temas</p>
         
-        <label>Tipo de Test:</label>
-        <select id="selectTest">
-            </select>
+        <label><b>Seleccionar Examen:</b></label>
+        <select id="selectTest"></select>
 
-        <label>Número de preguntas:</label>
-        <input type="number" id="numPreguntas" value="80">
+        <label><b>Número de preguntas:</b></label>
+        <input type="number" id="numPreguntas" value="80" min="1" max="100">
         
-        <button class="btn btn-success" onclick="iniciarJuego(false)">MODO ENTRENAMIENTO</button>
-        <button class="btn btn-primary" onclick="iniciarJuego(true)">MODO EXAMEN (CON TIEMPO)</button>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button class="btn btn-success" onclick="iniciarExamen(false)">ENTRENAMIENTO</button>
+            <button class="btn btn-primary" onclick="iniciarExamen(true)">MODO EXAMEN</button>
+        </div>
     </div>
 
     <div id="vistaTest" class="card hidden">
-        <div id="infoTest" style="display:flex; justify-content:space-between; margin-bottom:10px; color:#666;">
-            <span id="progreso">Pregunta 1 de --</span>
-            <span id="cronometro">00:00</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">
+            <span id="progreso" style="font-weight: bold;">Pregunta 1/80</span>
+            <div id="timerContainer" class="hidden">⏱️ <span id="timer">120:00</span></div>
         </div>
+
         <div id="contenedorPregunta"></div>
-        <button id="btnSiguiente" class="btn btn-primary hidden" onclick="siguientePregunta()">Siguiente Pregunta</button>
+        
+        <button id="btnSiguiente" class="btn btn-primary hidden" onclick="siguiente()">Siguiente Pregunta</button>
+        <button class="btn btn-exit" onclick="confirmarSalida()">✖ Salir del Test</button>
     </div>
 
-    <div id="vistaResultados" class="card hidden">
-        <h2>Resultado Final</h2>
-        <div id="puntuacion" style="font-size: 2em; text-align: center; margin: 20px 0;"></div>
-        <button class="btn btn-primary" onclick="location.reload()">VOLVER AL INICIO</button>
+    <div id="vistaResultados" class="card hidden" style="text-align: center;">
+        <h2>Examen Finalizado</h2>
+        <div id="puntuacionFinal" style="font-size: 3em; margin: 20px 0;">0 / 0</div>
+        <p id="mensajeResultado"></p>
+        <button class="btn btn-primary" onclick="location.reload()">Volver a Intentarlo</button>
     </div>
 </div>
 
 <script>
-    // CONFIGURACIÓN DE TUS TESTS (Añade aquí los nuevos archivos que subas a GitHub)
-    const misTests = [
-        { nombre: "🏆 Examen Oficial 1", archivo: "test_oficial_1.json", categoria: "oficial" },
-        { nombre: "🏆 Examen Oficial 2", archivo: "test_oficial_2.json", categoria: "oficial" },
-        { nombre: "🏆 Examen Oficial 3", archivo: "test_oficial_3.json", categoria: "oficial" },
-        { nombre: "📁 Tema 1: Constitución", archivo: "tema_1.json", categoria: "tema" },
-        { nombre: "📁 Tema 2: Ley 39/2015", archivo: "tema_2.json", categoria: "tema" },
-        { nombre: "📝 Simulacro Enero 2026", archivo: "simulacro_enero.json", categoria: "simulacro" }
+    // LISTA DE 15 TESTS OFICIALES + TEMAS
+    const listaExamenes = [
+        { id: "test_oficial_1.json", nombre: "🏆 Examen Oficial 01" },
+        { id: "test_oficial_2.json", nombre: "🏆 Examen Oficial 02" },
+        { id: "test_oficial_3.json", nombre: "🏆 Examen Oficial 03" },
+        { id: "test_oficial_4.json", nombre: "🏆 Examen Oficial 04" },
+        { id: "test_oficial_5.json", nombre: "🏆 Examen Oficial 05" },
+        { id: "test_oficial_6.json", nombre: "🏆 Examen Oficial 06" },
+        { id: "test_oficial_7.json", nombre: "🏆 Examen Oficial 07" },
+        { id: "test_oficial_8.json", nombre: "🏆 Examen Oficial 08" },
+        { id: "test_oficial_9.json", nombre: "🏆 Examen Oficial 09" },
+        { id: "test_oficial_10.json", nombre: "🏆 Examen Oficial 10" },
+        { id: "test_oficial_11.json", nombre: "🏆 Examen Oficial 11" },
+        { id: "test_oficial_12.json", nombre: "🏆 Examen Oficial 12" },
+        { id: "test_oficial_13.json", nombre: "🏆 Examen Oficial 13" },
+        { id: "test_oficial_14.json", nombre: "🏆 Examen Oficial 14" },
+        { id: "test_oficial_15.json", nombre: "🏆 Examen Oficial 15" },
+        { id: "tema_1.json", nombre: "📁 Bloque I: Derecho y Adm. Pública" },
+        { id: "tema_2.json", nombre: "📁 Bloque II: Tecnología Básica" }
     ];
 
-    let preguntasCargadas = [];
-    let indiceActual = 0;
+    let preguntas = [];
+    let actual = 0;
     let aciertos = 0;
     let modoExamen = false;
+    let tiempoRestante = 120 * 60; // 2 horas
+    let intervalo;
 
-    // Al cargar la página, rellenamos el selector automáticamente
     window.onload = () => {
         const select = document.getElementById('selectTest');
-        misTests.forEach(test => {
+        listaExamenes.forEach(ex => {
             const opt = document.createElement('option');
-            opt.value = test.archivo;
-            opt.textContent = test.nombre;
+            opt.value = ex.id;
+            opt.textContent = ex.nombre;
             select.appendChild(opt);
         });
     };
 
-    async function iniciarJuego(examen) {
-        const nombreArchivo = document.getElementById('selectTest').value;
-        const ruta = `tests/tai/${nombreArchivo}`;
-        
+    async function iniciarExamen(examen) {
+        const file = document.getElementById('selectTest').value;
+        // IMPORTANTE: Asegúrate de que en GitHub la carpeta sea tests/tai/
+        const url = `tests/tai/${file}`; 
+
         try {
-            const response = await fetch(ruta);
-            if (!response.ok) throw new Error("No se encontró el archivo de test");
-            const data = await response.json();
+            const res = await fetch(url);
+            if (!res.ok) throw new Error();
+            const data = await res.json();
             
-            preguntasCargadas = data.sort(() => Math.random() - 0.5).slice(0, document.getElementById('numPreguntas').value);
+            preguntas = data.sort(() => Math.random() - 0.5).slice(0, document.getElementById('numPreguntas').value);
             modoExamen = examen;
             
             document.getElementById('vistaConfig').classList.add('hidden');
             document.getElementById('vistaTest').classList.remove('hidden');
-            mostrarPregunta();
-        } catch (error) {
-            alert("Error al cargar el test: " + error.message);
+            
+            if (modoExamen) {
+                document.getElementById('timerContainer').classList.remove('hidden');
+                iniciarCronometro();
+            }
+            
+            mostrar();
+        } catch (e) {
+            alert(`⚠️ ARCHIVO NO ENCONTRADO: El archivo "${file}" aún no ha sido subido a la carpeta tests/tai/ de tu GitHub.`);
         }
     }
 
-    function mostrarPregunta() {
-        const p = preguntasCargadas[indiceActual];
-        document.getElementById('progreso').textContent = `Pregunta ${indiceActual + 1} de ${preguntasCargadas.length}`;
-        
-        let html = `<div class="pregunta">${p.pregunta}</div>`;
-        p.opciones.forEach((opc, i) => {
-            html += `<div class="opcion" onclick="validarRespuesta(${i}, this)">${opc}</div>`;
+    function iniciarCronometro() {
+        intervalo = setInterval(() => {
+            tiempoRestante--;
+            let mins = Math.floor(tiempoRestante / 60);
+            let secs = tiempoRestante % 60;
+            document.getElementById('timer').textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            if (tiempoRestante <= 0) finalizar();
+        }, 1000);
+    }
+
+    function mostrar() {
+        const p = preguntas[actual];
+        document.getElementById('progreso').textContent = `Pregunta ${actual + 1} de ${preguntas.length}`;
+        let html = `<div class="pregunta-texto">${p.pregunta}</div>`;
+        p.opciones.forEach((o, i) => {
+            html += `<div class="opcion" onclick="chequear(${i}, this)">${o}</div>`;
         });
-        
         document.getElementById('contenedorPregunta').innerHTML = html;
         document.getElementById('btnSiguiente').classList.add('hidden');
     }
 
-    function validarRespuesta(indiceSeleccionado, elemento) {
-        const p = preguntasCargadas[indiceActual];
+    function chequear(idx, el) {
+        const p = preguntas[actual];
         const opciones = document.querySelectorAll('.opcion');
-        
-        // Deshabilitar clics
         opciones.forEach(o => o.style.pointerEvents = 'none');
 
-        if (indiceSeleccionado === p.correcta) {
-            elemento.style.background = "#d4edda";
-            elemento.style.border = "2px solid #28a745";
+        if (idx === p.correcta) {
+            el.classList.add('correcta');
             aciertos++;
         } else {
-            elemento.style.background = "#f8d7da";
-            elemento.style.border = "2px solid #dc3545";
-            opciones[p.correcta].style.background = "#d4edda";
-            opciones[p.correcta].style.border = "2px solid #28a745";
+            el.classList.add('incorrecta');
+            opciones[p.correcta].classList.add('correcta');
         }
 
         if (!modoExamen) {
-            const feed = document.createElement('div');
-            feed.className = "feedback";
-            feed.style.background = "#fff3cd";
-            feed.innerHTML = `<strong>Explicación:</strong> ${p.explicacion}`;
-            document.getElementById('contenedorPregunta').appendChild(feed);
+            const f = document.createElement('div');
+            f.className = "feedback";
+            f.innerHTML = `<strong>💡 Explicación:</strong> ${p.explicacion || "Sin explicación disponible."}`;
+            document.getElementById('contenedorPregunta').appendChild(f);
         }
-
         document.getElementById('btnSiguiente').classList.remove('hidden');
     }
 
-    function siguientePregunta() {
-        indiceActual++;
-        if (indiceActual < preguntasCargadas.length) {
-            mostrarPregunta();
-        } else {
-            finalizarTest();
-        }
+    function siguiente() {
+        actual++;
+        if (actual < preguntas.length) mostrar();
+        else finalizar();
     }
 
-    function finalizarTest() {
+    function finalizar() {
+        clearInterval(intervalo);
         document.getElementById('vistaTest').classList.add('hidden');
         document.getElementById('vistaResultados').classList.remove('hidden');
-        document.getElementById('puntuacion').textContent = `${aciertos} / ${preguntasCargadas.length}`;
+        document.getElementById('puntuacionFinal').textContent = `${aciertos} / ${preguntas.length}`;
+    }
+
+    function confirmarSalida() {
+        if (confirm("¿Seguro que quieres salir? Perderás el progreso del test actual.")) {
+            location.reload();
+        }
     }
 </script>
-
 </body>
 </html>
