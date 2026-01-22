@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OposTest | Plataforma de Entrenamiento</title>
+    <title>OposTest TAI | wedjuegos-beep</title>
     
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBVb6TjVzSy7Q1B1xoG_2F27C12x2GOS9Y",
@@ -23,7 +23,9 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // Variables de Estado
+        // CONFIGURACIÓN GITHUB - wedjuegos-beep
+        const GITHUB_BASE = "https://raw.githubusercontent.com/wedjuegos-beep/oposiciones-test/main/tests/";
+
         let userActual = null;
         let oposSel = null;
         let preguntasTest = [];
@@ -33,211 +35,255 @@
         let intervaloTimer = null;
         let modoExamen = false;
 
-        // --- NAVEGACIÓN ---
+        // --- EXPOSICIÓN DE FUNCIONES A WINDOW PARA HTML ---
+        window.login = () => signInWithPopup(auth, new GoogleAuthProvider()).catch(console.error);
+        window.logout = () => signOut(auth);
+        
         window.mostrarVista = (id) => {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            if(id === 'vistaEstadisticas') window.cargarEstadisticas();
         };
 
-        // --- AUTH ---
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 userActual = user;
                 document.getElementById("userName").textContent = user.displayName;
-                mostrarVista('vistaSeleccion');
+                window.mostrarVista('vistaSeleccion');
             } else {
-                mostrarVista('vistaLogin');
+                window.mostrarVista('vistaLogin');
             }
         });
 
-        window.login = () => signInWithPopup(auth, new GoogleAuthProvider());
-
-        // --- LÓGICA DE TEST ---
         window.seleccionarOposicion = (key) => {
             oposSel = key;
-            document.getElementById("tituloOpos").textContent = "Preparando: " + key;
-            mostrarVista('vistaConfig');
+            const maxP = (key === 'TAI') ? 80 : 50;
+            document.getElementById("numPreguntas").max = maxP;
+            document.getElementById("numPreguntas").value = maxP;
+            window.mostrarVista('vistaConfig');
         };
 
         window.iniciarTest = async (simulacion) => {
             modoExamen = simulacion;
-            const numPreguntas = document.getElementById("numPreguntas").value;
+            const testFile = document.getElementById("selectTest").value;
+            const url = `${GITHUB_BASE}${oposSel.toLowerCase()}/${testFile}`;
             
-            // Aquí cargaríamos el JSON desde tu GitHub. 
-            // Por ahora, simulamos carga de datos para que veas la estética:
-            preguntasTest = [
-                {pregunta: "¿Cuál es el puerto por defecto de HTTP?", opciones: ["21", "80", "443", "8080"], correcta: 1, explicacion: "HTTP usa el 80, HTTPS el 443."},
-                {pregunta: "¿Qué protocolo se usa para enviar correos?", opciones: ["POP3", "IMAP", "SMTP", "FTP"], correcta: 2, explicacion: "SMTP es Simple Mail Transfer Protocol."},
-                {pregunta: "¿Es Linux un sistema operativo monousuario?", opciones: ["Sí", "No", "Solo en servidores", "Depende de la distro"], correcta: 1, explicacion: "Linux es multiusuario y multitarea."}
-            ];
-
-            indicePregunta = 0;
-            respuestasUsuario = [];
-            tiempoRestante = modoExamen ? 3600 : 0; // 1 hora para examen
-            
-            renderPregunta();
-            mostrarVista('vistaTest');
-            iniciarTimer();
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("No se encontró el archivo JSON en GitHub.");
+                const data = await response.json();
+                
+                const limite = parseInt(document.getElementById("numPreguntas").value);
+                preguntasTest = data.sort(() => 0.5 - Math.random()).slice(0, limite);
+                
+                indicePregunta = 0;
+                respuestasUsuario = new Array(preguntasTest.length).fill(null);
+                tiempoRestante = modoExamen ? (preguntasTest.length * 90) : 0; 
+                
+                renderPregunta();
+                window.mostrarVista('vistaTest');
+                iniciarTimer();
+            } catch (error) {
+                alert("Error: Asegúrate de que el archivo existe en tests/" + oposSel.toLowerCase() + "/");
+                console.error(error);
+            }
         };
 
         function iniciarTimer() {
             if (intervaloTimer) clearInterval(intervaloTimer);
             intervaloTimer = setInterval(() => {
-                if (modoExamen) tiempoRestante--;
-                else tiempoRestante++;
-                
+                modoExamen ? tiempoRestante-- : tiempoRestante++;
                 let mins = Math.floor(Math.abs(tiempoRestante) / 60);
                 let segs = Math.abs(tiempoRestante) % 60;
                 document.getElementById("timer").textContent = `${mins}:${segs < 10 ? '0' : ''}${segs}`;
-                
-                if (modoExamen && tiempoRestante <= 0) finalizarTest();
+                if (modoExamen && tiempoRestante <= 0) window.finalizarTest();
             }, 1000);
         }
 
         function renderPregunta() {
             const p = preguntasTest[indicePregunta];
-            document.getElementById("qText").textContent = (indicePregunta + 1) + ". " + p.pregunta;
+            document.getElementById("qText").textContent = `${indicePregunta + 1}. ${p.pregunta}`;
             const opts = document.getElementById("qOptions");
             opts.innerHTML = "";
             
             p.opciones.forEach((opt, i) => {
                 const btn = document.createElement("div");
                 btn.className = "option-card";
+                if (respuestasUsuario[indicePregunta] === i) btn.classList.add("selected");
                 btn.textContent = opt;
-                btn.onclick = () => seleccionarRespuesta(i);
+                btn.onclick = () => {
+                    respuestasUsuario[indicePregunta] = i;
+                    renderPregunta();
+                };
                 opts.appendChild(btn);
             });
+            document.getElementById("btnSig").textContent = (indicePregunta === preguntasTest.length - 1) ? "FINALIZAR" : "SIGUIENTE";
         }
 
-        function seleccionarRespuesta(i) {
-            respuestasUsuario[indicePregunta] = i;
+        window.siguienteP = () => {
             if (indicePregunta < preguntasTest.length - 1) {
                 indicePregunta++;
                 renderPregunta();
             } else {
-                finalizarTest();
+                window.finalizarTest();
             }
-        }
+        };
 
-        async function finalizarTest() {
+        window.anteriorP = () => {
+            if (indicePregunta > 0) {
+                indicePregunta--;
+                renderPregunta();
+            }
+        };
+
+        window.finalizarTest = async () => {
+            if (!confirm("¿Deseas entregar el examen ahora?")) return;
             clearInterval(intervaloTimer);
-            let aciertos = 0;
+            
+            let aciertos = 0, fallos = 0, blancas = 0;
             preguntasTest.forEach((p, i) => {
-                if (respuestasUsuario[i] === p.correcta) aciertos++;
+                if (respuestasUsuario[i] === null) blancas++;
+                else if (respuestasUsuario[i] === p.correcta) aciertos++;
+                else fallos++;
             });
 
-            const resultado = {
-                fecha: new Date().toLocaleString(),
+            const dataFinal = {
+                uid: userActual.uid,
+                fecha: new Date().toISOString(),
                 oposicion: oposSel,
-                aciertos: aciertos,
-                total: preguntasTest.length,
-                falladas: preguntasTest.length - aciertos
+                aciertos, fallos, blancas,
+                total: preguntasTest.length
             };
 
-            // Guardar en Firebase Results
-            await addDoc(collection(db, "resultados"), {
-                uid: userActual.uid,
-                ...resultado
-            });
-
+            await addDoc(collection(db, "resultados"), dataFinal);
+            
             document.getElementById("resFinal").innerHTML = `
-                <h2>Resultado: ${aciertos} / ${preguntasTest.length}</h2>
-                <p>Oposición: ${oposSel}</p>
-                <button class="btn" onclick="mostrarVista('vistaSeleccion')">Volver al Inicio</button>
+                <h1 style="color:var(--blue)">Examen Finalizado</h1>
+                <div style="font-size:28px; margin:20px 0; font-weight:bold;">
+                    ✅ ${aciertos} | ❌ ${fallos} | ⚪ ${blancas}
+                </div>
+                <p>Tu nota se ha guardado en tus estadísticas.</p>
+                <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">IR AL INICIO</button>
             `;
-            mostrarVista('vistaResultados');
-        }
+            window.mostrarVista('vistaResultados');
+        };
 
+        window.cargarEstadisticas = async () => {
+            const container = document.getElementById("listaHistorial");
+            container.innerHTML = "Cargando tu progreso...";
+            try {
+                const q = query(collection(db, "resultados"), where("uid", "==", userActual.uid), orderBy("fecha", "desc"));
+                const snap = await getDocs(q);
+                container.innerHTML = "";
+                if (snap.empty) container.innerHTML = "No has realizado ningún test todavía.";
+                snap.forEach(doc => {
+                    const d = doc.data();
+                    const fecha = new Date(d.fecha).toLocaleString('es-ES');
+                    container.innerHTML += `
+                        <div class="card-est">
+                            <strong>${fecha}</strong> - ${d.oposicion}<br>
+                            Aciertos: <span style="color:green">${d.aciertos}</span> | 
+                            Fallos: <span style="color:red">${d.fallos}</span> | 
+                            Blancas: ${d.blancas} | Total: ${d.total}
+                        </div>`;
+                });
+            } catch (e) {
+                container.innerHTML = "Error al cargar datos de Firebase.";
+            }
+        };
     </script>
 
     <style>
-        :root { --blue: #003366; --orange: #ff9900; --light: #f8f9fa; --text: #333; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light); color: var(--text); }
-        
-        /* Layout Estilo OposiTest */
-        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .nav-links button { background: none; border: none; font-weight: bold; cursor: pointer; color: var(--blue); margin-left: 20px; }
-
-        .view { display: none; max-width: 800px; margin: 40px auto; padding: 20px; }
+        :root { --blue: #003366; --orange: #ff9900; --bg: #f4f7f9; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; }
+        .view { display: none; max-width: 850px; margin: 40px auto; padding: 20px; }
         .view.active { display: block; }
-
-        /* Tarjetas de Oposición */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 30px; border-radius: 12px; text-align: center; border: 1px solid #ddd; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: var(--orange); transform: translateY(-5px); }
-
-        /* Pantalla de Test */
-        .test-header { display: flex; justify-content: space-between; background: var(--blue); color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .option-card { background: white; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
-        .option-card:hover { background: #fff5e6; border-color: var(--orange); }
-
+        .card { background: white; padding: 30px; border-radius: 12px; border: 1px solid #ddd; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card:hover { border-color: var(--orange); transform: translateY(-3px); }
+        .option-card { background: white; padding: 18px; margin: 12px 0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .option-card:hover { background: #f0f7ff; }
+        .option-card.selected { border-color: var(--orange); background: #fff5e6; font-weight: bold; border-width: 2px; }
         .btn { background: var(--orange); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; }
-        #timer { font-weight: bold; font-family: monospace; font-size: 20px; }
-        
-        #vistaLogin { text-align: center; margin-top: 100px; }
+        .card-est { background: white; padding: 15px; margin-bottom: 12px; border-radius: 8px; border-left: 6px solid var(--blue); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        #timer { font-size: 26px; font-weight: bold; color: var(--blue); font-family: monospace; }
+        h1, h2 { color: var(--blue); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo" style="font-size: 24px; font-weight: 900; color: var(--blue);">OPOS<span style="color:var(--orange)">TEST</span></div>
-    <div id="userProfile" class="nav-links">
-        <span id="userName"></span>
-        <button onclick="mostrarVista('vistaResultados')">Mis Estadísticas</button>
-        <button onclick="auth.signOut()">Salir</button>
+    <div style="font-size: 24px; font-weight: 900; color: var(--blue);">OPOS<span style="color:var(--orange)">TEST</span></div>
+    <div>
+        <span id="userName" style="margin-right:15px; font-weight:bold;"></span>
+        <button class="btn" onclick="window.mostrarVista('vistaEstadisticas')" style="background:var(--blue); font-size: 12px;">MIS NOTAS</button>
+        <button class="btn" onclick="window.logout()" style="background:#cc0000; font-size: 11px; margin-left:10px;">SALIR</button>
     </div>
 </header>
 
-<div class="container">
-    <div id="vistaLogin" class="view">
-        <h1 style="font-size: 48px;">Tu plaza empieza aquí.</h1>
-        <p>Accede para realizar simulacros y seguir tu progreso.</p>
-        <button class="btn" onclick="login()" style="font-size: 18px; padding: 20px 40px;">Entrar con Google</button>
+<div id="vistaLogin" class="view">
+    <div style="text-align:center; padding:50px;">
+        <h1 style="font-size:3rem;">Domina tu Oposición</h1>
+        <p>Accede a simulacros oficiales de TAI y Auxiliar.</p>
+        <button class="btn" onclick="window.login()" style="padding: 20px 50px; font-size: 18px;">ENTRAR CON GOOGLE</button>
     </div>
+</div>
 
-    <div id="vistaSeleccion" class="view">
-        <h2>Selecciona tu Oposición</h2>
-        <div class="grid">
-            <div class="card" onclick="seleccionarOposicion('TAI')"><h3>TAI</h3><p>Informática Estado</p></div>
-            <div class="card" onclick="seleccionarOposicion('VALENCIA')"><h3>Ayto. Valencia</h3><p>Auxiliar Administrativo</p></div>
-            <div class="card" onclick="seleccionarOposicion('ESTADO')"><h3>Estado C2</h3><p>Auxiliar Estado</p></div>
+<div id="vistaSeleccion" class="view">
+    <h2>¿Qué quieres estudiar hoy?</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:25px;">
+        <div class="card" onclick="window.seleccionarOposicion('TAI')">
+            <h3>TAI 2026</h3>
+            <p>Técnico Auxiliar Informática del Estado</p>
+        </div>
+        <div class="card" onclick="window.seleccionarOposicion('VALENCIA')">
+            <h3>AYTO. VALENCIA</h3>
+            <p>Auxiliar Administrativo</p>
         </div>
     </div>
+</div>
 
-    <div id="vistaConfig" class="view">
-        <h2 id="tituloOpos"></h2>
-        <div style="background: white; padding: 30px; border-radius: 12px; border: 1px solid #ddd;">
-            <label>Número de preguntas:</label><br>
-            <select id="numPreguntas" style="width: 100%; padding: 10px; margin: 10px 0;">
-                <option value="10">10 preguntas</option>
-                <option value="20">20 preguntas</option>
-                <option value="50">50 preguntas</option>
-            </select>
-            <br><br>
-            <div style="display: flex; gap: 10px;">
-                <button class="btn" onclick="iniciarTest(false)" style="background: #28a745;">MODO ENTRENAMIENTO</button>
-                <button class="btn" onclick="iniciarTest(true)">MODO EXAMEN (Con tiempo)</button>
-            </div>
-            <p style="font-size: 12px; color: #666; margin-top: 15px;">* El modo examen no permite ver soluciones hasta el final.</p>
+<div id="vistaConfig" class="view">
+    <h2>Configura tu Examen</h2>
+    <div class="card" style="text-align:left; cursor:default;">
+        <label><b>Seleccionar Simulacro:</b></label>
+        <select id="selectTest" style="width:100%; padding:12px; margin:15px 0; border-radius:8px;">
+            <option value="simulacro_enero.json">Simulacro TAI - Enero 2026</option>
+            <option value="test_oficial_1.json">Examen Oficial 2024</option>
+            <option value="test_oficial_2.json">Examen Oficial 2023</option>
+        </select>
+        
+        <label><b>Cantidad de preguntas:</b></label>
+        <input type="number" id="numPreguntas" value="80" style="width:100%; padding:12px; margin:15px 0; border-radius:8px; border:1px solid #ddd;">
+        
+        <div style="display:flex; gap:15px; margin-top:30px;">
+            <button class="btn" onclick="window.iniciarTest(false)" style="background:#28a745; flex:1;">MODO ENTRENAMIENTO</button>
+            <button class="btn" onclick="window.iniciarTest(true)" style="flex:1;">MODO EXAMEN (OFICIAL)</button>
         </div>
     </div>
+</div>
 
-    <div id="vistaTest" class="view">
-        <div class="test-header">
-            <div id="timer">00:00</div>
-            <div>Modo: <span id="modoDesc"></span></div>
-        </div>
-        <div id="qText" style="font-size: 20px; font-weight: bold; margin-bottom: 20px;"></div>
-        <div id="qOptions"></div>
-        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <button class="btn" style="background:#666" onclick="finalizarTest()">Finalizar</button>
-        </div>
+<div id="vistaTest" class="view">
+    <div style="display:flex; justify-content:space-between; align-items:center; background:white; padding:15px; border-radius:10px; margin-bottom:20px;">
+        <div id="timer">00:00</div>
+        <button class="btn" style="background:#666" onclick="window.finalizarTest()">ENTREGAR EXAMEN</button>
     </div>
+    <div id="qText" style="font-size:22px; margin:30px 0; font-weight:bold; line-height:1.4;"></div>
+    <div id="qOptions"></div>
+    <div style="display:flex; justify-content:space-between; margin-top:40px;">
+        <button class="btn" style="background:var(--blue)" onclick="window.anteriorP()">Anterior</button>
+        <button id="btnSig" class="btn" onclick="window.siguienteP()">Siguiente</button>
+    </div>
+</div>
 
-    <div id="vistaResultados" class="view">
-        <div id="resFinal" style="background: white; padding: 40px; border-radius: 12px; text-align: center;">
-            </div>
-    </div>
+<div id="vistaResultados" class="view">
+    <div id="resFinal" class="card"></div>
+</div>
+
+<div id="vistaEstadisticas" class="view">
+    <h2>Mi Historial de Resultados</h2>
+    <div id="listaHistorial" style="margin-bottom:30px;"></div>
+    <button class="btn" onclick="window.mostrarVista('vistaSeleccion')">VOLVER AL PANEL</button>
 </div>
 
 </body>
