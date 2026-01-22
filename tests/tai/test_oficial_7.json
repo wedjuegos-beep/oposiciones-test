@@ -1,0 +1,105 @@
+[
+  {
+    "pregunta": "¿Qué tipo de registro de DNS se utiliza para mapear un nombre de dominio a una dirección IPv6?",
+    "opciones": ["A", "AAAA", "MX", "CNAME"],
+    "correcta": 1,
+    "explicacion": "El registro 'A' es para IPv4, mientras que 'AAAA' (cuádruple A) es para IPv6."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué protocolo se encarga de la resolución de direcciones de capa 3 a capa 2?",
+    "opciones": ["DNS", "DHCP", "ARP", "RARP"],
+    "correcta": 2,
+    "explicacion": "ARP (Address Resolution Protocol) traduce una dirección IP en una dirección MAC física."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿cuál es el plazo máximo para dictar y notificar la resolución expresa en un procedimiento, si no se especifica otro?",
+    "opciones": ["1 mes", "3 meses", "6 meses", "20 días"],
+    "correcta": 1,
+    "explicacion": "Cuando las normas reguladoras no fijen el plazo, este será de tres meses."
+  },
+  {
+    "pregunta": "¿Cuál es la unidad de transferencia de información en la Capa 2 (Enlace de datos) del modelo OSI?",
+    "opciones": ["Segmento", "Paquete", "Trama (Frame)", "Bit"],
+    "correcta": 2,
+    "explicacion": "Capa 1: Bits; Capa 2: Tramas; Capa 3: Paquetes; Capa 4: Segmentos."
+  },
+  {
+    "pregunta": "¿Qué algoritmo de planificación de CPU asigna el procesador al proceso que tiene el ráfaga más corta?",
+    "opciones": ["Round Robin", "SJF (Shortest Job First)", "FIFO", "Multinivel"],
+    "correcta": 1,
+    "explicacion": "SJF prioriza los trabajos más cortos para minimizar el tiempo de espera medio."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué técnica se usa para dividir una tabla grande en partes más pequeñas y manejables?",
+    "opciones": ["Indexing", "Partitioning", "Normalización", "Triggers"],
+    "correcta": 1,
+    "explicacion": "El particionamiento mejora el rendimiento y la gestión de tablas con millones de registros."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo seguro de transferencia de archivos SFTP?",
+    "opciones": ["21", "22", "990", "443"],
+    "correcta": 1,
+    "explicacion": "SFTP corre sobre SSH, por lo que utiliza el puerto 22 por defecto."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cómo se denomina la capacidad de un sistema para que sus actuaciones puedan ser imputadas exclusivamente a una entidad?",
+    "opciones": ["Integridad", "Trazabilidad", "Autenticidad", "Disponibilidad"],
+    "correcta": 1,
+    "explicacion": "La trazabilidad permite rastrear quién hizo qué y cuándo dentro del sistema."
+  },
+  {
+    "pregunta": "En IPv6, ¿cuál es el prefijo reservado para direcciones de enlace local (Link-Local)?",
+    "opciones": ["fc00::/7", "fe80::/10", "ff00::/8", "::1/128"],
+    "correcta": 1,
+    "explicacion": "Las direcciones fe80:: son obligatorias en cada interfaz IPv6 para comunicación en el mismo enlace."
+  },
+  {
+    "pregunta": "¿Qué componente de la CPU contiene la dirección de la siguiente instrucción a ser buscada en memoria?",
+    "opciones": ["Registro de Instrucción (IR)", "Contador de Programa (PC)", "Acumulador", "Unidad Aritmética"],
+    "correcta": 1,
+    "explicacion": "El PC (Program Counter) apunta siempre a la próxima instrucción que debe ejecutar el procesador."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es la 'Cohesión'?",
+    "opciones": ["El grado de dependencia entre dos módulos", "El grado en que las tareas de un módulo están relacionadas entre sí", "El número de líneas de código", "La velocidad de ejecución"],
+    "correcta": 1,
+    "explicacion": "Se busca alta cohesión (un módulo hace una sola cosa bien) y bajo acoplamiento."
+  },
+  {
+    "pregunta": "¿Qué estándar inalámbrico opera tanto en la banda de 2.4 GHz como en la de 5 GHz y ofrece velocidades de hasta 600 Mbps?",
+    "opciones": ["802.11g", "802.11b", "802.11n", "802.11ac"],
+    "correcta": 2,
+    "explicacion": "802.11n introdujo MIMO y el uso de ambas bandas. 802.11ac es solo para 5 GHz."
+  },
+  {
+    "pregunta": "En SQL, ¿qué cláusula se utiliza para filtrar los resultados de una función de agregado (como SUM o COUNT)?",
+    "opciones": ["WHERE", "ORDER BY", "HAVING", "GROUP BY"],
+    "correcta": 2,
+    "explicacion": "WHERE filtra filas antes de agrupar; HAVING filtra los grupos resultantes."
+  },
+  {
+    "pregunta": "En Linux, ¿qué señal envía el comando 'kill -9'?",
+    "opciones": ["SIGTERM (terminación suave)", "SIGINT (interrupción)", "SIGKILL (terminación forzosa)", "SIGHUP (recarga)"],
+    "correcta": 2,
+    "explicacion": "SIGKILL obliga al proceso a cerrarse inmediatamente sin permitirle limpiar recursos."
+  },
+  {
+    "pregunta": "¿Cuál es la función principal de un servidor DNS recursivo?",
+    "opciones": ["Guardar la página web", "Buscar la IP consultando a otros servidores de nombres hasta encontrar la respuesta", "Cifrar la conexión", "Asignar IPs privadas"],
+    "correcta": 1,
+    "explicacion": "Es el que hace el trabajo de 'preguntar' a los Root, TLD y Authoritative servers por el cliente."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuántos vocales debe tener como mínimo un órgano colegiado?",
+    "opciones": ["2", "3", "5", "No hay mínimo"],
+    "correcta": 1,
+    "explicacion": "Un órgano colegiado se compone de un Presidente, un Secretario y los vocales (mínimo 3 personas en total)."
+  },
+  {
+    "pregunta": "¿Qué tipo de ataque de red consiste en interceptar y posiblemente modificar la comunicación entre dos partes sin que estas lo sepan?",
+    "opciones": ["DoS", "Phishing", "Man-in-the-Middle (MitM)", "SQL Injection"],
+    "correcta": 2,
+    "explicacion": "El atacante se sitúa en medio de la comunicación para espiar o alterar datos."
+  },
+  {
+    "pregunta": "En el
