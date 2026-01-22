@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "Según la metodología MÉTRICA Versión 3, ¿en qué proceso se define el catálogo de requisitos del sistema?",
+    "opciones": ["Planificación de Sistemas de Información (PSI)", "Análisis del Sistema de Información (ASI)", "Diseño del Sistema de Información (DSI)", "Construcción del Sistema de Información (CSI)"],
+    "correcta": 1,
+    "explicacion": "El catálogo de requisitos es un producto clave del proceso de Análisis (ASI)."
+  },
+  {
+    "pregunta": "¿Qué dirección IP de las siguientes pertenece al rango de Direcciones Privadas definido en el RFC 1918?",
+    "opciones": ["172.15.0.1", "172.31.255.254", "172.32.0.1", "192.167.1.1"],
+    "correcta": 1,
+    "explicacion": "El rango de clase B privado es de 172.16.0.0 a 172.31.255.255."
+  },
+  {
+    "pregunta": "En el contexto de la firma electrónica, ¿qué estándar se utiliza para firmas longevas que incluyen sellos de tiempo y datos de revocación?",
+    "opciones": ["CAdES-BES", "XAdES-T", "XAdES-XL", "PAdES-Basic"],
+    "correcta": 2,
+    "explicacion": "El nivel XL (X-Long) añade información sobre el estado de los certificados (OCSP/CRL) para validación a largo plazo."
+  },
+  {
+    "pregunta": "¿Qué campo de la cabecera IPv4 evita que un paquete circule indefinidamente por la red?",
+    "opciones": ["Checksum", "TTL (Time to Live)", "Fragment Offset", "Identification"],
+    "correcta": 1,
+    "explicacion": "Cada router decrementa el TTL en 1; si llega a 0, el paquete se descarta y se envía un ICMP Time Exceeded."
+  },
+  {
+    "pregunta": "En la gestión de procesos, ¿qué es un 'cambio de contexto' (context switch)?",
+    "opciones": ["Cambiar de monitor", "Guardar el estado de un proceso para cargar otro en la CPU", "Reiniciar el sistema", "Cambiar la prioridad de un hilo"],
+    "correcta": 1,
+    "explicacion": "Es la tarea de la CPU de pasar de un proceso a otro, guardando registros y punteros en el PCB."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿qué sucede si un interesado no accede a una notificación electrónica en la sede tras su puesta a disposición?",
+    "opciones": ["Se le envía un aviso por carta", "Se considera rechazada a los 10 días naturales", "El plazo para resolver se suspende", "No ocurre nada hasta que el interesado la abra"],
+    "correcta": 1,
+    "explicacion": "El rechazo automático a los 10 días naturales es una de las preguntas más repetidas de normativa."
+  },
+  {
+    "pregunta": "En SQL, ¿qué tipo de JOIN devuelve todas las filas de la tabla izquierda y las filas coincidentes de la tabla derecha?",
+    "opciones": ["INNER JOIN", "RIGHT JOIN", "LEFT JOIN", "FULL JOIN"],
+    "correcta": 2,
+    "explicacion": "LEFT JOIN asegura que no se pierdan datos de la primera tabla mencionada."
+  },
+  {
+    "pregunta": "¿Qué protocolo de enrutamiento de estado de enlace (link-state) utiliza el algoritmo de Dijkstra?",
+    "opciones": ["RIP", "BGP", "OSPF", "EIGRP"],
+    "correcta": 2,
+    "explicacion": "Open Shortest Path First (OSPF) construye un mapa de la red y calcula el camino más corto."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es una 'Prueba de Regresión'?",
+    "opciones": ["Una prueba para volver a versiones antiguas", "Volver a probar el software tras cambios para asegurar que no se han roto funciones existentes", "Una prueba de velocidad", "Una prueba realizada por el cliente final"],
+    "correcta": 1,
+    "explicacion": "Asegura que el nuevo código no ha introducido errores en lo que ya funcionaba."
+  },
+  {
+    "pregunta": "¿Qué tecnología permite agrupar varios discos físicos para que el sistema operativo los vea como una sola unidad lógica, mejorando la seguridad o velocidad?",
+    "opciones": ["NAS", "RAID", "LVM", "NFS"],
+    "correcta": 1,
+    "explicacion": "Redundant Array of Independent Disks."
+  },
+  {
+    "pregunta": "Según el ENS, ¿qué medida de seguridad busca garantizar la disponibilidad frente a desastres naturales?",
+    "opciones": ["Cifrado", "Control de acceso", "Continuidad del servicio / Backup", "Firma electrónica"],
+    "correcta": 2,
+    "explicacion": "Incluye planes de contingencia y centros de respaldo."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando muestra información detallada sobre el uso de disco de cada directorio?",
+    "opciones": ["df", "ls -l", "du", "fdisk"],
+    "correcta": 2,
+    "explicacion": "du (disk usage) analiza el tamaño de carpetas y archivos. El comando df es para sistemas de archivos."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿en qué capa se realiza el control de errores mediante el Checksum en la cabecera UDP?",
+    "opciones": ["Capa 2", "Capa 3", "Capa 4", "Capa 5"],
+    "correcta": 2,
+    "explicacion": "El protocolo UDP pertenece a la capa de Transporte."
+  },
+  {
+    "pregunta": "¿Qué significa el acrónimo XML?",
+    "opciones": ["Extended Markup Language", "Extensible Markup Language", "Extra Modern Link", "External Management Language"],
+    "correcta": 1,
+    "explicacion": "Es un lenguaje de marcas enfocado a la descripción y estructuración de datos."
+  },
+  {
+    "pregunta": "En Windows, ¿cómo se denomina a la base de datos jerárquica que almacena los ajustes de configuración?",
+    "opciones": ["Active Directory", "Registro del Sistema", "System32", "Event Viewer"],
+    "correcta": 1,
+    "explicacion": "Se edita con la herramienta 'regedit'."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo DNS para consultas estándar?",
+    "opciones": ["53 TCP/UDP", "67 UDP", "80 TCP", "443 TCP"],
+    "correcta": 0,
+    "explicacion": "DNS usa habitualmente UDP para consultas rápidas y TCP para transferencias de zona."
+  },
+  {
+    "pregunta": "En Java, ¿cuál es el modificador de acceso que permite que un atributo sea visto solo por la propia clase y sus subclases?",
+    "opciones": ["public", "private", "protected", "default"],
+    "correcta": 2,
+    "explicacion": "Protected permite el acceso en el mismo paquete y a través de la herencia."
+  },
+  {
+    "pregunta": "¿Qué herramienta del CCN-CERT se utiliza para el intercambio de información de ciberamenazas entre organismos?",
+    "opciones": ["REYES", "CARMEN", "CLARA", "LUCIA"],
+    "correcta": 0,
+    "explicacion": "REYES es la plataforma de compartición de ciberinteligencia."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué principio asegura que los sistemas de información puedan compartir datos de forma técnica y semántica?",
+    "opciones": ["Seguridad", "Interoperabilidad", "Proporcionalidad", "Responsabilidad"],
+    "correcta": 1,
+    "explicacion": "La interoperabilidad es la capacidad de los sistemas de trabajar juntos."
+  },
+  {
+    "pregunta": "¿Qué es un 'Deadlock' en un sistema operativo?",
+    "opciones": ["Un virus de arranque", "Una situación donde dos procesos se esperan mutuamente y quedan bloqueados", "Un error de escritura en disco", "El cierre inesperado de una aplicación"],
+    "correcta": 1,
+    "explicacion": "O interbloqueo; ocurre por la competencia de recursos no compartibles."
+  }
+]
