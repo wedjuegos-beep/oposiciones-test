@@ -1,0 +1,281 @@
+[
+  {
+    "pregunta": "¿Cuál es la longitud de la dirección física (MAC) de una tarjeta de red?",
+    "opciones": ["32 bits", "48 bits", "64 bits", "128 bits"],
+    "correcta": 1,
+    "explicacion": "Una dirección MAC tiene 48 bits, representados generalmente por 12 dígitos hexadecimales."
+  },
+  {
+    "pregunta": "En el modelo relacional, ¿cómo se denomina a la propiedad que impide que existan dos tuplas idénticas en una relación?",
+    "opciones": ["Integridad referencial", "Clave primaria", "Atomicidad", "Normalización"],
+    "correcta": 1,
+    "explicacion": "La clave primaria garantiza la unicidad de cada registro o tupla en la tabla."
+  },
+  {
+    "pregunta": "¿Qué comando Linux se utiliza para ver el espacio libre en los sistemas de archivos montados?",
+    "opciones": ["du", "free", "df", "mount -s"],
+    "correcta": 2,
+    "explicacion": "df (disk free) muestra el espacio disponible, mientras que du (disk usage) muestra el uso de directorios específicos."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál de estos NO es un órgano colegiado?",
+    "opciones": ["El Consejo de Ministros", "Las Comisiones Delegadas del Gobierno", "Un Director General", "La Comisión General de Secretarios de Estado y Subsecretarios"],
+    "correcta": 2,
+    "explicacion": "Un Director General es un órgano unipersonal, no colegiado."
+  },
+  {
+    "pregunta": "¿Qué protocolo de resolución de direcciones permite obtener la dirección física (MAC) conociendo la dirección IP?",
+    "opciones": ["DNS", "RARP", "ARP", "DHCP"],
+    "correcta": 2,
+    "explicacion": "Address Resolution Protocol (ARP) mapea direcciones IP a direcciones MAC."
+  },
+  {
+    "pregunta": "En arquitectura de computadores, ¿qué es el 'Overclocking'?",
+    "opciones": ["Aumentar la frecuencia de reloj por encima de la nominal", "Reducir el consumo de energía", "Cifrar el procesador", "Instalar más núcleos virtuales"],
+    "correcta": 0,
+    "explicacion": "Busca obtener un rendimiento superior al diseñado originalmente, a costa de mayor calor y consumo."
+  },
+  {
+    "pregunta": "¿Cuál es la principal característica de la fibra óptica monomodo frente a la multimodo?",
+    "opciones": ["Es más barata", "Permite mayores distancias sin repetidores", "Usa LED en lugar de láser", "Tiene un núcleo mucho más grueso"],
+    "correcta": 1,
+    "explicacion": "La monomodo tiene un núcleo pequeño y un solo camino de luz, lo que reduce la dispersión y permite mayor alcance."
+  },
+  {
+    "pregunta": "En SQL, ¿cuál es la diferencia entre TRUNCATE y DELETE?",
+    "opciones": ["DELETE es más rápido", "TRUNCATE no puede deshacerse (no genera log de transacciones por fila)", "DELETE elimina la tabla completa", "Son exactamente iguales"],
+    "correcta": 1,
+    "explicacion": "TRUNCATE es una operación DDL que vacía la tabla rápidamente sin registrar borrados individuales."
+  },
+  {
+    "pregunta": "¿Qué capa del modelo OSI gestiona el diálogo entre aplicaciones y el control de testigos?",
+    "opciones": ["Transporte", "Sesión", "Presentación", "Aplicación"],
+    "correcta": 1,
+    "explicacion": "La Capa 5 (Sesión) establece, gestiona y finaliza las conexiones entre aplicaciones locales y remotas."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes memorias tiene el menor tiempo de acceso?",
+    "opciones": ["Memoria RAM", "Registros de la CPU", "Memoria Caché L2", "Disco SSD NVMe"],
+    "correcta": 1,
+    "explicacion": "Los registros están integrados en el procesador y son los más rápidos de la jerarquía."
+  },
+  {
+    "pregunta": "En el contexto de microservicios, ¿qué es un API Gateway?",
+    "opciones": ["Una base de datos centralizada", "Un punto de entrada único que redirige peticiones a los servicios", "Un lenguaje de programación", "Un tipo de cable de red"],
+    "correcta": 1,
+    "explicacion": "Actúa como intermediario, gestionando autenticación, enrutamiento y balanceo de carga."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, si una notificación se intenta dos veces y no se puede entregar, ¿dónde se publica?",
+    "opciones": ["En el Tablón de Edictos del Ayuntamiento", "En el Boletín Oficial del Estado (BOE)", "En el diario de mayor tirada", "No es necesario publicar nada"],
+    "correcta": 1,
+    "explicacion": "Las notificaciones infructuosas deben publicarse en el Suplemento de notificaciones del BOE."
+  },
+  {
+    "pregunta": "¿Qué comando de Windows permite verificar la tabla de enrutamiento local?",
+    "opciones": ["ipconfig /displaydns", "route print", "netsh firewall show", "tracert localhost"],
+    "correcta": 1,
+    "explicacion": "Muestra las rutas activas, máscaras de red y puertas de enlace."
+  },
+  {
+    "pregunta": "¿Qué significa que un algoritmo sea 'O(1)' en notación Big O?",
+    "opciones": ["Que tarda un segundo", "Que tiene complejidad lineal", "Que tiene complejidad constante independientemente del tamaño de entrada", "Que siempre falla"],
+    "correcta": 2,
+    "explicacion": "La complejidad constante indica que el tiempo de ejecución no cambia con el volumen de datos."
+  },
+  {
+    "pregunta": "En una infraestructura de clave pública (PKI), ¿qué se utiliza para firmar digitalmente un documento?",
+    "opciones": ["La clave pública del emisor", "La clave privada del emisor", "La clave pública del receptor", "La clave privada del receptor"],
+    "correcta": 1,
+    "explicacion": "La firma se genera con la clave privada (que solo el emisor posee) y se verifica con la pública."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo LDAP?",
+    "opciones": ["389", "636", "445", "3389"],
+    "correcta": 0,
+    "explicacion": "LDAP estándar usa el 389. El 636 es para LDAPS (sobre SSL)."
+  },
+  {
+    "pregunta": "En Java, ¿qué palabra clave indica que un método no puede ser sobrescrito por una subclase?",
+    "opciones": ["static", "abstract", "final", "private"],
+    "correcta": 2,
+    "explicacion": "final impide la herencia en clases y la sobrescritura en métodos."
+  },
+  {
+    "pregunta": "¿Cuál es la función de la memoria ROM-BIOS?",
+    "opciones": ["Almacenar los archivos del usuario", "Cargar el sistema operativo tras el chequeo inicial (POST)", "Acelerar los juegos", "Gestionar la conexión a Internet"],
+    "correcta": 1,
+    "explicacion": "Contiene las instrucciones necesarias para arrancar el hardware y buscar el sector de arranque."
+  },
+  {
+    "pregunta": "Según el Esquema Nacional de Seguridad (ENS), ¿cuál es la categoría de un sistema si su pérdida de integridad causa un perjuicio grave?",
+    "opciones": ["Básica", "Media", "Alta", "Crítica"],
+    "correcta": 1,
+    "explicacion": "Perjuicio grave suele asociarse a categoría Media. Muy grave a Alta."
+  },
+  {
+    "pregunta": "¿Qué tipo de virtualización permite ejecutar un sistema operativo invitado sin modificarlo sobre un hipervisor?",
+    "opciones": ["Paravirtualización", "Virtualización completa", "Contenerización", "Emulación de terminal"],
+    "correcta": 1,
+    "explicacion": "En la virtualización completa el SO invitado no sabe que está siendo virtualizado."
+  },
+  {
+    "pregunta": "En Python, ¿qué estructura de datos es inmutable?",
+    "opciones": ["Lista", "Diccionario", "Tupla", "Conjunto (Set)"],
+    "correcta": 2,
+    "explicacion": "Una vez creada una tupla, no se pueden modificar sus elementos."
+  },
+  {
+    "pregunta": "¿Cuál es el estándar inalámbrico conocido como WiFi 6?",
+    "opciones": ["802.11ac", "802.11n", "802.11ax", "802.11be"],
+    "correcta": 2,
+    "explicacion": "WiFi 6 corresponde al estándar IEEE 802.11ax."
+  },
+  {
+    "pregunta": "¿Qué comando Linux permite buscar un patrón de texto dentro de un archivo?",
+    "opciones": ["find", "grep", "locate", "search"],
+    "correcta": 1,
+    "explicacion": "Global Regular Expression Print (grep) es la herramienta estándar de búsqueda."
+  },
+  {
+    "pregunta": "¿Qué tecnología permite usar varios discos físicos como una sola unidad lógica para mejorar rendimiento o seguridad?",
+    "opciones": ["NAS", "SAN", "RAID", "LUN"],
+    "correcta": 2,
+    "explicacion": "Redundant Array of Independent Disks."
+  },
+  {
+    "pregunta": "En redes, ¿qué hace un servidor 'Proxy'?",
+    "opciones": ["Asigna IPs", "Actúa como intermediario entre un cliente y un servidor", "Cifra el disco duro", "Traduce nombres de dominio"],
+    "correcta": 1,
+    "explicacion": "Suele usarse para filtrar contenidos, caché o anonimato."
+  },
+  {
+    "pregunta": "Según la Constitución, ¿cuántos días tiene el Rey para sancionar las leyes aprobadas por las Cortes?",
+    "opciones": ["10 días", "15 días", "20 días", "30 días"],
+    "correcta": 1,
+    "explicacion": "El Rey las sancionará en el plazo de quince días, las promulgará y ordenará su inmediata publicación."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué significa el acrónimo ACID?",
+    "opciones": ["Atomicidad, Consistencia, Aislamiento, Durabilidad", "Acceso, Control, Identidad, Datos", "Algoritmo, Código, Interfaz, Diseño", "Ninguna es correcta"],
+    "correcta": 0,
+    "explicacion": "Son las propiedades que garantizan que las transacciones se procesen de forma fiable."
+  },
+  {
+    "pregunta": "¿Cuál es la máscara de subred para un prefijo /26?",
+    "opciones": ["255.255.255.0", "255.255.255.128", "255.255.255.192", "255.255.255.224"],
+    "correcta": 2,
+    "explicacion": "/26 significa 26 bits a '1'. El último octeto es 11000000 = 192."
+  },
+  {
+    "pregunta": "¿Qué dispositivo interconecta redes distintas trabajando en la Capa 3 (Red)?",
+    "opciones": ["Switch", "Router", "Bridge", "Hub"],
+    "correcta": 1,
+    "explicacion": "El router encamina paquetes basándose en direcciones IP."
+  },
+  {
+    "pregunta": "En desarrollo de software, ¿qué es la 'Deuda Técnica'?",
+    "opciones": ["Dinero que se debe a los programadores", "Coste futuro de elegir una solución rápida ahora en lugar de una mejor", "Un préstamo bancario para comprar servidores", "El coste de las licencias de Windows"],
+    "correcta": 1,
+    "explicacion": "Es el trabajo extra que surge cuando se toma un atajo en el desarrollo."
+  },
+  {
+    "pregunta": "¿Qué protocolo utiliza el puerto 53?",
+    "opciones": ["HTTP", "SSH", "DNS", "RDP"],
+    "correcta": 2,
+    "explicacion": "Domain Name System utiliza tanto UDP como TCP en el puerto 53."
+  },
+  {
+    "pregunta": "En CSS, ¿qué propiedad cambia el color del texto?",
+    "opciones": ["font-color", "text-style", "color", "background-color"],
+    "correcta": 2,
+    "explicacion": "La propiedad es simplemente 'color'."
+  },
+  {
+    "pregunta": "¿Qué comando Linux muestra la configuración de las interfaces de red (en sistemas modernos)?",
+    "opciones": ["ifconfig", "ip addr", "netstat -i", "show network"],
+    "correcta": 1,
+    "explicacion": "Aunque ifconfig se sigue usando, 'ip addr' (del paquete iproute2) es el estándar actual."
+  },
+  {
+    "pregunta": "¿Cuál es la unidad de medida de la velocidad de transferencia de datos?",
+    "opciones": ["Hertzios (Hz)", "Bytes", "Bits por segundo (bps)", "Gigabytes"],
+    "correcta": 2,
+    "explicacion": "La velocidad se mide en bits, el almacenamiento en bytes."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿qué capa se encarga del control de diálogo?",
+    "opciones": ["Capa 4", "Capa 5", "Capa 6", "Capa 7"],
+    "correcta": 1,
+    "explicacion": "La capa de Sesión (5) permite el diálogo entre dos aplicaciones."
+  },
+  {
+    "pregunta": "¿Qué es un 'Cookie' en navegación web?",
+    "opciones": ["Un virus que borra archivos", "Un pequeño archivo de datos enviado por el servidor al navegador", "Un tipo de monitor", "Una contraseña maestra"],
+    "correcta": 1,
+    "explicacion": "Se usa para identificar al usuario, mantener sesiones y rastrear preferencias."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué principio obliga a las administraciones a compartir recursos electrónicos?",
+    "opciones": ["Transparencia", "Cooperación y colaboración", "Interoperabilidad", "Seguridad"],
+    "correcta": 2,
+    "explicacion": "La interoperabilidad permite que los sistemas intercambien datos de forma eficaz."
+  },
+  {
+    "pregunta": "¿Qué tipo de cable utiliza conectores RJ-45?",
+    "opciones": ["Fibra óptica", "Coaxial", "Par trenzado (Ethernet)", "USB"],
+    "correcta": 2,
+    "explicacion": "Es el conector estándar para cables UTP/STP."
+  },
+  {
+    "pregunta": "En programación orientada a objetos, ¿qué es el 'Polimorfismo'?",
+    "opciones": ["Tener muchas variables", "La capacidad de un objeto de tomar diferentes formas (comportamientos)", "Borrar objetos antiguos", "Ocultar los datos"],
+    "correcta": 1,
+    "explicacion": "Permite tratar objetos de diferentes clases de forma uniforme a través de una interfaz común."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el protocolo RDP (Remote Desktop)?",
+    "opciones": ["22", "3389", "8080", "5900"],
+    "correcta": 1,
+    "explicacion": "Remote Desktop Protocol usa por defecto el 3389."
+  },
+  {
+    "pregunta": "¿Qué es la memoria Caché?",
+    "opciones": ["Un disco duro externo", "Memoria de alta velocidad situada entre la CPU y la RAM", "Memoria que nunca se borra", "La papelera de reciclaje"],
+    "correcta": 1,
+    "explicacion": "Almacena datos usados frecuentemente para que la CPU no tenga que ir a la RAM (más lenta)."
+  },
+  {
+    "pregunta": "En Linux, ¿qué hace el comando 'chmod 755 archivo'?",
+    "opciones": ["Borra el archivo", "Da todos los permisos al dueño, y lectura/ejecución a los demás", "Protege el archivo contra escritura", "Cambia el nombre"],
+    "correcta": 1,
+    "explicacion": "7(rwx) para el dueño, 5(r-x) para grupo y otros."
+  },
+  {
+    "pregunta": "En el modelo relacional, ¿qué es una relación?",
+    "opciones": ["Un enlace entre dos tablas", "Una tabla", "Un campo de texto", "Un índice"],
+    "correcta": 1,
+    "explicacion": "Técnicamente, en el modelo de Codd, una relación es lo que conocemos como tabla."
+  },
+  {
+    "pregunta": "¿Qué etiqueta HTML se usa para crear una lista desordenada (con puntos)?",
+    "opciones": ["<ol>", "<li>", "<ul>", "<list>"],
+    "correcta": 2,
+    "explicacion": "Unordered List (ul). Para ordenadas (números) se usa ol."
+  },
+  {
+    "pregunta": "¿Qué componente de la CPU decide qué instrucción ejecutar a continuación?",
+    "opciones": ["ALU", "Unidad de Control", "Registro de Datos", "Caché L1"],
+    "correcta": 1,
+    "explicacion": "La Unidad de Control (UC) dirige el flujo de datos y las instrucciones."
+  },
+  {
+    "pregunta": "Según el RGPD, ¿qué es un 'Dato Biométrico'?",
+    "opciones": ["La dirección IP", "El nombre completo", "Huella dactilar o reconocimiento facial", "El historial de navegación"],
+    "correcta": 2,
+    "explicacion": "Datos obtenidos a partir de un tratamiento técnico específico, relativos a las características físicas."
+  },
+  {
+    "pregunta": "¿Qué dispositivo opera en la Capa 2 y segmenta los dominios de colisión?",
+    "opciones": ["Hub", "Switch", "Router", "Repetidor"],
+    "correcta
