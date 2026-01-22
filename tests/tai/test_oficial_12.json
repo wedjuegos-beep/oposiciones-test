@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué protocolo se utiliza habitualmente en las arquitecturas de microservicios para la comunicación ligera y asíncrona mediante mensajería?",
+    "opciones": ["AMQP (como RabbitMQ)", "HTTP/1.1", "SOAP", "FTP"],
+    "correcta": 0,
+    "explicacion": "Advanced Message Queuing Protocol (AMQP) es un estándar para el intercambio de mensajes entre aplicaciones de forma desacoplada."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, contra las disposiciones administrativas de carácter general (reglamentos):",
+    "opciones": ["Cabe recurso de alzada", "Cabe recurso de reposición", "No cabe recurso en vía administrativa", "Cabe recurso extraordinario de revisión"],
+    "correcta": 2,
+    "explicacion": "Contra las disposiciones de carácter general no cabe recurso administrativo; hay que ir directamente a la vía contencioso-administrativa."
+  },
+  {
+    "pregunta": "¿Qué nombre recibe la vulnerabilidad web que consiste en engañar al servidor para que realice peticiones HTTP hacia un tercer sistema (interno o externo)?",
+    "opciones": ["XSS", "CSRF", "SSRF (Server-Side Request Forgery)", "SQL Injection"],
+    "correcta": 2,
+    "explicacion": "El SSRF permite a un atacante usar al servidor como 'puente' para atacar redes internas que no son accesibles desde fuera."
+  },
+  {
+    "pregunta": "En el contexto de la virtualización, ¿qué es un Hipervisor de Tipo 1 (Bare Metal)?",
+    "opciones": ["El que se instala sobre un sistema operativo anfitrión (como VirtualBox)", "El que se instala directamente sobre el hardware físico (como VMware ESXi)", "Un tipo de procesador", "Una tarjeta de red virtual"],
+    "correcta": 1,
+    "explicacion": "Los de Tipo 1 son más eficientes porque no tienen la sobrecarga de un sistema operativo de propósito general debajo."
+  },
+  {
+    "pregunta": "¿Cuál es la longitud de la cabecera fija de un paquete IPv6?",
+    "opciones": ["20 bytes", "40 bytes", "64 bytes", "Variable"],
+    "correcta": 1,
+    "explicacion": "A diferencia de IPv4 (mínimo 20 bytes), IPv6 tiene una cabecera fija de 40 bytes para simplificar el procesado en los routers."
+  },
+  {
+    "pregunta": "En una base de datos, ¿qué propiedad de las transacciones garantiza que, si ocurre un fallo, la base de datos vuelve a su estado anterior (todo o nada)?",
+    "opciones": ["Consistencia", "Aislamiento", "Atomicidad", "Durabilidad"],
+    "correcta": 2,
+    "explicacion": "Es la 'A' de ACID: la transacción se realiza por completo o no se realiza en absoluto."
+  },
+  {
+    "pregunta": "En Linux, ¿qué archivo contiene la configuración de los sistemas de archivos que se montan automáticamente al arrancar?",
+    "opciones": ["/etc/mtab", "/etc/fstab", "/boot/grub", "/etc/hosts"],
+    "correcta": 1,
+    "explicacion": "fstab (file systems table) es crítico para el montaje de particiones y unidades de red."
+  },
+  {
+    "pregunta": "¿Qué estándar de Wi-Fi es conocido técnicamente como Wi-Fi 6?",
+    "opciones": ["802.11ac", "802.11ax", "802.11n", "802.11be"],
+    "correcta": 1,
+    "explicacion": "802.11ax mejora la eficiencia en entornos saturados. Wi-Fi 7 será 802.11be."
+  },
+  {
+    "pregunta": "Según el ENS, ¿qué se entiende por 'Perfil de Cumplimiento'?",
+    "opciones": ["La foto del usuario", "Un conjunto de medidas de seguridad predefinidas para un tipo de entidad o sistema específico", "La velocidad del servidor", "Un informe de errores"],
+    "correcta": 1,
+    "explicacion": "Facilitan la adecuación al ENS para colectivos o sistemas con características comunes."
+  },
+  {
+    "pregunta": "¿Qué comando de Windows muestra la ruta completa de saltos (hops) que sigue un paquete hasta un destino?",
+    "opciones": ["ping", "tracert", "pathping", "nslookup"],
+    "correcta": 1,
+    "explicacion": "tracert usa mensajes ICMP para identificar cada router en el camino. pathping es una combinación de ping y tracert."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué es un 'Bus de Servicios Enterprise' (ESB)?",
+    "opciones": ["Un cable de fibra óptica", "Una arquitectura de software que actúa como capa intermedia para la integración de aplicaciones", "Un servidor de archivos", "Una base de datos NoSQL"],
+    "correcta": 1,
+    "explicacion": "El ESB facilita la comunicación entre sistemas heterogéneos mediante transformaciones y enrutamiento."
+  },
+  {
+    "pregunta": "En CSS, ¿qué unidad de medida es relativa al tamaño de la fuente del elemento raíz (html)?",
+    "opciones": ["px", "em", "rem", "%"],
+    "correcta": 2,
+    "explicacion": "rem (root em) es ideal para diseños accesibles y escalables. em es relativo al elemento padre."
+  },
+  {
+    "pregunta": "¿Qué protocolo utiliza el puerto 161 (UDP) para la gestión de red?",
+    "opciones": ["SSH", "SNMP", "LDAP", "BGP"],
+    "correcta": 1,
+    "explicacion": "Simple Network Management Protocol usa el 161 para agentes y el 162 para traps."
+  },
+  {
+    "pregunta": "En Java, ¿cuál es la clase base de la que heredan todas las clases directa o indirectamente?",
+    "opciones": ["Main", "String", "Object", "System"],
+    "correcta": 2,
+    "explicacion": "java.lang.Object es la raíz de la jerarquía de clases en Java."
+  },
+  {
+    "pregunta": "¿Qué es el 'Escalamiento de Privilegios'?",
+    "opciones": ["Comprar una licencia mejor", "Un ataque donde un usuario obtiene permisos de administración que no debería tener", "Subir el sueldo a un informático", "Aumentar la RAM de un PC"],
+    "correcta": 1,
+    "explicacion": "Suele ocurrir tras explotar una vulnerabilidad en un proceso que corre con privilegios de sistema o root."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, las conferencias sectoriales son órganos de:",
+    "opciones": ["Cooperación entre el Estado y las CCAA", "Control de gasto", "Dirección de Ministerios", "Asesoramiento jurídico"],
+    "correcta": 0,
+    "explicacion": "Son órganos de cooperación de composición multilateral vinculados a una materia concreta."
+  },
+  {
+    "pregunta": "En SQL, ¿qué cláusula se utiliza para combinar el resultado de dos sentencias SELECT, eliminando duplicados?",
+    "opciones": ["JOIN", "UNION", "MERGE", "COMBINE"],
+    "correcta": 1,
+    "explicacion": "UNION combina y elimina duplicados. UNION ALL combina manteniéndolos."
+  },
+  {
+    "pregunta": "¿Qué tipo de cable de par trenzado dispone de un blindaje global para todo el mazo de cables, pero no para cada par individual?",
+    "opciones": ["UTP", "STP", "FTP (o F/UTP)", "SFTP"],
+    "correcta": 2,
+    "explicacion": "Foiled Twisted Pair usa una lámina de aluminio global para reducir interferencias externas."
+  },
+  {
+    "pregunta": "En Git, ¿qué comando se usa para traer los cambios del repositorio remoto y fusionarlos directamente en la rama actual?",
+    "opciones": ["git fetch", "git pull", "git push", "git clone"],
+    "correcta": 1,
+    "explicacion": "pull es equivalente a hacer un fetch seguido de un merge."
+  },
+  {
+    "pregunta": "¿Cuál es la máscara de subred por defecto para una red de Clase B?",
+    "opciones": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+    "correcta": 1,
+    "explicacion": "Clase A: /8, Clase B: /16, Clase C: /24."
+  }
+]
