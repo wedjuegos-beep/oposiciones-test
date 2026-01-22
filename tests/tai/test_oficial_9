@@ -1,0 +1,104 @@
+[
+  {
+    "pregunta": "¿En qué estado se encuentra un proceso que ha sido cargado en memoria y está esperando a que el planificador (scheduler) le asigne tiempo de CPU?",
+    "opciones": ["En ejecución", "Bloqueado", "Listo (Ready)", "Suspendido"],
+    "correcta": 2,
+    "explicacion": "Un proceso en estado 'Listo' tiene todos los recursos necesarios para ejecutarse a falta de la CPU."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿cuál es el órgano encargado de la gestión de la identificación y firma electrónica en la Administración General del Estado?",
+    "opciones": ["CCN-CERT", "Secretaría de Estado de Digitalización e Inteligencia Artificial", "Ministerio de Hacienda", "Fabrica Nacional de Moneda y Timbre"],
+    "correcta": 1,
+    "explicacion": "La SEDIA (dentro del Ministerio de Transformación Digital) tiene las competencias principales en esta materia."
+  },
+  {
+    "pregunta": "¿Qué protocolo de la capa de transporte utiliza el mecanismo 'Three-Way Handshake' para establecer una conexión?",
+    "opciones": ["UDP", "TCP", "ICMP", "IP"],
+    "correcta": 1,
+    "explicacion": "TCP utiliza los pasos SYN, SYN-ACK y ACK para garantizar una conexión fiable."
+  },
+  {
+    "pregunta": "En el modelo relacional de bases de datos, ¿cómo se denomina a la propiedad que impide que un valor nulo forme parte de una clave primaria?",
+    "opciones": ["Integridad Referencial", "Integridad de Entidad", "Normalización", "Atomicidad"],
+    "correcta": 1,
+    "explicacion": "La integridad de entidad establece que ninguna columna de la clave primaria puede contener valores NULL."
+  },
+  {
+    "pregunta": "¿Qué comando de Linux permite ver los procesos en ejecución de forma dinámica y ordenada por consumo de recursos?",
+    "opciones": ["ps -aux", "top", "lsproc", "kill"],
+    "correcta": 1,
+    "explicacion": "top (y su versión moderna htop) muestran el uso de CPU y RAM en tiempo real."
+  },
+  {
+    "pregunta": "En el desarrollo de software, ¿qué herramienta se utiliza para el control de versiones distribuido?",
+    "opciones": ["Subversion (SVN)", "Git", "CVS", "Maven"],
+    "correcta": 1,
+    "explicacion": "Git es distribuido porque cada usuario tiene una copia completa del repositorio en su máquina."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza por defecto el protocolo HTTPS?",
+    "opciones": ["80", "21", "443", "8080"],
+    "correcta": 2,
+    "explicacion": "HTTP usa el 80 y HTTPS el 443."
+  },
+  {
+    "pregunta": "Según el ENS, ¿qué categoría de seguridad requiere que el sistema sea auditado cada dos años de forma obligatoria?",
+    "opciones": ["Categoría Básica", "Categorías Media y Alta", "Solo Categoría Alta", "Ninguna es obligatoria"],
+    "correcta": 1,
+    "explicacion": "Los sistemas de categoría Media y Alta deben someterse a una auditoría regular ordinaria al menos cada dos años."
+  },
+  {
+    "pregunta": "En una arquitectura de computadores, ¿qué es el 'Bus de Direcciones'?",
+    "opciones": ["El cable que lleva la electricidad", "Un bus unidireccional que indica la posición de memoria a la que se quiere acceder", "Un bus bidireccional para mover datos", "El bus que conecta con el monitor"],
+    "correcta": 1,
+    "explicacion": "El bus de direcciones es siempre unidireccional (de la CPU a la memoria o E/S)."
+  },
+  {
+    "pregunta": "En SQL, ¿cuál es la diferencia entre los comandos DELETE y TRUNCATE?",
+    "opciones": ["No hay diferencia", "DELETE borra filas una a una y permite WHERE; TRUNCATE borra toda la tabla más rápido y no permite WHERE", "TRUNCATE borra la estructura de la tabla", "DELETE es más rápido"],
+    "correcta": 1,
+    "explicacion": "TRUNCATE es una operación DDL que reinicia la tabla, mientras que DELETE es DML y genera logs por cada fila."
+  },
+  {
+    "pregunta": "¿Qué es un 'Ataque de Inyección SQL'?",
+    "opciones": ["Un virus que infecta el servidor", "Insertar código malicioso en consultas SQL a través de la entrada del usuario", "Borrar la base de datos físicamente", "Adivinar la contraseña del root"],
+    "correcta": 1,
+    "explicacion": "Se aprovecha de la falta de validación de los datos de entrada para manipular la lógica de la consulta."
+  },
+  {
+    "pregunta": "En Windows, ¿qué herramienta de línea de comandos permite renovar la dirección IP asignada por DHCP?",
+    "opciones": ["ipconfig /all", "ipconfig /renew", "netsh interface ip reset", "ping -t"],
+    "correcta": 1,
+    "explicacion": "Primero se suele usar /release para soltar la IP y luego /renew para pedir una nueva."
+  },
+  {
+    "pregunta": "¿Qué significa el acrónimo API en desarrollo de software?",
+    "opciones": ["Application Process Information", "Advanced Programming Interface", "Application Programming Interface", "Automated Program Integration"],
+    "correcta": 2,
+    "explicacion": "Es el conjunto de funciones y procedimientos que permiten la comunicación entre dos aplicaciones."
+  },
+  {
+    "pregunta": "¿Qué nivel de RAID ofrece el mejor rendimiento en lectura y escritura pero no tiene ninguna tolerancia a fallos?",
+    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"],
+    "correcta": 0,
+    "explicacion": "RAID 0 (Stripping) divide los datos entre discos, pero si uno falla, se pierde toda la información."
+  },
+  {
+    "pregunta": "En el modelo OSI, ¿en qué capa operan los switches tradicionales?",
+    "opciones": ["Capa 1 (Física)", "Capa 2 (Enlace de datos)", "Capa 3 (Red)", "Capa 4 (Transporte)"],
+    "correcta": 1,
+    "explicacion": "Los switches utilizan direcciones MAC para conmutar tramas en la capa 2."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, ¿en qué momento surten efecto los actos administrativos?",
+    "opciones": ["Desde el momento en que se firman", "Desde la fecha en que se dicten, salvo que se disponga otra cosa", "A los 10 días de su publicación", "Cuando el interesado los lee"],
+    "correcta": 1,
+    "explicacion": "Surten efecto desde que se dictan, aunque su eficacia suele demorarse a la notificación o publicación."
+  },
+  {
+    "pregunta": "En desarrollo web, ¿qué hace la etiqueta <link> dentro del <head> de un HTML?",
+    "opciones": ["Crea un enlace a otra página web", "Asocia una hoja de estilos externa (CSS) al documento", "Inserta una imagen", "Define el título de la página"],
+    "correcta": 1,
+    "explicacion": "Se usa principalmente para importar archivos .css."
+  },
+  {
