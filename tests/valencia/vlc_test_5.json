@@ -1,0 +1,502 @@
+[
+  {
+    "id": 201,
+    "pregunta": "Según la Ley 9/2017 de Contratos del Sector Público, ¿cuál de estos es un contrato administrativo típico?",
+    "opciones": [
+      "Contrato de obra.",
+      "Contrato de servicios.",
+      "Ambos son contratos administrativos típicos."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 202,
+    "pregunta": "El contrato que tiene por objeto la realización de un trabajo encaminado a la conservación y mantenimiento de inmuebles se denomina:",
+    "opciones": [
+      "Contrato de suministro.",
+      "Contrato de servicios.",
+      "Contrato de concesión de obras."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 203,
+    "pregunta": "Los contratos menores de servicios y suministros tienen un valor estimado inferior a:",
+    "opciones": [
+      "15.000 euros.",
+      "40.000 euros.",
+      "5.000 euros."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 204,
+    "pregunta": "El contrato menor de obras es aquel cuyo valor estimado es inferior a:",
+    "opciones": [
+      "15.000 euros.",
+      "40.000 euros.",
+      "50.000 euros."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 205,
+    "pregunta": "La duración de los contratos menores:",
+    "opciones": [
+      "No podrá ser superior a un año ni ser objeto de prórroga.",
+      "Puede durar hasta cuatro años.",
+      "Es indefinida mientras dure la obra."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 206,
+    "pregunta": "¿Qué órgano es competente para la contratación en los municipios de gran población por regla general?",
+    "opciones": [
+      "El Pleno.",
+      "La Junta de Gobierno Local.",
+      "El Interventor."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 207,
+    "pregunta": "La garantía definitiva en la contratación pública será, por regla general, del:",
+    "opciones": [
+      "3% del presupuesto base de licitación.",
+      "5% del importe de adjudicación (excluido el IVA).",
+      "10% del precio total."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 208,
+    "pregunta": "La publicidad de las licitaciones de los contratos de las Administraciones Públicas se realizará en:",
+    "opciones": [
+      "El Perfil de Contratante.",
+      "Solo en el tablón de anuncios del Ayuntamiento.",
+      "Únicamente en prensa local."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 209,
+    "pregunta": "El derecho de acceso a la información pública puede ser limitado si supone un perjuicio para:",
+    "opciones": [
+      "La seguridad nacional o la defensa.",
+      "La prevención, investigación y castigo de los ilícitos penales.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 210,
+    "pregunta": "El plazo máximo para resolver y notificar una solicitud de acceso a la información pública es de:",
+    "opciones": [
+      "Un mes desde la recepción de la solicitud.",
+      "Quince días.",
+      "Tres meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 211,
+    "pregunta": "Si la Administración no resuelve una solicitud de acceso a la información en plazo, se entiende que:",
+    "opciones": [
+      "La solicitud ha sido estimada.",
+      "La solicitud ha sido desestimada (silencio negativo).",
+      "Debe presentarse una queja al Rey."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 212,
+    "pregunta": "El Reglamento General de Protección de Datos (RGPD) es de aplicación:",
+    "opciones": [
+      "Solo a empresas privadas.",
+      "A todas las Administraciones Públicas y entidades que traten datos personales.",
+      "Solo en el ámbito de la justicia."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 213,
+    "pregunta": "El principio de 'minimización de datos' significa que los datos deben ser:",
+    "opciones": [
+      "Adecuados, pertinentes y limitados a lo necesario.",
+      "Lo más pequeños posible para que no ocupen espacio.",
+      "Borrados cada 24 horas."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 214,
+    "pregunta": "El Delegado de Protección de Datos (DPD) en el Ayuntamiento de Valencia:",
+    "opciones": [
+      "Es obligatorio por tratarse de una autoridad pública.",
+      "Es opcional si el Alcalde lo decide.",
+      "Solo es necesario en la Policía Local."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 215,
+    "pregunta": "El derecho del interesado a obtener del responsable confirmación de si se están tratando datos que le conciernen es el derecho de:",
+    "opciones": [
+      "Rectificación.",
+      "Acceso.",
+      "Oposición."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 216,
+    "pregunta": "Las infracciones muy graves en materia de protección de datos prescriben a los:",
+    "opciones": [
+      "Un año.",
+      "Dos años.",
+      "Tres años."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 217,
+    "pregunta": "En el Ayuntamiento de Valencia, el registro de documentos se realiza prioritariamente por:",
+    "opciones": [
+      "Medios electrónicos.",
+      "Fax.",
+      "Correo postal ordinario."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 218,
+    "pregunta": "El archivo de los documentos electrónicos que formen parte de un expediente debe garantizar:",
+    "opciones": [
+      "Su autenticidad, integridad y conservación.",
+      "Que solo el informático pueda leerlos.",
+      "Que se borren automáticamente a los 5 años."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 219,
+    "pregunta": "¿Qué es el Esquema Nacional de Seguridad (ENS)?",
+    "opciones": [
+      "Un plan de seguridad para las fronteras.",
+      "El conjunto de principios y requisitos para garantizar la seguridad de la información en la administración electrónica.",
+      "Un sistema de alarmas para edificios municipales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 220,
+    "pregunta": "La sede electrónica es aquella dirección electrónica disponible para los ciudadanos a través de:",
+    "opciones": [
+      "Redes de telecomunicaciones cuya titularidad corresponde a una Administración Pública.",
+      "Solo redes sociales oficiales.",
+      "Cualquier blog de un funcionario."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 221,
+    "pregunta": "La publicación de actos y comunicaciones en la sede electrónica tendrá los mismos efectos que:",
+    "opciones": [
+      "Una llamada telefónica.",
+      "La publicación en el tablón de anuncios físico.",
+      "Un correo electrónico personal."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 222,
+    "pregunta": "La gestión del Padrón Municipal de Habitantes corresponde a:",
+    "opciones": [
+      "El Instituto Nacional de Estadística exclusivamente.",
+      "Los Ayuntamientos bajo la coordinación del INE.",
+      "La Policía Nacional."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 223,
+    "pregunta": "Los datos obligatorios del Padrón incluyen:",
+    "opciones": [
+      "Nombre, apellidos, sexo, domicilio y nacionalidad.",
+      "Lugar y fecha de nacimiento y DNI.",
+      "Todas son correctas, incluyendo el grado de escolaridad."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 224,
+    "pregunta": "La revisión del Padrón municipal con referencia al 1 de enero de cada año es aprobada por:",
+    "opciones": [
+      "El Alcalde.",
+      "El Pleno del Ayuntamiento.",
+      "El Gobierno de la Nación mediante Real Decreto."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 225,
+    "pregunta": "Los extranjeros no comunitarios sin autorización de residencia permanente deben renovar su inscripción padronal cada:",
+    "opciones": [
+      "Cinco años.",
+      "Dos años.",
+      "Diez años."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 226,
+    "pregunta": "¿Qué órgano resuelve las discrepancias entre Ayuntamientos o entre estos y el INE en materia de Padrón?",
+    "opciones": [
+      "El Consejo de Empadronamiento.",
+      "El Tribunal Supremo.",
+      "El Ministerio del Interior."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 227,
+    "pregunta": "El documento que acredita la condición de vecino se denomina:",
+    "opciones": [
+      "Certificado de empadronamiento.",
+      "DNI.",
+      "Pasaporte municipal."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 228,
+    "pregunta": "Las competencias en materia de servicios sociales en municipios de más de 20.000 habitantes son:",
+    "opciones": [
+      "Propias del Ayuntamiento.",
+      "Delegadas del Estado obligatoriamente.",
+      "Solo de la Cruz Roja."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 229,
+    "pregunta": "La Ley 7/1985 establece que los municipios con población superior a 50.000 habitantes deben prestar obligatoriamente el servicio de:",
+    "opciones": [
+      "Transporte colectivo urbano de viajeros.",
+      "Medio ambiente urbano.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 230,
+    "pregunta": "El personal laboral al servicio de las Administraciones Públicas se rige, además de por el TREBEP, por:",
+    "opciones": [
+      "El Estatuto de los Trabajadores y convenios colectivos.",
+      "Solo por la Ley de Función Pública.",
+      "Por el Código de Comercio."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 231,
+    "pregunta": "Se consideran órganos superiores de la Administración General del Estado:",
+    "opciones": [
+      "Los Ministros y Secretarios de Estado.",
+      "Los Subsecretarios y Directores Generales.",
+      "Los Jefes de Negociado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 232,
+    "pregunta": "La competencia para crear, modificar o suprimir Ministerios corresponde a:",
+    "opciones": [
+      "El Rey.",
+      "El Presidente del Gobierno mediante Real Decreto.",
+      "El Congreso de los Diputados por Ley Orgánica."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 233,
+    "pregunta": "Los Delegados del Gobierno en las Comunidades Autónomas tienen rango de:",
+    "opciones": [
+      "Secretario de Estado.",
+      "Subsecretario.",
+      "Director General."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 234,
+    "pregunta": "La responsabilidad patrimonial de las AAPP es de naturaleza:",
+    "opciones": [
+      "Subjetiva.",
+      "Objetiva y directa.",
+      "Solidaria entre los funcionarios."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 235,
+    "pregunta": "Para que exista responsabilidad patrimonial, el daño debe ser:",
+    "opciones": [
+      "Efectivo, evaluable económicamente e individualizado respecto a una persona o grupo.",
+      "Solo moral.",
+      "Futuro e incierto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 236,
+    "pregunta": "No habrá lugar a indemnización si el daño se produce por:",
+    "opciones": [
+      "Fuerza mayor.",
+      "Caso fortuito.",
+      "Error administrativo leve."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 237,
+    "pregunta": "La indemnización por responsabilidad patrimonial podrá sustituirse por una compensación en especie si:",
+    "opciones": [
+      "Hay acuerdo con el interesado.",
+      "El Ayuntamiento no tiene dinero.",
+      "Lo decide el Juez sin preguntar."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 238,
+    "pregunta": "Las Administraciones Públicas indemnizarán a los particulares por:",
+    "opciones": [
+      "Toda lesión que sufran en sus bienes y derechos siempre que sea consecuencia del funcionamiento normal o anormal de los servicios públicos.",
+      "Los daños causados por catástrofes naturales.",
+      "Las multas de tráfico bien puestas."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 239,
+    "pregunta": "En el Ayuntamiento de Valencia, el Pleno celebra sesiones ordinarias con una periodicidad mínima:",
+    "opciones": [
+      "Mensual.",
+      "Bimensual.",
+      "Semanal."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 240,
+    "pregunta": "Para la válida constitución del Pleno se requiere la asistencia de un tercio del número legal de miembros, que nunca podrá ser inferior a:",
+    "opciones": [
+      "Dos.",
+      "Tres.",
+      "Cinco."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 241,
+    "pregunta": "Las sesiones del Pleno son, por regla general:",
+    "opciones": [
+      "Secretas.",
+      "Públicas.",
+      "Solo para periodistas acreditados."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 242,
+    "pregunta": "El quórum de asistencia del Pleno debe mantenerse:",
+    "opciones": [
+      "Solo al principio de la sesión.",
+      "Durante toda la sesión.",
+      "Solo en las votaciones."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 243,
+    "pregunta": "Los acuerdos del Pleno se adoptan, como regla general, por:",
+    "opciones": [
+      "Mayoría simple de los miembros presentes.",
+      "Mayoría absoluta.",
+      "Unanimidad."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 244,
+    "pregunta": "Se requiere el voto favorable de la mayoría absoluta del número legal de miembros para:",
+    "opciones": [
+      "Aprobación y modificación del Reglamento Orgánico propio.",
+      "Creación y supresión de municipios.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 245,
+    "pregunta": "Las competencias de la Junta de Gobierno Local en Valencia son:",
+    "opciones": [
+      "Las que le delegue el Alcalde o el Pleno.",
+      "Las que le asigne directamente la Ley para municipios de Gran Población.",
+      "Ambas respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 246,
+    "pregunta": "El órgano encargado de la gestión económica y presupuestaria en el Ayuntamiento de Valencia es:",
+    "opciones": [
+      "La Intervención General Municipal.",
+      "La Tesorería.",
+      "El Pleno."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 247,
+    "pregunta": "La potestad disciplinaria sobre el personal del Ayuntamiento de Valencia corresponde a:",
+    "opciones": [
+      "El Alcalde.",
+      "El Pleno.",
+      "La Junta de Personal."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 248,
+    "pregunta": "Los servicios públicos pueden gestionarse de forma:",
+    "opciones": [
+      "Directa o indirecta.",
+      "Solo directa por funcionarios.",
+      "Solo por empresas privadas."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 249,
+    "pregunta": "Es una forma de gestión DIRECTA de los servicios públicos:",
+    "opciones": [
+      "Gestión por la propia entidad local.",
+      "Concesión.",
+      "Concierto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 250,
+    "pregunta": "En la gestión INDIRECTA, el contratista asume:",
+    "opciones": [
+      "El riesgo y ventura de la explotación.",
+      "Ningún riesgo, todo lo paga el Ayuntamiento.",
+      "Solo el mantenimiento de los coches oficiales."
+    ],
+    "correcta": 0
+  }
+]
