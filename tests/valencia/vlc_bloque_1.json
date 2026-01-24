@@ -1,0 +1,202 @@
+[
+  {
+    "id": 101,
+    "pregunta": "Contra los actos que no agotan la vía administrativa podrá interponerse recurso de:",
+    "opciones": [
+      "Alzada.",
+      "Reposición.",
+      "Extraordinario de revisión."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 102,
+    "pregunta": "El recurso de alzada podrá interponerse ante:",
+    "opciones": [
+      "El mismo órgano que dictó el acto.",
+      "El superior jerárquico del órgano que dictó el acto.",
+      "Ambas respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 103,
+    "pregunta": "El plazo para la interposición del recurso de alzada será de:",
+    "opciones": [
+      "Diez días si el acto fuera expreso.",
+      "Un mes si el acto fuera expreso.",
+      "Tres meses si el acto fuera expreso."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 104,
+    "pregunta": "Si el acto no fuera expreso, el recurso de alzada podrá interponerse:",
+    "opciones": [
+      "En el plazo de tres meses.",
+      "En el plazo de un mes.",
+      "En cualquier momento a partir del día siguiente a aquel en que se produzcan los efectos del silencio."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 105,
+    "pregunta": "El plazo máximo para dictar y notificar la resolución del recurso de alzada será de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 106,
+    "pregunta": "Contra la resolución de un recurso de alzada:",
+    "opciones": [
+      "Cabe interponer recurso de reposición.",
+      "No cabe ningún otro recurso administrativo, salvo el extraordinario de revisión.",
+      "Cabe interponer un nuevo recurso de alzada ante el mismo órgano."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 107,
+    "pregunta": "Los actos que agoten la vía administrativa podrán ser recurridos potestativamente en:",
+    "opciones": [
+      "Alzada.",
+      "Reposición.",
+      "Queja administrativa."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 108,
+    "pregunta": "El plazo para interponer el recurso potestativo de reposición, si el acto es expreso, es de:",
+    "opciones": [
+      "Quince días.",
+      "Un mes.",
+      "Dos meses."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 109,
+    "pregunta": "El plazo máximo para dictar y notificar la resolución del recurso de reposición será de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 110,
+    "pregunta": "Contra la resolución de un recurso de reposición no podrá interponerse de nuevo dicho recurso:",
+    "opciones": [
+      "Es correcto según la Ley 39/2015.",
+      "Es incorrecto, se puede interponer hasta tres veces.",
+      "Solo si el interesado es una persona jurídica."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 111,
+    "pregunta": "El recurso extraordinario de revisión se interpondrá ante:",
+    "opciones": [
+      "El Tribunal Supremo.",
+      "El órgano administrativo que dictó el acto objeto de recurso.",
+      "El Defensor del Pueblo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 112,
+    "pregunta": "Se puede interponer recurso extraordinario de revisión cuando:",
+    "opciones": [
+      "Al dictar el acto se hubiera incurrido en error de hecho que resulte de los propios documentos incorporados al expediente.",
+      "Aparezcan documentos de valor esencial para la resolución del asunto que, aunque sean posteriores, evidencien el error de la resolución.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 113,
+    "pregunta": "En el recurso extraordinario de revisión, si se trata de error de hecho, el plazo de interposición es de:",
+    "opciones": [
+      "Tres meses siguientes a la fecha de la notificación.",
+      "Cuatro años siguientes a la fecha de la notificación de la resolución impugnada.",
+      "Diez días naturales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 114,
+    "pregunta": "El plazo para dictar y notificar la resolución del recurso extraordinario de revisión es de:",
+    "opciones": [
+      "Tres meses.",
+      "Seis meses.",
+      "Un año."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 115,
+    "pregunta": "Transcurrido el plazo de resolución del recurso de revisión sin haberse dictado ésta:",
+    "opciones": [
+      "Se entenderá estimado.",
+      "Se entenderá desestimado.",
+      "Se producirá la caducidad del archivo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 116,
+    "pregunta": "La ejecución de un acto administrativo:",
+    "opciones": [
+      "Se suspende siempre que se interponga un recurso.",
+      "No se suspenderá por la interposición de un recurso, salvo que una disposición establezca lo contrario.",
+      "Solo se suspende si lo pide un sindicato."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 117,
+    "pregunta": "La ejecución de un acto podrá suspenderse si:",
+    "opciones": [
+      "La ejecución pudiera causar perjuicios de imposible o difícil reparación.",
+      "La impugnación se fundamente en alguna de las causas de nulidad de pleno derecho.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 118,
+    "pregunta": "Se entenderá suspendida la ejecución si transcurre un mes desde que la solicitud de suspensión haya tenido entrada en el registro sin que el órgano dicte resolución expresa:",
+    "opciones": [
+      "Es correcto.",
+      "Es incorrecto, el plazo es de dos meses.",
+      "Solo ocurre en el recurso de alzada."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 119,
+    "pregunta": "Las Administraciones Públicas podrán rectificar en cualquier momento, de oficio o a instancia de los interesados:",
+    "opciones": [
+      "Los errores materiales, de hecho o aritméticos existentes en sus actos.",
+      "Cualquier decisión que no les guste.",
+      "Solo los actos que no hayan sido notificados."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 120,
+    "pregunta": "El procedimiento de revisión de oficio de actos nulos prescribe:",
+    "opciones": [
+      "A los cuatro años.",
+      "A los diez años.",
+      "El derecho a la revisión de oficio no prescribe."
+    ],
+    "correcta": 2
+  }
+]
