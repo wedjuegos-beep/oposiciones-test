@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿En qué capa del modelo OSI operan los routers para realizar el encaminamiento de paquetes entre distintas redes?",
+    "opciones": ["Capa 1 - Física", "Capa 2 - Enlace de datos", "Capa 3 - Red", "Capa 4 - Transporte"],
+    "correcta": 2,
+    "explicacion": "La capa de Red se encarga del direccionamiento lógico (IP) y de determinar la mejor ruta hacia el destino."
+  },
+  {
+    "pregunta": "¿Cuál es la máscara de subred por defecto para una red de Clase C?",
+    "opciones": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+    "correcta": 2,
+    "explicacion": "Una red de Clase C utiliza los primeros 24 bits para la red, lo que equivale a la máscara 255.255.255.0 (/24)."
+  },
+  {
+    "pregunta": "¿Qué protocolo se utiliza para la resolución de direcciones IP en direcciones físicas MAC?",
+    "opciones": ["DNS", "DHCP", "ARP", "ICMP"],
+    "correcta": 2,
+    "explicacion": "Address Resolution Protocol (ARP) permite conocer la dirección MAC de una tarjeta de red asociada a una IP conocida."
+  },
+  {
+    "pregunta": "¿Qué característica distingue principalmente al protocolo TCP del protocolo UDP?",
+    "opciones": ["TCP es más rápido", "TCP está orientado a conexión y garantiza la entrega", "UDP utiliza puertos y TCP no", "TCP opera en la capa de Red"],
+    "correcta": 1,
+    "explicacion": "TCP establece una sesión y verifica que los datos lleguen correctamente mediante ACKs (asentimientos)."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza habitualmente el protocolo seguro de transferencia de hipertexto (HTTPS)?",
+    "opciones": ["80", "443", "8080", "22"],
+    "correcta": 1,
+    "explicacion": "El puerto 443 es el estándar para tráfico web cifrado mediante TLS/SSL."
+  },
+  {
+    "pregunta": "En una red IPv6, ¿cuántos bits componen una dirección completa?",
+    "opciones": ["32 bits", "64 bits", "128 bits", "256 bits"],
+    "correcta": 2,
+    "explicacion": "IPv6 utiliza 128 bits, permitiendo un espacio de direcciones masivamente superior al de IPv4."
+  },
+  {
+    "pregunta": "¿Qué dispositivo de red opera principalmente en la capa 2 del modelo OSI basándose en las direcciones MAC para reenviar tramas?",
+    "opciones": ["Hub", "Switch", "Router", "Firewall de aplicación"],
+    "correcta": 1,
+    "explicacion": "El switch (conmutador) crea tablas de direcciones MAC para enviar la información solo al puerto de destino."
+  },
+  {
+    "pregunta": "¿Cuál es la función del protocolo ICMP?",
+    "opciones": ["Transferencia de archivos", "Control y notificación de errores en la red (como el comando ping)", "Asignación de IPs", "Gestión de correo"],
+    "correcta": 1,
+    "explicacion": "Internet Control Message Protocol se usa para enviar mensajes de control y diagnóstico."
+  },
+  {
+    "pregunta": "En seguridad perimetral, una zona DMZ (Zona Desmilitarizada) se utiliza para:",
+    "opciones": ["Almacenar backups", "Ubicar servidores que deben ser accesibles desde el exterior (como servidores web)", "Conectar los PCs de administración interna", "Cifrar el tráfico de la LAN"],
+    "correcta": 1,
+    "explicacion": "La DMZ aísla los servicios públicos de la red interna privada para mejorar la seguridad."
+  },
+  {
+    "pregunta": "¿Qué protocolo de aplicación permite la gestión y monitorización remota de dispositivos de red?",
+    "opciones": ["SMTP", "SNMP", "SSH", "FTP"],
+    "correcta": 1,
+    "explicacion": "Simple Network Management Protocol se usa para recoger información sobre el estado de routers, switches y servidores."
+  },
+  {
+    "pregunta": "Un ataque de Denegación de Servicio Distribuido (DDoS) busca principalmente comprometer la:",
+    "opciones": ["Confidencialidad", "Integridad", "Disponibilidad", "Autenticidad"],
+    "correcta": 2,
+    "explicacion": "El DDoS inunda el sistema con tráfico para que el servicio deje de estar disponible para usuarios legítimos."
+  },
+  {
+    "pregunta": "¿Qué algoritmo de cifrado es de tipo Asimétrico (clave pública)?",
+    "opciones": ["AES", "DES", "RSA", "Blowfish"],
+    "correcta": 2,
+    "explicacion": "RSA utiliza un par de claves (pública y privada), a diferencia de AES o DES que son simétricos."
+  },
+  {
+    "pregunta": "¿Cuál es el rango de direcciones IP privadas de Clase A según el RFC 1918?",
+    "opciones": ["10.0.0.0 a 10.255.255.255", "172.16.0.0 a 172.31.255.255", "192.168.0.0 a 192.168.255.255", "127.0.0.0 a 127.0.0.1"],
+    "correcta": 0,
+    "explicacion": "El rango 10.0.0.0/8 está reservado para redes privadas de gran tamaño."
+  },
+  {
+    "pregunta": "En el modelo TCP/IP, ¿qué capa equivale aproximadamente a las capas 5, 6 y 7 del modelo OSI?",
+    "opciones": ["Capa de Red", "Capa de Internet", "Capa de Aplicación", "Capa de Transporte"],
+    "correcta": 2,
+    "explicacion": "La capa de aplicación de TCP/IP engloba las funciones de sesión, presentación y aplicación de OSI."
+  },
+  {
+    "pregunta": "¿Qué protocolo de correo electrónico se utiliza para enviar mensajes desde un cliente a un servidor?",
+    "opciones": ["POP3", "IMAP", "SMTP", "HTTP"],
+    "correcta": 2,
+    "explicacion": "Simple Mail Transfer Protocol (SMTP) es el protocolo estándar para la salida de correo."
+  },
+  {
+    "pregunta": "¿Qué método de autenticación Wi-Fi es actualmente el más seguro?",
+    "opciones": ["WEP", "WPA", "WPA2", "WPA3"],
+    "correcta": 3,
+    "explicacion": "WPA3 es el estándar más reciente que corrige vulnerabilidades de WPA2 (como el ataque KRACK)."
+  },
+  {
+    "pregunta": "En una VPN, ¿qué protocolo se utiliza habitualmente para crear el túnel seguro en la capa 3?",
+    "opciones": ["IPsec", "SSL", "TLS", "SSH"],
+    "correcta": 0,
+    "explicacion": "IPsec proporciona seguridad a nivel de red cifrando y autenticando cada paquete IP."
+  },
+  {
+    "pregunta": "¿Qué puerto utiliza el servicio DNS por defecto?",
+    "opciones": ["53", "67", "68", "110"],
+    "correcta": 0,
+    "explicacion": "DNS utiliza habitualmente el puerto 53 (principalmente sobre UDP)."
+  },
+  {
+    "pregunta": "La técnica 'Phishing' tiene como objetivo:",
+    "opciones": ["Infectar el sector de arranque del disco", "Suplantar la identidad de una entidad legítima para robar credenciales", "Descifrar contraseñas por fuerza bruta", "Interceptar tráfico en una red WiFi abierta"],
+    "correcta": 1,
+    "explicacion": "Es una técnica de ingeniería social para engañar al usuario y obtener datos sensibles."
+  },
+  {
+    "pregunta": "¿Qué campo de la cabecera IPv4 evita que un paquete circule indefinidamente en la red?",
+    "opciones": ["Checksum", "TTL (Time to Live)", "Fragment Offset", "Source Address"],
+    "correcta": 1,
+    "explicacion": "El TTL es un contador que se reduce en cada salto de router; si llega a cero, el paquete se descarta."
+  }
+]
