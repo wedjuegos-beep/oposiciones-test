@@ -1,0 +1,202 @@
+[
+  {
+    "id": 301,
+    "pregunta": "Según el TREBEP, los empleados públicos se clasifican en:",
+    "opciones": [
+      "Funcionarios de carrera y personal laboral únicamente.",
+      "Funcionarios de carrera, funcionarios interinos, personal laboral (fijo, por tiempo indefinido o temporal) y personal eventual.",
+      "Funcionarios, personal contratado y personal de confianza."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 302,
+    "pregunta": "¿Quiénes son funcionarios de carrera?",
+    "opciones": [
+      "Quienes, en virtud de nombramiento legal, están vinculados a una Administración Pública por una relación estatutaria regulada por el Derecho Administrativo.",
+      "Quienes prestan servicios retribuidos por las Administraciones Públicas mediante contrato de trabajo.",
+      "Quienes ocupan puestos de trabajo considerados de confianza o asesoramiento especial."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 303,
+    "pregunta": "El personal interino es nombrado por razones expresamente justificadas de necesidad y urgencia cuando se dé la siguiente circunstancia:",
+    "opciones": [
+      "La existencia de plazas vacantes cuando no sea posible su cobertura por funcionarios de carrera por un máximo de 3 años.",
+      "La sustitución transitoria de los titulares por el tiempo estrictamente necesario.",
+      "Todas son correctas, incluyendo la ejecución de programas de carácter temporal."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 304,
+    "pregunta": "¿Qué caracteriza al personal eventual?",
+    "opciones": [
+      "Su nombramiento es permanente hasta la jubilación.",
+      "Desempeña funciones de confianza o asesoramiento especial, siendo su nombramiento y cese libres.",
+      "Acceden al puesto mediante oposición libre únicamente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 305,
+    "pregunta": "La condición de funcionario de carrera se pierde por una de las siguientes causas:",
+    "opciones": [
+      "Renuncia a la condición de funcionario.",
+      "Pérdida de la nacionalidad.",
+      "Todas son correctas, incluyendo la jubilación total y la sanción disciplinaria de separación del servicio."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 306,
+    "pregunta": "Los funcionarios de carrera se agrupan en función de la titulación exigida para el ingreso. El Grupo A se divide en:",
+    "opciones": [
+      "A1 y A2.",
+      "A, B y C.",
+      "No tiene subdivisiones."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 307,
+    "pregunta": "Para el acceso a los cuerpos o escalas del Grupo B se exigirá estar en posesión del título de:",
+    "opciones": [
+      "Grado Universitario.",
+      "Técnico Superior (Formación Profesional de Grado Superior).",
+      "Bachiller o Técnico."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 308,
+    "pregunta": "Para el acceso al Grupo C, subgrupo C1, se exige:",
+    "opciones": [
+      "Título de Bachiller o Técnico.",
+      "Graduado en Educación Secundaria Obligatoria.",
+      "Certificado de escolaridad."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 309,
+    "pregunta": "¿Cuál es la duración máxima de la jornada de trabajo en el cómputo anual?",
+    "opciones": [
+      "La que se determine mediante negociación colectiva, respetando los límites legales.",
+      "40 horas semanales obligatoriamente.",
+      "35 horas semanales sin excepción."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 310,
+    "pregunta": "Los funcionarios públicos tendrán derecho a disfrutar de vacaciones retribuidas de, como mínimo:",
+    "opciones": [
+      "22 días hábiles por año completo de servicios, o los días que correspondan proporcionalmente.",
+      "30 días naturales en todo caso.",
+      "Un mes natural, preferentemente en agosto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 311,
+    "pregunta": "El permiso por fallecimiento, accidente o enfermedad grave de un familiar de primer grado es de:",
+    "opciones": [
+      "3 días hábiles si es en la misma localidad y 5 si es en distinta.",
+      "2 días naturales.",
+      "5 días hábiles en cualquier caso."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 312,
+    "pregunta": "¿A cuántos días de permiso por asuntos particulares (moscosos) tienen derecho los funcionarios al año?",
+    "opciones": [
+      "6 días.",
+      "3 días.",
+      "9 días."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 313,
+    "pregunta": "La situación de servicios especiales se declara, entre otros casos, cuando:",
+    "opciones": [
+      "El funcionario sea nombrado miembro del Gobierno o de los órganos de gobierno de las CC.AA.",
+      "El funcionario desee irse a la empresa privada por un año.",
+      "El funcionario tenga una enfermedad de larga duración."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 314,
+    "pregunta": "En la situación de servicio activo, el funcionario:",
+    "opciones": [
+      "Mantiene todos sus derechos y prerrogativas como funcionario.",
+      "No percibe retribuciones.",
+      "No computa el tiempo a efectos de trienios."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 315,
+    "pregunta": "La excedencia voluntaria por interés particular requiere haber prestado servicios efectivos durante un periodo mínimo de:",
+    "opciones": [
+      "5 años inmediatamente anteriores.",
+      "1 año.",
+      "No requiere periodo mínimo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 316,
+    "pregunta": "Los funcionarios tienen derecho a la promoción interna, que consiste en:",
+    "opciones": [
+      "El ascenso desde cuerpos de un Subgrupo a otros del Subgrupo inmediatamente superior.",
+      "Un aumento de sueldo por antigüedad automáticamente.",
+      "Cambiar de ciudad manteniendo el mismo puesto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 317,
+    "pregunta": "Las retribuciones básicas de los funcionarios son:",
+    "opciones": [
+      "Sueldo y Trienios.",
+      "Sueldo y Complemento de Destino.",
+      "Sueldo, Trienios y Pagas Extraordinarias (en su componente de sueldo y trienios)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 318,
+    "pregunta": "El complemento de destino retribuye:",
+    "opciones": [
+      "La especial dificultad técnica del puesto.",
+      "El nivel del puesto de trabajo desempeñado.",
+      "La antigüedad en el cuerpo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 319,
+    "pregunta": "Se considera una falta muy grave:",
+    "opciones": [
+      "El abandono del servicio.",
+      "La falta de asistencia injustificada de un solo día.",
+      "Llegar tarde 15 minutos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 320,
+    "pregunta": "La sanción de separación del servicio para un funcionario de carrera solo puede ser acordada por:",
+    "opciones": [
+      "El jefe de negociado.",
+      "El órgano competente (en el ámbito local, suele ser el Pleno o el Alcalde según la ley de Grandes Ciudades).",
+      "Un compañero de mayor rango."
+    ],
+    "correcta": 1
+  }
+]
