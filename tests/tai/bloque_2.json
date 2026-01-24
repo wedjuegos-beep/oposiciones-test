@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "¿Qué componente del microprocesador se encarga de realizar las operaciones aritméticas y lógicas?",
+    "opciones": ["Unidad de Control (UC)", "Unidad Aritmético Lógica (ALU)", "Unidad de Gestión de Memoria (MMU)", "Bus de Control"],
+    "correcta": 1,
+    "explicacion": "La ALU es la parte del procesador que realiza cálculos como sumas o comparaciones lógicas."
+  },
+  {
+    "pregunta": "En la jerarquía de memoria, ¿cuál de las siguientes es la más rápida y de menor capacidad?",
+    "opciones": ["Memoria RAM", "Memoria Caché L1", "Registros de la CPU", "Disco SSD"],
+    "correcta": 2,
+    "explicacion": "Los registros están integrados directamente en el procesador y ofrecen la mayor velocidad de acceso."
+  },
+  {
+    "pregunta": "¿Qué técnica permite al sistema operativo simular que dispone de más memoria principal de la que físicamente existe?",
+    "opciones": ["Segmentación", "Paginación", "Memoria Virtual", "Caching"],
+    "correcta": 2,
+    "explicacion": "La memoria virtual utiliza el almacenamiento secundario (disco) para ampliar la capacidad de la memoria RAM."
+  },
+  {
+    "pregunta": "En un sistema operativo, ¿qué es un 'deadlock' o interbloqueo?",
+    "opciones": ["Un error al apagar el equipo", "Una situación donde dos o más procesos se esperan mutuamente y quedan bloqueados indefinidamente", "Una interrupción de hardware", "Un virus de arranque"],
+    "correcta": 1,
+    "explicacion": "El deadlock ocurre por la competencia de recursos no compartibles entre procesos."
+  },
+  {
+    "pregunta": "En Linux, ¿qué comando muestra los sistemas de archivos montados y el espacio libre en cada uno?",
+    "opciones": ["du -h", "df -h", "free -m", "lsblk"],
+    "correcta": 1,
+    "explicacion": "El comando 'df' (disk free) muestra el uso del disco del sistema de ficheros."
+  },
+  {
+    "pregunta": "¿Cuál es la función del registro 'Contador de Programa' (PC)?",
+    "opciones": ["Almacenar el resultado de la última suma", "Guardar la dirección de la siguiente instrucción a ejecutar", "Contar el número de procesos en ejecución", "Controlar la velocidad del ventilador"],
+    "correcta": 1,
+    "explicacion": "El PC apunta siempre a la siguiente instrucción del programa en la memoria."
+  },
+  {
+    "pregunta": "¿Qué nivel de RAID ofrece una copia espejo idéntica de los datos en dos o más discos (mirroring)?",
+    "opciones": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"],
+    "correcta": 1,
+    "explicacion": "El RAID 1 duplica la información para garantizar la disponibilidad en caso de fallo de un disco."
+  },
+  {
+    "pregunta": "En Windows, ¿qué comando se usa para ver la configuración de red y la dirección IP actual?",
+    "opciones": ["ifconfig", "netstat", "ipconfig", "nslookup"],
+    "correcta": 2,
+    "explicacion": "ipconfig es la herramienta estándar de consola para la configuración IP en Windows."
+  },
+  {
+    "pregunta": "Un hipervisor de Tipo 1 (Bare Metal) se caracteriza por:",
+    "opciones": ["Ejecutarse sobre un sistema operativo anfitrión", "Ejecutarse directamente sobre el hardware físico", "Ser solo para contenedores Docker", "No permitir máquinas virtuales"],
+    "correcta": 1,
+    "explicacion": "Los hipervisores tipo 1 (como VMware ESXi) no requieren un SO debajo, lo que mejora el rendimiento."
+  },
+  {
+    "pregunta": "En la gestión de procesos, el estado 'Ready' (Listo) significa que:",
+    "opciones": ["El proceso se está ejecutando en la CPU", "El proceso está esperando una operación de E/S", "El proceso tiene todo lo necesario para ejecutarse a falta de que se le asigne la CPU", "El proceso ha finalizado"],
+    "correcta": 2,
+    "explicacion": "Un proceso listo está en la cola de planificación esperando su turno de CPU."
+  },
+  {
+    "pregunta": "En Linux, el permiso octal '755' sobre un archivo significa:",
+    "opciones": ["Lectura para todos", "Total para el dueño, lectura y ejecución para el grupo y otros", "Total para todos", "Solo el dueño puede leer"],
+    "correcta": 1,
+    "explicacion": "7(rwx) 5(r-x) 5(r-x). El dueño tiene control total y los demás solo leen y ejecutan."
+  },
+  {
+    "pregunta": "¿Qué bus del procesador es unidireccional y transporta la dirección de memoria a la que se desea acceder?",
+    "opciones": ["Bus de Datos", "Bus de Control", "Bus de Direcciones", "Bus de Sistema"],
+    "correcta": 2,
+    "explicacion": "El bus de direcciones siempre viaja de la CPU hacia la memoria o periféricos."
+  },
+  {
+    "pregunta": "El software que se encuentra grabado en una memoria ROM y controla el hardware al nivel más bajo se denomina:",
+    "opciones": ["Middleware", "Firmware", "Shareware", "Malware"],
+    "correcta": 1,
+    "explicacion": "El firmware es el código específico que gestiona un componente de hardware concreto (ej: BIOS)."
+  },
+  {
+    "pregunta": "En el sistema de archivos NTFS, ¿qué permite que un archivo sea recuperado tras un fallo del sistema mediante el registro de cambios?",
+    "opciones": ["MFT", "Journaling", "Clusters", "BitLocker"],
+    "correcta": 1,
+    "explicacion": "El journaling registra las transacciones de archivos para evitar corrupciones en cierres inesperados."
+  },
+  {
+    "pregunta": "¿Qué interrupción es generada por el temporizador del sistema para permitir la multitarea?",
+    "opciones": ["Interrupción de E/S", "Interrupción de Reloj", "Excepción de software", "Fallo de página"],
+    "correcta": 1,
+    "explicacion": "El reloj genera pulsos regulares que permiten al SO cambiar de un proceso a otro."
+  },
+  {
+    "pregunta": "¿Qué comando de Linux se utiliza para ver los procesos en ejecución en tiempo real?",
+    "opciones": ["ps -ef", "ls", "top", "grep"],
+    "correcta": 2,
+    "explicacion": "El comando 'top' ofrece una vista dinámica y actualizada de los procesos y recursos."
+  },
+  {
+    "pregunta": "La memoria secundaria (discos) se diferencia de la primaria (RAM) en que:",
+    "opciones": ["Es volátil", "Es más rápida", "Es no volátil y de mayor capacidad", "Se borra al apagar el equipo"],
+    "correcta": 2,
+    "explicacion": "La memoria secundaria mantiene los datos sin corriente eléctrica."
+  },
+  {
+    "pregunta": "En Windows, ¿dónde se guardan de forma jerárquica las configuraciones del sistema y las aplicaciones?",
+    "opciones": ["System32", "Archivos de Programa", "Registro del Sistema (Registry)", "Archivo de paginación"],
+    "correcta": 2,
+    "explicacion": "El registro de Windows almacena toda la configuración operativa y de software."
+  },
+  {
+    "pregunta": "¿Qué arquitectura de procesadores se caracteriza por un conjunto de instrucciones simple y de tamaño fijo?",
+    "opciones": ["CISC", "RISC", "EPIC", "x86"],
+    "correcta": 1,
+    "explicacion": "RISC (Reduced Instruction Set Computer) busca la eficiencia con instrucciones sencillas."
+  },
+  {
+    "pregunta": "¿Qué función realiza la unidad MMU (Memory Management Unit)?",
+    "opciones": ["Limpiar el polvo de la RAM", "Traducir direcciones lógicas en direcciones físicas", "Controlar la velocidad del bus de datos", "Realizar copias de seguridad"],
+    "correcta": 1,
+    "explicacion": "La MMU es esencial para la implementación de la memoria virtual y la protección de memoria."
+  }
+]
