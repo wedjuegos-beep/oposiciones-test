@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "Según la Ley 39/2015, ¿en qué plazo se entiende rechazada una notificación electrónica si el interesado no accede a su contenido?",
+    "opciones": ["A los 5 días naturales", "A los 10 días naturales", "A los 10 días hábiles", "A los 15 días naturales"],
+    "correcta": 1,
+    "explicacion": "El artículo 43.2 establece que transcurridos 10 días naturales sin acceso, la notificación se considera rechazada."
+  },
+  {
+    "pregunta": "¿Cuál de estos sujetos NO está obligado a relacionarse electrónicamente con la Administración según el art. 14.2 de la Ley 39/2015?",
+    "opciones": ["Personas jurídicas", "Notarios y Registradores de la propiedad", "Representantes de interesados obligados", "Personas físicas para cualquier trámite"],
+    "correcta": 3,
+    "explicacion": "Las personas físicas tienen el derecho, pero no la obligación general, salvo que se establezca para ciertos colectivos por su capacidad técnica."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿qué principio técnico asegura que los sistemas de información puedan compartir datos y procesos?",
+    "opciones": ["Seguridad", "Interoperabilidad", "Escalabilidad", "Disponibilidad"],
+    "correcta": 1,
+    "explicacion": "La interoperabilidad es la capacidad de los sistemas y de las organizaciones a las que pertenecen de intercambiar información."
+  },
+  {
+    "pregunta": "En el ENS, ¿cuál es el nivel de seguridad si el perjuicio causado por un incidente de seguridad es calificado como 'Grave'?",
+    "opciones": ["Bajo", "Medio", "Alto", "Muy Alto"],
+    "correcta": 1,
+    "explicacion": "El nivel Medio se asocia a un perjuicio grave, mientras que el Alto se asocia a un perjuicio Muy Grave."
+  },
+  {
+    "pregunta": "Según el RGPD, el tratamiento de datos personales de un menor será lícito cuando tenga al menos:",
+    "opciones": ["13 años", "14 años", "16 años", "18 años"],
+    "correcta": 1,
+    "explicacion": "En España, la LOPDGDD fija en 14 años la edad para prestar consentimiento de forma autónoma."
+  },
+  {
+    "pregunta": "¿Qué recurso administrativo se interpone ante el superior jerárquico del órgano que dictó el acto?",
+    "opciones": ["Recurso de Reposición", "Recurso de Alzada", "Recurso Extraordinario de Revisión", "Recurso de Queja"],
+    "correcta": 1,
+    "explicacion": "El recurso de alzada se dirige al superior jerárquico del órgano que dictó el acto que se impugna."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, ¿quién ostenta la representación legal de la Sede Electrónica?",
+    "opciones": ["El titular de la unidad administrativa", "El titular del órgano directivo", "El titular del organismo titular de la sede", "El Ministro correspondiente"],
+    "correcta": 2,
+    "explicacion": "La titularidad de la sede conlleva la responsabilidad respecto a la integridad y veracidad de la información."
+  },
+  {
+    "pregunta": "¿Cuál es la función del Punto de Acceso General (PAG)?",
+    "opciones": ["Almacenar copias de seguridad", "Facilitar el acceso a los servicios, procedimientos e informaciones de las Administraciones Públicas", "Gestionar el correo interno del Estado", "Alojar el BOE exclusivamente"],
+    "correcta": 1,
+    "explicacion": "El PAG funciona como un portal de entrada unificado para ciudadanos y empresas."
+  },
+  {
+    "pregunta": "En el ENS, la dimensión que garantiza que la información no sea modificada por personas no autorizadas es:",
+    "opciones": ["Confidencialidad", "Integridad", "Disponibilidad", "Trazabilidad"],
+    "correcta": 1,
+    "explicacion": "La integridad asegura que el contenido sea exacto y no haya sido alterado de forma no autorizada."
+  },
+  {
+    "pregunta": "Según la Ley 39/2015, si una solicitud no reúne los requisitos, ¿qué plazo tiene el interesado para subsanar?",
+    "opciones": ["5 días", "10 días", "15 días", "1 mes"],
+    "correcta": 1,
+    "explicacion": "El plazo general de subsanación es de 10 días hábiles."
+  },
+  {
+    "pregunta": "El Delegado de Protección de Datos (DPD) debe ser designado atendiendo a:",
+    "opciones": ["Sus cualidades profesionales y conocimientos en Derecho y protección de datos", "Su antigüedad en la Administración", "Ser cargo electo", "Tener el título de Ingeniero Informático exclusivamente"],
+    "correcta": 0,
+    "explicacion": "El RGPD exige competencia profesional y conocimientos especializados en la materia."
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, los sistemas de firma electrónica para la actuación administrativa automatizada son:",
+    "opciones": ["Solo código seguro de verificación", "Sello electrónico y código seguro de verificación (CSV)", "Firma del Ministro", "Solo firma biométrica"],
+    "correcta": 1,
+    "explicacion": "El artículo 42 define el sello electrónico y el CSV para actuaciones automatizadas."
+  },
+  {
+    "pregunta": "¿Qué ley regula específicamente el Procedimiento Administrativo Común?",
+    "opciones": ["Ley 40/2015", "Ley 39/2015", "Ley Orgánica 3/2018", "Real Decreto 311/2022"],
+    "correcta": 1,
+    "explicacion": "La Ley 39/2015 es la norma de cabecera para el procedimiento administrativo común."
+  },
+  {
+    "pregunta": "La 'Capacidad de obrar' ante las Administraciones Públicas se reconoce a los menores de edad cuando:",
+    "opciones": ["Nunca tienen capacidad", "Solo a partir de los 16 años", "Para el ejercicio de derechos cuya actuación esté permitida sin asistencia de quien ejerza la patria potestad", "Solo con firma de notario"],
+    "correcta": 2,
+    "explicacion": "El artículo 3 de la Ley 39/2015 reconoce esta capacidad a menores para actos permitidos por el ordenamiento."
+  },
+  {
+    "pregunta": "En el contexto de interoperabilidad (ENI), ¿qué es un documento electrónico?",
+    "opciones": ["Un PDF exclusivamente", "Información de cualquier naturaleza en forma electrónica, archivada en un soporte electrónico según un formato determinado", "Un escaneo de un papel", "Un correo electrónico"],
+    "correcta": 1,
+    "explicacion": "Es una definición amplia que abarca cualquier información electrónica con estructura."
+  },
+  {
+    "pregunta": "Según el ENS, ¿cada cuánto tiempo debe realizarse una auditoría de seguridad para sistemas de nivel Medio o Alto?",
+    "opciones": ["Cada año", "Al menos cada dos años", "Cada cinco años", "Solo cuando haya un incidente"],
+    "correcta": 1,
+    "explicacion": "Los sistemas de categoría Media o Alta deben someterse a una auditoría ordinaria al menos cada dos años."
+  },
+  {
+    "pregunta": "¿Qué principio del RGPD obliga a tratar solo los datos estrictamente necesarios para el fin previsto?",
+    "opciones": ["Exactitud", "Minimización de datos", "Limitación del plazo de conservación", "Integridad y confidencialidad"],
+    "correcta": 1,
+    "explicacion": "La minimización exige que los datos sean adecuados, pertinentes y limitados a lo necesario."
+  },
+  {
+    "pregunta": "La 'Sede Electrónica' se caracteriza por:",
+    "opciones": ["Ser una red social", "Ser una dirección electrónica bajo la responsabilidad de una Administración Pública", "No requerir certificados", "Ser gestionada por empresas privadas"],
+    "correcta": 1,
+    "explicacion": "La sede implica responsabilidad, integridad, veracidad y actualización por parte de la Administración titular."
+  },
+  {
+    "pregunta": "¿Contra qué actos cabe el Recurso de Alzada?",
+    "opciones": ["Contra actos que ponen fin a la vía administrativa", "Contra actos que NO ponen fin a la vía administrativa", "Contra reglamentos", "Contra sentencias judiciales"],
+    "correcta": 1,
+    "explicacion": "Si el acto pone fin a la vía administrativa, el recurso administrativo es el de reposición (potestativo)."
+  },
+  {
+    "pregunta": "En el marco de la firma electrónica, ¿qué estándar se utiliza para firmas en documentos PDF?",
+    "opciones": ["CAdES", "XAdES", "PAdES", "TAdES"],
+    "correcta": 2,
+    "explicacion": "PAdES (PDF Advanced Electronic Signatures) es el estándar específico para PDF."
+  }
+]
