@@ -1,0 +1,502 @@
+[
+  {
+    "id": 351,
+    "pregunta": "Contra las disposiciones administrativas de carácter general:",
+    "opciones": [
+      "Cabe recurso de alzada.",
+      "Cabe recurso de reposición.",
+      "No caben recursos en vía administrativa (solo recurso directo ante la jurisdicción contenciosa)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 352,
+    "pregunta": "El recurso de alzada se interpone ante:",
+    "opciones": [
+      "El mismo órgano que dictó el acto.",
+      "El órgano superior jerárquico del que dictó el acto.",
+      "El Tribunal Supremo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 353,
+    "pregunta": "El plazo para interponer el recurso de alzada, si el acto es expreso, es de:",
+    "opciones": [
+      "Quince días.",
+      "Un mes.",
+      "Dos meses."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 354,
+    "pregunta": "Si el recurso de alzada no se resuelve en 3 meses, se entiende:",
+    "opciones": [
+      "Estimado por silencio positivo.",
+      "Desestimado (salvo en la excepción de doble silencio negativo).",
+      "Que el funcionario ha sido sancionado."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 355,
+    "pregunta": "El recurso potestativo de reposición se interpone contra actos que:",
+    "opciones": [
+      "No ponen fin a la vía administrativa.",
+      "Ponen fin a la vía administrativa.",
+      "Son nulos de pleno derecho únicamente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 356,
+    "pregunta": "El plazo para resolver y notificar el recurso de reposición es de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 357,
+    "pregunta": "Contra la resolución de un recurso de reposición:",
+    "opciones": [
+      "Se puede interponer otro de reposición.",
+      "Se puede interponer recurso de alzada.",
+      "No podrá interponerse de nuevo dicho recurso (solo vía judicial)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 358,
+    "pregunta": "El recurso extraordinario de revisión procede cuando:",
+    "opciones": [
+      "Haya aparecido un documento de valor esencial para la resolución, aunque sea posterior.",
+      "Al dictar el acto se hubiera incurrido en error de hecho que resulte de los propios documentos del expediente.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 359,
+    "pregunta": "El plazo para interponer el recurso extraordinario de revisión por error de hecho es de:",
+    "opciones": [
+      "Tres meses.",
+      "Cuatro años siguientes a la fecha de la notificación de la resolución impugnada.",
+      "Diez años."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 360,
+    "pregunta": "La revisión de oficio de los actos nulos de pleno derecho puede realizarse:",
+    "opciones": [
+      "En cualquier momento, por iniciativa propia o a solicitud de interesado.",
+      "Solo en el primer año.",
+      "Solo si lo autoriza el Defensor del Pueblo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 361,
+    "pregunta": "Para la revisión de oficio de actos nulos es preceptivo el dictamen favorable de:",
+    "opciones": [
+      "El Consejo de Estado u órgano consultivo equivalente de la CCAA (Consell Jurídic Consultiu).",
+      "El Alcalde.",
+      "El Ministerio de Justicia."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 362,
+    "pregunta": "La declaración de lesividad de actos anulables favorables a los interesados prescribe a los:",
+    "opciones": [
+      "Dos años desde que se dictó el acto.",
+      "Cuatro años desde que se dictó el acto.",
+      "No prescribe nunca."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 363,
+    "pregunta": "La rectificación de errores materiales, de hecho o aritméticos puede hacerse:",
+    "opciones": [
+      "En cualquier momento.",
+      "Solo mediante recurso de alzada.",
+      "En el plazo de un mes."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 364,
+    "pregunta": "La ejecución de un acto impugnado mediante recurso:",
+    "opciones": [
+      "Se suspende automáticamente.",
+      "No se suspende, por regla general.",
+      "Solo se suspende si el interesado paga una fianza."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 365,
+    "pregunta": "Se podrá suspender la ejecución del acto impugnado si:",
+    "opciones": [
+      "La ejecución pudiera causar perjuicios de imposible o difícil reparación.",
+      "La impugnación se fundamente en una causa de nulidad de pleno derecho.",
+      "Ambas son causas posibles de suspensión."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 366,
+    "pregunta": "En el Ayuntamiento de Valencia, ponen fin a la vía administrativa:",
+    "opciones": [
+      "Las resoluciones del Pleno y del Alcalde.",
+      "Las resoluciones de la Junta de Gobierno Local.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 367,
+    "pregunta": "¿Cuál es el plazo de prescripción de las infracciones muy graves según la Ley 40/2015?",
+    "opciones": [
+      "Un año.",
+      "Dos años.",
+      "Tres años."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 368,
+    "pregunta": "Las sanciones impuestas por faltas leves prescriben al:",
+    "opciones": [
+      "Año.",
+      "Mes.",
+      "Seis meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 369,
+    "pregunta": "El principio de 'non bis in idem' significa:",
+    "opciones": [
+      "Que no se puede sancionar dos veces por los mismos hechos y fundamentos.",
+      "Que el ciudadano siempre tiene razón.",
+      "Que las multas deben pagarse en dos plazos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 370,
+    "pregunta": "La potestad sancionadora requiere que los hechos se tipifiquen como infracción por:",
+    "opciones": [
+      "Una norma con rango de Ley (Principio de Legalidad).",
+      "Un bando del Alcalde.",
+      "Un acuerdo de la comunidad de vecinos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 371,
+    "pregunta": "En el procedimiento sancionador, la fase de instrucción y la de resolución:",
+    "opciones": [
+      "Deben estar encomendadas a órganos distintos.",
+      "Las hace la misma persona para ahorrar tiempo.",
+      "Solo las hace el Alcalde."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 372,
+    "pregunta": "Los hechos declarados probados por resoluciones judiciales penales firmes:",
+    "opciones": [
+      "No vinculan a la Administración.",
+      "Vincularán a las Administraciones Públicas en sus procedimientos sancionadores.",
+      "Se pueden volver a discutir en el Ayuntamiento."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 373,
+    "pregunta": "La Ley 40/2015 establece que el ejercicio de la potestad reglamentaria corresponde a:",
+    "opciones": [
+      "El Gobierno de la Nación, los órganos de gobierno de las CCAA y los órganos correspondientes de las Entidades Locales.",
+      "Solo al Parlamento.",
+      "A los funcionarios del Grupo A1."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 374,
+    "pregunta": "El principio de proporcionalidad en materia sancionadora implica:",
+    "opciones": [
+      "Que la sanción debe ser adecuada a la gravedad del hecho constitutivo de la infracción.",
+      "Que todos deben pagar lo mismo.",
+      "Que la multa debe ser siempre el 10% del sueldo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 375,
+    "pregunta": "La responsabilidad patrimonial de las autoridades y personal al servicio de las AAPP:",
+    "opciones": [
+      "Los particulares se dirigirán directamente contra la Administración, no contra el funcionario.",
+      "El particular debe demandar primero al funcionario.",
+      "No existe tal responsabilidad."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 376,
+    "pregunta": "La acción de regreso consiste en que la Administración:",
+    "opciones": [
+      "Exige al funcionario la indemnización pagada si hubo dolo o culpa grave.",
+      "Devuelve el dinero al ciudadano por error.",
+      "Anula el contrato con un proveedor."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 377,
+    "pregunta": "Los planes y programas cuya aprobación corresponda al Pleno del Ayuntamiento deben ser:",
+    "opciones": [
+      "Sometidos a información pública.",
+      "Secretos hasta su publicación final.",
+      "Aprobados por sorteo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 378,
+    "pregunta": "El Defensor del Pueblo es designado por:",
+    "opciones": [
+      "Las Cortes Generales.",
+      "El Rey.",
+      "El Presidente del Gobierno."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 379,
+    "pregunta": "El mandato del Defensor del Pueblo dura:",
+    "opciones": [
+      "Cuatro años.",
+      "Cinco años.",
+      "Es vitalicio."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 380,
+    "pregunta": "El Tribunal de Cuentas es el supremo órgano fiscalizador de las cuentas y gestión económica de:",
+    "opciones": [
+      "El Estado y el sector público.",
+      "Solo de los Ministerios.",
+      "Solo de las empresas privadas con subvenciones."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 381,
+    "pregunta": "La Constitución Española garantiza el derecho a la tutela judicial efectiva en su artículo:",
+    "opciones": [
+      "14.",
+      "24.",
+      "44."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 382,
+    "pregunta": "¿Quién ostenta la jefatura superior de todo el personal del Ayuntamiento de Valencia?",
+    "opciones": [
+      "El Alcalde.",
+      "El Concejal de Personal.",
+      "El Secretario General."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 383,
+    "pregunta": "La aprobación de la plantilla de personal y la relación de puestos de trabajo corresponde a:",
+    "opciones": [
+      "El Pleno.",
+      "La Junta de Gobierno Local.",
+      "Al Alcalde de forma exclusiva en todos los casos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 384,
+    "pregunta": "El personal de confianza que realiza funciones de asesoramiento especial es:",
+    "opciones": [
+      "Personal eventual.",
+      "Funcionario interino.",
+      "Personal laboral fijo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 385,
+    "pregunta": "La oferta de empleo público debe ejecutarse en el plazo improrrogable de:",
+    "opciones": [
+      "Un año.",
+      "Tres años.",
+      "Seis meses."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 386,
+    "pregunta": "La sanción de separación del servicio para funcionarios locales requiere:",
+    "opciones": [
+      "Un expediente disciplinario con todas las garantías.",
+      "Que el funcionario esté de acuerdo.",
+      "Solo una firma del concejal."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 387,
+    "pregunta": "En el Ayuntamiento de Valencia, la competencia para sancionar las infracciones a las ordenanzas de limpieza corresponde a:",
+    "opciones": [
+      "El Alcalde (quien puede delegar en la Junta de Gobierno o Concejales).",
+      "El Jefe de la Policía Local únicamente.",
+      "Al vecino que denuncia."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 388,
+    "pregunta": "La creación de Distritos es obligatoria en Valencia por ser:",
+    "opciones": [
+      "Municipio de Gran Población.",
+      "Una isla.",
+      "Capital de provincia únicamente."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 389,
+    "pregunta": "El Consejo Social de la Ciudad está formado por representantes de:",
+    "opciones": [
+      "Organizaciones económicas, sociales, profesionales y de vecinos más representativas.",
+      "Solo por los partidos políticos con representación.",
+      "Solo por funcionarios jubilados."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 390,
+    "pregunta": "Los recursos de las Haciendas Locales procedentes de impuestos son:",
+    "opciones": [
+      "Ingresos de derecho público.",
+      "Ingresos de derecho privado.",
+      "Donaciones voluntarias."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 391,
+    "pregunta": "El hecho imponible del IBI es:",
+    "opciones": [
+      "La propiedad de bienes inmuebles rústicos o urbanos.",
+      "Tener un coche aparcado.",
+      "Abrir un negocio de hostelería."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 392,
+    "pregunta": "El IVTM (Impuesto de Vehículos) se devenga:",
+    "opciones": [
+      "El primer día del período impositivo (1 de enero por regla general).",
+      "Cuando se pasa la ITV.",
+      "Al comprar la gasolina."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 393,
+    "pregunta": "Las multas coercitivas son:",
+    "opciones": [
+      "Un medio de ejecución forzosa de los actos administrativos.",
+      "Sanciones penales.",
+      "Impuestos sobre el lujo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 394,
+    "pregunta": "El procedimiento administrativo se impulsará:",
+    "opciones": [
+      "De oficio en todos sus trámites.",
+      "Solo si el interesado paga por cada paso.",
+      "Solo mediante petición escrita mensual del interesado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 395,
+    "pregunta": "El principio de celeridad implica que:",
+    "opciones": [
+      "Se acordarán en un solo acto todos los trámites que por su naturaleza admitan una impulsión simultánea.",
+      "Hay que correr por los pasillos del Ayuntamiento.",
+      "No se pueden usar ordenadores antiguos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 396,
+    "pregunta": "En el despacho de expedientes se seguirá el orden riguroso de incoación en asuntos de homogénea naturaleza, salvo:",
+    "opciones": [
+      "Orden motivada en contrario del titular de la unidad.",
+      "Que el interesado sea un amigo.",
+      "Que sea viernes por la tarde."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 397,
+    "pregunta": "La Ley 39/2015 considera 'festivos' a efectos de cómputo de plazos:",
+    "opciones": [
+      "Los días inhábiles en el municipio o CCAA donde resida el interesado o tenga su sede el órgano.",
+      "Solo los domingos.",
+      "Solo el 1 de enero y el 25 de diciembre."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 398,
+    "pregunta": "Cuando un día sea hábil en el municipio de residencia del interesado e inhábil en la sede del órgano (o viceversa):",
+    "opciones": [
+      "Se considerará inhábil en todo caso.",
+      "Se considerará hábil.",
+      "Se cuenta como medio día."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 399,
+    "pregunta": "La Administración puede ampliar los plazos establecidos de forma motivada:",
+    "opciones": [
+      "Siempre que no exceda de la mitad de los mismos y las circunstancias lo aconsejen.",
+      "Hasta un máximo de un año.",
+      "No se pueden ampliar nunca los plazos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 400,
+    "pregunta": "Contra el acuerdo que resuelva la ampliación de plazos:",
+    "opciones": [
+      "No cabe recurso alguno.",
+      "Cabe recurso de alzada.",
+      "Cabe recurso de reposición."
+    ],
+    "correcta": 0
+  }
+]
