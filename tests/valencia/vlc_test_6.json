@@ -1,0 +1,502 @@
+[
+  {
+    "id": 251,
+    "pregunta": "Según la Ley 40/2015, el funcionamiento de los órganos colegiados podrá ser:",
+    "opciones": [
+      "Únicamente presencial.",
+      "Presencial o a distancia por medios electrónicos.",
+      "Solo por escrito mediante correo certificado."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 252,
+    "pregunta": "Para la validez de las reuniones a distancia en órganos colegiados, se requiere que los miembros se encuentren en:",
+    "opciones": [
+      "Territorio nacional obligatoriamente.",
+      "Cualquier lugar, siempre que se asegure la identidad, el contenido de sus manifestaciones y el momento de las mismas.",
+      "En sedes oficiales de la misma administración."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 253,
+    "pregunta": "En las reuniones a distancia, las actas de las sesiones se aprobarán:",
+    "opciones": [
+      "En la misma sesión o en la siguiente.",
+      "Solo mediante firma física del Secretario.",
+      "Al finalizar el año natural."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 254,
+    "pregunta": "¿Qué es el Catálogo de Servicios Públicos?",
+    "opciones": [
+      "Un inventario de todas las empresas privadas de la ciudad.",
+      "El instrumento donde se recogen de forma clara los servicios que presta el Ayuntamiento y los derechos de los ciudadanos.",
+      "Una lista de los teléfonos de los concejales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 255,
+    "pregunta": "Las Cartas de Servicios son documentos en los que las Administraciones informan sobre:",
+    "opciones": [
+      "Los servicios que tienen encomendados y los compromisos de calidad en su prestación.",
+      "Las multas que van a poner cada año.",
+      "La vida privada de los empleados públicos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 256,
+    "pregunta": "En la atención al ciudadano, el principio de 'ventanilla única' implica que:",
+    "opciones": [
+      "Solo hay una persona trabajando en todo el Ayuntamiento.",
+      "El ciudadano puede presentar documentos para cualquier administración en un solo punto de entrada.",
+      "Solo se puede ir al Ayuntamiento un día a la semana."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 257,
+    "pregunta": "La información administrativa puede ser:",
+    "opciones": [
+      "General y particular.",
+      "Privada y secreta.",
+      "Solo mediante boletín oficial."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 258,
+    "pregunta": "La información particular es aquella que:",
+    "opciones": [
+      "Concierne al estado o contenido de procedimientos en tramitación o a la identificación de ciudadanos.",
+      "Se refiere a noticias del periódico.",
+      "Se puede dar a cualquier persona que la pida sin identificarse."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 259,
+    "pregunta": "Un documento administrativo se define como:",
+    "opciones": [
+      "Cualquier papel que haya en una mesa oficial.",
+      "La unidad estructurada de información con independencia del soporte que es emitida por un órgano en el ejercicio de sus funciones.",
+      "Solo las leyes y reglamentos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 260,
+    "pregunta": "Los documentos administrativos deben ser conservados en:",
+    "opciones": [
+      "Archivos administrativos.",
+      "En casa del funcionario encargado.",
+      "Se destruyen todos al acabar el año."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 261,
+    "pregunta": "Las fases del archivo de documentos son:",
+    "opciones": [
+      "Archivo de oficina, central, intermedio e histórico.",
+      "Solo existe el archivo del sótano.",
+      "Archivo inicial y archivo final."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 262,
+    "pregunta": "El archivo de oficina custodia documentos que:",
+    "opciones": [
+      "Tienen más de 50 años.",
+      "Están en trámite o son de uso muy frecuente en la unidad administrativa.",
+      "Son para tirar a la basura."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 263,
+    "pregunta": "La transferencia de documentos es el proceso de:",
+    "opciones": [
+      "Pasar documentos de un archivo a otro según su ciclo de vida y uso.",
+      "Escanear papeles para subirlos a redes sociales.",
+      "Vender papel viejo para reciclar."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 264,
+    "pregunta": "El derecho de los ciudadanos a utilizar la lengua valenciana en sus relaciones con el Ayuntamiento de Valencia está garantizado por:",
+    "opciones": [
+      "El Estatuto de Autonomía y la Llei d'Ús i Ensenyament del Valencià.",
+      "Solo por una orden interna del Alcalde.",
+      "No existe tal derecho."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 265,
+    "pregunta": "Cuando en un procedimiento hay varios interesados y estos no designan un lugar para notificaciones:",
+    "opciones": [
+      "La notificación se hará al que figure en primer término en la solicitud.",
+      "No se notifica a nadie.",
+      "Se publica directamente en el BOE."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 266,
+    "pregunta": "El plazo para notificar una resolución administrativa es de:",
+    "opciones": [
+      "Diez días a partir de la fecha en que el acto haya sido dictado.",
+      "Cinco días.",
+      "Un mes."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 267,
+    "pregunta": "Toda notificación debe contener el texto íntegro del acto, así como:",
+    "opciones": [
+      "Si el acto es definitivo o no en vía administrativa.",
+      "Los recursos que procedan, órgano ante el que interponerlos y plazo.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 268,
+    "pregunta": "Si una notificación carece de alguno de los elementos esenciales pero el interesado realiza actuaciones que supongan el conocimiento del contenido:",
+    "opciones": [
+      "Surtirá efecto a partir de la fecha en que se realice dicha actuación.",
+      "Será nula para siempre.",
+      "Hay que repetirla obligatoriamente."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 269,
+    "pregunta": "Las notificaciones que se realicen en papel deben ser puestas a disposición del interesado en la sede electrónica para que pueda acceder:",
+    "opciones": [
+      "Es una opción voluntaria para la Administración.",
+      "Es obligatorio por la Ley 39/2015.",
+      "Solo si el interesado lo pide por escrito."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 270,
+    "pregunta": "Se entiende rechazada la notificación electrónica cuando transcurran:",
+    "opciones": [
+      "Cinco días naturales desde la puesta a disposición sin que se acceda a su contenido.",
+      "Diez días naturales desde la puesta a disposición sin que se acceda a su contenido.",
+      "Quince días hábiles."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 271,
+    "pregunta": "La publicación de un acto sustituye a la notificación cuando:",
+    "opciones": [
+      "El acto tenga por destinatario a una pluralidad indeterminada de personas.",
+      "Se trate de actos integrantes de un procedimiento de concurrencia competitiva (subvenciones, oposiciones).",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 272,
+    "pregunta": "La nulidad de un acto administrativo:",
+    "opciones": [
+      "No implica la de los sucesivos en el procedimiento que sean independientes del primero.",
+      "Arrastra siempre a todos los actos posteriores del expediente.",
+      "Solo afecta al funcionario que lo firmó."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 273,
+    "pregunta": "Los defectos de forma que no impidan alcanzar el fin del acto ni produzcan indefensión:",
+    "opciones": [
+      "Hacen el acto nulo.",
+      "No invalidan el acto (son irregularidades no invalidantes).",
+      "Obligan a pagar una indemnización."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 274,
+    "pregunta": "La caducidad de un procedimiento iniciado a instancia de parte por inactividad del interesado requiere:",
+    "opciones": [
+      "Que la Administración le advierta que, transcurridos tres meses, se producirá la caducidad.",
+      "Que pasen diez días sin noticias.",
+      "Que el interesado muera."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 275,
+    "pregunta": "No podrá declararse la caducidad si la cuestión suscita un interés general o fuera conveniente para definir el servicio público:",
+    "opciones": [
+      "Es cierto.",
+      "Es falso, la caducidad es siempre obligatoria.",
+      "Solo si lo autoriza un juez."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 276,
+    "pregunta": "La ejecución forzosa por apremio sobre el patrimonio se aplica cuando:",
+    "opciones": [
+      "El interesado debe entregar un objeto personal.",
+      "Se trate de satisfacer una cantidad líquida en virtud de una resolución administrativa.",
+      "El interesado no quiere ir a una reunión."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 277,
+    "pregunta": "La compulsión sobre las personas como medio de ejecución forzosa se usará para:",
+    "opciones": [
+      "Obligaciones personalísimas de no hacer o de soportar.",
+      "Cobrar el IBI.",
+      "Entregar una carta."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 278,
+    "pregunta": "En el procedimiento administrativo común, el término 'día hábil' excluye:",
+    "opciones": [
+      "Sábados, domingos y festivos.",
+      "Solo domingos.",
+      "Solo los días de fiesta local."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 279,
+    "pregunta": "Los convenios entre Administraciones Públicas se rigen por la Ley:",
+    "opciones": [
+      "39/2015.",
+      "40/2015.",
+      "7/1985 (LBRL)."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 280,
+    "pregunta": "La vigencia de un convenio no podrá ser superior a:",
+    "opciones": [
+      "Dos años.",
+      "Cuatro años, salvo prórroga por otros cuatro.",
+      "Diez años fijos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 281,
+    "pregunta": "¿Qué es una disposición general?",
+    "opciones": [
+      "Una norma con rango inferior a la Ley emitida por la Administración.",
+      "Un discurso del Alcalde.",
+      "Una multa colectiva."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 282,
+    "pregunta": "Las disposiciones administrativas no podrán vulnerar la Constitución ni las Leyes. Esto se basa en el:",
+    "opciones": [
+      "Principio de jerarquía normativa.",
+      "Principio de transparencia.",
+      "Principio de igualdad."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 283,
+    "pregunta": "Las Administraciones Públicas se sirven de medios electrónicos para asegurar la:",
+    "opciones": [
+      "Interoperabilidad y seguridad de los sistemas.",
+      "Destrucción rápida de datos.",
+      "Confidencialidad absoluta ante los jueces."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 284,
+    "pregunta": "El Punto de Acceso General (PAG) electrónico permite:",
+    "opciones": [
+      "Acceder a todas las sedes electrónicas de las AAPP desde un solo sitio.",
+      "Comprar entradas para el cine.",
+      "Solo consultar el BOE."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 285,
+    "pregunta": "La identificación mediante sistemas de clave concertada es válida si:",
+    "opciones": [
+      "Lo decide el funcionario de la ventanilla.",
+      "Cuentan con un registro previo como usuario y garantizan la identidad.",
+      "El usuario tiene un DNI muy antiguo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 286,
+    "pregunta": "El 'interesado' en el procedimiento tiene derecho a conocer en cualquier momento:",
+    "opciones": [
+      "El estado de tramitación y el sentido del silencio si no se resuelve en plazo.",
+      "El sueldo exacto del instructor del expediente.",
+      "La dirección particular de los otros interesados."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 287,
+    "pregunta": "La solicitud de inicio de un procedimiento debe contener:",
+    "opciones": [
+      "Nombre, apellidos, identificación del medio de notificación, hechos, lugar, fecha y firma.",
+      "Solo el nombre y la queja.",
+      "Obligatoriamente fotos del interesado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 288,
+    "pregunta": "Si un ciudadano presenta una solicitud en una administración que no es la competente:",
+    "opciones": [
+      "Se la rechazan en el acto.",
+      "El órgano receptor la remitirá al competente notificándoselo al interesado.",
+      "Se archiva directamente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 289,
+    "pregunta": "La acumulación de procedimientos es posible cuando:",
+    "opciones": [
+      "Guarden identidad sustancial o íntima conexión.",
+      "Sean del mismo mes.",
+      "Lo pida el periódico local."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 290,
+    "pregunta": "Contra el acuerdo de acumulación de procedimientos:",
+    "opciones": [
+      "Cabe recurso de alzada.",
+      "Cabe recurso de reposición.",
+      "No cabe recurso alguno."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 291,
+    "pregunta": "El trámite de información pública sirve para que:",
+    "opciones": [
+      "Cualquier persona física o jurídica pueda examinar el expediente y formular alegaciones.",
+      "Solo los que tengan interés directo puedan verlo.",
+      "El Ayuntamiento gane dinero con las copias."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 292,
+    "pregunta": "La comparecencia de los ciudadanos ante las oficinas públicas solo será obligatoria:",
+    "opciones": [
+      "Cuando así esté previsto en una norma con rango de ley.",
+      "Siempre que el funcionario llame por teléfono.",
+      "Nunca, bajo ningún concepto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 293,
+    "pregunta": "En las notificaciones electrónicas, el sistema de avisos al móvil o correo:",
+    "opciones": [
+      "Es obligatorio y su falta anula la notificación.",
+      "Es opcional y su falta de envío no impedirá que la notificación sea válida.",
+      "Solo funciona para multas de tráfico."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 294,
+    "pregunta": "Los actos administrativos se presumen:",
+    "opciones": [
+      "Válidos y producen efectos desde la fecha en que se dicten, salvo que se demore su eficacia.",
+      "Nulos hasta que se demuestre lo contrario.",
+      "Secreto de estado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 295,
+    "pregunta": "La retroactividad de los actos administrativos es posible cuando:",
+    "opciones": [
+      "Se dicten en sustitución de actos anulados o produzcan efectos favorables al interesado (sin lesionar a terceros).",
+      "El Alcalde lo decida arbitrariamente.",
+      "Nunca es posible la retroactividad."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 296,
+    "pregunta": "Un acto es anulable cuando:",
+    "opciones": [
+      "Incurra en cualquier infracción del ordenamiento jurídico, incluso la desviación de poder.",
+      "Tenga una falta de ortografía.",
+      "Esté escrito a lápiz."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 297,
+    "pregunta": "La Administración puede declarar la lesividad de sus propios actos anulables ante la Jurisdicción Contencioso-Administrativa:",
+    "opciones": [
+      "Es cierto.",
+      "Es falso, no puede ir contra sus propios actos.",
+      "Solo si el acto es nulo de pleno derecho."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 298,
+    "pregunta": "La terminación convencional del procedimiento consiste en:",
+    "opciones": [
+      "Finalizar el procedimiento mediante acuerdos, pactos, convenios o contratos con los interesados.",
+      "Acabar el procedimiento porque ha pasado mucho tiempo.",
+      "Un sorteo para decidir el resultado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 299,
+    "pregunta": "El desistimiento por parte del interesado implica que:",
+    "opciones": [
+      "Abandona su solicitud en ese procedimiento concreto, pero mantiene su derecho para el futuro.",
+      "Renuncia a su derecho definitivamente.",
+      "Tiene que pagar las costas del proceso."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 300,
+    "pregunta": "La renuncia por parte del interesado implica que:",
+    "opciones": [
+      "Abandona el procedimiento y el derecho en que se fundaba.",
+      "Solo abandona el trámite actual.",
+      "No puede volver a hablar con el Ayuntamiento."
+    ],
+    "correcta": 0
+  }
+]
