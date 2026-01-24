@@ -1,0 +1,502 @@
+[
+  {
+    "id": 101,
+    "pregunta": "Contra los actos que no agotan la vía administrativa podrá interponerse recurso de:",
+    "opciones": [
+      "Alzada.",
+      "Reposición.",
+      "Extraordinario de revisión."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 102,
+    "pregunta": "El recurso de alzada podrá interponerse ante:",
+    "opciones": [
+      "El mismo órgano que dictó el acto.",
+      "El superior jerárquico del órgano que dictó el acto.",
+      "Ambas respuestas son correctas (ante el órgano que dictó el acto o ante el superior)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 103,
+    "pregunta": "El plazo para la interposición del recurso de alzada será de:",
+    "opciones": [
+      "Diez días si el acto fuera expreso.",
+      "Un mes si el acto fuera expreso.",
+      "Tres meses si el acto fuera expreso."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 104,
+    "pregunta": "Si el acto no fuera expreso, el recurso de alzada podrá interponerse:",
+    "opciones": [
+      "En el plazo de tres meses.",
+      "En el plazo de un mes.",
+      "En cualquier momento a partir del día siguiente a aquel en que se produzcan los efectos del silencio administrativo."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 105,
+    "pregunta": "El plazo máximo para dictar y notificar la resolución del recurso de alzada será de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 106,
+    "pregunta": "Transcurrido el plazo de tres meses sin que recaiga resolución en el recurso de alzada:",
+    "opciones": [
+      "Se entenderá estimado.",
+      "Se entenderá desestimado, salvo en el caso de recursos contra desestimación por silencio administrativo.",
+      "Se produce la caducidad del procedimiento."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 107,
+    "pregunta": "Contra la resolución de un recurso de alzada:",
+    "opciones": [
+      "No cabe ningún otro recurso administrativo, salvo el extraordinario de revisión.",
+      "Cabe interponer recurso de reposición.",
+      "Cabe interponer un nuevo recurso de alzada ante el mismo órgano."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 108,
+    "pregunta": "Los actos que agoten la vía administrativa podrán ser recurridos potestativamente en reposición ante:",
+    "opciones": [
+      "El superior jerárquico.",
+      "El mismo órgano que los hubiera dictado.",
+      "El Tribunal Superior de Justicia."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 109,
+    "pregunta": "El plazo para interponer el recurso potestativo de reposición, si el acto fuera expreso, es de:",
+    "opciones": [
+      "Quince días.",
+      "Un mes.",
+      "Dos meses."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 110,
+    "pregunta": "Si el acto no fuera expreso, el recurso de reposición podrá interponerse:",
+    "opciones": [
+      "En el plazo de un mes.",
+      "En el plazo de tres meses.",
+      "En cualquier momento a partir del día siguiente a aquel en que se produzca el silencio administrativo."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 111,
+    "pregunta": "El plazo máximo para dictar y notificar la resolución del recurso de reposición será de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 112,
+    "pregunta": "Contra la resolución de un recurso de reposición no podrá interponerse de nuevo dicho recurso:",
+    "opciones": [
+      "Es falso.",
+      "Es cierto.",
+      "Depende de la materia."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 113,
+    "pregunta": "El recurso extraordinario de revisión se interpondrá ante el órgano administrativo que dictó el acto, que también es el competente para su resolución:",
+    "opciones": [
+      "Es correcto según la Ley 39/2015.",
+      "Es incorrecto, se interpone ante el Ministro.",
+      "Es incorrecto, se interpone ante el Alcalde siempre."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 114,
+    "pregunta": "Se puede interponer recurso extraordinario de revisión cuando:",
+    "opciones": [
+      "Al dictar el acto se hubiera incurrido en error de hecho que resulte de los propios documentos del expediente.",
+      "Aparezcan documentos de valor esencial que evidencien el error de la resolución impugnada.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 115,
+    "pregunta": "En el caso de error de hecho para el recurso extraordinario de revisión, el plazo es de:",
+    "opciones": [
+      "Un año.",
+      "Dos años.",
+      "Cuatro años siguientes a la fecha de la notificación de la resolución impugnada."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 116,
+    "pregunta": "El plazo para dictar y notificar la resolución del recurso extraordinario de revisión es de:",
+    "opciones": [
+      "Un mes.",
+      "Tres meses.",
+      "Seis meses."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 117,
+    "pregunta": "La ejecución de un acto administrativo:",
+    "opciones": [
+      "Se suspende siempre por la interposición de cualquier recurso.",
+      "No se suspenderá por la interposición de un recurso, salvo que una disposición establezca lo contrario.",
+      "Se suspende solo si hay silencio administrativo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 118,
+    "pregunta": "La ejecución de un acto podrá suspenderse si:",
+    "opciones": [
+      "La ejecución pudiera causar perjuicios de imposible o difícil reparación.",
+      "La impugnación se fundamente en alguna de las causas de nulidad de pleno derecho.",
+      "Ambas respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 119,
+    "pregunta": "Se entenderá suspendida la ejecución si transcurre un mes desde que la solicitud de suspensión haya tenido entrada en el registro sin que el órgano dicte resolución expresa:",
+    "opciones": [
+      "Es correcto.",
+      "Es falso, el silencio es siempre negativo en suspensión.",
+      "El plazo es de quince días."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 120,
+    "pregunta": "Las Administraciones Públicas podrán rectificar en cualquier momento los errores materiales, de hecho o aritméticos:",
+    "opciones": [
+      "Solo a instancia de parte.",
+      "De oficio o a instancia de los interesados.",
+      "Solo mediante recurso de alzada."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 121,
+    "pregunta": "Las Administraciones podrán declarar lesivos para el interés público los actos favorables para los interesados que sean anulables:",
+    "opciones": [
+      "Para su posterior impugnación ante el orden jurisdiccional contencioso-administrativo.",
+      "Para anularlos directamente de oficio sin ir al juzgado.",
+      "Si el interesado está conforme."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 122,
+    "pregunta": "La declaración de lesividad no podrá adoptarse una vez transcurridos:",
+    "opciones": [
+      "Dos años desde que se dictó el acto.",
+      "Cuatro años desde que se dictó el acto.",
+      "Cinco años desde que se dictó el acto."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 123,
+    "pregunta": "El procedimiento de revisión de oficio de actos nulos se entiende caducado si no se dicta resolución en:",
+    "opciones": [
+      "Tres meses.",
+      "Seis meses.",
+      "Un año."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 124,
+    "pregunta": "Las Administraciones Públicas, en cualquier momento, por propia iniciativa o a solicitud de interesado, y previo dictamen favorable del Consejo de Estado u órgano consultivo de la CC.AA.:",
+    "opciones": [
+      "Declararán de oficio la nulidad de los actos que hayan puesto fin a la vía administrativa o que no hayan sido recurridos en plazo.",
+      "Podrán revocar sus actos de gravamen o desfavorables.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 125,
+    "pregunta": "La ejecución forzosa por las Administraciones Públicas se efectuará por los siguientes medios:",
+    "opciones": [
+      "Apremio sobre el patrimonio.",
+      "Ejecución subsidiaria y Multa coercitiva.",
+      "Todas son correctas, incluyendo la compulsión sobre las personas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 126,
+    "pregunta": "Si fuera necesario entrar en el domicilio del afectado para la ejecución forzosa de actos administrativos:",
+    "opciones": [
+      "Las AAPP podrán entrar libremente.",
+      "Deberán obtener el consentimiento del titular o, en su defecto, la oportuna autorización judicial.",
+      "Solo hace falta la firma del Alcalde."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 127,
+    "pregunta": "La multa coercitiva es un medio de ejecución forzosa que puede emplearse:",
+    "opciones": [
+      "Cuando así lo autoricen las leyes y en la forma y cuantía que estas determinen.",
+      "Para cualquier tipo de deuda tributaria únicamente.",
+      "Solo contra funcionarios públicos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 128,
+    "pregunta": "Habrá lugar a la ejecución subsidiaria cuando se trate de actos que:",
+    "opciones": [
+      "Sean de carácter personalísimo.",
+      "Por no ser personalísimos puedan ser ejecutados por sujeto distinto del obligado.",
+      "Impliquen el pago de una cantidad líquida."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 129,
+    "pregunta": "Si las AAPP tienen que elegir entre varios medios de ejecución forzosa:",
+    "opciones": [
+      "Elegirán el que más garantice el cobro de intereses.",
+      "Elegirán el más restrictivo de la libertad individual.",
+      "Elegirán el menos restrictivo de la libertad individual."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 130,
+    "pregunta": "No se admitirán a trámite interdictos contra las actuaciones de los órganos administrativos:",
+    "opciones": [
+      "Realizadas en materia de su competencia y de acuerdo con el procedimiento legalmente establecido.",
+      "En ningún caso, la Administración es inmune.",
+      "Solo en casos de urgencia extrema."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 131,
+    "pregunta": "En los procedimientos de responsabilidad patrimonial, es necesario informe del servicio cuyo funcionamiento haya ocasionado la presunta lesión:",
+    "opciones": [
+      "En un plazo de diez días.",
+      "En un plazo de quince días.",
+      "En un plazo de veinte días."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 132,
+    "pregunta": "En el procedimiento de responsabilidad patrimonial, el dictamen del Consejo de Estado u órgano consultivo de la CC.AA. será preceptivo cuando la reclamación sea:",
+    "opciones": [
+      "De cualquier cuantía.",
+      "Superior a 50.000 euros o la cuantía que establezca la ley autonómica.",
+      "Superior a 100.000 euros."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 133,
+    "pregunta": "El plazo máximo para resolver y notificar en los procedimientos de responsabilidad patrimonial será de:",
+    "opciones": [
+      "Tres meses.",
+      "Seis meses.",
+      "Un año."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 134,
+    "pregunta": "Si no recae resolución expresa en un procedimiento de responsabilidad patrimonial en plazo, el silencio será:",
+    "opciones": [
+      "Estimatorio.",
+      "Desestimatorio.",
+      "Produce la caducidad."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 135,
+    "pregunta": "En los procedimientos sancionadores, los hechos declarados probados por resoluciones judiciales penales firmes:",
+    "opciones": [
+      "Podrán ser revisados por la Administración.",
+      "Vincularán a las Administraciones Públicas.",
+      "No tienen efectos en la vía administrativa."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 136,
+    "pregunta": "En los procedimientos sancionadores, la resolución debe ser:",
+    "opciones": [
+      "Oral.",
+      "Motivada y decidirá todas las cuestiones planteadas por los interesados.",
+      "Ejecutiva desde el mismo día en que se dicta, aunque quepa recurso administrativo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 137,
+    "pregunta": "La resolución de un procedimiento sancionador será ejecutiva:",
+    "opciones": [
+      "Desde que se dicta.",
+      "Cuando no quepa contra ella ningún recurso ordinario en vía administrativa.",
+      "A los seis meses de su notificación."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 138,
+    "pregunta": "En la resolución de un procedimiento sancionador no se podrán introducir hechos distintos de los determinados en la fase de instrucción:",
+    "opciones": [
+      "Es correcto.",
+      "Es falso, el órgano puede añadir lo que quiera.",
+      "Solo si el instructor es el mismo que el que resuelve."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 139,
+    "pregunta": "La potestad sancionadora se ejercerá cuando:",
+    "opciones": [
+      "Haya una denuncia previa obligatoriamente.",
+      "Se sigan los principios establecidos en la Ley 40/2015 y el procedimiento de la Ley 39/2015.",
+      "Lo decida el jefe de servicio sin más trámite."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 140,
+    "pregunta": "Los procedimientos sancionadores caducarán si no se dicta resolución en el plazo de:",
+    "opciones": [
+      "Tres meses.",
+      "Seis meses (o el que fijen las normas reguladoras).",
+      "Un año."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 141,
+    "pregunta": "En los plazos señalados por días, el cómputo se inicia:",
+    "opciones": [
+      "El mismo día de la publicación.",
+      "A partir del día siguiente a aquel en que tenga lugar la notificación o publicación.",
+      "A los diez días."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 142,
+    "pregunta": "Si el último día de un plazo es inhábil:",
+    "opciones": [
+      "Se entenderá prorrogado al primer día hábil siguiente.",
+      "Se entenderá que el plazo terminó el día anterior.",
+      "Se pierde el derecho."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 143,
+    "pregunta": "La Administración puede declarar la urgencia de un procedimiento:",
+    "opciones": [
+      "De oficio o a petición de interesado.",
+      "Reduciendo a la mitad los plazos establecidos, salvo los de presentación de solicitudes y recursos.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 144,
+    "pregunta": "Contra el acuerdo que declare la aplicación de la tramitación de urgencia al procedimiento:",
+    "opciones": [
+      "Cabe recurso de alzada.",
+      "Cabe recurso de reposición.",
+      "No cabrá recurso alguno."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 145,
+    "pregunta": "La Ley 39/2015 es aplicable a:",
+    "opciones": [
+      "La Administración General del Estado.",
+      "Las Administraciones de las Comunidades Autónomas y Entidades Locales.",
+      "Todas las respuestas son correctas, incluyendo el sector público institucional."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 146,
+    "pregunta": "No tiene la consideración de interesado:",
+    "opciones": [
+      "Quienes lo promuevan como titulares de derechos.",
+      "Cualquier ciudadano que pase por la calle sin relación con el objeto.",
+      "Aquellos cuyos intereses legítimos puedan resultar afectados y se personen."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 147,
+    "pregunta": "En el caso de representación por medios electrónicos, el apoderamiento puede ser:",
+    "opciones": [
+      "Mediante firma electrónica.",
+      "Mediante comparecencia electrónica en la sede correspondiente.",
+      "Ambas son válidas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 148,
+    "pregunta": "La identificación de los interesados en el procedimiento se realizará mediante:",
+    "opciones": [
+      "Nombre y apellidos o denominación social y DNI o número equivalente.",
+      "Solo con la huella dactilar.",
+      "Únicamente con el certificado digital de la FNMT."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 149,
+    "pregunta": "Los sistemas de firma electrónica que pueden utilizar los interesados son:",
+    "opciones": [
+      "Firma electrónica cualificada y avanzada basada en certificados cualificados.",
+      "Cualquier sistema que la Administración considere válido previo registro.",
+      "Todas las respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 150,
+    "pregunta": "El Punto de Acceso General electrónico de la Administración funciona como:",
+    "opciones": [
+      "Un buscador de internet genérico.",
+      "Un portal de entrada que facilita el acceso a los servicios públicos y registros electrónicos.",
+      "Un archivo físico de documentos."
+    ],
+    "correcta": 1
+  }
+]
