@@ -1,0 +1,122 @@
+[
+  {
+    "pregunta": "En Métrica v3, ¿qué proceso tiene como objetivo la obtención de un catálogo de requisitos detallados que guiarán el desarrollo?",
+    "opciones": ["Planificación de Sistemas de Información (PSI)", "Análisis del Sistema de Información (ASI)", "Diseño del Sistema de Información (DSI)", "Mantenimiento del Sistema de Información (MSI)"],
+    "correcta": 1,
+    "explicacion": "El ASI se centra en analizar las necesidades del usuario para generar un catálogo de requisitos técnicos y de negocio."
+  },
+  {
+    "pregunta": "¿Cuál es la principal diferencia entre el modelo de ciclo de vida en Cascada y el modelo en Espiral?",
+    "opciones": ["La cascada es más rápida", "El modelo en espiral introduce explícitamente el análisis de riesgos", "La cascada no permite documentación", "El espiral solo se usa para hardware"],
+    "correcta": 1,
+    "explicacion": "El modelo en espiral es iterativo y cada ciclo incluye una fase crítica de evaluación y gestión de riesgos."
+  },
+  {
+    "pregunta": "En Programación Orientada a Objetos, ¿qué concepto permite que un mismo método se comporte de forma distinta según el objeto que lo invoca?",
+    "opciones": ["Encapsulamiento", "Abstracción", "Polimorfismo", "Herencia"],
+    "correcta": 2,
+    "explicacion": "El polimorfismo permite que objetos de diferentes clases respondan al mismo mensaje de manera específica."
+  },
+  {
+    "pregunta": "En una base de datos relacional, ¿qué comando SQL se utiliza para eliminar todos los registros de una tabla sin borrar su estructura y sin generar logs por cada fila?",
+    "opciones": ["DELETE FROM", "DROP TABLE", "TRUNCATE TABLE", "REMOVE"],
+    "correcta": 2,
+    "explicacion": "TRUNCATE es una operación de DDL que vacía la tabla rápidamente, a diferencia de DELETE que es DML y borra fila a fila."
+  },
+  {
+    "pregunta": "En Java, ¿qué modificador de acceso permite que un atributo sea visible solo dentro de la propia clase y por sus subclases?",
+    "opciones": ["public", "private", "protected", "default"],
+    "correcta": 2,
+    "explicacion": "Protected permite el acceso a la propia clase, a las clases del mismo paquete y a las subclases (herencia)."
+  },
+  {
+    "pregunta": "¿Qué etiqueta HTML se utiliza para crear una lista desordenada (con viñetas)?",
+    "opciones": ["<ol>", "<li>", "<ul>", "<list>"],
+    "correcta": 2,
+    "explicacion": "<ul> define una 'unordered list'. <ol> se usa para listas ordenadas (numeradas)."
+  },
+  {
+    "pregunta": "En el modelo Entidad-Relación, ¿qué es la cardinalidad?",
+    "opciones": ["El número de tablas de la base de datos", "El número de atributos de una entidad", "La forma en que se relacionan numéricamente las entidades (1:1, 1:N, N:M)", "La importancia de una clave primaria"],
+    "correcta": 2,
+    "explicacion": "Indica cuántas instancias de una entidad pueden asociarse con instancias de otra entidad a través de una relación."
+  },
+  {
+    "pregunta": "¿Cuál es el objetivo de las pruebas unitarias (Unit Testing)?",
+    "opciones": ["Verificar que todo el sistema funciona en conjunto", "Probar módulos o componentes individuales de código de forma aislada", "Comprobar que el usuario está satisfecho", "Medir la velocidad de la red"],
+    "correcta": 1,
+    "explicacion": "Las pruebas unitarias validan que cada unidad mínima de software (función o clase) funcione correctamente por separado."
+  },
+  {
+    "pregunta": "En SQL, la cláusula 'ORDER BY' por defecto ordena los resultados de forma:",
+    "opciones": ["Descendente (DESC)", "Ascendente (ASC)", "Aleatoria", "Por fecha de creación"],
+    "correcta": 1,
+    "explicacion": "Si no se especifica lo contrario, SQL ordena de menor a mayor (A-Z, 0-9)."
+  },
+  {
+    "pregunta": "¿Qué lenguaje se utiliza principalmente para definir el comportamiento interactivo en el lado del cliente en una página web?",
+    "opciones": ["HTML", "CSS", "JavaScript", "PHP"],
+    "correcta": 2,
+    "explicacion": "JavaScript es el lenguaje de script estándar que se ejecuta en el navegador para dar interactividad."
+  },
+  {
+    "pregunta": "En el desarrollo ágil con Scrum, ¿quién es el dueño del producto y responsable de priorizar el 'Product Backlog'?",
+    "opciones": ["Scrum Master", "Development Team", "Product Owner", "Stakeholder"],
+    "correcta": 2,
+    "explicacion": "El Product Owner representa al cliente y decide qué funcionalidades tienen más valor."
+  },
+  {
+    "pregunta": "¿Qué es un 'Diagrama de Clases' en UML?",
+    "opciones": ["Un diagrama que muestra el flujo de datos", "Un diagrama estático que describe la estructura del sistema mostrando sus clases, atributos y métodos", "Un diagrama de red", "Un esquema de la base de datos física"],
+    "correcta": 1,
+    "explicacion": "Es el diagrama principal de UML para modelar la estructura lógica de los sistemas orientados a objetos."
+  },
+  {
+    "pregunta": "En SQL, ¿qué función de agregado se usa para contar el número total de filas de una consulta?",
+    "opciones": ["SUM()", "TOTAL()", "COUNT()", "AVG()"],
+    "correcta": 2,
+    "explicacion": "COUNT(*) devuelve el número de registros que cumplen los criterios de la consulta."
+  },
+  {
+    "pregunta": "En Métrica v3, ¿en qué fase se definen los diagramas de flujo de datos (DFD)?",
+    "opciones": ["PSI", "ASI", "DSI", "CSI"],
+    "correcta": 1,
+    "explicacion": "Los DFD se crean durante el Análisis (ASI) para modelar los procesos del sistema."
+  },
+  {
+    "pregunta": "¿Qué significa que una base de datos cumpla la propiedad de 'Atomicidad'?",
+    "opciones": ["Que los datos son muy pequeños", "Que una transacción se realiza por completo o no se realiza en absoluto", "Que los datos están cifrados", "Que la base de datos es muy rápida"],
+    "correcta": 1,
+    "explicacion": "La atomicidad garantiza que si una parte de una transacción falla, toda la transacción se deshace (Rollback)."
+  },
+  {
+    "pregunta": "En CSS, ¿cómo se selecciona un elemento con un 'id' específico llamado 'cabecera'?",
+    "opciones": [".cabecera", "#cabecera", "*cabecera", "id:cabecera"],
+    "correcta": 1,
+    "explicacion": "El símbolo '#' se usa para IDs únicos, mientras que el punto '.' se usa para clases."
+  },
+  {
+    "pregunta": "¿Cuál es la función principal de un sistema de control de versiones como Git?",
+    "opciones": ["Compilar el código automáticamente", "Gestionar los cambios en el código fuente a lo largo del tiempo y facilitar el trabajo en equipo", "Ejecutar la base de datos", "Diseñar interfaces gráficas"],
+    "correcta": 1,
+    "explicacion": "Git permite rastrear cambios, volver a versiones anteriores y trabajar en ramas paralelas."
+  },
+  {
+    "pregunta": "En Java, ¿cuál es el punto de entrada principal de cualquier aplicación ejecutable?",
+    "opciones": ["public void init()", "public static void main(String[] args)", "public Class Start()", "private void run()"],
+    "correcta": 1,
+    "explicacion": "El método 'main' es el estándar que la Máquina Virtual de Java busca para iniciar la ejecución."
+  },
+  {
+    "pregunta": "¿Qué técnica de Métrica v3 se utiliza para eliminar redundancias en el diseño de bases de datos?",
+    "opciones": ["Casos de Uso", "Normalización", "Diagrama de Estados", "Estimación por Puntos de Función"],
+    "correcta": 1,
+    "explicacion": "La normalización (1FN, 2FN, 3FN) organiza los campos y tablas para minimizar la duplicidad de datos."
+  },
+  {
+    "pregunta": "Un sistema que utiliza arquitectura 'Microservicios' se caracteriza por:",
+    "opciones": ["Tener todo el código en un solo archivo gigante", "Dividir la aplicación en servicios pequeños, independientes y comunicados entre sí", "No usar bases de datos", "Funcionar solo en ordenadores muy pequeños"],
+    "correcta": 1,
+    "explicacion": "Los microservicios permiten escalar y desplegar partes de la aplicación de forma independiente."
+  }
+]
