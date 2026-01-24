@@ -1,0 +1,502 @@
+[
+  {
+    "id": 151,
+    "pregunta": "De acuerdo con la Ley 40/2015, los órganos administrativos podrán delegar el ejercicio de las competencias que tengan atribuidas en:",
+    "opciones": [
+      "Otros órganos de la misma Administración, aun cuando no sean jerárquicamente dependientes.",
+      "Únicamente en órganos jerárquicamente inferiores.",
+      "En empresas privadas de servicios."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 152,
+    "pregunta": "En ningún caso podrán ser objeto de delegación las competencias relativas a:",
+    "opciones": [
+      "Los asuntos que se refieran a relaciones con la Jefatura del Estado.",
+      "La adopción de disposiciones de carácter general.",
+      "Todas son correctas, incluyendo la resolución de recursos en los órganos que hayan dictado los actos objeto de recurso."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 153,
+    "pregunta": "Las delegaciones de competencias y su revocación:",
+    "opciones": [
+      "Deberán publicarse en el Boletín Oficial correspondiente.",
+      "Son válidas desde que se firman, sin necesidad de publicidad.",
+      "Solo se notifican a los interesados del procedimiento."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 154,
+    "pregunta": "La encomienda de gestión no supone en ningún caso:",
+    "opciones": [
+      "La cesión de la titularidad de la competencia ni de los elementos sustantivos de su ejercicio.",
+      "Un ahorro para la administración.",
+      "La intervención de órganos distintos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 155,
+    "pregunta": "La delegación de firma no alterará la responsabilidad del órgano delegante:",
+    "opciones": [
+      "Es correcto según la Ley 40/2015.",
+      "Es incorrecto, la responsabilidad pasa al firmante.",
+      "Solo en casos de extrema urgencia."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 156,
+    "pregunta": "La suplencia de los titulares de los órganos administrativos:",
+    "opciones": [
+      "Implica una transferencia de la competencia.",
+      "No implica alteración de la titularidad de la competencia.",
+      "Debe publicarse en el BOE obligatoriamente en todos los casos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 157,
+    "pregunta": "Las decisiones de los órganos colegiados se adoptarán, por regla general, por:",
+    "opciones": [
+      "Unanimidad.",
+      "Mayoría de votos.",
+      "Decisión única del Presidente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 158,
+    "pregunta": "Son causas de abstención para las autoridades y personal al servicio de las Administraciones:",
+    "opciones": [
+      "Tener interés personal en el asunto.",
+      "Tener parentesco de consanguinidad dentro del cuarto grado con los interesados.",
+      "Todas son correctas, incluyendo la amistad íntima o enemistad manifiesta."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 159,
+    "pregunta": "La no abstención en los casos en que proceda:",
+    "opciones": [
+      "Dará lugar a la responsabilidad que proceda.",
+      "Implica siempre la nulidad de los actos en que hayan intervenido.",
+      "No tiene consecuencias si el acto es justo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 160,
+    "pregunta": "La recusación podrá promoverse por los interesados:",
+    "opciones": [
+      "En cualquier momento de la tramitación del procedimiento.",
+      "Solo al inicio del expediente.",
+      "Solo tras la resolución final."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 161,
+    "pregunta": "El Municipio es la entidad básica de la organización territorial del Estado:",
+    "opciones": [
+      "Es correcto según la Ley 7/1985 (LBRL).",
+      "Es incorrecto, es la Provincia.",
+      "Solo en las Comunidades Autónomas uniprovinciales."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 162,
+    "pregunta": "Son elementos del municipio:",
+    "opciones": [
+      "El territorio, la población y la organización.",
+      "El Alcalde, el Pleno y los Concejales.",
+      "Los vecinos y el Ayuntamiento."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 163,
+    "pregunta": "El término municipal es:",
+    "opciones": [
+      "El nombre del municipio.",
+      "El territorio en que el Ayuntamiento ejerce sus competencias.",
+      "El periodo de tiempo que dura el mandato del Alcalde."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 164,
+    "pregunta": "El Padrón municipal es:",
+    "opciones": [
+      "El registro administrativo donde constan los vecinos del municipio.",
+      "Un censo que se hace cada 10 años.",
+      "La lista de personas con derecho a voto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 165,
+    "pregunta": "Toda persona que viva en España está obligada a inscribirse en el Padrón del municipio en el que resida habitualmente:",
+    "opciones": [
+      "Es cierto.",
+      "Es falso, es voluntario.",
+      "Solo si es propietario de una vivienda."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 166,
+    "pregunta": "La condición de vecino se adquiere:",
+    "opciones": [
+      "Por el nacimiento en el municipio.",
+      "En el mismo momento de la inscripción en el Padrón.",
+      "Tras dos años de residencia continuada."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 167,
+    "pregunta": "Son órganos necesarios en todos los Ayuntamientos:",
+    "opciones": [
+      "El Alcalde, los Tenientes de Alcalde y el Pleno.",
+      "La Junta de Gobierno Local.",
+      "Solo el Alcalde y el Pleno."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 168,
+    "pregunta": "La Junta de Gobierno Local es obligatoria en municipios con población superior a:",
+    "opciones": [
+      "2.000 habitantes.",
+      "5.000 habitantes.",
+      "20.000 habitantes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 169,
+    "pregunta": "El Alcalde es elegido por:",
+    "opciones": [
+      "Los concejales o por los vecinos, según los términos establecidos en la legislación electoral.",
+      "El Presidente del Gobierno.",
+      "El Delegado del Gobierno en la Comunidad Autónoma."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 170,
+    "pregunta": "El Pleno, constituido por el Alcalde y los Concejales, es el órgano de:",
+    "opciones": [
+      "Máxima representación política de los ciudadanos en el gobierno municipal.",
+      "Gestión diaria de los servicios de limpieza.",
+      "Control de la policía nacional."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 171,
+    "pregunta": "Los Tenientes de Alcalde sustituyen al Alcalde en casos de ausencia, vacante o enfermedad. Son nombrados por:",
+    "opciones": [
+      "El Pleno.",
+      "El Alcalde de entre los miembros de la Junta de Gobierno Local.",
+      "El Alcalde de entre los Concejales."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 172,
+    "pregunta": "La Comisión Especial de Sugerencias y Reclamaciones existe en:",
+    "opciones": [
+      "Todos los municipios de España.",
+      "Municipios de gran población (como Valencia) y aquellos que el Pleno acuerde.",
+      "Solo en las capitales de provincia de menos de 100.000 habitantes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 173,
+    "pregunta": "El Ayuntamiento de Valencia se rige por el Título X de la LBRL al ser considerado:",
+    "opciones": [
+      "Municipio de Gran Población.",
+      "Municipio de régimen común.",
+      "Concejo Abierto."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 174,
+    "pregunta": "En los municipios de gran población, la Junta de Gobierno Local responde de su gestión ante:",
+    "opciones": [
+      "El Alcalde únicamente.",
+      "El Pleno.",
+      "Las Cortes Valencianas."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 175,
+    "pregunta": "El número de miembros de la Junta de Gobierno Local no podrá exceder de:",
+    "opciones": [
+      "Un tercio del número legal de miembros del Pleno.",
+      "La mitad de los concejales.",
+      "Siete personas fijos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 176,
+    "pregunta": "Corresponde al Alcalde:",
+    "opciones": [
+      "Representar al Ayuntamiento.",
+      "Dirigir la política, el gobierno y la administración municipal.",
+      "Todas las respuestas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 177,
+    "pregunta": "La Secretaría General del Pleno es obligatoria en:",
+    "opciones": [
+      "Municipios de régimen común.",
+      "Municipios de Gran Población.",
+      "Municipios con más de 1.000 habitantes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 178,
+    "pregunta": "Las competencias municipales pueden ser:",
+    "opciones": [
+      "Propias, delegadas y por encomienda.",
+      "Propias y atribuidas por delegación del Estado o CC.AA.",
+      "Solo aquellas que el Alcalde decida cada mañana."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 179,
+    "pregunta": "El municipio ejercerá en todo caso como competencia propia la:",
+    "opciones": [
+      "Policía local, protección civil y extinción de incendios.",
+      "Urbanismo y vivienda.",
+      "Todas son correctas, incluyendo medio ambiente y transporte público."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 180,
+    "pregunta": "La creación de nuevos municipios requiere un núcleo de población territorialmente diferenciado y que el municipio resultante sea financieramente sostenible, con una población de al menos:",
+    "opciones": [
+      "2.000 habitantes.",
+      "5.000 habitantes.",
+      "10.000 habitantes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 181,
+    "pregunta": "El personal al servicio de las Entidades Locales se rige por:",
+    "opciones": [
+      "El TREBEP.",
+      "La Ley 7/1985 (LBRL).",
+      "Todas las respuestas son correctas, incluyendo la legislación de Función Pública de la CC.AA."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 182,
+    "pregunta": "La selección del personal debe realizarse de acuerdo con la oferta de empleo público mediante convocatoria pública y a través de los sistemas de:",
+    "opciones": [
+      "Oposición, concurso-oposición o concurso (este último con carácter excepcional).",
+      "Designación directa del Alcalde.",
+      "Sorteo ante notario."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 183,
+    "pregunta": "¿Qué es la Relación de Puestos de Trabajo (RPT)?",
+    "opciones": [
+      "El instrumento técnico para organizar el personal, donde constan los requisitos y retribuciones de cada puesto.",
+      "Una lista de todos los empleados con su dirección.",
+      "El contrato que firma el personal laboral."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 184,
+    "pregunta": "Los funcionarios de carrera de la Administración Local tienen derecho a:",
+    "opciones": [
+      "Inamovilidad en la condición de funcionario.",
+      "Vacaciones pagadas.",
+      "Todas son correctas, incluyendo el derecho a la huelga y la seguridad social."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 185,
+    "pregunta": "Las retribuciones complementarias de los funcionarios locales son fijadas por:",
+    "opciones": [
+      "El Pleno de la Corporación, dentro de los límites de la Ley de Presupuestos Generales del Estado.",
+      "El Ministerio de Hacienda directamente.",
+      "El convenio colectivo de la empresa privada más cercana."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 186,
+    "pregunta": "Se entiende por conflicto de intereses la situación en que el personal:",
+    "opciones": [
+      "Tenga una opinión política distinta a la del Alcalde.",
+      "Tenga intereses privados que puedan influir en el cumplimiento imparcial de sus deberes.",
+      "Tenga dos trabajos a la vez aunque estén autorizados."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 187,
+    "pregunta": "La sanción de demérito consiste en:",
+    "opciones": [
+      "La pérdida de puntos a efectos de promoción o carrera.",
+      "Una reducción de sueldo durante un año.",
+      "El traslado forzoso a otro municipio."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 188,
+    "pregunta": "En los procedimientos de responsabilidad patrimonial, el derecho a reclamar prescribe al:",
+    "opciones": [
+      "Año de producido el hecho o el acto que motive la indemnización.",
+      "A los dos años.",
+      "A los seis meses."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 189,
+    "pregunta": "El Registro Central de Personal depende de:",
+    "opciones": [
+      "La Secretaría General del Ayuntamiento.",
+      "El Ministerio de Hacienda y Función Pública.",
+      "La oficina de correos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 190,
+    "pregunta": "La potestad reglamentaria de las entidades locales se ejerce a través de:",
+    "opciones": [
+      "Ordenanzas y Reglamentos.",
+      "Leyes locales.",
+      "Decretos leyes."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 191,
+    "pregunta": "El procedimiento de aprobación de las ordenanzas locales incluye:",
+    "opciones": [
+      "Aprobación inicial por el Pleno, información pública y audiencia por 30 días, y aprobación definitiva.",
+      "Firma del Alcalde únicamente.",
+      "Aprobación por la Generalitat Valenciana."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 192,
+    "pregunta": "Son ordenanzas fiscales las que regulan:",
+    "opciones": [
+      "Los tributos locales (impuestos, tasas y contribuciones especiales).",
+      "Las multas de tráfico solamente.",
+      "El sueldo de los funcionarios."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 193,
+    "pregunta": "Las entidades locales pueden sancionar el incumplimiento de sus ordenanzas con multas, si no hay ley específica, de hasta:",
+    "opciones": [
+      "3.000 euros para infracciones muy graves.",
+      "10.000 euros.",
+      "Lo que decida el policía en el momento."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 194,
+    "pregunta": "Los acuerdos de las corporaciones locales se publican en:",
+    "opciones": [
+      "El tablón de edictos y el Boletín Oficial de la Provincia (BOP).",
+      "Solo en Twitter/X.",
+      "En el BOE siempre."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 195,
+    "pregunta": "La provincia es una entidad local con personalidad jurídica propia, determinada por:",
+    "opciones": [
+      "La agrupación de municipios.",
+      "La decisión de los ciudadanos cada año.",
+      "La suma de las comarcas."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 196,
+    "pregunta": "El órgano de gobierno de la provincia es:",
+    "opciones": [
+      "La Diputación Provincial.",
+      "El Cabildo.",
+      "El Consejo Insular."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 197,
+    "pregunta": "El Alcalde de Valencia tiene el tratamiento de:",
+    "opciones": [
+      "Excelentísimo.",
+      "Ilustrísimo.",
+      "Señoría."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 198,
+    "pregunta": "Los municipios de gran población pueden dividirse en:",
+    "opciones": [
+      "Distritos.",
+      "Provincias pequeñas.",
+      "Comunidades de vecinos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 199,
+    "pregunta": "El Consejo Social de la Ciudad es obligatorio en:",
+    "opciones": [
+      "Municipios de Gran Población.",
+      "Todos los municipios.",
+      "Solo en Madrid y Barcelona."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 200,
+    "pregunta": "La defensa de los derechos de los vecinos ante la administración municipal en municipios de gran población corresponde a:",
+    "opciones": [
+      "La Comisión Especial de Sugerencias y Reclamaciones.",
+      "El Defensor del Pueblo Nacional únicamente.",
+      "El Síndic de Greuges exclusivamente."
+    ],
+    "correcta": 0
+  }
+]
