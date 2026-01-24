@@ -1,0 +1,202 @@
+[
+  {
+    "id": 201,
+    "pregunta": "¿Cuál es la regla general sobre la forma de los actos administrativos según el art. 36 de la Ley 39/2015?",
+    "opciones": [
+      "Se producirán por escrito a través de medios electrónicos, a menos que su naturaleza exija otra forma.",
+      "Siempre deben ser en soporte papel para garantizar su archivo físico.",
+      "Pueden ser verbales por defecto si así lo decide el funcionario."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 202,
+    "pregunta": "Cuando un órgano administrativo ejerce su competencia de forma verbal y se requiere constancia escrita, ¿quién debe autorizar la relación de estos actos?",
+    "opciones": [
+      "El funcionario que recibió la orden.",
+      "El titular del órgano inferior jerárquico.",
+      "El titular del órgano que dictó el acto de forma verbal."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 203,
+    "pregunta": "Los actos que lesionen los derechos y libertades susceptibles de amparo constitucional son:",
+    "opciones": [
+      "Anulables.",
+      "Nulos de pleno derecho.",
+      "Irregulares no invalidantes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 204,
+    "pregunta": "Un acto dictado por un órgano manifiestamente incompetente por razón de la MATERIA es:",
+    "opciones": [
+      "Nulo de pleno derecho.",
+      "Anulable.",
+      "Válido si se convalida por el superior."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 205,
+    "pregunta": "El defecto de forma solo determinará la anulabilidad cuando:",
+    "opciones": [
+      "El acto carezca de los requisitos formales indispensables para alcanzar su fin o produzca indefensión.",
+      "No se haya usado la fuente de letra oficial de la Administración.",
+      "Se haya dictado fuera de las horas de oficina."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 206,
+    "pregunta": "Las actuaciones administrativas realizadas fuera del tiempo establecido solo implican anulabilidad si:",
+    "opciones": [
+      "Así lo decide el Alcalde.",
+      "Lo impone la naturaleza del término o plazo.",
+      "El retraso es superior a 24 horas."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 207,
+    "pregunta": "¿Qué ocurre con los actos nulos o anulables que contienen elementos de otro acto distinto cuyos requisitos también reúnen?",
+    "opciones": [
+      "Se eliminan del expediente.",
+      "Producen los efectos de este último (Conversión de actos viciados).",
+      "Deben ser firmados de nuevo por el interesado."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 208,
+    "pregunta": "En el inicio de oficio, una 'orden superior' se define como:",
+    "opciones": [
+      "La emitida por el jefe de negociado.",
+      "La emitida por un órgano administrativo superior jerárquico del competente para iniciar el procedimiento.",
+      "Un mensaje enviado por correo electrónico por cualquier compañero."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 209,
+    "pregunta": "¿Puede una denuncia obligar a la Administración a iniciar un procedimiento?",
+    "opciones": [
+      "Sí, siempre es vinculante.",
+      "No vincula al órgano competente, aunque este deberá confirmar la recepción si se prevé legalmente.",
+      "Solo si la presenta un concejal de la oposición."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 210,
+    "pregunta": "Si un interesado presenta una solicitud con errores, la Administración le da 10 días para subsanar. Si no lo hace, ¿qué ocurre?",
+    "opciones": [
+      "Se le pone una multa.",
+      "Se le tendrá por desistido de su petición, previa resolución dictada al efecto.",
+      "El funcionario debe completar los datos que faltan de oficio."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 211,
+    "pregunta": "Las medidas provisionales adoptadas antes de iniciar el procedimiento deberán ser confirmadas o levantadas en el acuerdo de iniciación en un plazo de:",
+    "opciones": [
+      "10 días.",
+      "15 días.",
+      "30 días."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 212,
+    "pregunta": "¿En qué fase del procedimiento se pueden presentar alegaciones según el art. 76?",
+    "opciones": [
+      "Solo en los primeros 5 días.",
+      "En cualquier momento anterior al trámite de audiencia.",
+      "Solo después de la propuesta de resolución."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 213,
+    "pregunta": "Cuando la Administración no tenga por ciertos los hechos alegados por los interesados, el instructor:",
+    "opciones": [
+      "Dará por válida la versión del funcionario.",
+      "Acordará la apertura de un período de prueba.",
+      "Archivará el caso por falta de pruebas."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 214,
+    "pregunta": "El período de prueba será de:",
+    "opciones": [
+      "No superior a 20 días ni inferior a 10.",
+      "No superior a 30 días ni inferior a 10.",
+      "15 días fijos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 215,
+    "pregunta": "¿Qué ocurre si un informe preceptivo no se emite en el plazo de 10 días?",
+    "opciones": [
+      "Se suspende el procedimiento indefinidamente.",
+      "Se podrán proseguir las actuaciones, salvo que el informe sea de otra Administración para evaluar su competencia.",
+      "El procedimiento se anula automáticamente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 216,
+    "pregunta": "El trámite de audiencia es obligatorio salvo que:",
+    "opciones": [
+      "El interesado diga que no quiere ir.",
+      "No figuren en el procedimiento ni sean tenidos en cuenta otros hechos ni alegaciones que las aducidas por el interesado.",
+      "Haya mucha gente esperando en la puerta de la oficina."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 217,
+    "pregunta": "El plazo para realizar el trámite de audiencia es de:",
+    "opciones": [
+      "Entre 5 y 10 días.",
+      "Entre 10 y 15 días.",
+      "Exactamente 20 días naturales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 218,
+    "pregunta": "La resolución del procedimiento debe decidir:",
+    "opciones": [
+      "Solo la petición principal.",
+      "Todas las cuestiones planteadas por los interesados y las derivadas del expediente.",
+      "Solo lo que sea favorable a la Administración."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 219,
+    "pregunta": "En los procedimientos iniciados a solicitud del interesado, el silencio administrativo es por regla general:",
+    "opciones": [
+      "Negativo.",
+      "Positivo (Estimatorio).",
+      "No existe el silencio en estos casos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 220,
+    "pregunta": "¿Cuál es la excepción donde el silencio es NEGATIVO a pesar de iniciarse a solicitud del interesado?",
+    "opciones": [
+      "Procedimientos que impliquen el ejercicio de actividades que puedan dañar el medio ambiente.",
+      "Procedimientos de responsabilidad patrimonial de las AAPP.",
+      "Ambas respuestas son correctas (excepciones de silencio negativo)."
+    ],
+    "correcta": 2
+  }
+]
