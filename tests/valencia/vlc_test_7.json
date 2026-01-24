@@ -1,0 +1,502 @@
+[
+  {
+    "id": 301,
+    "pregunta": "De acuerdo con la ley 39/2015, el sector público institucional se integra por:",
+    "opciones": [
+      "Cualesquiera organismos públicos no vinculados o independientes de las Administraciones Públicas.",
+      "Cualesquiera organismos públicos y entidades de derecho público vinculados o dependientes de las Administraciones Públicas.",
+      "Cualesquiera organismos públicos, entidades de derecho privado, y las Universidades Públicas."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 302,
+    "pregunta": "Las Administraciones Públicas solo requerirán a los interesados el uso obligatorio de firma para:",
+    "opciones": [
+      "Formular recursos.",
+      "Desistir de solicitudes.",
+      "Ambas son correctas (y también para renunciar a derechos)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 303,
+    "pregunta": "Un poder que permite al apoderado actuar en cualquier actuación administrativa y ante cualquier Administración se denomina:",
+    "opciones": [
+      "Poder general.",
+      "Poder específico.",
+      "Poder de trámite único."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 304,
+    "pregunta": "El derecho de los ciudadanos a utilizar las lenguas oficiales en el territorio de su CCAA ante la Administración está reconocido en:",
+    "opciones": [
+      "Solo en los estatutos de autonomía.",
+      "En la Ley 39/2015 y en la Constitución Española.",
+      "Solo en las ordenanzas municipales."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 305,
+    "pregunta": "Sobre los modelos específicos de presentación de solicitudes:",
+    "opciones": [
+      "Son siempre voluntarios.",
+      "Cuando la Administración los establezca expresamente, serán de uso obligatorio para los interesados.",
+      "Solo se aplican si el interesado no tiene ordenador."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 306,
+    "pregunta": "En casos de prescripción, renuncia del derecho o caducidad, la resolución de la Administración consistirá en:",
+    "opciones": [
+      "La declaración de la circunstancia que concurra en cada caso, con indicación de hechos y normas.",
+      "No hay obligación de dictar resolución en estos casos.",
+      "Una multa para el interesado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 307,
+    "pregunta": "¿Qué consideración tiene la desestimación por silencio administrativo?",
+    "opciones": [
+      "Acto administrativo finalizador del procedimiento.",
+      "Solo permite al interesado interponer el recurso administrativo o contencioso que proceda.",
+      "Es una sanción implícita."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 308,
+    "pregunta": "El periodo de información o actuaciones previas antes de iniciar un procedimiento tiene como fin:",
+    "opciones": [
+      "Conocer las circunstancias del caso concreto y la conveniencia o no de iniciar el procedimiento.",
+      "Cobrar las tasas por adelantado.",
+      "Interrogar a los vecinos."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 309,
+    "pregunta": "La 'propia iniciativa' como forma de iniciación de oficio se define como:",
+    "opciones": [
+      "La actuación derivada del conocimiento directo o indirecto de los hechos por el órgano competente para iniciar.",
+      "La orden de un superior jerárquico.",
+      "La petición de otro órgano administrativo."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 310,
+    "pregunta": "Si la resolución va a decidir cuestiones conexas no planteadas por los interesados, se les dará un plazo para alegaciones de:",
+    "opciones": [
+      "Cinco días.",
+      "Diez días.",
+      "Quince días."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 311,
+    "pregunta": "En daños físicos o psíquicos, ¿cuándo empieza el plazo de prescripción para la responsabilidad patrimonial?",
+    "opciones": [
+      "Desde el día del accidente.",
+      "Desde la curación o la determinación del alcance de las secuelas.",
+      "Al año de los hechos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 312,
+    "pregunta": "No se considera una actuación previa del procedimiento según la Ley 39/2015:",
+    "opciones": [
+      "El embargo preventivo de bienes.",
+      "La retención de ingresos a cuenta.",
+      "Ambas son correctas (no se corresponden con las actuaciones previas del art. 55)."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 313,
+    "pregunta": "La notificación electrónica se entiende rechazada si no se accede al contenido en:",
+    "opciones": [
+      "Diez días naturales.",
+      "Diez días hábiles.",
+      "Quince días naturales."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 314,
+    "pregunta": "Si la norma reguladora no fija un plazo máximo para resolver, este será de:",
+    "opciones": [
+      "Un mes.",
+      "Dos meses.",
+      "Tres meses."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 315,
+    "pregunta": "Las cuestiones incidentales que se susciten en el procedimiento:",
+    "opciones": [
+      "Suspenden siempre la tramitación.",
+      "No suspenden la tramitación, salvo la recusación.",
+      "Obligan a empezar de nuevo."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 316,
+    "pregunta": "Deben ser motivados con referencia a hechos y fundamentos de derecho los actos que:",
+    "opciones": [
+      "Resuelvan recursos administrativos.",
+      "Declaren la inadmisión de recursos.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 317,
+    "pregunta": "Si un órgano ejerce su competencia de forma verbal y se requiere constancia escrita:",
+    "opciones": [
+      "Se hará y firmará por el titular del órgano inferior.",
+      "Se hará y firmará por el titular del órgano superior, expresando la autoridad de la que procede.",
+      "No tiene validez si es verbal."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 318,
+    "pregunta": "Las medidas provisionales para asegurar la eficacia de la resolución pueden ser adoptadas:",
+    "opciones": [
+      "Por el órgano competente para resolver.",
+      "Por el órgano competente para instruir.",
+      "Solo por un juez."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 319,
+    "pregunta": "El ejercicio de un derecho mediante declaración responsable se permite:",
+    "opciones": [
+      "Desde el día de su presentación.",
+      "A los diez días de presentarla.",
+      "Cuando la Administración conteste."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 320,
+    "pregunta": "El plazo para realizar actuaciones complementarias indispensables antes de la resolución es de:",
+    "opciones": [
+      "Siete días.",
+      "No superior a quince días.",
+      "Un mes."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 321,
+    "pregunta": "En la tramitación simplificada, los procedimientos deberán ser resueltos en:",
+    "opciones": [
+      "Diez días.",
+      "Treinta días.",
+      "Sesenta días."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 322,
+    "pregunta": "La Administración puede acordar la tramitación simplificada cuando:",
+    "opciones": [
+      "Existan razones de interés público o falta de complejidad.",
+      "El interesado sea una persona jurídica.",
+      "Lo pida el funcionario instructor."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 323,
+    "pregunta": "La falsedad en una declaración responsable determina:",
+    "opciones": [
+      "Una amonestación verbal.",
+      "La imposibilidad de continuar con el ejercicio del derecho o actividad desde que se tenga constancia.",
+      "No tiene consecuencias si se subsana luego."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 324,
+    "pregunta": "Son nulos de pleno derecho los actos que:",
+    "opciones": [
+      "Lesionen derechos y libertades susceptibles de amparo constitucional.",
+      "Sean constitutivos de infracción penal.",
+      "Todas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 325,
+    "pregunta": "Sobre el cambio de medio de comunicación (electrónico o no) por parte de personas físicas:",
+    "opciones": [
+      "No se puede cambiar una vez elegido.",
+      "Podrá ser modificado por la persona en cualquier momento.",
+      "Solo se puede cambiar una vez al año."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 326,
+    "pregunta": "La acumulación de procedimientos requiere:",
+    "opciones": [
+      "Que los lleven distintos órganos.",
+      "Que sea el mismo órgano quien deba tramitar y resolver ambos.",
+      "Que los interesados vivan en el mismo barrio."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 327,
+    "pregunta": "La Administración está obligada a dictar resolución expresa en:",
+    "opciones": [
+      "Todos los procedimientos, cualquiera que sea su forma de iniciación.",
+      "Solo los iniciados a instancia de parte.",
+      "Solo en procedimientos sancionadores."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 328,
+    "pregunta": "Sobre la ejecución forzosa, si hay varios medios admisibles:",
+    "opciones": [
+      "Se elegirá el más rápido.",
+      "Se elegirá el que menos recursos económicos exija a la Administración.",
+      "Se elegirá el que resulte menos gravoso para el interesado."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 329,
+    "pregunta": "En procedimientos sancionadores iniciados por denuncia:",
+    "opciones": [
+      "El denunciante siempre tiene derecho a una recompensa.",
+      "Si el denunciante participó en la infracción, puede verse eximido de la multa si es el primero en aportar pruebas determinantes.",
+      "La denuncia vincula siempre al órgano para iniciar el expediente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 330,
+    "pregunta": "En procedimientos iniciados de oficio, el vencimiento del plazo máximo:",
+    "opciones": [
+      "Exime a la Administración de resolver.",
+      "No exime a la Administración de su obligación de resolver.",
+      "Anula todo lo actuado automáticamente."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 331,
+    "pregunta": "Si un plazo administrativo se fija en meses y en el mes de vencimiento no hay día equivalente al inicial:",
+    "opciones": [
+      "El plazo expira el último día de dicho mes.",
+      "El plazo expira el primer día del mes siguiente.",
+      "Se amplía diez días automáticamente."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 332,
+    "pregunta": "Son anulables los actos administrativos que:",
+    "opciones": [
+      "Incurran en cualquier infracción del ordenamiento jurídico, incluso la desviación de poder.",
+      "Tengan un defecto de forma.",
+      "Sean dictados por órgano incompetente por territorio."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 333,
+    "pregunta": "Los actos administrativos serán objeto de publicación obligatoria cuando:",
+    "opciones": [
+      "El acto tenga por destinatario a una pluralidad indeterminada de personas.",
+      "Lo decida el jefe de prensa.",
+      "El interesado no tenga correo electrónico."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 334,
+    "pregunta": "¿Quiénes tienen derecho a consultar el estado de tramitación en el Punto de Acceso General electrónico?",
+    "opciones": [
+      "Todos los ciudadanos.",
+      "Los interesados en esos procedimientos.",
+      "Solo los funcionarios de la unidad."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 335,
+    "pregunta": "Relacionarse electrónicamente es un DERECHO (no obligación) para:",
+    "opciones": [
+      "Personas jurídicas.",
+      "Personas físicas.",
+      "Profesionales colegiados."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 336,
+    "pregunta": "Sobre la denuncia administrativa:",
+    "opciones": [
+      "Confiere automáticamente la condición de interesado.",
+      "No confiere por sí sola la condición de interesado.",
+      "Es obligatoria para todos los ciudadanos en cualquier caso."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 337,
+    "pregunta": "En materia sancionadora, se puede usar la tramitación simplificada si:",
+    "opciones": [
+      "El órgano considera que existen elementos para calificar la infracción como leve.",
+      "El infractor pide perdón.",
+      "La multa es inferior a 100 euros."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 338,
+    "pregunta": "¿Qué resolución es susceptible de recurso según la Ley 39/2015?",
+    "opciones": [
+      "Los acuerdos sobre ampliación de plazos.",
+      "Las resoluciones que declaren la caducidad.",
+      "Los informes internos de los técnicos."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 339,
+    "pregunta": "El silencio administrativo tiene efecto POSITIVO en:",
+    "opciones": [
+      "Recursos de alzada contra desestimación por silencio (en ciertos casos de doble silencio).",
+      "Procedimientos que dañen el medio ambiente.",
+      "Revisión de oficio a instancia de parte."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 340,
+    "pregunta": "Los interesados tienen derecho a identificar a las autoridades y personal que tramitan sus expedientes:",
+    "opciones": [
+      "Es un derecho reconocido por la Ley 39/2015.",
+      "Es secreto profesional.",
+      "Solo si hay una denuncia previa."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 341,
+    "pregunta": "La realización de actuaciones fuera de tiempo implica la anulabilidad del acto:",
+    "opciones": [
+      "En todo caso.",
+      "Solo cuando así lo imponga la naturaleza del término o plazo.",
+      "Nunca."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 342,
+    "pregunta": "Si una denuncia invoca un perjuicio en el patrimonio público, la no iniciación del procedimiento:",
+    "opciones": [
+      "No tiene que explicarse.",
+      "Deberá ser motivada y notificada a los denunciantes.",
+      "Se publica en el tablón de anuncios."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 343,
+    "pregunta": "Sobre la nulidad parcial de un acto administrativo:",
+    "opciones": [
+      "Implica la nulidad de todo el acto.",
+      "No implica la de las partes independientes de aquella.",
+      "Solo ocurre en actos sancionadores."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 344,
+    "pregunta": "Son anulables los actos que incurran en:",
+    "opciones": [
+      "Incompetencia manifiesta.",
+      "Desviación de poder.",
+      "Contenido imposible."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 345,
+    "pregunta": "En el cómputo de plazos por horas:",
+    "opciones": [
+      "Todas las horas son hábiles.",
+      "Se entiende que las horas son hábiles salvo previsión en contra.",
+      "Son 24 horas seguidas siempre."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 346,
+    "pregunta": "Si la notificación por anuncios lesiona derechos, la Administración:",
+    "opciones": [
+      "Se limitará a publicar una somera indicación del contenido y dónde comparecer.",
+      "No publicará nada.",
+      "Llamará por teléfono al interesado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 347,
+    "pregunta": "El interesado tiene derecho a no presentar documentos que:",
+    "opciones": [
+      "Ya se encuentren en poder de las Administraciones Públicas.",
+      "Hayan sido elaborados por las Administraciones Públicas.",
+      "Ambas son correctas."
+    ],
+    "correcta": 2
+  },
+  {
+    "id": 348,
+    "pregunta": "Los documentos administrativos se emitirán por escrito a través de medios electrónicos:",
+    "opciones": [
+      "Siempre, sin excepciones.",
+      "A menos que su naturaleza exija otra forma más adecuada.",
+      "Solo si el destinatario tiene certificado digital."
+    ],
+    "correcta": 1
+  },
+  {
+    "id": 349,
+    "pregunta": "Las notificaciones se practicarán preferentemente:",
+    "opciones": [
+      "Por medios electrónicos.",
+      "En papel en el domicilio.",
+      "Por correo certificado."
+    ],
+    "correcta": 0
+  },
+  {
+    "id": 350,
+    "pregunta": "El derecho a aportar documentos en cualquier fase antes del trámite de audiencia corresponde a:",
+    "opciones": [
+      "Todos los ciudadanos.",
+      "Los interesados.",
+      "Solo a los abogados."
+    ],
+    "correcta": 1
+  }
+]
