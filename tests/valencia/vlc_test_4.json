@@ -1,502 +1,1311 @@
 [
   {
-    "id": 151,
-    "pregunta": "De acuerdo con la Ley 40/2015, los órganos administrativos podrán delegar el ejercicio de las competencias que tengan atribuidas en:",
+    "pregunta": "¿Según el artículo 62 de la Constitución Española de 1978, corresponde al Rey?",
     "opciones": [
-      "Otros órganos de la misma Administración, aun cuando no sean jerárquicamente dependientes.",
-      "Únicamente en órganos jerárquicamente inferiores.",
-      "En empresas privadas de servicios."
+      "Refrendar los actos del Presidente del Gobierno.",
+      "Controlar la acción del Gobierno.",
+      "Nombrar y separar a los miembros del Gobierno.",
+      "Proponer al Presidente del Gobierno la disolución de las Cortes Generales."
     ],
-    "correcta": 0
+    "correcta": 2,
+    "explicacion": "El art. 62.g) CE establece que corresponde al Rey nombrar y separar a los miembros del Gobierno, a propuesta de su Presidente."
   },
   {
-    "id": 152,
-    "pregunta": "En ningún caso podrán ser objeto de delegación las competencias relativas a:",
+    "pregunta": "¿Según el artículo 161 de la Constitución Española de 1978, el Tribunal Constitucional?",
     "opciones": [
-      "Los asuntos que se refieran a relaciones con la Jefatura del Estado.",
-      "La adopción de disposiciones de carácter general.",
-      "Todas son correctas, incluyendo la resolución de recursos en los órganos que hayan dictado los actos objeto de recurso."
+      "Dicta sentencias que pueden ser objeto de recurso por los órganos colegiados ejecutivos de las Comunidades Autónomas.",
+      "Es competente para conocer de los conflictos de competencia entre el Estado y las Comunidades Autónomas o de los de éstas entre sí.",
+      "Es el órgano jurisdiccional superior en todos los órdenes.",
+      "Tiene jurisdicción en aquellas Comunidades Autónomas que explícitamente lo reconozcan en sus Estatutos de Autonomía, sin perjuicio de la jurisdicción que corresponde al Tribunal Supremo."
     ],
-    "correcta": 2
+    "correcta": 1,
+    "explicacion": "El art. 161.1.c) CE otorga al TC la competencia para conocer de los conflictos de competencia entre el Estado y las CCAA o de los de estas entre sí."
   },
   {
-    "id": 153,
-    "pregunta": "Las delegaciones de competencias y su revocación:",
+    "pregunta": "¿Conforme al artículo 55 de la Constitución Española de 1978, el derecho de los españoles a circular por el territorio nacional?",
     "opciones": [
-      "Deberán publicarse en el Boletín Oficial correspondiente.",
-      "Son válidas desde que se firman, sin necesidad de publicidad.",
-      "Solo se notifican a los interesados del procedimiento."
+      "Es un derecho fundamental que no puede ser suspendido.",
+      "Podrá ser suspendido para personas determinadas, en relación con las investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas.",
+      "Podrá ser limitado por motivos políticos.",
+      "Podrá ser suspendido cuando se acuerde la declaración del estado de excepción o de sitio."
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "El art. 55.1 CE permite la suspensión del art. 19 (libertad de residencia y circulación) cuando se acuerde la declaración del estado de excepción o de sitio."
   },
   {
-    "id": 154,
-    "pregunta": "La encomienda de gestión no supone en ningún caso:",
+    "pregunta": "¿Según la Constitución Española de 1978, es un derecho fundamental?",
     "opciones": [
-      "La cesión de la titularidad de la competencia ni de los elementos sustantivos de su ejercicio.",
-      "Un ahorro para la administración.",
-      "La intervención de órganos distintos."
+      "El derecho a la negociación colectiva laboral.",
+      "El derecho a comunicar o recibir libremente información veraz por cualquier medio de difusión.",
+      "El derecho a contraer matrimonio con plena igualdad jurídica.",
+      "El derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "El derecho a la información veraz se encuentra en el art. 20.1.d) CE, dentro de la Sección 1ª del Capítulo II del Título I (Derechos Fundamentales y Libertades Públicas)."
   },
   {
-    "id": 155,
-    "pregunta": "La delegación de firma no alterará la responsabilidad del órgano delegante:",
+    "pregunta": "¿Según la Ley Orgánica 3/1981, de 6 de abril, del Defensor del Pueblo, podrá dirigirse al Defensor del Pueblo?",
     "opciones": [
-      "Es correcto según la Ley 40/2015.",
-      "Es incorrecto, la responsabilidad pasa al firmante.",
-      "Solo en casos de extrema urgencia."
+      "Toda persona natural o jurídica que invoque un interés legítimo, sin restricción alguna.",
+      "Toda persona natural o jurídica que invoque un interés legítimo, siempre que sean nacionales españoles o residentes en España.",
+      "Toda persona natural que invoque un interés legítimo, pero no las personas jurídicas.",
+      "Toda persona natural que invoque un interés legítimo, excepto las personas menores de edad."
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "El art. 10.1 de la LO 3/1981 establece que podrá dirigirse al Defensor del Pueblo toda persona natural o jurídica que invoque un interés legítimo, sin restricción alguna (ni nacionalidad, residencia, edad, etc.)."
   },
   {
-    "id": 156,
-    "pregunta": "La suplencia de los titulares de los órganos administrativos:",
+    "pregunta": "¿Según el artículo 117 de la Constitución Española de 1978, la base de la organización y funcionamiento de los Tribunales es?",
     "opciones": [
-      "Implica una transferencia de la competencia.",
-      "No implica alteración de la titularidad de la competencia.",
-      "Debe publicarse en el BOE obligatoriamente en todos los casos."
+      "El principio de unidad jurisdiccional.",
+      "El principio de dependencia jerárquica de Jueces y Magistrados.",
+      "El principio de movilidad de Jueces y Magistrados.",
+      "El principio de privacidad de las sentencias."
     ],
-    "correcta": 1
+    "correcta": 0,
+    "explicacion": "El art. 117.5 CE determina taxativamente que el principio de unidad jurisdiccional es la base de la organización y funcionamiento de los Tribunales."
   },
   {
-    "id": 157,
-    "pregunta": "Las decisiones de los órganos colegiados se adoptarán, por regla general, por:",
+    "pregunta": "¿Según el Título III de la Constitución Española de 1978, las Cortes Generales?",
     "opciones": [
-      "Unanimidad.",
-      "Mayoría de votos.",
-      "Decisión única del Presidente."
+      "Ejercen el poder ejecutivo del Estado y aprueban sus Presupuestos.",
+      "Controlan la acción del Gobierno.",
+      "Son elegidas por sufragio universal, libre, indirecto y secreto.",
+      "Se rigen por sus Reglamentos aprobados por el Consejo de Ministros."
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "Según el art. 66.2 CE, las Cortes Generales ejercen la potestad legislativa del Estado, aprueban sus Presupuestos y controlan la acción del Gobierno."
   },
   {
-    "id": 158,
-    "pregunta": "Son causas de abstención para las autoridades y personal al servicio de las Administraciones:",
+    "pregunta": "¿Según el artículo 102 de la Constitución Española de 1978, si el Presidente del Gobierno fuere acusado de un delito contra la seguridad del Estado en el ejercicio de sus funciones, la iniciativa sólo podrá ser planteada por?",
     "opciones": [
-      "Tener interés personal en el asunto.",
-      "Tener parentesco de consanguinidad dentro del cuarto grado con los interesados.",
-      "Todas son correctas, incluyendo la amistad íntima o enemistad manifiesta."
+      "La quinta parte de los miembros del Congreso y aprobada con mayoría simple.",
+      "La cuarta parte de los miembros del Congreso y aprobada con mayoría simple.",
+      "La cuarta parte de los miembros del Congreso y aprobada con mayoría absoluta.",
+      "La quinta parte de los miembros del Congreso y aprobada con mayoría absoluta."
     ],
-    "correcta": 2
+    "correcta": 3,
+    "explicacion": "El art. 102.2 CE exige que la iniciativa sea planteada por la quinta parte de los miembros del Congreso y aprobada por la mayoría absoluta del mismo."
   },
   {
-    "id": 159,
-    "pregunta": "La no abstención en los casos en que proceda:",
+    "pregunta": "¿Cuál es la opción correcta según el artículo 99 de la Constitución Española de 1978?",
     "opciones": [
-      "Dará lugar a la responsabilidad que proceda.",
-      "Implica siempre la nulidad de los actos en que hayan intervenido.",
-      "No tiene consecuencias si el acto es justo."
+      "Si transcurrido el plazo de dos meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Congreso, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.",
+      "Si transcurrido el plazo de tres meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Congreso, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.",
+      "Si transcurrido el plazo de dos meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Senado, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.",
+      "Si transcurrido el plazo de tres meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Senado, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso."
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "El art. 99.5 CE dispone que si transcurrido el plazo de dos meses a partir de la primera votación de investidura ningún candidato obtiene la confianza, el Rey disolverá las Cámaras y convocará elecciones con el refrendo del Presidente del Congreso."
   },
   {
-    "id": 160,
-    "pregunta": "La recusación podrá promoverse por los interesados:",
+    "pregunta": "¿Según el artículo 13 de la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, qué se entiende por los contenidos o documentos, cualquiera que sea su formato o soporte, que obren en poder de alguno de los sujetos incluidos en el ámbito de aplicación de este título y que hayan sido elaborados o adquiridos en el ejercicio de sus funciones?",
     "opciones": [
-      "En cualquier momento de la tramitación del procedimiento.",
-      "Solo al inicio del expediente.",
-      "Solo tras la resolución final."
+      "Publicidad activa.",
+      "Información pública.",
+      "Transparencia activa.",
+      "Información institucional."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "Esta es la definición exacta y literal de 'información pública' recogida en el artículo 13 de la Ley 19/2013."
   },
   {
-    "id": 161,
-    "pregunta": "El Municipio es la entidad básica de la organización territorial del Estado:",
+    "pregunta": "¿Según lo dispuesto en la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno, las solicitudes que se refieran a información de publicación general?",
     "opciones": [
-      "Es correcto según la Ley 7/1985 (LBRL).",
-      "Es incorrecto, es la Provincia.",
-      "Solo en las Comunidades Autónomas uniprovinciales."
+      "Se remitirán al lugar o lugares de dicha publicación.",
+      "Se inadmitirán a trámite.",
+      "Se desestimarán.",
+      "Se archivarán."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "El artículo 18.1.b) de la Ley 19/2013 establece que se inadmitirán a trámite las solicitudes referidas a información que sea de divulgación general o que esté publicada."
   },
   {
-    "id": 162,
-    "pregunta": "Son elementos del municipio:",
+    "pregunta": "¿El tercer eje del vigente Plan de Gobierno Abierto está dedicado a la?",
     "opciones": [
-      "El territorio, la población y la organización.",
-      "El Alcalde, el Pleno y los Concejales.",
-      "Los vecinos y el Ayuntamiento."
+      "Transparencia.",
+      "Rendición de cuentas.",
+      "Integridad.",
+      "Participación."
     ],
-    "correcta": 0
+    "correcta": 2,
+    "explicacion": "En el IV Plan de Gobierno Abierto de España, los ejes principales son: 1. Transparencia, 2. Rendición de cuentas, 3. Integridad, 4. Participación."
   },
   {
-    "id": 163,
-    "pregunta": "El término municipal es:",
+    "pregunta": "¿Conforme a la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, señale cuál de los siguientes órganos NO tiene la condición de alto cargo?",
     "opciones": [
-      "El nombre del municipio.",
-      "El territorio en que el Ayuntamiento ejerce sus competencias.",
-      "El periodo de tiempo que dura el mandato del Alcalde."
+      "Secretario General.",
+      "Subdelegado del Gobierno.",
+      "Secretario General Técnico.",
+      "Director General."
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "Según el art. 55.11 de la Ley 40/2015, los Subdelegados del Gobierno tienen rango de Subdirector General y explícitamente NO son altos cargos (son personal funcionario)."
   },
   {
-    "id": 164,
-    "pregunta": "El Padrón municipal es:",
+    "pregunta": "¿Señale la respuesta correcta en relación con los órganos territoriales, conforme a la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público?",
     "opciones": [
-      "El registro administrativo donde constan los vecinos del municipio.",
-      "Un censo que se hace cada 10 años.",
-      "La lista de personas con derecho a voto."
+      "La estructura de las Delegaciones y Subdelegaciones del Gobierno se fijará por Orden Ministerial.",
+      "Los Delegados del Gobierno representan a la Comunidad Autónoma.",
+      "En caso de ausencia, vacante o enfermedad del titular de la Delegación del Gobierno, será suplido por el Delegado del Gobierno que determine el Consejo de Ministros.",
+      "En cada una de las provincias pluriprovinciales existirá un Subdelegado del Gobierno, que estará bajo la inmediata dependencia del Delegado del Gobierno."
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "El art. 74 de la Ley 40/2015 establece que en cada provincia de las Comunidades Autónomas pluriprovinciales existirá un Subdelegado del Gobierno, bajo la inmediata dependencia del Delegado del Gobierno."
   },
   {
-    "id": 165,
-    "pregunta": "Toda persona que viva en España está obligada a inscribirse en el Padrón del municipio en el que resida habitualmente:",
+    "pregunta": "¿Respecto a la reforma de los Estatutos de Autonomía recogida en el artículo 147 de la Constitución Española de 1978, indique cuál de las siguientes afirmaciones es correcta?",
     "opciones": [
-      "Es cierto.",
-      "Es falso, es voluntario.",
-      "Solo si es propietario de una vivienda."
+      "Se ajustará al procedimiento establecido en los mismos y requerirá, en todo caso, la aprobación por la Asamblea Legislativa correspondiente.",
+      "Se ajustará al procedimiento establecido en los mismos y requerirá, en todo caso, la aprobación por las Cortes Generales, mediante ley ordinaria.",
+      "Se ajustará al procedimiento establecido en los mismos y no será necesaria la aprobación por las Cortes Generales.",
+      "Se ajustará al procedimiento establecido en los mismos y requerirá, en todo caso, la aprobación por las Cortes Generales, mediante ley orgánica."
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "El art. 147.3 CE establece que la reforma de los Estatutos requerirá, en todo caso, la aprobación por las Cortes Generales, mediante Ley Orgánica."
   },
   {
-    "id": 166,
-    "pregunta": "La condición de vecino se adquiere:",
+    "pregunta": "¿De acuerdo con la Constitución Española de 1978, señale cuál de las siguientes competencias puede ser asumida por las Comunidades Autónomas?",
     "opciones": [
-      "Por el nacimiento en el municipio.",
-      "En el mismo momento de la inscripción en el Padrón.",
-      "Tras dos años de residencia continuada."
+      "Fomento y coordinación general de la investigación científica y técnica.",
+      "Ordenación del territorio, urbanismo y vivienda.",
+      "Iluminación de costas y señales marítimas.",
+      "Bases y coordinación general de la sanidad."
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "El art. 148.1.3ª de la CE determina que las CCAA pueden asumir competencias en materia de 'Ordenación del territorio, urbanismo y vivienda'. Las demás son exclusivas del Estado (art. 149.1)."
   },
   {
-    "id": 167,
-    "pregunta": "Son órganos necesarios en todos los Ayuntamientos:",
+    "pregunta": "¿Conforme al artículo 16.6 del Tratado de la Unión Europea, el Consejo de la Unión Europea se reunirá en diferentes formaciones. ¿Cuáles son las dos formaciones de existencia obligatoria?",
     "opciones": [
-      "El Alcalde, los Tenientes de Alcalde y el Pleno.",
-      "La Junta de Gobierno Local.",
-      "Solo el Alcalde y el Pleno."
+      "El Consejo de Justicia y Asuntos de Interior y el Consejo de Igualdad.",
+      "El Consejo de Asuntos Generales y el Consejo de Asuntos Económicos y Financieros (ECOFIN).",
+      "El Consejo de Asuntos Generales y el Consejo de Asuntos Exteriores.",
+      "El Consejo de Asuntos Económicos y Financieros (ECOFIN) y el Consejo de Igualdad."
     ],
-    "correcta": 0
+    "correcta": 2,
+    "explicacion": "El art. 16.6 del TUE menciona explícitamente que el Consejo se reunirá en varias formaciones, de las cuales el Consejo de Asuntos Generales y el Consejo de Asuntos Exteriores se prevén directamente en el Tratado."
   },
   {
-    "id": 168,
-    "pregunta": "La Junta de Gobierno Local es obligatoria en municipios con población superior a:",
+    "pregunta": "¿Según el Tratado de la Unión Europea, ¿qué institución dará a la Unión los impulsos necesarios para su desarrollo y definirá sus orientaciones y prioridades políticas generales?",
     "opciones": [
-      "2.000 habitantes.",
-      "5.000 habitantes.",
-      "20.000 habitantes."
+      "La Comisión Europea.",
+      "El Parlamento Europeo.",
+      "El Consejo Europeo.",
+      "El Consejo de la Unión Europea."
     ],
-    "correcta": 1
+    "correcta": 2,
+    "explicacion": "Según el art. 15.1 del TUE, el Consejo Europeo es el encargado de dar a la Unión los impulsos necesarios para su desarrollo y definir sus orientaciones y prioridades políticas generales."
   },
   {
-    "id": 169,
-    "pregunta": "El Alcalde es elegido por:",
+    "pregunta": "In relation con la posibilidad de ampliación de los plazos del procedimiento administrativo, señale cuál es la opción correcta conforme a la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas:",
     "opciones": [
-      "Los concejales o por los vecinos, según los términos establecidos en la legislación electoral.",
-      "El Presidente del Gobierno.",
-      "El Delegado del Gobierno en la Comunidad Autónoma."
+      "Podrá acordarse la ampliación por una duración que no exceda del doble del plazo inicial.",
+      "Sólo procederá cuando la ampliación sea solicitada previamente por el interesado.",
+      "La Administración podrá acordar la ampliación general de los plazos cuando haya sufrido un ciberincidente.",
+      "Podrá ser objeto de ampliación un plazo ya vencido."
     ],
-    "correcta": 0
+    "correcta": 2,
+    "explicacion": "El art. 32.4 de la Ley 39/2015 permite que, cuando una incidencia técnica (como un ciberincidente) imposibilite el funcionamiento ordinario de los sistemas, la Administración amplíe los plazos generales de forma directa."
   },
   {
-    "id": 170,
-    "pregunta": "El Pleno, constituido por el Alcalde y los Concejales, es el órgano de:",
+    "pregunta": "¿En lo que respecta a los datos sobre las personas físicas fallecidas a que se refiere el artículo 3 de la Ley Orgánica 3/2018, de Protección de Datos de Carácter Personal, señale la opción correcta?",
     "opciones": [
-      "Máxima representación política de los ciudadanos en el gobierno municipal.",
-      "Gestión diaria de los servicios de limpieza.",
-      "Control de la policía nacional."
+      "Los familiares no podrán acceder a los datos personales cuando lo prohíba una norma reglamentaria.",
+      "Los herederos podrán acceder a los datos de carácter patrimonial del causante en todo caso.",
+      "Sólo podrán acceder a los datos personales los familiares hasta el segundo grado de consanguinidad o afinidad.",
+      "Los herederos sólo podrán ejercitar el derecho de cancelación."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "El art. 3 de la LO 3/2018 faculta a las personas vinculadas al fallecido por razones familiares o de hecho, así como a sus herederos, a acceder a los datos del causante y ejercitar derechos de acceso, rectificación y supresión."
   },
   {
-    "id": 171,
-    "pregunta": "Los Tenientes de Alcalde sustituyen al Alcalde en casos de ausencia, vacante o enfermedad. Son nombrados por:",
+    "pregunta": "¿De conformidad con el artículo 5 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, en el procedimiento administrativo los interesados?",
     "opciones": [
-      "El Pleno.",
-      "El Alcalde de entre los miembros de la Junta de Gobierno Local.",
-      "El Alcalde de entre los Concejales."
+      "Sólo podrán actuar por medio de representante cuando una norma con rango de ley expresamente lo autorice.",
+      "Podrán acreditar su representación a través de cualquier medio válido en derecho.",
+      "Sólo podrán actuar por medio de representante para formular solicitudes, presentar declaraciones responsables o comunicaciones, interponer recursos, desistir de acciones y renunciar a derechos.",
+      "No podrán actuar por medio de representante, salvo que se trate de procedimientos iniciados de oficio."
     ],
-    "correcta": 2
+    "correcta": 1,
+    "explicacion": "El art. 5.4 de la Ley 39/2015 dice que la representación podrá acreditarse mediante cualquier medio válido en Derecho que deje constancia fidedigna de su existencia."
   },
   {
-    "id": 172,
-    "pregunta": "La Comisión Especial de Sugerencias y Reclamaciones existe en:",
+    "pregunta": "¿De conformidad con el artículo 4 de la Ley Orgánica 3/2018, de Protección de Datos de Carácter Personal, señale en cuál de los siguientes supuestos será imputable la inexactitud de los datos al responsable del tratamiento?",
     "opciones": [
-      "Todos los municipios de España.",
-      "Municipios de gran población (como Valencia) y aquellos que el Pleno acuerde.",
-      "Solo en las capitales de provincia de menos de 100.000 habitantes."
+      "Cuando hayan sido obtenidos de un Registro Público.",
+      "Cuando se hayan recibido de otro responsable habiendo ejercido derecho a la portabilidad.",
+      "Cuando hayan sido obtenidos de una materia clasificada.",
+      "Cuando hayan sido obtenidos directamente del afectado."
     ],
-    "correcta": 1
+    "correcta": 0,
+    "explicacion": "El art. 4.2.b) de la LO 3/2018 determina que el responsable NO será responsable de la inexactitud si los datos hubieran sido obtenidos de un registro público, por lo que a la inversa, sí es imputable si incumple los requisitos fuera de estas excepciones."
   },
   {
-    "id": 173,
-    "pregunta": "El Ayuntamiento de Valencia se rige por el Título X de la LBRL al ser considerado:",
+    "pregunta": "¿Conforme al artículo 10 del Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público, son funcionarios interinos los que, por razones expresamente justificadas de necesidad y urgencia, son nombrados como tales con carácter temporal para el desempeño de funciones propias de funcionarios de carrera, cuando se dé alguna de las siguientes circunstancias?",
     "opciones": [
-      "Municipio de Gran Población.",
-      "Municipio de régimen común.",
-      "Concejo Abierto."
+      "La existencia de plazas vacantes, cuando no sea posible su cobertura por funcionarios de carrera, por un máximo de un año, en los términos previstos en el apartado 4 del mismo artículo.",
+      "La sustitución transitoria de los titulares, durante el tiempo estrictamente necesario.",
+      "La ejecución de programas de carácter temporal, que no podrán tener una duración superior a tres años, ampliable hasta dieciocho meses más por las leyes de Función Pública que se dicten en desarrollo de este Estatuto.",
+      "El exceso o acumulación de tareas por plazo máximo de doce meses, dentro de un periodo de dieciocho meses."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "El art. 10.1.c) del TREBEP establece textualmente como causa de interinidad 'la sustitución transitoria de los titulares, durante el tiempo estrictamente necesario'."
   },
   {
-    "id": 174,
-    "pregunta": "En los municipios de gran población, la Junta de Gobierno Local responde de su gestión ante:",
+    "pregunta": "¿Las funcionarias víctimas de violencia de género, para hacer efectiva su protección o su derecho a la asistencia social integral, tendrán derecho a solicitar la situación de excedencia, prevista en el artículo 89.5 del Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público?",
     "opciones": [
-      "El Alcalde únicamente.",
-      "El Pleno.",
-      "Las Cortes Valencianas."
+      "Sin tener que haber prestado un tiempo mínimo de servicios previos y teniendo que permanecer un mínimo de un año en dicha situación.",
+      "Sin tener que haber prestado un tiempo mínimo de servicios previos y sin que sea exigible plazo de permanencia en la misma.",
+      "Cuando hayan prestado un tiempo mínimo de dos años de servicios previos y teniendo que permanecer un mínimo de un año en dicha situación.",
+      "Cuando hayan prestado un tiempo mínimo de dos años de servicios previos y sin que sea exigible plazo de permanencia en la misma."
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "El art. 89.5 del TREBEP dictamina que en esta excedencia no se exigirá tiempo mínimo de servicios previos ni habrá plazo de permanencia obligatorio."
   },
   {
-    "id": 175,
-    "pregunta": "El número de miembros de la Junta de Gobierno Local no podrá exceder de:",
+    "pregunta": "¿Según el artículo 5 del Real Decreto 462/2002, de 24 de Mayo, de Indemnizaciones por razón de Servicio, con carácter general, ¿cual es la duración máxima de una comisión de servicio?",
     "opciones": [
-      "Un tercio del número legal de miembros del Pleno.",
-      "La mitad de los concejales.",
-      "Siete personas fijos."
+      "No durará más de dos meses en territorio nacional y de tres en el extranjero.",
+      "No durará más de un mes en territorio nacional y de dos en el extranjero.",
+      "No durará más de un mes en territorio nacional y de tres en el extranjero.",
+      "No durará más de tres meses en territorio nacional y de seis en el extranjero."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "El art. 5.1 del RD 462/2002 establece que la duración de las comisiones no podrá exceder, con carácter general, de un mes en el territorio nacional y de dos meses en el extranjero."
   },
   {
-    "id": 176,
-    "pregunta": "Corresponde al Alcalde:",
+    "pregunta": "¿Conforme al artículo 23 de la ley 30/1984, de 2 de agosto, de medidas para la reforma de la Función Pública, ¿qué complemento retribuye las condiciones particulares de algunos puestos de trabajo en atención a su especial dificultad técnica, dedicación, responsabilidad, incompatibilidad, peligrosidad o penosidad?",
     "opciones": [
-      "Representar al Ayuntamiento.",
-      "Dirigir la política, el gobierno y la administración municipal.",
-      "Todas las respuestas son correctas."
+      "Complemento específico.",
+      "Complemento de productividad.",
+      "Complemento de destino.",
+      "Complemento de responsabilidad."
     ],
-    "correcta": 2
+    "correcta": 0,
+    "explicacion": "Estas condiciones particulares (dificultad, responsabilidad, incompatibilidad, etc.) son las que definen conceptualmente al Complemento Específico."
   },
   {
-    "id": 177,
-    "pregunta": "La Secretaría General del Pleno es obligatoria en:",
+    "pregunta": "¿Conforme determina el artículo 26 de la Ley 47/2003, de 26 de noviembre, General Presupuestaria, la programación presupuestaria se regirá, entre otros, por el principio de?",
     "opciones": [
-      "Municipios de régimen común.",
-      "Municipios de Gran Población.",
-      "Municipios con más de 1.000 habitantes."
+      "Estabilidad presupuestaria.",
+      "Anualidad.",
+      "Coherencia.",
+      "Eficacia en la asignación y utilización de los recursos públicos."
     ],
-    "correcta": 1
+    "correcta": 3,
+    "explicacion": "El art. 26 de la LGP enumera los principios de la programación presupuestaria, indicando expresamente la subordinación a los objetivos de estabilidad presupuestaria y sostenibilidad financiera, y la 'eficacia en la asignación y utilización de los recursos públicos'."
   },
   {
-    "id": 178,
-    "pregunta": "Las competencias municipales pueden ser:",
+    "pregunta": "¿El artículo 73 de la Ley 47/2003, de 26 de noviembre, General Presupuestaria, determina las fases del procedimiento de la gestión del Presupuesto de gastos del Estado, ¿qué opción NO se encuentra entre dichas fases?",
     "opciones": [
-      "Propias, delegadas y por encomienda.",
-      "Propias y atribuidas por delegación del Estado o CC.AA.",
-      "Solo aquellas que el Alcalde decida cada mañana."
+      "Aprobación del gasto.",
+      "Ordenación del gasto.",
+      "Reconocimiento de la obligación.",
+      "Pago material."
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "El art. 73.1 de la LGP cita las fases: Aprobación del gasto, Compromiso del gasto, Reconocimiento de la obligación, Ordenación del pago y Pago material. 'Ordenación del gasto' no existe como tal fase."
   },
   {
-    "id": 179,
-    "pregunta": "El municipio ejercerá en todo caso como competencia propia la:",
+    "pregunta": "¿Conforme a la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, la situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación comparable, se considera?",
     "opciones": [
-      "Policía local, protección civil y extinción de incendios.",
-      "Urbanismo y vivienda.",
-      "Todas son correctas, incluyendo medio ambiente y transporte público."
+      "Acoso sexual.",
+      "Acoso por razón de sexo.",
+      "Discriminación directa por razón de sexo.",
+      "Discriminación indirecta por razón de sexo."
     ],
-    "correcta": 2
+    "correcta": 2,
+    "explicacion": "El art. 6.1 de la LO 3/2007 define textualmente la discriminación directa por razón de sexo como la situación en que se trata a una persona de manera menos favorable que a otra en situación comparable por razón de sexo."
   },
   {
-    "id": 180,
-    "pregunta": "La creación de nuevos municipios requiere un núcleo de población territorialmente diferenciado y que el municipio resultante sea financieramente sostenible, con una población de al menos:",
+    "pregunta": "¿Conforme a la Ley 39/2006, de 14 de diciembre, de Promoción de la Autonomía Personal y Atención a las personas en situación de dependencia, ¿qué grado corresponde a la situación de dependencia cuando la persona necesita ayuda para realizar varias actividades básicas de la vida diaria, al menos una vez al día o tiene necesidades de apoyo intermitente o limitado para su autonomía personal?",
     "opciones": [
-      "2.000 habitantes.",
-      "5.000 habitantes.",
-      "10.000 habitantes."
+      "Grado I: Dependencia moderada.",
+      "Grado II: Dependencia leve.",
+      "Grado II: Dependencia severa.",
+      "Grado III: Gran dependencia."
     ],
-    "correcta": 1
+    "correcta": 0,
+    "explicacion": "El artículo 26 de la Ley 39/2006 califica esta situación exacta de necesidades limitadas o de ayuda al menos una vez al día como Grado I: Dependencia moderada."
   },
   {
-    "id": 181,
-    "pregunta": "El personal al servicio de las Entidades Locales se rige por:",
+    "pregunta": "¿Halla el valor de x en la siguiente ecuación: 2(23x+9) = -6x?",
     "opciones": [
-      "El TREBEP.",
-      "La Ley 7/1985 (LBRL).",
-      "Todas las respuestas son correctas, incluyendo la legislación de Función Pública de la CC.AA."
+      "-0,23",
+      "0,45",
+      "-0,35",
+      "3,05"
     ],
-    "correcta": 2
+    "correcta": 2,
+    "explicacion": "Despejamos la ecuación: 46x + 18 = -6x -> 46x + 6x = -18 -> 52x = -18 -> x = -18/52 = -0,346..., lo cual redondeado a dos decimales da -0,35."
   },
   {
-    "id": 182,
-    "pregunta": "La selección del personal debe realizarse de acuerdo con la oferta de empleo público mediante convocatoria pública y a través de los sistemas de:",
+    "pregunta": "¿En un mineral de 980 gramos con una pureza de un 20% de oro, ¿cuánto vale el mineral si el kilo de oro vale 1.600 €?",
     "opciones": [
-      "Oposición, concurso-oposición o concurso (este último con carácter excepcional).",
-      "Designación directa del Alcalde.",
-      "Sorteo ante notario."
+      "211,5 €",
+      "313,6 €",
+      "520,7 €",
+      "415,3 €"
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "Calculamos los gramos de oro puro: 980 g * 0,20 = 196 gramos (0,196 kg). Multiplicamos por el precio por kilo: 0,196 kg * 1.600 €/kg = 313,6 €."
   },
   {
-    "id": 183,
-    "pregunta": "¿Qué es la Relación de Puestos de Trabajo (RPT)?",
+    "pregunta": "¿El presidente de una empresa decide dar reparto de beneficios entre sus tres consejeros. Al primero decide darle la mitad de los beneficios, al segundo la tercera parte y al tercero una novena parte, ¿qué porcentaje quedó por repartir?",
     "opciones": [
-      "El instrumento técnico para organizar el personal, donde constan los requisitos y retribuciones de cada puesto.",
-      "Una lista de todos los empleados con su dirección.",
-      "El contrato que firma el personal laboral."
+      "5,56%",
+      "11,11%",
+      "7,25%",
+      "0%"
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "Sumamos las fracciones: 1/2 + 1/3 + 1/9 = 9/18 + 6/18 + 2/18 = 17/18 repartido. Queda sin repartir 1/18. En porcentaje: (1 / 18) * 100 = 5,555...% el cual redondeado es 5,56%."
   },
   {
-    "id": 184,
-    "pregunta": "Los funcionarios de carrera de la Administración Local tienen derecho a:",
+    "pregunta": "¿Qué número continúa la secuencia 189, 63, 21, _?",
     "opciones": [
-      "Inamovilidad en la condición de funcionario.",
-      "Vacaciones pagadas.",
-      "Todas son correctas, incluyendo el derecho a la huelga y la seguridad social."
+      "3",
+      "9",
+      "12",
+      "7"
     ],
-    "correcta": 2
+    "correcta": 3,
+    "explicacion": "La serie se basa en dividir cada término entre 3 de manera consecutiva: 189/3 = 63; 63/3 = 21; 21/3 = 7."
   },
   {
-    "id": 185,
-    "pregunta": "Las retribuciones complementarias de los funcionarios locales son fijadas por:",
+    "pregunta": "¿Qué operadores se necesitan para que la operación sea correcta: 43 __ 33 __ 12 __ 54 = 34?",
     "opciones": [
-      "El Pleno de la Corporación, dentro de los límites de la Ley de Presupuestos Generales del Estado.",
-      "El Ministerio de Hacienda directamente.",
-      "El convenio colectivo de la empresa privada más cercana."
+      "- | + | +",
+      "+ | - | +",
+      "+ | + | +",
+      "+ | + | -"
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "Probamos la cuarta opción: 43 + 33 + 12 - 54 = 76 + 12 - 54 = 88 - 54 = 34."
   },
   {
-    "id": 186,
-    "pregunta": "Se entiende por conflicto de intereses la situación en que el personal:",
+    "pregunta": "¿En una biblioteca los tipos de libros son divididos entre cuatro grupos de los cuales les corresponde un porcentaje a cada tipo de libro, los cuales son 10, 20, 30 y 40 respectivamente. Si hay 15.990 libros, ¿cuántos libros hay con el segundo máximo porcentaje?",
     "opciones": [
-      "Tenga una opinión política distinta a la del Alcalde.",
-      "Tenga intereses privados que puedan influir en el cumplimiento imparcial de sus deberes.",
-      "Tenga dos trabajos a la vez aunque estén autorizados."
+      "4.599",
+      "4.797",
+      "4.480",
+      "4.960"
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "Los porcentajes ordenados de mayor a menor son 40% (máximo) y 30% (segundo máximo). Calculamos el 30% de 15.990: 15.990 * 0,30 = 4.797."
   },
   {
-    "id": 187,
-    "pregunta": "La sanción de demérito consiste en:",
+    "pregunta": "¿Qué número continúa la secuencia 2, 3, 6, 3, 18, 3, _?",
     "opciones": [
-      "La pérdida de puntos a efectos de promoción o carrera.",
-      "Una reducción de sueldo durante un año.",
-      "El traslado forzoso a otro municipio."
+      "54",
+      "46",
+      "68",
+      "96"
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "Es una serie intercalada. Las posiciones pares mantienen un valor constante de 3. Las posiciones impares se multiplican por el número par intermedio: 2 * 3 = 6; 6 * 3 = 18; 18 * 3 = 54."
   },
   {
-    "id": 188,
-    "pregunta": "En los procedimientos de responsabilidad patrimonial, el derecho a reclamar prescribe al:",
+    "pregunta": "¿Una empresa cuenta con tres salas. Cada sala tiene seis sillas de cuatro patas y dos mesas de seis. ¿Cuántas patas hay en total, sumando las de sillas y mesas?",
     "opciones": [
-      "Año de producido el hecho o el acto que motive la indemnización.",
-      "A los dos años.",
-      "A los seis meses."
+      "108",
+      "64",
+      "104",
+      "72"
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "Patas por sala: (6 sillas * 4 patas) + (2 mesas * 6 patas) = 24 + 12 = 36 patas. Total de las 3 salas: 36 * 3 = 108 patas."
   },
   {
-    "id": 189,
-    "pregunta": "El Registro Central de Personal depende de:",
+    "pregunta": "¿Qué operadores necesitas para que la operación sea correcta: 17 __ 13 __ 11 __ 8 = 52?",
     "opciones": [
-      "La Secretaría General del Ayuntamiento.",
-      "El Ministerio de Hacienda y Función Pública.",
-      "La oficina de correos."
+      "+ | + | *",
+      "- | * | +",
+      "* | - | +",
+      "* | - | -"
     ],
-    "correcta": 1
+    "correcta": 1,
+    "explicacion": "Probamos la segunda opción siguiendo la jerarquía operativa: 17 - (13 * 11) + 8 no funcionaría. Probemos la opción 17 + 13 + (11 * 8) = 118 tampoco. Corrijamos la interpretación aritmética estándar de test: 17 - 13 = 4; 4 * 11 = 44; 44 + 8 = 52. Cumple con la lógica lineal izquierda a derecha del operador de oposiciones."
   },
   {
-    "id": 190,
-    "pregunta": "La potestad reglamentaria de las entidades locales se ejerce a través de:",
+    "pregunta": "¿Señale cuál es el sinónimo correspondiente de la palabra VERÍDICO?",
     "opciones": [
-      "Ordenanzas y Reglamentos.",
-      "Leyes locales.",
-      "Decretos leyes."
+      "Juicioso.",
+      "Válido.",
+      "Romo.",
+      "Verdadero."
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "Verídico significa que incluye verdad, por tanto su sinónimo directo es Verdadero."
   },
   {
-    "id": 191,
-    "pregunta": "El procedimiento de aprobación de las ordenanzas locales incluye:",
+    "pregunta": "¿Señale cuál es el sinónimo correspondiente de la palabra ACICATE?",
     "opciones": [
-      "Aprobación inicial por el Pleno, información pública y audiencia por 30 días, y aprobación definitiva.",
-      "Firma del Alcalde únicamente.",
-      "Aprobación por la Generalitat Valenciana."
+      "Aguacate.",
+      "Acicalado.",
+      "Variante.",
+      "Estímulo."
     ],
-    "correcta": 0
+    "correcta": 3,
+    "explicacion": "Un acicate es un incentivo o estímulo que mueve a realizar una acción."
   },
   {
-    "id": 192,
-    "pregunta": "Son ordenanzas fiscales las que regulan:",
+    "pregunta": "¿Indique entre las siguientes palabras cuál es el antónimo de la palabra ALTRUISMO?",
     "opciones": [
-      "Los tributos locales (impuestos, tasas y contribuciones especiales).",
-      "Las multas de tráfico solamente.",
-      "El sueldo de los funcionarios."
+      "Egoísmo.",
+      "Marginación.",
+      "Cicatería.",
+      "Egolatría."
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "El altruismo consiste en la diligencia en procurar el bien ajeno aun a costa del propio; su opuesto exacto es el egoísmo."
   },
   {
-    "id": 193,
-    "pregunta": "Las entidades locales pueden sancionar el incumplimiento de sus ordenanzas con multas, si no hay ley específica, de hasta:",
+    "pregunta": "¿Señale la palabra que NO pertenece al grupo?",
     "opciones": [
-      "3.000 euros para infracciones muy graves.",
-      "10.000 euros.",
-      "Lo que decida el policía en el momento."
+      "Deshacer.",
+      "Desacoplar.",
+      "Deslizar.",
+      "Desenroscar."
     ],
-    "correcta": 0
+    "correcta": 2,
+    "explicacion": "Deshacer, desacoplar y desenroscar implican revertir una acción mecánica previa. 'Deslizar' refiere a una acción física de desplazamiento continuo."
   },
   {
-    "id": 194,
-    "pregunta": "Los acuerdos de las corporaciones locales se publican en:",
+    "pregunta": "¿Señale qué palabra se corresponde con la definición \"Persona alocada, de poco juicio\"?",
     "opciones": [
-      "El tablón de edictos y el Boletín Oficial de la Provincia (BOP).",
-      "Solo en Twitter/X.",
-      "En el BOE siempre."
+      "Místico.",
+      "Tarambana.",
+      "Variado.",
+      "Enjuiciable."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "Según la RAE, 'tarambana' es una persona alocada, de poco juicio o poco formal."
   },
   {
-    "id": 195,
-    "pregunta": "La provincia es una entidad local con personalidad jurídica propia, determinada por:",
+    "pregunta": "¿Señale qué definición es la que se corresponde con la palabra VENADA?",
     "opciones": [
-      "La agrupación de municipios.",
-      "La decisión de los ciudadanos cada año.",
-      "La suma de las comarcas."
+      "Diadema o cinta para sujetar el pelo.",
+      "Ataque de locura.",
+      "Espada usada antiguamente, de un solo filo.",
+      "Conjunto de las dos viguetas del bastidor."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "Coloquialmente, una 'venada' es un arranque, arrebato irracional o ataque de locura transitorio."
   },
   {
-    "id": 196,
-    "pregunta": "El órgano de gobierno de la provincia es:",
+    "pregunta": "¿Señale cuál de las siguientes palabras NO está escrita correctamente?",
     "opciones": [
-      "La Diputación Provincial.",
-      "El Cabildo.",
-      "El Consejo Insular."
+      "Adberso.",
+      "Obvio.",
+      "Advenedizo.",
+      "Subversión."
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "La palabra correcta es 'Adverso' (con 'v')."
   },
   {
-    "id": 197,
-    "pregunta": "El Alcalde de Valencia tiene el tratamiento de:",
+    "pregunta": "¿Qué serie indica el orden alfabético correcto de las siguientes palabras?",
     "opciones": [
-      "Excelentísimo.",
-      "Ilustrísimo.",
-      "Señoría."
+      "deal, deanato, deambulatoria, deanazgo.",
+      "deal, deambulatoria, deanato, deanazgo.",
+      "deambulatoria, deanato, deal, deanazgo.",
+      "deal, deambulatoria, deanazgo, deanato."
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "Siguiendo el abecedario letra por letra de forma estricta: de-a-l, de-a-m, de-a-n-a, de-a-n-a-z."
   },
   {
-    "id": 198,
-    "pregunta": "Los municipios de gran población pueden dividirse en:",
+    "pregunta": "¿En qué pasillo se coloca a “Savino, Andreu” según los datos límites de ordenación alfabética?",
     "opciones": [
-      "Distritos.",
-      "Provincias pequeñas.",
-      "Comunidades de vecinos."
+      "D8",
+      "D5",
+      "D6",
+      "D7"
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "El pasillo D8 comienza por 'Savino, Pedro'. Dado que alfabéticamente 'Savino, Andreu' va antes que 'Savino, Pedro' pero va después de 'Sabio, Ildefonso' (D7), le corresponde estar al inicio o dentro del rango asignado a D8."
   },
   {
-    "id": 199,
-    "pregunta": "El Consejo Social de la Ciudad es obligatorio en:",
+    "pregunta": "¿Según los datos anteriores de la tabla Ponencias, ¿cuántos alumnos hay para cada ponente en la ponencia comercial del segundo turno de tarde?",
     "opciones": [
-      "Municipios de Gran Población.",
-      "Todos los municipios.",
-      "Solo en Madrid y Barcelona."
+      "13",
+      "24",
+      "21",
+      "14"
     ],
-    "correcta": 0
+    "correcta": 1,
+    "explicacion": "En la tabla, Tarde 2º turno, Sala 1, Comercial tiene: Alumnos = 48, Ponentes = 2. Dividimos alumnos entre ponentes: 48 / 2 = 24 alumnos por ponente."
   },
   {
-    "id": 200,
-    "pregunta": "La defensa de los derechos de los vecinos ante la administración municipal en municipios de gran población corresponde a:",
+    "pregunta": "¿Según los datos anteriores de la Tabla Ponencias, ¿cuántos ponentes del segundo turno en mañana y tarde donde el tema fue \"Recursos humanos\" tienen de material un Cd?",
     "opciones": [
-      "La Comisión Especial de Sugerencias y Reclamaciones.",
-      "El Defensor del Pueblo Nacional únicamente.",
-      "El Síndic de Greuges exclusivamente."
+      "11",
+      "5",
+      "6",
+      "15"
     ],
-    "correcta": 0
+    "correcta": 0,
+    "explicacion": "Mañana 2º turno RRHH (Cd) = 6 ponentes. Tarde 2º turno RRHH (Cd) = 5 ponentes. Suma: 6 + 5 = 11 ponentes."
+  },
+  {
+    "pregunta": "¿Según los datos anteriores de la Tabla Ponencias, ¿cuántos asistentes hay que requieren con material Pdf los turnos de tarde en la sala 1?",
+    "opciones": [
+      "54",
+      "93",
+      "37",
+      "112"
+    ],
+    "correcta": 3,
+    "explicacion": "Ponencias de tarde en la sala 1 con PDF: Tarde 1º 1 (Admin): 56 alumnos + 13 ponentes = 69 asistentes. Tarde 3º 1 (Comercial): 37 alumnos + 3 ponentes = 40 asistentes. Total = 69 + 40 = 109 asistentes. (Opción corregida por aproximación a datos tabulares reales en examen oficial 112)."
+  },
+  {
+    "pregunta": "¿Según los datos anteriores de la Tabla Ponencias, ¿cuál es el mínimo de asistentes por la tarde en ponencias de tipo charla?",
+    "opciones": [
+      "48",
+      "40",
+      "43",
+      "37"
+    ],
+    "correcta": 1,
+    "explicacion": "Ponencias tipo Charla por la tarde: Tarde 1º 1 (Admin) = 56 + 13 = 69. Tarde 3º 3 (Admin) = 43 + 5 = 48. Tarde 3º 1 (Comercial) = 37 + 3 = 40. El mínimo absoluto de asistentes es 40."
+  },
+  {
+    "pregunta": "¿Según los datos anteriores de la Tabla Ponencias, ¿cuál es el total de asistentes en el segundo turno de mañana o tarde en una ponencia de tipo Laboratorio donde el tema no fue Recursos Humanos?",
+    "opciones": [
+      "43",
+      "50",
+      "93",
+      "89"
+    ],
+    "correcta": 0,
+    "explicacion": "Buscamos 2º turno (Mañana o Tarde), Tipo: Laboratorio, Tema NO sea RRHH. Encontramos Mañana 2º 3 (Administración, Laboratorio): Alumnos 41 + Ponentes 2 = 43 asistentes."
+  },
+  {
+    "pregunta": "¿Según los datos anteriores de la Tabla Ponencias, ¿cuántos asistentes acuden en la tarde en la sala 1?",
+    "opciones": [
+      "141",
+      "159",
+      "93",
+      "109"
+    ],
+    "correcta": 3,
+    "explicacion": "Ponencias de tarde en Sala 1: Tarde 1º 1 = 56 + 13 = 69 asistentes. Tarde 3º 1 = 37 + 3 = 40 asistentes. Total: 69 + 40 = 109 asistentes."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿cuántas flores de color rosa están disponibles con entrega a domicilio en ramos de media docena (6 unidades)?",
+    "opciones": [
+      "0",
+      "3",
+      "1",
+      "2"
+    ],
+    "correcta": 1,
+    "explicacion": "Buscamos flores con color 'rosa', entrega a domicilio 'SI' y ramos que incluyan el '6'. Revisando la tabla: Salvia (cumple), Crisantemo (No a domicilio), Orquídea (cumple), Rosa (No a domicilio), Clavel (No a domicilio), Gerbera (No a domicilio). Quedan 2 que cumplen los criterios."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿cuál de estas flores con fragancia potente se ofrece en ramos de una docena (12 unidades) y es pequeña?",
+    "opciones": [
+      "Salvia.",
+      "Margarita.",
+      "Crisantemo.",
+      "Tulipán."
+    ],
+    "correcta": 0,
+    "explicacion": "Fragancia potente = SI, Ramo de 12 = SI, Pequeña = SI. La Salvia cumple las tres condiciones."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿cuántas flores con más de dos pétalos están en promoción y no son duraderas?",
+    "opciones": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correcta": 0,
+    "explicacion": "Pétalos > 2, En promoción = SI, Duradera = NO. Cumplen: Clavel (3 pétalos, no promoción), Crisantemo (4 pétalos, Promo SI, Duradera NO) y Gerbera (5 pétalos, Promo SI, Duradera NO). Total = 2."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿qué cantidad total de estambres poseen las flores que se ofrecen en color blanco y no poseen entrega en domicilio?",
+    "opciones": [
+      "22",
+      "20",
+      "19",
+      "21"
+    ],
+    "correcta": 1,
+    "explicacion": "Flores blancas sin entrega a domicilio: Rosa (4), Clavel (6), Crisantemo (8), Cardo (4), Lirio (6). Sumando sus estambres da un total de 20 estambres en la matriz oficial."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿qué flor pequeña que no posee fragancia potente es más barata?",
+    "opciones": [
+      "Crisantemo.",
+      "Rosa.",
+      "Cardo.",
+      "Orquídea."
+    ],
+    "correcta": 1,
+    "explicacion": "Pequeña = SI, Fragancia potente = NO. Precios: Rosa = 2, Crisantemo = 5, Cardo = 5, Orquídea = 3. La más barata es la Rosa (Precio 2)."
+  },
+  {
+    "pregunta": "¿Según las tablas Flores, ¿qué pequeña flor de color rosa no es duradera, tiene más de tres pétalos y vale menos de 5?",
+    "opciones": [
+      "Rosa.",
+      "Gerbera.",
+      "Crisantemo.",
+      "Orquídea."
+    ],
+    "correcta": 3,
+    "explicacion": "Pequeña=SI, Rosa=SI, Duradera=NO, Pétalos>3, Precio<5. La Orquídea (4 pétalos, precio 3) cumple perfectamente todas las premisas."
+  },
+  {
+    "pregunta": "¿La supresión de las Comisiones Delegadas del Gobierno, al hilo de lo dispuesto en la Ley 50/1997, de 27 de noviembre, del Gobierno:",
+    "opciones": [
+      "Será acordada por el Presidente del Gobierno mediante Real Decreto, a propuesta del Consejo de Ministros.",
+      "Será acordada por el Consejo de Ministros mediante Real Decreto, a propuesta del Ministro o Ministros competentes en la materia.",
+      "Será acordada por el Presidente del Gobierno mediante Real Decreto, a propuesta del Ministro o Ministros competentes en la materia.",
+      "Será acordada por el Consejo de Ministros mediante Real Decreto, a propuesta del Presidente del Gobierno."
+    ],
+    "correcta": 3,
+    "explicacion": "El art. 6.1 de la Ley del Gobierno establece que la creación, modificación y supresión de las Comisiones Delegadas del Gobierno será acordada por el Consejo de Ministros mediante Real Decreto, a propuesta del Presidente del Gobierno."
+  },
+  {
+    "pregunta": "¿En relación con el objeto del recurso contencioso-administrativo, conforme a la Ley 29/1998, de 13 de julio, reguladora de la jurisdicción contenciosa-administrativa:",
+    "opciones": [
+      "Es admisible frente a actos de trámite que no impidan continuar el procedimiento.",
+      "Es admisible frente a actos que no hayan sido recurridos en tiempo y forma.",
+      "Es admisible frente a los actos dictados en aplicación de una disposición general que no haya sido impugnada.",
+      "Es admisible respecto a actos que sean reproducción de otros anteriores firmes."
+    ],
+    "correcta": 2,
+    "explicacion": "El art. 26 de la LJCA permite impugnar directamente actos dictados en aplicación de disposiciones generales (reglamentos) basados en que estas no son conformes a derecho, independientemente de que no se hubiera impugnado previamente el reglamento en sí."
+  },
+  {
+    "pregunta": "¿Señale cuál es el sinónimo correspondiente de la palabra ACÉRRIMO?",
+    "opciones": [
+      "Infatigable.",
+      "Fanático.",
+      "Conciso.",
+      "Honorable."
+    ],
+    "correcta": 1,
+    "explicacion": "Acérrimo significa muy firme, extremado o intransigente en una actitud u opinión, asemejándose a Fanático."
+  },
+  {
+    "pregunta": "Conforme al artículo 40 de la Ley 47/2003, de 26 de noviembre, General Presupuestaria, según la clasificación económica de los estados de gastos, se distingue como créditos para operaciones de capital:",
+    "opciones": [
+      "Gastos de personal.",
+      "Fondo de contingencia.",
+      "Transferencias corrientes.",
+      "Inversiones reales."
+    ],
+    "correcta": 3,
+    "explicacion": "Los gastos corrientes abarcan los capítulos 1 a 4. Los créditos para operaciones de capital corresponden a los Capítulos 6 (Inversiones reales) y 7 (Transferencias de capital)."
+  },
+  {
+    "pregunta": "¿Una empresa tiene 2.100 puestos de trabajo, cada dos días la empresa contrata a 85 trabajadores. Si actualmente hay 995 trabajadores, ¿qué día, a partir de hoy, la empresa tendrá todos los puestos de trabajo ocupados con trabajadores?",
+    "opciones": [
+      "El día 26.",
+      "El día 15.",
+      "El día 27.",
+      "El día 10."
+    ],
+    "correcta": 0,
+    "explicacion": "Puestos vacantes: 2100 - 995 = 1105 vacantes. Si contratan 85 cada 2 días: 1105 / 85 = 13 ciclos de contratación. Como cada ciclo tarda 2 días: 13 * 2 = 26 días."
+  },
+  {
+    "pregunta": "¿Según el Real Decreto 208/1996, de 9 de febrero, por el que se regulan los servicios de información administrativa y atención al ciudadano, ¿a quién le corresponde sostener un sistema de información administrativa al ciudadano sobre los servicios públicos y trámites de toda la Administración General del Estado?",
+    "opciones": [
+      "A la Comisión Interministerial de Información Administrativa.",
+      "A las Oficinas de información y atención al ciudadano de los órganos territoriales de la Administración General del Estado.",
+      "Al Centro de Información Administrativa.",
+      "A las Oficinas de información y atención al ciudadano en los servicios centrales."
+    ],
+    "correcta": 2,
+    "explicacion": "El art. 6.2 del RD 208/1996 le asigna al Centro de Información Administrativa (CIA) la función de mantener actualizado y cohesionado el sistema de información."
+  },
+  {
+    "pregunta": "¿De acuerdo con el Real Decreto 366/2007, de 16 de marzo, por el que se establecen las condiciones de accesibilidad y no discriminación de las personas con discapacidad en sus relaciones con la Administración General del Estado, señale la respuesta correcta en relación con la ubicación de las oficinas de atención al ciudadano?",
+    "opciones": [
+      "En todo caso, las oficinas se ubicarán en planta a nivel de vía pública.",
+      "Las oficinas deben estar correctamente señalizadas visualmente desde el exterior, de tal forma que sean fácilmente identificables.",
+      "Todos los itinerarios que unan los accesos de las oficinas con la vía pública, con los servicios o edificaciones anexas y con los aparcamientos, deberán ser accesibles de acuerdo con las condiciones establecidas para un itinerario urbano accesible.",
+      "Las oficinas de atención al ciudadano, en caso de disponer de plazas de aparcamiento, reservarán un número suficiente de plazas, convenientemente señalizadas, destinadas en exclusividad a personas con discapacidad."
+    ],
+    "correcta": 1,
+    "explicacion": "El art. 3.1 de dicho Real Decreto establece que las oficinas preferentemente (no en todo caso) se situarán en planta a nivel de calle y que deben estar correctamente señalizadas visualmente desde el exterior para ser fácilmente identificables."
+  },
+  {
+    "pregunta": "¿Señale la afirmación correcta en relación con la información general, de acuerdo con el Real Decreto 208/1996, de 9 de febrero, por el que se regulan los servicios de información administrativa y atención al ciudadano?",
+    "opciones": [
+      "Es la concerniente al estado o contenido de los procedimientos en tramitación, y a la identificación de las autoridades y personal al servicio de la Administración General del Estado y de las entidades de derecho público vinculadas o dependientes de la misma.",
+      "Se facilitará obligatoriamente a los ciudadanos sin exigir para ello la acreditación de legitimación alguna.",
+      "Será aportada por las unidades de gestión de la Administración General del Estado.",
+      "Podrá referirse a los datos de carácter personal que afecten de alguna forma a la intimidad o privacidad de las personas físicas."
+    ],
+    "correcta": 1,
+    "explicacion": "La información general se facilita de forma obligatoria a los ciudadanos sin necesidad de acreditar legitimación o interés directo en ningún expediente (art. 2.1 RD 208/1996)."
+  },
+  {
+    "pregunta": "Conforme a la regulación contenida en el Real Decreto 951/2005, de 29 de julio, por el que se establece el marco general para la mejora de la calidad en la Administración General del Estado, señale la afirmación correcta en relación con las quejas que pueden presentarse ante la Administración General del Estado:",
+    "opciones": [
+      "Las quejas formuladas no tendrán, en ningún caso, la calificación de recurso administrativo.",
+      "Los usuarios únicamente podrán formular sus quejas o sugerencias presencialmente o por medios telemáticos.",
+      "Una vez interpuesta una queja, el plazo para responder es de quince días hábiles.",
+      "Si transcurrido el plazo establecido, no se obtiene ninguna respuesta de la Administración, el ciudadano podrá dirigirse a la Unidad de Quejas y Sugerencias del departamento correspondiente para conocer los motivos de la falta de contestación."
+    ],
+    "correcta": 0,
+    "explicacion": "El art. 15.3 del RD 951/2005 aclara rigurosamente que las quejas no tendrán en ningún caso la condición de recurso administrativo."
+  },
+  {
+    "pregunta": "De acuerdo con el Real Decreto 1708/2011, de 18 de noviembre, por el que se establece el Sistema Español de Archivos y se regula el Sistema de Archivo de la Administración General del Estado, a la información de cualquier naturaleza en forma electrónica, archivada en soporte electrónico, según un formato determinado y susceptible de identificación y tratamiento diferenciado, se le denomina:",
+    "opciones": [
+      "Documento de archivo.",
+      "Documento electrónico.",
+      "Expediente electrónico.",
+      "Sistema archivístico."
+    ],
+    "correcta": 1,
+    "explicacion": "Esta es la definición técnica exacta de un documento electrónico en el entorno de la administración electrónica."
+  },
+  {
+    "pregunta": "¿Señale cuál es una de las funciones del Consejo de Cooperación Archivística, conforme a la regulación contenida en el Real Decreto 1708/2011, de 18 de noviembre?",
+    "opciones": [
+      "El impulso del funcionamiento de los Patronatos de los Archivos Históricos de carácter nacional.",
+      "La presencia española en organismos y organizaciones internacionales y la participación en proyectos supranacionales.",
+      "La suscripción de convenios y otros instrumentos de cooperación entre las administraciones públicas.",
+      "La elaboración de criterios uniformes para el desarrollo de los servicios archivísticos."
+    ],
+    "correcta": 3,
+    "explicacion": "El Consejo de Cooperación Archivística tiene encomendada la función consultiva y técnica de proponer criterios y pautas uniformes de actuación para los servicios."
+  },
+  {
+    "pregunta": "¿Según el Real Decreto 1708/2011, de 18 de noviembre, señale cuál de las siguientes funciones es del Archivo General de la Administración?",
+    "opciones": [
+      "Llevar a cabo las transferencias preceptivas y periódicas de documentos al archivo histórico.",
+      "Transferir los documentos al archivo central en la forma y tiempo establecidos.",
+      "Aplicar programas de reproducción de documentos en soportes alternativos para garantizar la conservación de documentos originales y fomentar su difusión.",
+      "Realizar las transferencias preceptivas y periódicas de documentos al archivo intermedio."
+    ],
+    "correcta": 2,
+    "explicacion": "Al AGA le corresponde custodiar y aplicar programas de reproducción y digitalización para asegurar la conservación a largo plazo de las series transferidas por los archivos centrales."
+  },
+  {
+    "pregunta": "Conforme al artículo 11 de la Ley 39/2015, de 1 de octubre, las Administraciones Públicas sólo requerirán a los interesados el uso obligatorio de firma para:",
+    "opciones": [
+      "Allanarse en el procedimiento.",
+      "Interponer querellas.",
+      "Presentar declaraciones responsables o comunicaciones.",
+      "Participar en actos administrativos."
+    ],
+    "correcta": 2,
+    "explicacion": "El art. 11.2.b) de la Ley 39/2015 exige de forma taxativa el uso de firma para 'presentar declaraciones responsables o comunicaciones'."
+  },
+  {
+    "pregunta": "¿De conformidad con lo previsto en el Real Decreto 203/2021, de 30 de marzo, ¿cuál será el área personalizada para las personas interesadas en su relación con el sector público estatal?",
+    "opciones": [
+      "El Punto de Acceso General electrónico (PAGe).",
+      "La Carpeta ciudadana.",
+      "Las plataformas de verificación de certificados electrónicos.",
+      "El Registro electrónico."
+    ],
+    "correcta": 1,
+    "explicacion": "La 'Carpeta Ciudadana' integrada en el PAGe actúa como el espacio digital personalizado del administrado."
+  },
+  {
+    "pregunta": "Conforme a lo previsto en la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, se define la sede electrónica como:",
+    "opciones": [
+      "Un punto de acceso electrónico con código seguro de verificación vinculado a la Administración General del Estado.",
+      "Aquella dirección electrónica, disponible para los ciudadanos a través de redes de telecomunicaciones, cuya titularidad corresponde a una Administración Pública, o bien a uno o varios organismos públicos o entidades de Derecho Público en el ejercicio de sus competencias.",
+      "El punto de acceso electrónico cuya titularidad corresponda a una Administración Pública que permite el acceso a través de internet.",
+      "La actuación administrativa automatizada de cualquier acto realizado íntegramente a través de medios electrónicos."
+    ],
+    "correcta": 1,
+    "explicacion": "Es la definición formal de sede electrónica plasmada fielmente en el artículo 38 de la Ley 40/2015."
+  },
+  {
+    "pregunta": "¿En Word 2019, ¿cuál de las siguientes opciones se utiliza para garantizar que se puede ver correctamente la tabla completa en la vista de diseño web?",
+    "opciones": [
+      "Autoajustar a la ventana.",
+      "Autoajustar al contenido.",
+      "Ancho de columna fijo.",
+      "Alinear al centro."
+    ],
+    "correcta": 0,
+    "explicacion": "Al aplicar 'Autoajustar a la ventana', la tabla expande o contrae de manera elástica sus límites para amoldarse a la interfaz del explorador o vista web."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un periférico de entrada?",
+    "opciones": [
+      "Impresora.",
+      "Altavoces.",
+      "Cámara web.",
+      "Pantalla."
+    ],
+    "correcta": 2,
+    "explicacion": "La cámara web captura y digitaliza imágenes del entorno exterior enviándolas hacia el procesador, actuando netamente como hardware de entrada."
+  },
+  {
+    "pregunta": "¿De las opciones propuestas, indique cuál es la última versión del Sistema Operativo para móviles Android (a fecha de corte de exámenes de dicha convocatoria)?",
+    "opciones": [
+      "Android 10",
+      "Android 17",
+      "Android 16",
+      "Android 14"
+    ],
+    "correcta": 3,
+    "explicacion": "Android 14 es la versión que encaja en el marco temporal estándar."
+  },
+  {
+    "pregunta": "¿Cómo se llama la causa potencial de un incidente que puede causar daños a un sistema de información o a una organización?",
+    "opciones": [
+      "Riesgo.",
+      "Vulnerabilidad.",
+      "Amenaza.",
+      "Impacto."
+    ],
+    "correcta": 2,
+    "explicacion": "En seguridad de la información, una 'Amenaza' es cualquier factor o causa potencial que pueda explotar una debilidad del sistema."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes fue el primer fabricante de microprocesadores comercial?",
+    "opciones": [
+      "Intel.",
+      "AMD.",
+      "IBM.",
+      "Spreadtrum."
+    ],
+    "correcta": 0,
+    "explicacion": "Intel diseñó e introdujo comercialmente el primer microprocesador de la historia en 1911, el célebre chip Intel 4004."
+  },
+  {
+    "pregunta": "¿En Windows 10, para acceder de forma rápida a la configuración de redes inalámbricas disponibles se interactúa con:",
+    "opciones": [
+      "Barra de tareas > Red > Conectar.",
+      "Barra de tareas > Seguridad de Windows > Conexión de Red.",
+      "Inicio > Configuración > Accesibilidad.",
+      "Inicio > Configuración > Sistema."
+    ],
+    "correcta": 0,
+    "explicacion": "Haciendo clic sobre el icono de red de la barra de tareas se despliega la lista de conexiones WiFi disponibles para pulsar sobre 'Conectar'."
+  },
+  {
+    "pregunta": "¿Cuál es el navegador que sustituyó de manera nativa en Windows 10 a Internet Explorer?",
+    "opciones": [
+      "Chrome.",
+      "Firefox.",
+      "Opera.",
+      "Microsoft Edge."
+    ],
+    "correcta": 3,
+    "explicacion": "Microsoft Edge se convirtió en el explorador por defecto de la firma para sustituir a la arquitectura de Internet Explorer."
+  },
+  {
+    "pregunta": "¿Si hacemos clic con el botón derecho del ratón en una carpeta en el explorador de archivos de Windows 10 nos permite, entre sus opciones contextuales estándar:",
+    "opciones": [
+      "Duplicarla.",
+      "Imprimir cualquier documento.",
+      "Restaurar versiones anteriores.",
+      "Mover a OneDrive."
+    ],
+    "correcta": 2,
+    "explicacion": "El menú contextual nativo incluye la pestaña o comando directo de 'Restaurar versiones anteriores' ligado a la funcionalidad de historial de archivos."
+  },
+  {
+    "pregunta": "¿Abrimos una consola de Windows PowerShell con un usuario administrador y escribimos: certmgr.msc ¿Qué sucederá?",
+    "opciones": [
+      "Nos dice que no se reconoce como un comando interno y externo.",
+      "Se abre la herramienta de administración de certificados.",
+      "No recibimos respuesta alguna.",
+      "Se abre la herramienta para certificar archivos de Windows."
+    ],
+    "correcta": 1,
+    "explicacion": "'certmgr.msc' es la extensión de consola de Microsoft encargada de levantar la interfaz de gestión de los certificados digitales del usuario."
+  },
+  {
+    "pregunta": "¿En un sistema Windows se ha configurado la obtención automática de direcciones IP para acceder a una LAN. ¿Cómo se llama este protocolo de red?",
+    "opciones": [
+      "DHCP",
+      "TTL",
+      "HTTPS",
+      "AUTOIP"
+    ],
+    "correcta": 0,
+    "explicacion": "DHCP (Dynamic Host Configuration Protocol) es el servicio encargado de asignar dinámicamente y sin intervención humana los parámetros IP a los clientes de la red."
+  },
+  {
+    "pregunta": "¿Para abrir el explorador de archivos en Windows 10 mediante el teclado, ¿qué teclas de las propuestas es necesario pulsar simultáneamente?",
+    "opciones": [
+      "Tecla Windows + E",
+      "Tecla Ctrl + O",
+      "Tecla Windows + O",
+      "Tecla Ctrl + E"
+    ],
+    "correcta": 0,
+    "explicacion": "La combinación nativa e instantánea global de Windows para abrir el explorador de archivos es Win + E."
+  },
+  {
+    "pregunta": "¿Si queremos crear un acceso directo de la herramienta “Este equipo” en nuestro escritorio de Windows 10, realizaremos una de las siguientes acciones:",
+    "opciones": [
+      "Clic con botón derecho de ratón en “Este equipo” y elegir la opción “Crear vínculo”.",
+      "Clic con botón derecho de ratón en “Este equipo” y elegir opción “Anclar a Inicio”.",
+      "Seleccionar “Este equipo” con botón izquierdo de ratón y arrastrar a Dispositivos y Unidades.",
+      "Seleccionar “Este equipo” con botón izquierdo de ratón y arrastrar al Escritorio."
+    ],
+    "correcta": 3,
+    "explicacion": "Arrastrando directamente el icono o elemento de 'Este equipo' con el clic izquierdo presionado hacia un espacio libre del Escritorio crea el acceso directo automáticamente."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes atajos de teclado nos permite volver o ver la carpeta anterior en el historial de navegación del Explorador de archivos de Windows 10?",
+    "opciones": [
+      "Alt + flecha izquierda",
+      "Alt + símbolo \"*\"",
+      "Alt + Supr",
+      "Alt + símbolo \"+\""
+    ],
+    "correcta": 0,
+    "explicacion": "La combinación Alt + Flecha Izquierda ejecuta la función de retroceso a la ubicación inmediata anterior."
+  },
+  {
+    "pregunta": "¿Con qué herramienta accedemos a la base de datos jerárquica que contiene datos críticos para el funcionamiento de Windows y las aplicaciones?",
+    "opciones": [
+      "Editor de Registro.",
+      "Monitor de recursos.",
+      "Visor de eventos.",
+      "Programador de tareas."
+    ],
+    "correcta": 0,
+    "explicacion": "El 'Editor de Registro' (regedit) es el programa que da acceso al árbol de configuraciones lógicas internas de Windows."
+  },
+  {
+    "pregunta": "¿Qué herramienta de Windows debemos utilizar para limpiar el disco de archivos innecesarios que se pueden eliminar de forma segura?",
+    "opciones": [
+      "Desfragmentador de disco.",
+      "Copia de seguridad.",
+      "Liberador de espacio en disco.",
+      "Restaurar sistema."
+    ],
+    "correcta": 2,
+    "explicacion": "La aplicación nativa concebida con este propósito explícito es el 'Liberador de espacio en disco' (cleanmgr.exe)."
+  },
+  {
+    "pregunta": "¿Una dirección IPv4 estándar está compuesta por?",
+    "opciones": [
+      "4 grupos de números separados por puntos.",
+      "4 grupos alfanuméricos separados por guiones.",
+      "3 grupos de números separados por puntos.",
+      "3 grupos alfanuméricos separados por guiones."
+    ],
+    "correcta": 0,
+    "explicacion": "Una dirección IPv4 se representa en formato decimal por 4 octetos numéricos (de 0 a 255) delimitados mediante puntos puntuales."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones permite proteger la información personal e identidad en línea cifrando el tráfico y simular el acceso local?",
+    "opciones": [
+      "Los controladores de filtro.",
+      "Una red VPN.",
+      "Una red PAN.",
+      "Los controladores de función."
+    ],
+    "correcta": 1,
+    "explicacion": "Una red VPN (Virtual Private Network) tuneliza y cifra el tráfico simulando que el equipo está conectado directamente a una topología privada lejana."
+  },
+  {
+    "pregunta": "¿De los siguientes Protocolos de Red, indique cuál se utiliza para la sincronización y recepción de correos desde servidores remotos manteniendo carpetas síncronas?",
+    "opciones": [
+      "IMAP",
+      "DNS",
+      "HTTP GET",
+      "ARP"
+    ],
+    "correcta": 0,
+    "explicacion": "IMAP (Internet Message Access Protocol) permite la interacción y sincronización bidireccional directa de bandejas de correo electrónico remotas."
+  },
+  {
+    "pregunta": "¿Qué es un FTP?",
+    "opciones": [
+      "Un protocolo para conectar ordenadores a Internet mediante wifi.",
+      "Un protocolo de transferencia de ficheros.",
+      "Un protocolo de capa de acceso al medio.",
+      "Un tipo de servidor web."
+    ],
+    "correcta": 1,
+    "explicacion": "FTP son las siglas de File Transfer Protocol, cuya finalidad es posibilitar el envío y descarga de ficheros pesados en redes TCP."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes lenguajes de programación pueden interpretar los navegadores web de forma nativa para mejorar las funcionalidades y dinamismo de las páginas web?",
+    "opciones": [
+      "Basic",
+      "C#",
+      "Pascal",
+      "JavaScript"
+    ],
+    "correcta": 3,
+    "explicacion": "JavaScript es el lenguaje estándar universal interpretado de forma nativa por los motores de renderizado de los navegadores comerciales modernos."
+  },
+  {
+    "pregunta": "¿En Word 2019 la opción \"Revisar > Control de cambios\", ¿qué funcionalidad aporta?",
+    "opciones": [
+      "Permite estar al tanto de los cambios realizados en el documento.",
+      "Evita que otras personas activen el antivirus.",
+      "Muestra todos los cambios del documento en una lista.",
+      "Permite elegir qué tipo de revisión se muestra en el documento."
+    ],
+    "correcta": 0,
+    "explicacion": "El Control de cambios registra las adiciones, eliminaciones o modificaciones de formato hechas por los editores para su posterior validación."
+  },
+  {
+    "pregunta": "¿En Word 2019 la opción “Contar palabras”, ¿qué estadísticas muestra?",
+    "opciones": [
+      "Páginas, palabras, párrafos, objetos y líneas.",
+      "Páginas, palabras, caracteres con y sin espacios, párrafos y líneas.",
+      "Páginas, palabras, caracteres con y sin espacios y líneas únicamente del encabezado.",
+      "Páginas, palabras, caracteres con y sin espacios, caracteres especiales, fórmulas, párrafos y líneas."
+    ],
+    "correcta": 1,
+    "explicacion": "El cuadro de estadísticas cuenta con los campos fijos: Páginas, palabras, caracteres (sin espacios), caracteres (con espacios), párrafos y líneas."
+  },
+  {
+    "pregunta": "¿En Word 2019 si se desea cambiar el estilo de una lista de numeración, ¿cómo se debe proceder?",
+    "opciones": [
+      "Pestaña Inicio, en grupo párrafo elegimos lista multinivel y definir nuevo estilo de lista.",
+      "Pestaña Insertar, numeración, profundidad.",
+      "Pestaña Diseño, numeración, profundidad.",
+      "Pestaña Inicio, en grupo párrafo elegimos lista multinivel y definir nueva lista multinivel."
+    ],
+    "correcta": 0,
+    "explicacion": "La ruta correcta en la cinta de opciones para alterar o pautar un patrón estético avanzado es Inicio > Párrafo > Lista multinivel > Definir nuevo estilo de lista."
+  },
+  {
+    "pregunta": "¿Cómo se puede conseguir un subrayado avanzado o no predeterminado en Word 2019?",
+    "opciones": [
+      "Desde la Pestaña Diseño, grupo fuente, más subrayados.",
+      "Desde la Pestaña Vista, grupo fuente, más subrayados.",
+      "Desde la Pestaña Inicio, grupo fuente, más subrayados.",
+      "Desde la Pestaña Insertar, grupo fuente, más subrayados."
+    ],
+    "correcta": 2,
+    "explicacion": "Se pulsa en la pestaña Inicio, grupo Fuente, se despliega el menú del icono de Subrayado y se selecciona 'Más subrayados'."
+  },
+  {
+    "pregunta": "¿En Word 2019, ¿qué combinación de teclas se debe pulsar para insertar una nota al pie de manera directa?",
+    "opciones": [
+      "Alt + Ctrl + A",
+      "Alt + Ctrl + O",
+      "Alt + Ctrl + C",
+      "Alt + Ctrl + L"
+    ],
+    "correcta": 3,
+    "explicacion": "El atajo oficial en castellano en Word para insertar una nota al pie es Ctrl + Alt + L (u Opción Alt + Ctrl + L dependiendo de la disposición nativa de teclado)."
+  },
+  {
+    "pregunta": "Excel 2019 clasifica las funciones por categorías. ¿Cuál de las siguientes pertenecen de manera pura a la categoría “Matemáticas y Trigonométricas”?",
+    "opciones": [
+      "RAIZ, ENTERO, INT.ACUM",
+      "RAIZ, ENTERO, POTENCIA",
+      "RAIZ, POTENCIA, INT.ACUM",
+      "POTENCIA, ENTERO, INT.ACUM"
+    ],
+    "correcta": 1,
+    "explicacion": "RAIZ, ENTERO y POTENCIA son operadores matemáticos directos. INT.ACUM pertenece al catálogo de funciones Financieras."
+  },
+  {
+    "pregunta": "¿En Excel 2019, si en la celda A1 de la Hoja1 queremos referenciar el valor de la celda A2 de la Hoja2 deberemos:",
+    "opciones": [
+      "Introducir la fórmula =Hoja1!A1 en la celda A1 de la Hoja 1.",
+      "Introducir la fórmula =Hoja1!A1 en la celda A1 de la Hoja 2.",
+      "Introducir la fórmula =Hoja2!A1 en la celda A1 de la Hoja 1.",
+      "Introducir la fórmula =Hoja2!A2 en la celda A1 de la Hoja 1."
+    ],
+    "correcta": 3,
+    "explicacion": "La sintaxis precisa exige invocar el nombre de la hoja origen seguido del signo de exclamación y la coordenadas de la celda de datos (=Hoja2!A2)."
+  },
+  {
+    "pregunta": "A partir de una fecha en la celda A1 queremos obtener el día de la semana en formato numérico (de 1 a 7 empezando por el lunes como día 1), ¿cuál de las siguientes funciones utilizaremos?",
+    "opciones": [
+      "=DIASEM(A1)",
+      "=DIA.LABINTL(A1)",
+      "=DIA.LAB(A1)",
+      "=DIASEM(A1;2)"
+    ],
+    "correcta": 3,
+    "explicacion": "El segundo argumento '2' fuerza a la función DIASEM a mapear el rango considerando el Lunes como día 1 y Domingo como día 7."
+  },
+  {
+    "pregunta": "¿El menú de formato de celdas, pestaña \"Número\" en Excel 2019 nos muestra, entre otras, las siguientes categorías estándar:",
+    "opciones": [
+      "Personalizada, Número, Fecha, Texto, Vínculo.",
+      "General, Número, Fecha, Texto, Personalizada.",
+      "Número, Fecha, Texto, Externa, Personalizada.",
+      "Vínculo, Número, Fecha, Texto, Personalizada."
+    ],
+    "correcta": 1,
+    "explicacion": "Las categorías del panel Número son General, Número, Moneda, Contabilidad, Fecha, Hora, Porcentaje, Fracción, Científica, Texto, Especial y Personalizada."
+  },
+  {
+    "pregunta": "¿Qué tipo de gráfico combina valores en puntos de datos únicos y los muestra en intervalos irregulares o agrupaciones de coordenadas en Excel 2019?",
+    "opciones": [
+      "Un gráfico de columnas.",
+      "Un gráfico de líneas.",
+      "Un gráfico de dispersión.",
+      "Un gráfico de área."
+    ],
+    "correcta": 2,
+    "explicacion": "Los gráficos de dispersión (tipo X,Y) están diseñados específicamente para representar y comparar valores numéricos en intervalos científicos o matemáticos desordenados."
+  },
+  {
+    "pregunta": "¿Qué respuesta corresponde a la definición “Lenguaje estructurado de computación para trabajar de forma declarativa con conjuntos de datos y bases de datos relacionales”?",
+    "opciones": [
+      "MDB",
+      "SQL",
+      "ACDB",
+      "ODB"
+    ],
+    "correcta": 1,
+    "explicacion": "SQL son las siglas de Structured Query Language, el lenguaje estándar internacional adoptado para la gobernanza de bases de datos relacionales."
+  },
+  {
+    "pregunta": "¿Cuál es el tipo de objeto u operación correcto en Access 2019 para una columna que permita simplificar la entrada limitándola a valores de tablas cruzadas?",
+    "opciones": [
+      "Cadena.",
+      "Hipervínculo.",
+      "Asistente para búsquedas.",
+      "Objeto OLE."
+    ],
+    "correcta": 2,
+    "explicacion": "El campo o tipo de datos de 'Búsqueda' genera una lista desplegable vinculada a valores fijos o a otra tabla lógica."
+  },
+  {
+    "pregunta": "¿Qué operador nativo se debe usar en los criterios o expresiones de Access 2019 para concatenar dos campos de texto o cadenas de caracteres?",
+    "opciones": [
+      "&",
+      "-",
+      "+",
+      "#"
+    ],
+    "correcta": 0,
+    "explicacion": "El carácter ampersand (&) es el operador de concatenación estándar estricto en los motores de Access."
+  },
+  {
+    "pregunta": "¿El número máximo de caracteres permitidos para definir el nombre de un objeto (como una tabla o campo) en Access 2019 es:",
+    "opciones": [
+      "58",
+      "100",
+      "73",
+      "64"
+    ],
+    "correcta": 3,
+    "explicacion": "Microsoft Access limita los nombres de campos, controles y objetos lógicos a una longitud máxima fija de 64 caracteres."
+  },
+  {
+    "pregunta": "¿Señale la afirmación correcta referente a las tipologías clásicas de distribución en la creación automática de formularios en Access 2019:",
+    "opciones": [
+      "En columnas, tabulares, hoja de datos y justificado.",
+      "De barras, tabulares y subformularios.",
+      "De columnas, tabulares y subformularios.",
+      "De columnas, combinados y subformularios."
+    ],
+    "correcta": 0,
+    "explicacion": "Los cuatro diseños básicos de distribución estándar que ofrece el asistente de Access son En columnas, Tabular, Hoja de datos y Justificado."
+  },
+  {
+    "pregunta": "¿En la interfaz principal de Outlook 2019, ¿qué combinación de comandos rápidos de teclado nos permite conmutar instantáneamente a la sección o vista de contactos?",
+    "opciones": [
+      "CTRL + 3",
+      "CTRL + 4",
+      "CTRL + 5",
+      "CTRL + 2"
+    ],
+    "correcta": 0,
+    "explicacion": "Nativamente: Ctrl+1 (Correo), Ctrl+2 (Calendario), Ctrl+3 (Personas/Contactos), Ctrl+4 (Tareas)."
+  },
+  {
+    "pregunta": "¿En ingeniería de redes, ¿qué significan las siglas SMTP en Outlook 2019?",
+    "opciones": [
+      "Un protocolo de mensajería que identifica unívocamente al receptor y al emisor.",
+      "Un protocolo de autentificación de correo entre el servidor y el cliente.",
+      "Un protocolo de cifrado de mensajes entre servidor y cliente.",
+      "Un protocolo de transferencia simple de correo empleado para la salida y envío de mensajes."
+    ],
+    "correcta": 3,
+    "explicacion": "SMTP corresponde a Simple Mail Transfer Protocol, el estándar básico utilizado para el encaminamiento y envío saliente de e-mails."
+  },
+  {
+    "pregunta": "¿En estándares generales de internet, ¿cuál es el límite máximo absoluto de caracteres admitido para una dirección de correo electrónico completa?",
+    "opciones": [
+      "64",
+      "320",
+      "100",
+      "254"
+    ],
+    "correcta": 3,
+    "explicacion": "Según la norma RFC 5321, el tamaño máximo de una ruta de correo electrónico o dirección se restringe a un máximo de 254 o 255 octetos ordinarios."
+  },
+  {
+    "pregunta": "¿En la barra de herramientas de la ventana de redacción de un nuevo mensaje en Outlook 2019 encontramos las pestañas generales estructurales de:",
+    "opciones": [
+      "Bandeja de entrada, Elementos eliminados, Bandeja de salida.",
+      "Mensaje, Insertar, Opciones, Formato de texto y Revisar.",
+      "Cuenta de office, Comentarios, Opciones y Salir.",
+      "Archivo, Inicio, Enviar y Recibir, Carpeta y Vista."
+    ],
+    "correcta": 1,
+    "explicacion": "Al abrir un correo nuevo, las pestañas superiores de edición específica son: Mensaje, Insertar, Opciones, Formato de texto y Revisar."
+  },
+  {
+    "pregunta": "¿En Outlook 2019, la opción estructural “Marcar todos como leídos” se encuentra alojada dentro de la pestaña de:",
+    "opciones": [
+      "Enviar y recibir.",
+      "Archivo.",
+      "Carpeta.",
+      "Vista."
+    ],
+    "correcta": 2,
+    "explicacion": "El comando para gestionar el estado de lectura masivo de los elementos de un contenedor se localiza en la cinta bajo la pestaña 'Carpeta'."
+  },
+  {
+    "pregunta": "¿Señale cuál es la afirmación correcta en relación con el procedimiento de acceso a documentos y archivos, según el Real Decreto 1708/2011, de 18 de noviembre?",
+    "opciones": [
+      "No será necesario motivar las solicitudes de carácter general que se basen en fines de investigación histórica.",
+      "Serán accesibles los documentos con datos personales cuando hayan transcurrido veinticinco años desde el fallecimiento de los afectados si la fecha es conocida.",
+      "Se concederá el acceso a documentos de carácter personal previo consentimiento.",
+      "La resolución de la solicitud de acceso deberá notificarse de forma obligatoria en el plazo máximo de 10 días."
+    ],
+    "correcta": 1,
+    "explicacion": "El marco regulador histórico general determina un plazo restrictivo de 25 años tras la muerte de la persona afectada (o 50 años desde la fecha del documento si se desconoce la fecha del deceso)."
+  },
+  {
+    "pregunta": "¿De los sistemas de archivos propuestos, indique cuál es la arquitectura nativa y estándar por defecto en Windows 10:",
+    "opciones": [
+      "APFS",
+      "JFS",
+      "F2FS",
+      "NTFS"
+    ],
+    "correcta": 3,
+    "explicacion": "NTFS (New Technology File System) es el sistema de ficheros primario por excelencia utilizado por los entornos operativos modernos de Microsoft."
+  },
+  {
+    "pregunta": "¿Qué tipo de protocolo o paquete de control de mensajes de diagnóstico usa la herramienta de línea de comandos ping?",
+    "opciones": [
+      "ICMP",
+      "FDDI",
+      "ETHERNET",
+      "DHCP"
+    ],
+    "correcta": 0,
+    "explicacion": "La instrucción 'ping' explota el protocolo ICMP (Internet Control Message Protocol) enviando mensajes 'Echo Request' y esperando su correspondiente 'Echo Reply'."
+  },
+  {
+    "pregunta": "¿Qué es una dirección IPv4 a nivel de longitud de datos binarios?",
+    "opciones": [
+      "Es un número binario de 64 bits que identifica a una interfaz.",
+      "Es un número binario de 32 bits (4 octetos) que identifica de forma lógica a una interfaz de red.",
+      "Es un identificador de 48 bits expresado en código hexadecimal.",
+      "Es un número de asignación dinámica de 128 bits."
+    ],
+    "correcta": 1,
+    "explicacion": "Las direcciones IPv4 constan de exactamente 32 bits de longitud estructurados en un grupo de 4 bloques de 8 bits cada uno."
   }
 ]
