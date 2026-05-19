@@ -1,0 +1,838 @@
+[
+  {
+    "pregunta": "¿En virtud del artículo 63.3 de la Constitución Española de 1978, ¿a quién corresponde declarar la guerra y hacer la paz?",
+    "opciones": [
+      "A las Cortes Generales, previa autorización del Rey.",
+      "Al Rey, previa autorización del Congreso.",
+      "Al Congreso de los Diputados, previa autorización del Rey.",
+      "Al Rey, previa autorización de las Cortes Generales."
+    ],
+    "correcta": 3,
+    "explicacion": "El artículo 63.3 de la CE asigna explícitamente al Rey la declaración de guerra y paz bajo previa autorización de las Cortes Generales."
+  },
+  {
+    "pregunta": "¿Según el apartado 2 del articulo 59 de la Constitución Española de 1978, ¿qué sucede si el Rey se inhabilitare para el ejercicio de su autoridad, y la imposibilidad fuere reconocida por las Cortes Generales?",
+    "opciones": [
+      "El Rey siguiere en su puesto, pero delegando sus funciones a la figura del Presidente del Gobierno.",
+      "Entrará a ejercer inmediatamente la Regencia el Príncipe heredero de la Corona, si fuere mayor de edad.",
+      "Se sometiere a referéndum distintas propuestas de candidatos para la delegación de funciones.",
+      "Las funciones del Rey son ejercidas por un Responsable provisional del Gobierno designado a tales efectos por el Congreso de los Diputados por mayoría absoluta de la Cámara Alta."
+    ],
+    "correcta": 1,
+    "explicacion": "El artículo 59.2 constitucional dictamina el inicio automático de la Regencia por el Príncipe heredero si fuese mayor de edad."
+  },
+  {
+    "pregunta": "¿Conforme al artículo 99 de la Constitución Española de 1978, ¿cómo se elige al Presidente del Gobierno en España?",
+    "opciones": [
+      "Es elegido directamente por los ciudadanos.",
+      "Es nombrado por el Rey a propuesta del Congreso de los Diputados.",
+      "Es elegido por el Senado.",
+      "Es elegido por el Congreso de los Diputados tras ser propuesto por el Rey."
+    ],
+    "correcta": 3,
+    "explicacion": "Según el art 99, el Congreso otorga la confianza y el candidato es elegido tras la propuesta del Rey."
+  },
+  {
+    "pregunta": "¿Qué sucede si el Congreso de los Diputados no aprueba los Presupuestos Generales del Estado?",
+    "opciones": [
+      "El Gobierno debe dimitir.",
+      "Se prorrogan automáticamente los Presupuestos del año anterior.",
+      "Se disuelven las Cortes Generales.",
+      "El Senado toma el control del proceso presupuestario."
+    ],
+    "correcta": 1,
+    "explicacion": "Ante la falta de aprobación de los presupuestos, opera la prórroga automática de los del año anterior hasta la entrada de los nuevos."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes funciones NO es encomendada al Gobierno según el artículo 97 de la Constitución Española de 1978?",
+    "opciones": [
+      "Acreditar a los embajadores y otros representantes diplomáticos.",
+      "Dirigir la política interior y exterior.",
+      "Ejercer la potestad reglamentaria de acuerdo con la Constitución y las leyes.",
+      "Dirigir la Administración civil y militar."
+    ],
+    "correcta": 0,
+    "explicacion": "Acreditar embajadores es competencia del Rey (Art 63.1), no de la dirección ejecutiva ordinaria del Gobierno."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes funciones NO es del Consejo de Transparencia y Buen Gobierno según el artículo 38 de la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno?",
+    "opciones": [
+      "Evaluar el grado de aplicación de esta Ley.",
+      "Imponer sanciones cuando el responsable de la infracción sea un alto cargo de la Administración General del Estado.",
+      "Promover actividades de formación y sensibilización para un mejor conocimiento de las materias reguladas por esta Ley.",
+      "Informar preceptivamente los proyectos normativos de carácter estatal que desarrollen esta Ley o que estén relacionados con su objeto."
+    ],
+    "correcta": 1,
+    "explicacion": "La potestad sancionadora en faltas de altos cargos reside en el Consejo de Ministros, no en el propio CTBG directamente."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones NO es uno de los Ejes de Actuación recogidos en el Pacto de Estado contra la Violencia de Género?",
+    "opciones": [
+      "El impulso de la formación de los distintos agentes para garantizar la mejor respuesta asistencial.",
+      "La mejora de las oportunidades de empleo en las zonas rurales, disminuyendo la exclusión social, incrementando la igualdad entre mujeres y hombres y las oportunidades para jóvenes, consolidando la resiliencia comunitaria.",
+      "La mejora de la respuesta institucional a través de la coordinación y el trabajo en red.",
+      "La visualización y atención de otras formas de violencia contra las mujeres, prestando especial atención a la violencia sexual, a la trata de mujeres y niñas con fines de explotación sexual, a la mutilación genital femenina y a los matrimonios forzados."
+    ],
+    "correcta": 1,
+    "explicacion": "La mejora de oportunidades rurales es un objetivo socioeconómico general pero no forma parte del catálogo estructurado de los ejes del Pacto de Estado contra la Violencia de Género."
+  },
+  {
+    "pregunta": "¿A qué se refiere el término STORK?",
+    "opciones": [
+      "A un proyecto para conseguir el reconocimiento paneuropeo de las identidades electrónicas, y en concreto la aceptación del DNI electrónico e identificadores similares en Servicios de Administración Electrónica de otras administraciones europeas.",
+      "A un sistema de verificación de edad para proteger a los menores de edad ante el acceso a contenidos de adultos en Internet.",
+      "Al plan de medidas lanzado por el Ministerio para la Transformación Digital y de la Función Pública para combatir las estafas telefónicas y por SMS.",
+      "Al proyecto de interoperabilidad semántica en los sistemas de información del Sistema Nacional de Salud y en el intercambio de documentación clínica en proyectos nacionales e internacionales."
+    ],
+    "correcta": 0,
+    "explicacion": "STORK es la red pionera de interoperabilidad paneuropea de identidades electrónicas en la Administración Pública."
+  },
+  {
+    "pregunta": "¿Señale la respuesta correcta. Según el artículo 7 de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales:?",
+    "opciones": [
+      "El tratamiento de los datos personales de un menor de edad únicamente podrá fundarse en su consentimiento cuando sea mayor de doce años.",
+      "El tratamiento de los datos personales de un menor de edad únicamente podrá fundarse en su consentimiento cuando sea mayor de catorce años.",
+      "El tratamiento de los datos personales de un menor de edad únicamente podrá fundarse en su consentimiento cuando sea mayor de quince años.",
+      "El tratamiento de los datos personales de un menor de edad únicamente podrá fundarse en su consentimiento cuando sea mayor de dieciséis años."
+    ],
+    "correcta": 1,
+    "explicacion": "El art 7 de la LOPDGDD fija en 14 años la edad legal para otorgar el consentimiento autónomo para el tratamiento de datos personales."
+  },
+  {
+    "pregunta": "¿Complete la siguiente frase según el artículo 43 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas: \"Cuando la notificación por medios electrónicos sea de carácter obligatorio, o haya sido expresamente elegida por el interesado, se entenderá rechazada cuando hayan transcurrido (...) desde la puesta a disposición de la notificación sin que se acceda a su contenido.\"?",
+    "opciones": [
+      "Diez días hábiles.",
+      "Cinco días naturales.",
+      "Cinco días hábiles.",
+      "Diez días naturales."
+    ],
+    "correcta": 3,
+    "explicacion": "El artículo 43 de la Ley 39/2015 dictamina el rechazo por inacción a los diez días naturales."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes NO es un motivo de abstención según la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público?",
+    "opciones": [
+      "Tener interés personal en el asunto de que se trate o en otro en cuya resolución pudiera influir la de aquél; ser administrador de sociedad o entidad interesada, o tener cuestión litigiosa pendiente con algún interesado.",
+      "Tener un vínculo matrimonial o situación de hecho asimilable y el parentesco de consanguinidad dentro del quinto grado o de afinidad dentro del segundo, con cualquiera de los interesados.",
+      "Tener relación de servicio con persona natural o jurídica interesada directamente en el asunto, o haberle prestado en los dos últimos años servicios profesionales de cualquier tipo y en cualquier circunstancia o lugar.",
+      "Haber intervenido como perito o como testigo en el procedimiento de que se trate."
+    ],
+    "correcta": 1,
+    "explicacion": "La consanguinidad opera hasta el cuarto grado, el quinto grado no se contempla en los supuestos taxativos de abstención."
+  },
+  {
+    "pregunta": "¿Señale la respuesta correcta en relación con la Carpeta Ciudadana del sector público estatal:?",
+    "opciones": [
+      "El interesado accederá a la Carpeta Ciudadana mediante los sistemas de identificación a los que se refiere el artículo 9.2 de la Ley 39/2015, de 1 de octubre.",
+      "Pueden acceder a la misma el interesado y sus herederos.",
+      "Es el área personalizada de las personas interesadas de la sede electrónica del Portal de Transparencia.",
+      "Ofrece funcionalidades como el acceso a las tarjetas de crédito del interesado."
+    ],
+    "correcta": 0,
+    "explicacion": "El acceso unificado se efectúa utilizando la pasarela Cl@ve con los métodos regulados por el art 9.2 de la Ley 39/2015."
+  },
+  {
+    "pregunta": "¿Qué deben cumplir los conjuntos de datos de alto valor según la Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público?",
+    "opciones": [
+      "Estarán disponibles previo pago de la tasa correspondiente.",
+      "Se suministrarán en fichero .pfx por enlace de descarga.",
+      "Se suministrarán a través de interfaz de programación de aplicaciones (API).",
+      "En ningún caso se proporcionarán en forma de descarga masiva."
+    ],
+    "correcta": 2,
+    "explicacion": "La directiva europea y ley de reutilización obliga a servir datos de alto valor mediante APIs accesibles."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes servicios comunes es un sistema para la gestión de documentos y expedientes electrónicos que cumple los requisitos para que ambos puedan almacenarse y/o obtenerse según el Esquema Nacional de Interoperabilidad (ENI)?",
+    "opciones": [
+      "CISE.",
+      "RUN.",
+      "InSiDe.",
+      "CIRCABC."
+    ],
+    "correcta": 2,
+    "explicacion": "InSiDe (Infraestructura y Sistemas de Documentación Electrónica) es la solución ENI nativa para expedientes y documentos."
+  },
+  {
+    "pregunta": "¿Qué clase de escalabilidad aplicamos cuando ampliamos memoria en el disco duro de un ordenador sobremesa?",
+    "opciones": [
+      "Escalabilidad horizontal.",
+      "Escalabilidad en carga.",
+      "Escalabilidad vertical.",
+      "Escalabilidad de redundancia."
+    ],
+    "correcta": 2,
+    "explicacion": "Incrementar recursos (disco, RAM) dentro de un único nodo o máquina existente constituye una escalabilidad de tipo vertical (Scale-up)."
+  },
+  {
+    "pregunta": "¿En relación con los multiprocesadores, según la taxonomía de Flynn, los sistemas vectoriales y matriciales se encuadran dentro de la clasificación:?",
+    "opciones": [
+      "SSID (Single instruction, single data).",
+      "SIMD (Single instruction, multiple data).",
+      "MISD (Multiple instruction, single data).",
+      "MIMD (Multiple instruction, multiple data)."
+    ],
+    "correcta": 1,
+    "explicacion": "SIMD (Single Instruction, Multiple Data) define arquitecturas vectoriales que procesan matrices simultáneamente."
+  },
+  {
+    "pregunta": "¿Linux es un sistema operativo de código libre basado en Unix. Sus diferentes versiones se denominan:?",
+    "opciones": [
+      "Instalaciones.",
+      "Distribuciones.",
+      "Licencias adaptadas.",
+      "Variaciones permitidas."
+    ],
+    "correcta": 1,
+    "explicacion": "Las diferentes variantes de Linux ensambladas con herramientas y entornos específicos se denominan distribuciones."
+  },
+  {
+    "pregunta": "¿Hay lenguajes de programación que soportan únicamente un paradigma. Lo normal es que los lenguajes soporten dos o más paradigmas de programación. Si nos referimos a PHP, podemos afirmar que soporta los siguientes paradigmas:?",
+    "opciones": [
+      "Lógico y declarativo.",
+      "Lógico, declarativo y genérico.",
+      "Imperativo, orientado a objetos (prototipos) y concurrente.",
+      "Imperativo, orientado a objetos, funcional y reflexivo."
+    ],
+    "correcta": 3,
+    "explicacion": "PHP es multiparadigma, incluyendo soporte nativo imperativo, orientado a objetos, capacidades funcionales y APIs reflexivas."
+  },
+  {
+    "pregunta": "¿Refiriéndonos a una constante en un programa en lenguaje C, podemos afirmar que:?",
+    "opciones": [
+      "También es conocida como conversión o casting.",
+      "Es una entidad cuyo valor no puede ser modificado por el programa.",
+      "Puede ser local, global, estática y externa.",
+      "Se divide en conversiones y ámbitos."
+    ],
+    "correcta": 1,
+    "explicacion": "Una constante de C almacena un valor inalterable en memoria durante el tiempo de ejecución del binario."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes NO es un tipo de OLAP (On-Line Analytical Processing)?",
+    "opciones": [
+      "ROLAP (Relational On Line Analytic Processing).",
+      "SOLAP (Spiral On Line Analytic Processing).",
+      "MOLAP (Multidimentional On Line Analytic Processing).",
+      "HOLAP (Hybrid On Line Analytic Processing)."
+    ],
+    "correcta": 1,
+    "explicacion": "SOLAP, ROLAP, MOLAP y HOLAP existen. SOLAP refiere a Spatial OLAP. Sin embargo, 'Spiral OLAP' es un término inventado e incorrecto."
+  },
+  {
+    "pregunta": "¿La relación entre dos tablas que permite que un registro de una se relacione con ninguno, uno o varios registros en la otra tabla, se denomina:?",
+    "opciones": [
+      "Relaciones persistentes.",
+      "Relación univoca.",
+      "Relación uno a varios.",
+      "Relaciones varios a varios."
+    ],
+    "correcta": 2,
+    "explicacion": "La cardinalidad clásica donde un registro principal se asocia a múltiples registros hijos se define como uno a varios."
+  },
+  {
+    "pregunta": "¿En una base de datos relacional, al conjunto de atributos que identifican unívoca y minimamente cada tupla, en una relación, se le denomina:?",
+    "opciones": [
+      "Clave inherente.",
+      "Clave candidata.",
+      "Clave semántica.",
+      "Clave obligatoria."
+    ],
+    "correcta": 1,
+    "explicacion": "La clave candidata es cualquier conjunto mínimo de atributos capaz de identificar unívocamente a cada tupla en una relación."
+  },
+  {
+    "pregunta": "¿Cuál es una caracteristica de los sistemas operativos distribuidos?",
+    "opciones": [
+      "Reloj común.",
+      "Concurrencia global.",
+      "Homogeneidad.",
+      "Dependencia de fallos de los nodos del sistema."
+    ],
+    "correcta": 1,
+    "explicacion": "La concurrencia global compartida sobre recursos distribuidos es un pilar básico en arquitecturas distribuidas."
+  },
+  {
+    "pregunta": "¿Qué protocolo se usa en las herramientas de monitorización para hacer consultas del estado de los activos?",
+    "opciones": [
+      "NDMP (Network Data Management Protocol).",
+      "SNMP (Simple Network Management Protocol).",
+      "NMS (Network Management System).",
+      "ONTP (Open Network Transaction Protocol)."
+    ],
+    "correcta": 1,
+    "explicacion": "SNMP (Simple Network Management Protocol) es el protocolo de capa de aplicación estándar para la monitorización de activos de red."
+  },
+  {
+    "pregunta": "¿Dentro del modelo TCP/IP ¿cuál es una dirección de clase B?",
+    "opciones": [
+      "128.0.0.0",
+      "127.0.0.1",
+      "10.0.0.0",
+      "126.255.255.255"
+    ],
+    "correcta": 0,
+    "explicacion": "Las direcciones de clase B comienzan con el primer octeto comprendido estrictamente en el rango 128-191."
+  },
+  {
+    "pregunta": "¿Cuál No es un modelo de calidad de servicio (QoS) en una arquitectura de redes?",
+    "opciones": [
+      "Best-effort.",
+      "DiffServ (Differentiated Services).",
+      "IntServ (Integrated Services).",
+      "PriServ (Priority Services)."
+    ],
+    "correcta": 3,
+    "explicacion": "PriServ es una denominación falsa; los modelos formales IETF de QoS son Best-Effort, IntServ y DiffServ."
+  },
+  {
+    "pregunta": "¿En relación a los DTD y XML Schemas, ¿cuál es la respuesta correcta?",
+    "opciones": [
+      "XML Schema tiene sintaxis propia.",
+      "DTD permite definir nuevos tipos de datos.",
+      "DTD es extensible.",
+      "XML Schema es fuertemente tipado."
+    ],
+    "correcta": 3,
+    "explicacion": "XML Schema define tipos estrictos (tipado fuerte), a diferencia de la naturaleza de texto genérico de DTD."
+  },
+  {
+    "pregunta": "¿Cuál es una de las dimensiones de seguridad de la información?",
+    "opciones": [
+      "Aislamiento.",
+      "Consistencia.",
+      "Disponibilidad.",
+      "Autenticación."
+    ],
+    "correcta": 2,
+    "explicacion": "Disponibilidad, integridad y confidencialidad constituyen la tríada básica y dimensiones esenciales de la seguridad."
+  },
+  {
+    "pregunta": "¿Cuál es la herramienta del CCN para la gobernanza de la ciberseguridad, que permite evaluar regularmente el estado de la seguridad de los sistemas TIC de las entidades, organismos y organizaciones?",
+    "opciones": [
+      "ATENEA.",
+      "CLARA.",
+      "INES.",
+      "CARLA."
+    ],
+    "correcta": 2,
+    "explicacion": "INES (Informe Nacional de Estado de Seguridad) es la plataforma oficial del CCN para la gobernanza del ENS."
+  },
+  {
+    "pregunta": "¿Según el artículo 31.1 del Real Decreto 311/2022. de 3 de mayo, por el que se regula el Esquema Nacional de Seguridad (ENS), indique la afirmación correcta en relación al tiempo en el que un sistema de información debe ser objeto de una auditoría regular ordinaria que verifique el cumplimiento de los requerimientos del ENS:?",
+    "opciones": [
+      "Al menos cada año si el sistema es considerado de categoría Alta y cada 2 años si el sistema es considerado de categoría Media o Baja.",
+      "Al menos cada 3 años, siempre que no se produzcan modificaciones sustanciales en los sistemas de información.",
+      "Al menos cada 2 años.",
+      "Al menos cada 2 años si el sistema es considerado de categoría Baja, cada año si el sistema es considerado de categoría Media, y cada 6 meses si el sistema es considerado de categoría Alta."
+    ],
+    "correcta": 2,
+    "explicacion": "El artículo 31.1 del Real Decreto 311/2022 fija la auditoría ordinaria obligatoria con carácter bienal (cada 2 años)."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes tipos de CRM se centra en mejorar la interacción con los clientes a través de múltiples canales?",
+    "opciones": [
+      "CRM Geográfico.",
+      "CRM Analítico.",
+      "CRM Operacional.",
+      "CRM Colaborativo."
+    ],
+    "correcta": 3,
+    "explicacion": "El CRM Colaborativo gestiona de manera centralizada las interacciones con el cliente a través de cualquier punto de contacto multicanal."
+  },
+  {
+    "pregunta": "¿Según el CCN-CERT, ¿cuántos y cuáles son los niveles de impacto potencial de peligrosidad que se le pueden asignar a un ciberincidente?",
+    "opciones": [
+      "Son 3 niveles: bajo, medio y alto.",
+      "Son 4 niveles: bajo, medio, alto y muy alto.",
+      "Son 5 niveles: bajo, medio, alto, muy alto y crítico.",
+      "Son 6 niveles: bajo, medio, alto, muy alto, crítico y muy crítico."
+    ],
+    "correcta": 2,
+    "explicacion": "El CCN-CERT clasifica la gravedad de incidentes informáticos en 5 niveles: bajo, medio, alto, muy alto y crítico."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes es una técnica utilizada en la Gestión de Derechos Digitales (DRM)?",
+    "opciones": [
+      "Multiplicación de datos.",
+      "Compresión de archivos.",
+      "Marcas de agua.",
+      "Minimización del código."
+    ],
+    "correcta": 2,
+    "explicacion": "Las marcas de agua esteganográficas o digitales incrustan metadatos para verificar e impedir copias no autorizadas en DRM."
+  },
+  {
+    "pregunta": "¿Dónde se recoge la protección jurídica de los programas de ordenador en España?",
+    "opciones": [
+      "Ley 24/2015, de 24 de julio, de Patentes.",
+      "Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.",
+      "Real Decreto Legislativo 1/1996, de 12 de abril, por el que se aprueba el texto refundido de la Ley de Propiedad Intelectual.",
+      "Ley 11/2022, de 28 de junio, General de Telecomunicaciones."
+    ],
+    "correcta": 2,
+    "explicacion": "El TRLPI (Real Decreto Legislativo 1/1996) dedica un título específico a regular la propiedad del software en España."
+  },
+  {
+    "pregunta": "¿El objetivo de un análisis de viabilidad es:?",
+    "opciones": [
+      "Reutilizar soluciones ya existentes in otras organizaciones.",
+      "Disponer de criterios económicos, técnicos, legales y operativos que nos permitan decidir si seguir adelante con un proyecto o abandonar.",
+      "Evaluar las necesidades de la organización con vistas a acometer un solo proyecto que las integre.",
+      "Desarrollar un cronograma detallado del proyecto."
+    ],
+    "correcta": 1,
+    "explicacion": "El estudio de viabilidad recopila viabilidad financiera, técnica y operativa para decidir el arranque o cancelación de un proyecto."
+  },
+  {
+    "pregunta": "¿Cuál es la principal función de un sistema de gestión documental?",
+    "opciones": [
+      "Facilitar la edición de imágenes y videos.",
+      "Almacenar, gestionar y controlar el acceso a documentos digitales dentro de una organización.",
+      "Crear y distribuir boletines informativos digitales.",
+      "Gestionar la contabilidad de una empresa."
+    ],
+    "correcta": 1,
+    "explicacion": "Un gestor documental organiza el ciclo de vida completo (almacenamiento, indexación y permisos) de los archivos electrónicos."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones con respecto al modelo de ciclo de vida en cascada es correcta?",
+    "opciones": [
+      "Los usuarios establecen los requisitos del sistema en diferentes fases del proyecto.",
+      "El modelo es muy rígido, dado que es necesario finalizar cada actividad para iniciar la siguiente, lo que dificulta su adecuación a escenarios reales.",
+      "El modelo dificulta la estimación y seguimiento del progreso del proyecto, al no disponer de entregables intermedios.",
+      "Se dispone de versiones funcionales del sistema desde las etapas iniciales del proceso de desarrollo."
+    ],
+    "correcta": 1,
+    "explicacion": "El enfoque secuencial puro en cascada es intrínsecamente rígido al exigir cerrar completamente una fase para abrir la siguiente."
+  },
+  {
+    "pregunta": "¿Indique cuál de las siguientes NO es una metodología ágil:?",
+    "opciones": [
+      "Scrum.",
+      "Extreme Programing (XP).",
+      "Métrica v3.",
+      "Lean."
+    ],
+    "correcta": 2,
+    "explicacion": "Métrica v3 es una metodología estructurada tradicional y predictiva del Consejo Superior de Administración Digital, no ágil."
+  },
+  {
+    "pregunta": "¿Cuál es el propósito principal del método PERT (Program Evaluation and Review Technique) en la gestión de proyectos?",
+    "opciones": [
+      "Estimar los costes de un proyecto.",
+      "Identificar riesgos financieros y establecer estrategias de mitigación.",
+      "Identificar las rutas críticas y calcular el tiempo esperado de finalización del proyecto.",
+      "Evaluar la rentabilidad de un proyecto."
+    ],
+    "correcta": 2,
+    "explicacion": "PERT emplea ponderaciones probabilísticas para estimar tiempos y deducir de forma precisa el camino crítico (Critical Path)."
+  },
+  {
+    "pregunta": "¿Jenkins es:?",
+    "opciones": [
+      "Un proyecto de código propietario para la automatización de las pruebas de software.",
+      "Un servidor web open source basado en Java.",
+      "Una especificación de servicios para desarrollo de aplicaciones móviles basado en patrones.",
+      "Un servidor de automatización open source escrito en Java para la integración continua de desarrollos software."
+    ],
+    "correcta": 3,
+    "explicacion": "Jenkins es la herramienta de automatización Open Source líder escrita en Java para pipelines de Integración Continua (CI/CD)."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes es una herramienta de software para la gestión y construcción de proyectos Java basada en el llamado Modelo de Objetos de Proyecto (POM), el cual se define y mantiene en un fichero XML?",
+    "opciones": [
+      "Octopus Deploy.",
+      "ElasticBox.",
+      "ElectricCloud.",
+      "Maven."
+    ],
+    "correcta": 3,
+    "explicacion": "Maven gestiona el ciclo de vida y dependencias de proyectos Java basándose en el archivo descriptor pom.xml."
+  },
+  {
+    "pregunta": "¿Qué son pruebas de caja blanca?",
+    "opciones": [
+      "Pruebas que se centran en evaluar el código fuente interno de una aplicación.",
+      "Pruebas que consisten en probar un sistema o programa informático sin tener conocimiento previo de su funcionamiento interno.",
+      "Pruebas que evalúan la seguridad de una aplicación web en tiempo de ejecución.",
+      "Pruebas estáticas que evalúan el rendimiento y carga que soporta una aplicación."
+    ],
+    "correcta": 0,
+    "explicacion": "Las pruebas de caja blanca (White-box testing) inspeccionan directamente la lógica algorítmica y el código fuente."
+  },
+  {
+    "pregunta": "¿Qué es JUnit?",
+    "opciones": [
+      "Un entorno para pruebas en la JVM.",
+      "Un framewok para el desarrollo de aplicaciones en JScript.",
+      "Un IDE para desarrollo de aplicaciones Java.",
+      "Un servidor de aplicaciones que cumple la especificación Java EE."
+    ],
+    "correcta": 0,
+    "explicacion": "JUnit es el entorno de referencia para la ejecución automatizada de pruebas unitarias sobre la Máquina Virtual de Java (JVM)."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes tipos de mantenimiento software está dentro del ámbito de Métrica v3?",
+    "opciones": [
+      "El mantenimiento evolutivo.",
+      "El mantenimiento adaptativo.",
+      "El mantenimiento perfectivo.",
+      "El mantenimiento preventivo."
+    ],
+    "correcta": 0,
+    "explicacion": "Métrica v3 contempla expresamente el mantenimiento evolutivo y correctivo dentro de su ciclo de vida estructurado."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones NO es una característica del diseño orientado a objetos?",
+    "opciones": [
+      "Reusabilidad.",
+      "Herencia.",
+      "Cohesión débil.",
+      "Polimorfismo."
+    ],
+    "correcta": 2,
+    "explicacion": "La programación orientada a objetos persigue alta cohesión y acoplamiento débil; una cohesión débil es un antipatrón de diseño."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un servidor de aplicaciones Java Enterprise Edition (JEE)?",
+    "opciones": [
+      "Apache Tomcat.",
+      "IBM WebSphere.",
+      "Oracle Jdeveloper.",
+      "Oracle Exadata."
+    ],
+    "correcta": 1,
+    "explicacion": "IBM WebSphere es un servidor de aplicaciones empresarial con soporte completo para la especificación JEE."
+  },
+  {
+    "pregunta": "¿Qué clase se utiliza para manejar excepciones en .NET?",
+    "opciones": [
+      "Error.",
+      "Fault.",
+      "Issue.",
+      "Exception."
+    ],
+    "correcta": 3,
+    "explicacion": "En el ecosistema .NET, la clase raíz de la que heredan todos los tipos de errores en tiempo de ejecución es System.Exception."
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones con respecto al estándar UDDI de OASIS es correcta?",
+    "opciones": [
+      "UDDI define un esquema XML para sindicación de contenidos a través de lectores RSS.",
+      "UDDI define un lenguaje XML para describir la interfaz de servicios web.",
+      "UDDI define la pautas de accesibilidad para el contenido en la Web.",
+      "UDDI describe un protocolo para el registro y publicación de servicios web."
+    ],
+    "correcta": 3,
+    "explicacion": "UDDI (Universal Description, Discovery and Integration) sirve como un directorio o registro de metadatos para localizar servicios web."
+  },
+  {
+    "pregunta": "¿Qué miden los puntos de función en un sistema de software?",
+    "opciones": [
+      "El tamaño del sistema.",
+      "El rendimiento del sistema.",
+      "La seguridad del sistema.",
+      "La fiabilidad del sistema."
+    ],
+    "correcta": 0,
+    "explicacion": "Los puntos de función miden de forma estandarizada el tamaño funcional de una aplicación desde el prisma del usuario final."
+  },
+  {
+    "pregunta": "¿La capacidad de un sitio web para ser utilizado por todas las personas, independientemente de sus habilidades o discapacidades, se denomina:?",
+    "opciones": [
+      "Accesibilidad.",
+      "Usabilidad.",
+      "Navegación intuitiva.",
+      "Compatibilidad."
+    ],
+    "correcta": 0,
+    "explicacion": "La accesibilidad web garantiza que las barreras físicas o cognitivas no impidan el acceso a los servicios digitales."
+  },
+  {
+    "pregunta": "¿Qué es WCAG y cuál es su propósito principal?",
+    "opciones": [
+      "Un software para evaluar la accesibilidad de sitios web.",
+      "Un estándar que define las pautas para hacer que el contenido web sea accesible.",
+      "Un conjunto de herramientas para desarrollar sitios web adaptativos (responsive).",
+      "Una guía de buenas prácticas para la optimización de motores de búsqueda (SEO)."
+    ],
+    "correcta": 1,
+    "explicacion": "WCAG (Web Content Accessibility Guidelines) es el estándar internacional del W3C que define las pautas de accesibilidad."
+  },
+  {
+    "pregunta": "¿Qué es Spark en el contexto de Big Data?",
+    "opciones": [
+      "Un servicio de computación sin servidor que ejecuta código en respuesta a eventos y administra automáticamente los recursos computacionales subyacentes.",
+      "Un sistema de procesamiento distribuido de código abierto que se utiliza para cargas de trabajo de macrodatos.",
+      "Un servicio de administración de base de datos que permite catalogar, descubrir y compartir los datos almacenados en Hadoop y/o en fuentes de terceros.",
+      "Una base de datos administrada que proporciona un registro de transacciones transparente, inmutable y que se puede verificar mediante criptografía."
+    ],
+    "correcta": 1,
+    "explicacion": "Apache Spark es el motor de cómputo en memoria distribuido open-source diseñado para procesar macrodatos a gran escala."
+  },
+  {
+    "pregunta": "¿En sistemas operativos, la planificación del procesador asigna momentos para que los procesos puedan utilizar el sistema y sus recursos. El algoritmo que asigna los turnos de ejecución de forma que los procesos estén ordenados en una cola circular y se vayan asignando intervalos de tiempos de ejecución por turnos es conocido como:?",
+    "opciones": [
+      "SJF.",
+      "FCFS.",
+      "HRN.",
+      "Round Robin."
+    ],
+    "correcta": 3,
+    "explicacion": "Round Robin asigna de forma equitativa porciones fijas de tiempo (quantums) mediante una cola circular de procesos."
+  },
+  {
+    "pregunta": "¿En el sentido más fundamental, cuando una aplicación necesita leer datos en un dispositivo llama a una función que le ofrece el sistema operativo, y el sistema operativo llama a una función implementada en el:?",
+    "opciones": [
+      "Microkernel.",
+      "Módulo SVC.",
+      "Controlador del bus.",
+      "Controlador o driver."
+    ],
+    "correcta": 3,
+    "explicacion": "El sistema operativo abstrae el hardware comunicándose con él a través de un controlador específico o device driver."
+  },
+  {
+    "pregunta": "¿Qué es la normalización en bases de datos?",
+    "opciones": [
+      "El proceso de organizar los datos para reducir la redundancia.",
+      "El proceso de crear índices en las columnas de la base de datos para agilizar las búsquedas.",
+      "El proceso por el cual, aunque los datos están distribuidos en varias ubicaciones, los usuarios tienen la impresión de que los datos se encuentran en un solo lugar.",
+      "El proceso de transformación de una base de datos para que pueda ser considerada relacional según las normas de Codd."
+    ],
+    "correcta": 0,
+    "explicacion": "La normalización relacional elimina redundancias anómalas descomponiendo las tablas según las formas normales."
+  },
+  {
+    "pregunta": "¿Qué es el algoritmo de Paxos en bases de datos distribuidas?",
+    "opciones": [
+      "Un algoritmo para asegurar la consistencia eventual en sistemas distribuidos.",
+      "Un algoritmo para coordinar la replicación de datos en bases de datos distribuidas.",
+      "Un algoritmo de consenso para asegurar que múltiples nodos en un sistema distribuido acuerden un valor único.",
+      "Un algoritmo para la gestión de transacciones en bases de datos relacionales."
+    ],
+    "correcta": 2,
+    "explicacion": "Paxos es una familia de protocolos de consenso fundamentales para garantizar la tolerancia a fallos en sistemas distribuidos."
+  },
+  {
+    "pregunta": "¿Qué significa el 2 en la regla de la copia de seguridad 3-2-1?",
+    "opciones": [
+      "Deben hacerse 2 copias de datos.",
+      "Deben utilizarse 2 formatos o soportes distintos.",
+      "Las copias de seguridad deben almacenarse en 2 ubicaciones distintas.",
+      "Deben utilizarse 2 herramientas diferentes para la realización de las copias de seguridad."
+    ],
+    "correcta": 1,
+    "explicacion": "La regla 3-2-1 establece mantener 3 copias de datos, guardadas en 2 tipos de soportes diferentes y 1 de ellas fuera de línea."
+  },
+  {
+    "pregunta": "¿El llamado conflicto de fusión (merge conflict) está relacionado con:?",
+    "opciones": [
+      "Un problema de compatibilidad entre diferentes versiones de un sistema operativo.",
+      "El control de versiones en el desarrollo software.",
+      "Un problema de recuperación de una copia de seguridad, por la imposibilidad de fusionar al backup completo los backup diferenciales o incrementales.",
+      "Un problema de sincronización entre diferentes bases de datos."
+    ],
+    "correcta": 1,
+    "explicacion": "Un conflicto de fusión (merge) se genera al intentar unificar ramas paralelas de código que alteran las mismas líneas en Git."
+  },
+  {
+    "pregunta": "¿Qué es ELK (Elasticsearch, Logstash y Kibana) Stack?",
+    "opciones": [
+      "Un conjunto de herramientas para la búsqueda, análisis y visualización de datos.",
+      "Un sistema de gestión de identidades que asegura el acceso a los datos de monitorización mediante autenticación multifactor.",
+      "Una plataforma de análisis de sentimientos que utiliza procesamiento de lenguaje natural para evaluar el rendimiento del sistema basado en comentarios de usuarios.",
+      "Una plataforma de blockchain utilizada para asegurar transacciones en redes distribuidas de monitorización."
+    ],
+    "correcta": 0,
+    "explicacion": "El stack ELK combina Elasticsearch, Logstash y Kibana para la ingesta, indexación, búsqueda y visualización de logs en tiempo real."
+  },
+  {
+    "pregunta": "¿Un sistema RAID-5 formado por 5 discos:?",
+    "opciones": [
+      "Muestra una tolerancia de fallo de 1 disco.",
+      "Muestra una tolerancia de fallo de 2 discos.",
+      "Muestra una tolerancia de fallo de 3 discos.",
+      "La tolerancia de fallo dependerá de la casuística y de cómo se distribuyan los bloques de paridad."
+    ],
+    "correcta": 0,
+    "explicacion": "RAID-5 distribuye la paridad entre todos los discos del arreglo, permitiendo tolerar el fallo de un único disco sin pérdida de información."
+  },
+  {
+    "pregunta": "¿El protocolo LACP (Link Aggregation Control Protocol - IEEE 802.3ad):?",
+    "opciones": [
+      "Permite el establecimiento de redes lógicas Ethernet en infraestructuras Ethernet nativas para mantener dinámicamente la topología entre nodos.",
+      "Se desarrolló para minimizar la posición dominante de las tarjetas de red de Cisco y compatibilizarlas con las de sus entonces rivales: Alcatel-Lucent, Aruba, IBM.",
+      "Permite combinar varias conexiones de red físicas en una sola conexión lógica para aumentar el rendimiento y proporcionar redundancia.",
+      "Proporciona conmutación modo activo/pasivo en las conexiones de red físicas para ofertar alta disponibilidad."
+    ],
+    "correcta": 2,
+    "explicacion": "LACP (IEEE 802.3ad) agrupa dinámicamente varios enlaces físicos en un canal lógico para redundancia y ancho de banda."
+  },
+  {
+    "pregunta": "¿Con respecto a la virtualización, podemos afirmar que un hipervisor de tipo 1:?",
+    "opciones": [
+      "Ocupa el lugar de un sistema operativo host y programa los recursos de las máquinas virtuales directamente en el hardware.",
+      "Siempre es open source por compatibilidad con el sistema operativo host.",
+      "También llamado \"alojado\", permite múltiples lenguajes de programación sobre el sistema operativo host.",
+      "Se ejecuta por encima del sistema operativo convencional como una capa de software o una aplicación."
+    ],
+    "correcta": 0,
+    "explicacion": "Un hipervisor Tipo 1 corre nativamente (Bare-Metal) sobre el hardware de la máquina, controlando directamente la CPU y memoria."
+  },
+  {
+    "pregunta": "¿Qué diferencia existe entre conectores ópticos APC y UPC?",
+    "opciones": [
+      "Las pérdidas de APC son del orden de 55 dB, mientras que las de UPC lo son de 65 dB.",
+      "APC es tipo PC Connector y UPC es tipo Flat Connector.",
+      "APC está pulido en ángulo de 8 grados y UPC está pulido sin ángulo.",
+      "UPC requiere alimentación externa y APC no la necesita."
+    ],
+    "correcta": 2,
+    "explicacion": "Los conectores APC presentan su cara final pulida a un ángulo de 8º para desviar reflexiones, mientras que los UPC carecen de ángulo."
+  },
+  {
+    "pregunta": "¿Una diferencia entre cables de datos CAT6 y CAT6a es que:?",
+    "opciones": [
+      "CAT6 resiste mejor las interferencias que CAT6a.",
+      "CAT6 suele estar apantallado y CAT6a no.",
+      "CAT6 soporta anchos de banda hasta 250 MHz y CAT6a hasta 500 MHz.",
+      "CAT6 alcanza 10 Gbps y CAT6a alcanza 100 Gbps."
+    ],
+    "correcta": 2,
+    "explicacion": "CAT6 opera hasta frecuencias de 250 MHz, mientras que la especificación CAT6a duplica el ancho de banda alcanzando los 500 MHz."
+  },
+  {
+    "pregunta": "¿En relación al ámbito de la seguridad de la red de una organización, podríamos afirmar que:?",
+    "opciones": [
+      "IDS (Intrusion Detection System) es un servidor en la red que bloquea los accesos no autorizados.",
+      "IPS (Intrusion Prevention System) es un software que se utiliza para un análisis forense de los ataques y accesos no autorizados.",
+      "SIEM (Security Information and Event Management) es un software que engloba la gestión de información de seguridad y la gestión de eventos.",
+      "IGS (Intrusion Gateway System) combina las tareas de un IDS y un IPS, proporcionando un análisis en tiempo real de las alertas de seguridad generadas por los distintos dispositivos hardware y software de la red."
+    ],
+    "correcta": 2,
+    "explicacion": "Un SIEM centraliza, correlaciona y analiza eventos e información de seguridad provenientes de toda la infraestructura corporativa."
+  },
+  {
+    "pregunta": "¿Una de las diferencias entre los protocolos de enrutamiento IS-IS y OSPF es:?",
+    "opciones": [
+      "IS-IS es del tipo EGP (Exterior Gateway Protocol), OSPF del tipo IGP (Interior Gateway Protocol).",
+      "IS-IS es del tipo vector-distancia, OSPF del tipo estado-enlace.",
+      "IS-IS es del tipo estado-enlace, OSPF del tipo vector-distancia.",
+      "IS-IS no es de la capa 3 de OSI, OSPF sí lo es."
+    ],
+    "correcta": 3,
+    "explicacion": "IS-IS se ejecuta directamente sobre la capa de enlace (capa 2) usando tramas CLNP nativas, mientras que OSPF se encapsula sobre IP (capa 3)."
+  },
+  {
+    "pregunta": "¿NESSUS es:?",
+    "opciones": [
+      "Una utilidad gráfica para mostrar los datos obtenidos por SNMP.",
+      "Una herramienta para gestión de correo electrónico en entornos no Windows.",
+      "Una herramienta para distribución de políticas GPO en entornos no Windows.",
+      "Una herramienta de código abierto para escaneo de vulnerabilidades y pentesting."
+    ],
+    "correcta": 3,
+    "explicacion": "Nessus es un software de escaneo de seguridad que audita sistemas para identificar configuraciones erróneas y vulnerabilidades."
+  },
+  {
+    "pregunta": "¿Al tipo de ataque que se caracteriza por el uso de múltiples dispositivos conectados a Internet para inundar un objetivo con tráfico de peticiones hasta comprometer la disponibilidad, se le denomina:?",
+    "opciones": [
+      "Ataque de ransomware.",
+      "Ataque DDoS.",
+      "Ataque de phishing.",
+      "Ataque de ingeniería social."
+    ],
+    "correcta": 1,
+    "explicacion": "Un ataque DDoS (Distributed Denial of Service) satura los recursos del servidor mediante peticiones simultáneas desde múltiples orígenes."
+  },
+  {
+    "pregunta": "¿Qué es el modelo OSI y cuántas capas tiene?",
+    "opciones": [
+      "Un modelo de referencia para la comunicación en redes con 7 capas.",
+      "Un modelo de referencia para la comunicación en redes con 6 capas.",
+      "Un modelo de referencia para la comunicación en redes con 5 capas.",
+      "Un modelo de referencia para la comunicación en redes con 4 capas."
+    ],
+    "correcta": 0,
+    "explicacion": "El modelo OSI (Open Systems Interconnection) define teóricamente la comunicación de redes dividida en 7 capas jerárquicas."
+  },
+  {
+    "pregunta": "¿Los protocolos de comunicación mas comúnmente utilizados en loT (Internet of Things), son:?",
+    "opciones": [
+      "SNMP y RTP.",
+      "SMTP y FTP.",
+      "MQTT y CoAP.",
+      "XMPT y AMPP."
+    ],
+    "correcta": 2,
+    "explicacion": "MQTT y CoAP son protocolos ultraligeros de aplicación específicamente diseñados para entornos embebidos e IoT."
+  },
+  {
+    "pregunta": "¿Qué se conoce como NGN?",
+    "opciones": [
+      "New Generation Network, que es una red basada en paquetes.",
+      "New Global Network, que es una red basada en circuitos.",
+      "Network Generation Node, que es una red basada en conmutación de mensajes.",
+      "Next Generation Network, que es una red basada en paquetes."
+    ],
+    "correcta": 3,
+    "explicacion": "NGN (Next Generation Network) hace referencia a la convergencia tecnológica de servicios multimedia sobre redes de paquetes."
+  },
+  {
+    "pregunta": "¿La función principal de una MCU (Multipoint Control Unit) en una red H.323, es:?",
+    "opciones": [
+      "Proporcionar enrutamiento de paquetes de datos en una red de comunicaciones IP.",
+      "Coordinar y gestionar conferencias de video y audio entre múltiples participantes.",
+      "Gestionar la seguridad extremo a extremo de la comunicación.",
+      "Ofrecer servicios de almacenamiento en la nube para datos de comunicación."
+    ],
+    "correcta": 1,
+    "explicacion": "La MCU actúa como puente centralizado en sistemas H.323 para conmutar, procesar y mezclar flujos de videoconferencias múltiples."
+  },
+  {
+    "pregunta": "¿La técnica de multiplexación fundamental para la eficiencia espectral en las redes móviles 4G LTE es:?",
+    "opciones": [
+      "FDMA (Frequency Division Multiple Access).",
+      "TDMA (Time Division Multiple Access).",
+      "CDMA (Code Division Multiple Access).",
+      "OFDMA (Orthogonal Frequency Division Multiple Access)."
+    ],
+    "correcta": 3,
+    "explicacion": "OFDMA proporciona eficiencia espectral dividiendo los subcanales en frecuencias ortogonales concurrentes en tecnologías LTE y 5G."
+  },
+  {
+    "pregunta": "¿La caracteristica de la tecnología 5G que permite la implementación de redes privadas y la segmentación de red (network slicing) es:?",
+    "opciones": [
+      "El uso de frecuencias más altas.",
+      "Una arquitectura basada en software y virtualización.",
+      "Un mayor ancho de banda.",
+      "La compatibilidad con tecnologías anteriores."
+    ],
+    "correcta": 1,
+    "explicacion": "La virtualización de funciones de red (NFV) y las redes definidas por software (SDN) habilitan el slicing dinámico en 5G."
+  },
+  {
+    "pregunta": "¿Los sistemas de videoconferencia son especialmente sensibles al \"jitter\". ¿Qué es?",
+    "opciones": [
+      "Una interrupción en la señal.",
+      "Una ráfaga de pérdida de información.",
+      "Una variabilidad en el tiempo de llegada de los paquetes de datos.",
+      "Un tipo de codificación."
+    ],
+    "correcta": 2,
+    "explicacion": "El jitter cuantifica las fluctuaciones y variaciones en los retardos temporales durante el tránsito de paquetes de datos."
+  },
+  {
+    "pregunta": "¿El estándar de ITU-T que se utiliza para videoconferencia sobre redes IP es:?",
+    "opciones": [
+      "H.320",
+      "H.261",
+      "H.323",
+      "H.264"
+    ],
+    "correcta": 2,
+    "explicacion": "H.323 es el estándar paraguas clásico de la ITU-T para la transmisión multimedia y videoconferencia sobre redes IP."
+  }
+]
